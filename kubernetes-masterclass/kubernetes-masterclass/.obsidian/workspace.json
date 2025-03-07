@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "3c5a309bcf4d9195",
+        "id": "54a3ffb9d7019c21",
         "type": "tabs",
         "children": [
           {
-            "id": "b683e8c776a97490",
+            "id": "8c2c6b3917181f3c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Deployments.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Deployments"
             }
           }
         ]
@@ -90,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Setup.md",
+                "file": "Deployments.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Setup"
+              "title": "Backlinks for Deployments"
             }
           },
           {
@@ -164,10 +168,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "b683e8c776a97490",
+  "active": "8c2c6b3917181f3c",
   "lastOpenFiles": [
-    "Setup.md",
     "Fundamentals.md",
+    "Deployments.md",
+    "Setup.md",
     "Welcome.md"
   ]
 }
