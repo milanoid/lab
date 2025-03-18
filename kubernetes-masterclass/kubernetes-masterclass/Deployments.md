@@ -100,3 +100,22 @@ milan-mealie   1/1     Running   0          2m35s
 
 ### Deployments - Our First Application
 
+https://github.com/mealie-recipes/mealie
+
+`k create deployment mealie --image=nginx -o yaml --dry-run=client > deployment.yaml`
+
+- manually updated `deployement.yaml` with Mealie app settings 
+
+`k apply -f deployment.yaml` - will start Mealie
+
+`k describe pod mealie-6497fc698b-fmd6d`
+
+`k get pods -o wide`
+
+Application exposed on port 9000:
+
+ workaround before getting kubernetes networking:
+ 
+`k port-forward pods/mealie-6497fc698b-fmd6d 9000`
+
+in browser open http://localhost:9000/
