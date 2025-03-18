@@ -58,3 +58,45 @@ STATUS => RunContainerError, CrashLoopBackOff
 
 
 `k create ns mealie --dry-run=client -o yaml > namespace.yaml`
+
+
+run a pod
+
+`k run milan --image=nginx`
+
+- runs a pod in default namespace
+```
+milan ~/repos/lab/kubernetes-masterclass/mealie [main] $ k get pods -n default
+NAME    READY   STATUS    RESTARTS   AGE
+milan   1/1     Running   0          15s
+```
+```
+milan ~/repos/lab/kubernetes-masterclass/mealie [main] $ k get pods -n mealie
+No resources found in mealie namespace.
+```
+
+Run a pod in a specific namespace
+
+`k run milan-mealie --image=nginx --namespace mealie`
+
+```
+milan ~/repos/lab/kubernetes-masterclass/mealie [main] $ k get pods -n mealie
+NAME           READY   STATUS              RESTARTS   AGE
+milan-mealie   0/1     ContainerCreating   0          9s
+```
+
+#### Set my namespace as default
+
+`k config current-context`
+`k config set-context --current --namespace=mealie`
+
+now `mealie` is the default namespace:
+
+```
+milan ~/repos/lab/kubernetes-masterclass/mealie [main] $ k get pods
+NAME           READY   STATUS    RESTARTS   AGE
+milan-mealie   1/1     Running   0          2m35s
+```
+
+### Deployments - Our First Application
+
