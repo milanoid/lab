@@ -55,3 +55,6 @@ STATUS => RunContainerError, CrashLoopBackOff
 
 `k create namespace <namespace_name> -o yaml`
 `k create namespace mealie -o yaml --dry-run=client`
+
+
+`k create ns mealie --dry-run=client -o yaml > namespace.yaml`
