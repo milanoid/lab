@@ -119,3 +119,7 @@ Application exposed on port 9000:
 `k port-forward pods/mealie-6497fc698b-fmd6d 9000`
 
 in browser open http://localhost:9000/
+
+
+Task: update the Mealie to latest version
+- `k apply -f deployment.yaml`
