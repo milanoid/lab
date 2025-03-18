@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Welcome.md",
+                "file": "Deployments.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Welcome"
+              "title": "Outgoing links from Deployments"
             }
           },
           {
@@ -151,7 +151,8 @@
               "title": "Outline of Welcome"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -170,9 +171,9 @@
   },
   "active": "8c2c6b3917181f3c",
   "lastOpenFiles": [
-    "Fundamentals.md",
-    "Deployments.md",
     "Setup.md",
+    "Deployments.md",
+    "Fundamentals.md",
     "Welcome.md"
   ]
 }

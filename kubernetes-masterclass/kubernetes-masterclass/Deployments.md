@@ -44,3 +44,14 @@ args: ["sleep; exit 1"] # sleep for 30 seconds then exit with an error
 STATUS => RunContainerError, CrashLoopBackOff
 
 
+### Deployments - namespaces
+
+- a logical grouping
+
+`k get namespaces`
+
+`k create namespace <namespace_name>`
+`k create namespace mealie`
+
+`k create namespace <namespace_name> -o yaml`
+`k create namespace mealie -o yaml --dry-run=client`
