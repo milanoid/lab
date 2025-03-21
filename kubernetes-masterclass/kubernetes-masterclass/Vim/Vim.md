@@ -35,10 +35,28 @@ set backspace=indent,eol,start
 ```
 ## Modes
 
+- `v` Visual
+- `i` Insert
 
+
+
+## Undo
+
+`u` - undo
 
 ## Edit
 
 Find a string `test` and replace it with `frontend` and do it globally (`g`)
 
 `%s/test/frontend/g` 
+
+## Copy & Paste
+
+enter Visual mode `v`, select what to copy, press `y` for copy
+switch to Insert mode `i`, and then `p` for paste
+
+
+- keeping a yaml formatting while copy'n'pasting (could be in `~/.vimrc`)
+
+`:set paste`
+
