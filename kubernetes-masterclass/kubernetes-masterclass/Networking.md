@@ -76,3 +76,18 @@ Usually via code, but there is also an `expose` command.
 
 
 ## Ingress
+
+- exposes HTTP/HTTPS routes from outside the cluster to services within the cluster
+- advanced topic not covered in this basic course
+
+#### features
+- SSL/TLS termination
+- External URLs
+- Path based routing
+
+#### controller
+
+- Nginx
+- Traefik (in Rancher Destkop)
+- Cilium
+- Cloud: AGIC (Azure)
