@@ -4,53 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "54a3ffb9d7019c21",
+        "id": "5d281725dcf48794",
         "type": "tabs",
         "children": [
           {
-            "id": "8c2c6b3917181f3c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Deployments.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Deployments"
-            }
-          },
-          {
-            "id": "ac3980ac548f5563",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Networking.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Networking"
-            }
-          },
-          {
-            "id": "0965feec03df29f0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Networking.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Networking"
-            }
-          },
-          {
-            "id": "26abcbbabd2d2915",
+            "id": "354a2431b2bf5fd1",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -63,8 +21,7 @@
               "title": "Storage"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -212,14 +169,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "26abcbbabd2d2915",
+  "active": "7fc3cba82ff5453b",
   "lastOpenFiles": [
-    "Vim/Vim.md",
+    "Deployments.md",
     "Storage.md",
+    "Vim/Vim.md",
     "Setup.md",
     "Vim",
     "Networking.md",
-    "Deployments.md",
     "Fundamentals.md",
     "Welcome.md"
   ]
