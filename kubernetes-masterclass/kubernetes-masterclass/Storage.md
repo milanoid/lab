@@ -34,7 +34,7 @@ Error from server (BadRequest): error when creating "nginx-pod.yaml": Pod in ver
 ```
 https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#Container
 
-## Persistant Storage
+## Persistent Storage
 
 ### Persistent volumes vs persistent volume claims
 
