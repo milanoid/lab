@@ -1,8 +1,13 @@
+env:
+  TZ: "Europe/Prague"
+
+podLabels: 
+  hello: world
+
+database:
+  externalDatabaseEnabled: false
 
 envSecrets:
   dbCredentials:
     existingSecret: "db-secret"
     dbEncryptionKey: "db-encryption-key"
-    dbUrlKey: "db-url"
-    dbPasswordKey: "mysql-root-password"
-    dbUserPasswordKey: "mysql-password"

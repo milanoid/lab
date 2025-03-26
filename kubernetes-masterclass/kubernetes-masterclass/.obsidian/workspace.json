@@ -123,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Storage.md",
+                "file": "Helm.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +133,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Storage"
+              "title": "Backlinks for Helm"
             }
           },
           {
@@ -185,7 +185,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -198,16 +199,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7fc3cba82ff5453b",
+  "active": "36014cd1a4d5b5ce",
   "lastOpenFiles": [
-    "K9s.md",
+    "Networking.md",
     "Helm.md",
     "Storage.md",
+    "Setup.md",
+    "K9s.md",
     "Deployments.md",
     "Vim/Vim.md",
-    "Setup.md",
     "Vim",
-    "Networking.md",
     "Fundamentals.md",
     "Welcome.md"
   ]
