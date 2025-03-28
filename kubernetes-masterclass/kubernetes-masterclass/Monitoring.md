@@ -43,3 +43,25 @@ upgrade the helm chart
 ```
 helm upgrade -n monitoring prometheus-stack prometheus-community/kube-prometheus-stack --values values.yaml
 ```
+
+
+Setting Grafana service
+
+- to have IP address or name usable in `homarr` dashboard
+- to have open port on localhost so the Grafana is accessible without port-forwaring in K9s
+
+`/monitoring/loadbalancer.yaml` -  based on `mealie/service.yaml`
+
+
+`k apply -f loadbalancer.yaml
+
+should be accessible at external IP http://192.168.5.15:3000/
+
+:( same as with mealie - it does not work for me
+
+! works over IP assigned to a NIC via router, e.g. http://192.168.1.49:3000/login
+
+#### Setting up a Grafana dashboard
+
+use sample https://github.com/mischavandenburg/lab/blob/main/kubernetes/grafana/dashboards/simple-namespace-overview.json
+

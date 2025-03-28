@@ -60,3 +60,13 @@ switch to Insert mode `i`, and then `p` for paste
 
 `:set paste`
 
+#### copy everything from top to bottom
+- `shift+v` then `shift+g`
+- `y` for yank (copy)
+- `p` for paste
+
+## Two files in panels
+
+`vim -O file1 file2`
+
+- switch between panels `ctrl+w`, then `l` (right) or `h` (left)
