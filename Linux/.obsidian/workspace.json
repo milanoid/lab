@@ -1,103 +1,61 @@
 {
   "main": {
-    "id": "9c6a137657e367c3",
+    "id": "d084f5d43ac5d444",
     "type": "split",
     "children": [
       {
-        "id": "5d281725dcf48794",
+        "id": "1c91dfed4f39b9d9",
         "type": "tabs",
         "children": [
           {
-            "id": "354a2431b2bf5fd1",
+            "id": "e25febdc69e14885",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Storage.md",
+                "file": "Chapter 1 - The Linux Foundation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Storage"
+              "title": "Chapter 1 - The Linux Foundation"
             }
           },
           {
-            "id": "0dc8aa6e97729f57",
+            "id": "97f2b0efc195e052",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "K9s.md",
+                "file": "Chapter 2 - Linux Philosophy and Concepts.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "K9s"
-            }
-          },
-          {
-            "id": "36014cd1a4d5b5ce",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Helm.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Helm"
-            }
-          },
-          {
-            "id": "65948a6af6ae61d4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Monitoring.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Monitoring"
-            }
-          },
-          {
-            "id": "977c6fdf4191d3bd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Vim/Vim.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Vim"
+              "title": "Chapter 2 - Linux Philosophy and Concepts"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "8f4dd9739298f5e6",
+    "id": "c72a742e7bd1eb2e",
     "type": "split",
     "children": [
       {
-        "id": "0f526fe4ce1992e0",
+        "id": "9ffca32d52fafdb3",
         "type": "tabs",
         "children": [
           {
-            "id": "7fc3cba82ff5453b",
+            "id": "e6e596ef8a2b8255",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "byCreatedTimeReverse",
+                "sortOrder": "alphabetical",
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
@@ -105,12 +63,12 @@
             }
           },
           {
-            "id": "36b0f034a3833feb",
+            "id": "9f5491a4de1aa2c3",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "service",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -122,7 +80,7 @@
             }
           },
           {
-            "id": "4d198825c330c47c",
+            "id": "9d448a56a0690c9e",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -138,20 +96,20 @@
     "width": 300
   },
   "right": {
-    "id": "baddbb3fac04c9c1",
+    "id": "c30d66fb63f83402",
     "type": "split",
     "children": [
       {
-        "id": "c20baacf949b0bae",
+        "id": "53d81f25ffb598e0",
         "type": "tabs",
         "children": [
           {
-            "id": "60c3177adf46b24d",
+            "id": "1eea39998f725770",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Helm.md",
+                "file": "Chapter 2 - Linux Philosophy and Concepts.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -161,25 +119,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Helm"
+              "title": "Backlinks for Chapter 2 - Linux Philosophy and Concepts"
             }
           },
           {
-            "id": "011feeaf0def2bd6",
+            "id": "fd47c0a03d77ff7a",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Helm.md",
+                "file": "Chapter 2 - Linux Philosophy and Concepts.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Helm"
+              "title": "Outgoing links from Chapter 2 - Linux Philosophy and Concepts"
             }
           },
           {
-            "id": "bb8674c34161f52b",
+            "id": "1b7baf6ee0b93a46",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -194,22 +152,21 @@
             }
           },
           {
-            "id": "2f06c71dd22db644",
+            "id": "67646bc08232434a",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Welcome.md",
+                "file": "Chapter 2 - Linux Philosophy and Concepts.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Welcome"
+              "title": "Outline of Chapter 2 - Linux Philosophy and Concepts"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -223,23 +180,14 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "obsidian-git:Open Git source control": false
+      "command-palette:Open command palette": false
     }
   },
-  "active": "977c6fdf4191d3bd",
+  "active": "97f2b0efc195e052",
   "lastOpenFiles": [
-    "Setup.md",
-    "Outro.md",
-    "Vim/Vim.md",
-    "Monitoring.md",
-    "Networking.md",
-    "Deployments.md",
-    "Helm.md",
-    "Storage.md",
-    "K9s.md",
-    "Vim",
-    "Fundamentals.md",
-    "Welcome.md"
+    "Chapter 1 - The Linux Foundation.md",
+    "Chapter 2 - Linux Philosophy and Concepts.md",
+    "Welcome.md",
+    "edX Introduction to Linux"
   ]
 }
