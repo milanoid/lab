@@ -69,7 +69,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Arch Linux installation.md",
+                "file": "Arch Linux installation/Arch Linux installation.md",
                 "mode": "source",
                 "source": false
               },
@@ -225,10 +225,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ba2c1e1adc868d82",
+  "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
     "edX Introduction to Linux/Chapter 3 - Linux Basics and System Startup.md",
-    "Arch Linux installation.md",
+    "Arch Linux installation/Arch Linux installation.md",
     "Arch Linux installation",
     "edX Introduction to Linux/Chapter 2 - Linux Philosophy and Concepts.md",
     "edX Introduction to Linux/Chapter 1 - The Linux Foundation.md",
