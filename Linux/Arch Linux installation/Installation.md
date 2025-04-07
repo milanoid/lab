@@ -26,9 +26,10 @@ generate `fstab` file:  `# genfstab -U /mnt >> /mnt/etc/fstab`
 - `ln -sf /usr/share/zoneinfo/Europe/Prague /etc/localtime`
 - `hwclock --systohc` - sync time
 
-### Localization
+### Localisation
 
 - `locale-gen`
+- not really needed as long en-US is fine by you
 
 
 ### Installation of other packages
@@ -39,3 +40,7 @@ generate `fstab` file:  `# genfstab -U /mnt >> /mnt/etc/fstab`
 ! seems I am not correctly chrooted - all the packages are being installed to / with filesyste `airootfs`
 
 `pacmn -Syu amd-ucode`
+
+
+
+l
