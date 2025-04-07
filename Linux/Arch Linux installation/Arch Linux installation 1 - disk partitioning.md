@@ -106,3 +106,18 @@ mkswap /dev/svarog/swap
 
 `mount --mkdir /dev/sda1 /mnt/boot`
 
+### LVM - part 2
+
+- renaming volume: `vgrename`
+- removing volume: `lvremove`
+- resize volume: `lvresize /dev/svarog/home -L 1.9G`
+
+After resizing of a logical volume we need to run resize the file system too:
+
+- `resize2fs /dev/svarog/home`
+
+### Mounting the filesystem
+
+`mount/dev/svarog/root /mnt` - mounting the `root` to `/mnt`
+
+activate swap partition: `swapon /dev/svarog/swap`
