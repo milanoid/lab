@@ -35,7 +35,7 @@ To find out what is the actual UUID of the device: `blkid`
 
 - `useradd milan`
 - grant the user toot privileges `usermod -aG wheel milan`
-- `groups milan` - shows the user is member of `wheel` group (linux convetion for user with root privileges)
+- `groups milan` - shows the user is member of `wheel` group (linux convention for user with root privileges)
 - in Arch we need to update `sudoers` file `visudo` - uncomment `wheel ALL`
 - set a root password: `passwd`
 - set user password: `passwd milan`
