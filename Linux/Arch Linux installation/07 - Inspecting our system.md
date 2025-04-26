@@ -19,3 +19,8 @@ systemd─┬─dbus-broker-lau───dbus-broker
 `journalctl -b 0` - shows logs of the latest boot
 
 `sudo pacman -Syu htop`
+
+### issue with eth0
+
+- after rebooting the system is missing eth0 (=no internet)
+- 
