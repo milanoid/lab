@@ -65,6 +65,9 @@ generate `fstab` file:  `# genfstab -U /mnt >> /mnt/etc/fstab`
 
 - after that I am in the context as after a normal boot
 
+- prompts changes to `[root@archiso /]#` (see the root `/`)
+- ? after new ssh connection do I need to re-run chroot? Seems so.
+
 
 ### additional system settings
 
