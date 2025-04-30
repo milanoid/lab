@@ -23,4 +23,5 @@ systemd─┬─dbus-broker-lau───dbus-broker
 ### issue with eth0
 
 - after rebooting the system is missing eth0 (=no internet)
-- 
+- asked in Kubecraft, decided the start over the entire installation (too messy now)
+

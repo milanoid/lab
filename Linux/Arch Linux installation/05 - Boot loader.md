@@ -5,24 +5,36 @@
 `bootctl install` - installs boot loader
 `bootctl update`
 
+### issue and a workaround
+
+[https://github.com/systemd/systemd/issues/36174](https://github.com/systemd/systemd/issues/36174 "https://github.com/systemd/systemd/issues/36174")
+
+```
+bootctl --esp-path=/mnt/boot install
+arch-chroot /mnt
+bootctl install
+bootctl update
+```
+
 ## boot loader configuration
 
 - add an entry (represents an item in the boot menu)
   `/boot/loader/entries/arch.conf`:
 ```
-title Milan's Arch Linux
+title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
 
 options rd.luks.name=<device-UUID>=<volumegroup> root=/dev/volegroup/root rw
 ```
 
+2nd installation final version of the file:
 ```
-title Milan's Arch Linux
+title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
 
-options rd.luks.name=<dev/sda-uuid-find-by-blkid>=svarog root=/dev/svarog/root rw
+options rd.luks.name=ea2959bd-3327-414e-8e72-993cd5873b95=svarog root=/dev/svarog/root rw
 ```
 
 To find out what is the actual UUID of the device: `blkid`
