@@ -20,7 +20,8 @@ POST -> BIOS -> boot loader -> OS -> `init`
 - `systemctl enable systemd-resolved.service`
 - `ip link` - show all NIC
 
-As I am having ethernet wired connection only I do not need to bother with wifi.
+
+Ethernet conenction
 
 ```bash
 /etc/systemd/network/20-wired.network
@@ -34,6 +35,25 @@ RequiredForOnline=routable
 [Network]
 DHCP=yes
 ```
+
+Wifi connection
+
+```bash
+/etc/systemd/network/25-wireless.network
+
+[Match]
+Name=wlan0
+
+[Network]
+DHCP=yes
+IgnoreCarrierLoss=3s
+
+```
+
+#### for Wifi also needed
+
++ `pacman -Syu iwd`
++ `systemctl enable iwd.service`
 
 Setting up the hostname
 
