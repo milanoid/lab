@@ -1,4 +1,4 @@
-- Window manager (just creates windows)
+alacrittyalacritty- Window manager (just creates windows)
 - Desktop environment e.g. GNOME - full GUI with its own programs 
 
 https://hyprland.org/
@@ -97,3 +97,12 @@ sudo systemctl enable vboxservice.service
 sudo systemctl start vboxservice.service
 ```
 - also `sudo pacman -S linux-headers`
+
+
+### Lenovo ThinkPad (AMD)
+
+`sudo pacman -S hyprland`
+`sudo pacman -Syu alacritty`
+
+set `$terminal = alacritty` in `~/.config/hypr/hyprland.conf`
+

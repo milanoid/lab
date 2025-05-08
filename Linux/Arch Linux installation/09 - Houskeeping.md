@@ -16,7 +16,43 @@
 
 `sudo usermod -aG video milan`
 
+
+####  Install PipeWire and friends (screenshare) (solves audio too)
+
+`sudo pacman -S pipewire wireplumber`
+
+`sudo pacman -S xdg-desktop-portal-hyprland`
+
+edit hyprland.conf according to [gist](https://gist.github.com/brunoanc/2dea6ddf6974ba4e5d26c3139ffb7580#editing-the-configuration-file)
+
+````
+exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+````
+
 ### set up /home in /etc/fstab
+
+it is missing home partition as it was not mounted when running `gen-fstab`
+
+```
+# /dev/mapper/svarog-root
+UUID=46fe91fb-7094-411d-9415-8449ad5de255       /               ext4            rw,relatime     0 1
+
+# /dev/mapper/svarog-home
+UUID=f8a31f30-086e-456d-a4ce-74404510d1cf       /home           ext4            rw,relatime     0 2
+
+# /dev/sda1
+UUID=D7DC-E52D          /boot           vfat            rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro   0 2
+
+# /dev/mapper/svarog-swap
+UUID=eaa442aa-02e4-4570-a265-b3591b98fa6f       none            swap            defaults        0 0
+```
+
+As there are already files in /home/milan I want to safe them:
+
+`mv milan/ /tmp`
+`mount /dev/svarog/home /home/`
+`mv /tmp/milan/ .`
+
 
 ### fix boot loader menu to 3 seconds
 

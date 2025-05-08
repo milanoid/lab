@@ -20,6 +20,8 @@ systemd─┬─dbus-broker-lau───dbus-broker
 
 `sudo pacman -Syu htop`
 
+`man 7 udev` "see udev(7)"
+
 ### issue with eth0
 
 - after rebooting the system is missing eth0 (=no internet)
