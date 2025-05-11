@@ -237,16 +237,58 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Arch Linux installation/10 - First Hyprland setup & peripherals.md",
+                "file": "Arch Linux installation/10 - First Hyprland setup & peripherals & YAY.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "10 - First Hyprland setup & peripherals"
+              "title": "10 - First Hyprland setup & peripherals & YAY"
+            }
+          },
+          {
+            "id": "f75fd78256c1c7c6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Arch Linux installation/11 - Window rules & Waybar.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "11 - Window rules & Waybar"
+            }
+          },
+          {
+            "id": "45bc3f671e5a7575",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Arch Linux installation/12 - Post install setup & Security.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "12 - Post install setup & Security"
+            }
+          },
+          {
+            "id": "be655c2c14a485dc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Arch Linux installation/13 - Lock screen & Idle daemon.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "13 - Lock screen & Idle daemon"
             }
           }
         ],
-        "currentTab": 16
+        "currentTab": 19
       }
     ],
     "direction": "vertical"
@@ -393,10 +435,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e6e596ef8a2b8255",
+  "active": "be655c2c14a485dc",
   "lastOpenFiles": [
+    "Arch Linux installation/12 - Post install setup & Security.md",
+    "Arch Linux installation/11 - Window rules & Waybar.md",
+    "Arch Linux installation/13 - Lock screen & Idle daemon.md",
+    "Arch Linux installation/10 - First Hyprland setup & peripherals & YAY.md",
     "Arch Linux installation/09 - My (Hyprland) housekeeping.md",
-    "Arch Linux installation/10 - First Hyprland setup & peripherals.md",
     "Arch Linux installation/09 - Houskeeping.md",
     "Arch Linux installation/08 - Hyprland.md",
     "Arch Linux installation/02 - Installation.md",
