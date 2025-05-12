@@ -286,9 +286,51 @@
               "icon": "lucide-file",
               "title": "13 - Lock screen & Idle daemon"
             }
+          },
+          {
+            "id": "f0ab9d53ba0e5af3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Arch Linux installation/14 - Basic shell & File editing.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "14 - Basic shell & File editing"
+            }
+          },
+          {
+            "id": "a8df606cec4d1f32",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Arch Linux installation/15 - Dot files.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "15 - Dot files"
+            }
+          },
+          {
+            "id": "61c429fab4521a02",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Arch Linux installation/16 - Hyprland & qutebrowser keybindings.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "16 - Hyprland & qutebrowser keybindings"
+            }
           }
         ],
-        "currentTab": 19
+        "currentTab": 22
       }
     ],
     "direction": "vertical"
@@ -435,11 +477,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "be655c2c14a485dc",
+  "active": "61c429fab4521a02",
   "lastOpenFiles": [
+    "Arch Linux installation/15 - Dot files.md",
+    "Arch Linux installation/16 - Hyprland & qutebrowser keybindings.md",
+    "Arch Linux installation/14 - Basic shell & File editing.md",
+    "Arch Linux installation/13 - Lock screen & Idle daemon.md",
     "Arch Linux installation/12 - Post install setup & Security.md",
     "Arch Linux installation/11 - Window rules & Waybar.md",
-    "Arch Linux installation/13 - Lock screen & Idle daemon.md",
     "Arch Linux installation/10 - First Hyprland setup & peripherals & YAY.md",
     "Arch Linux installation/09 - My (Hyprland) housekeeping.md",
     "Arch Linux installation/09 - Houskeeping.md",
@@ -464,7 +509,6 @@
     "edX Introduction to Linux/Chapter 3 - Linux Basics and System Startup.md",
     "Arch Linux installation",
     "edX Introduction to Linux/Chapter 2 - Linux Philosophy and Concepts.md",
-    "Welcome.md",
     "edX Introduction to Linux"
   ]
 }
