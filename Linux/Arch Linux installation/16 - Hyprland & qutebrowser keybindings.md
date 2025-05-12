@@ -1,5 +1,5 @@
 
-### Hyperland
+### Hyprland
 
 Keybindings in `~/.config/hypr/hyprland.conf`
 
@@ -21,6 +21,5 @@ Keybindings in `~/.config/hypr/hyprland.conf`
 ### qutebrowser
 
 https://raw.githubusercontent.com/qutebrowser/qutebrowser/main/doc/img/cheatsheet-big.png
-
 
 
