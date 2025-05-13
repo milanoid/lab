@@ -1,14 +1,14 @@
 {
   "main": {
-    "id": "81df27fee2ccc486",
+    "id": "d084f5d43ac5d444",
     "type": "split",
     "children": [
       {
-        "id": "437a0d588d9b9e66",
+        "id": "3663de8a8e292a4b",
         "type": "tabs",
         "children": [
           {
-            "id": "3c05630e6007fdd5",
+            "id": "1d4ecd9198af4ae2",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -23,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "61f1ec9b549f9f29",
+    "id": "c72a742e7bd1eb2e",
     "type": "split",
     "children": [
       {
-        "id": "bc212646b029914f",
+        "id": "9ffca32d52fafdb3",
         "type": "tabs",
         "children": [
           {
-            "id": "73f44f6dcb01ca5e",
+            "id": "e6e596ef8a2b8255",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -44,7 +44,7 @@
             }
           },
           {
-            "id": "e214a3126dbaeb1d",
+            "id": "9f5491a4de1aa2c3",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -61,7 +61,7 @@
             }
           },
           {
-            "id": "9b7ea1b7afb12542",
+            "id": "9d448a56a0690c9e",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -74,22 +74,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 361.5
   },
   "right": {
-    "id": "1ce8719d9576eb26",
+    "id": "c30d66fb63f83402",
     "type": "split",
     "children": [
       {
-        "id": "705a88d3ca9351ea",
+        "id": "53d81f25ffb598e0",
         "type": "tabs",
         "children": [
           {
-            "id": "207b4970bbedc696",
+            "id": "1eea39998f725770",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Chapter 2 - Linux Philosophy and Concepts.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,24 +100,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Chapter 2 - Linux Philosophy and Concepts"
             }
           },
           {
-            "id": "6962a7f91b38eedc",
+            "id": "fd47c0a03d77ff7a",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Chapter 2 - Linux Philosophy and Concepts.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from Chapter 2 - Linux Philosophy and Concepts"
             }
           },
           {
-            "id": "041af0ee28d8699e",
+            "id": "1b7baf6ee0b93a46",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -131,18 +133,18 @@
             }
           },
           {
-            "id": "113ca777f7374b6d",
+            "id": "67646bc08232434a",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Untitled.md",
+                "file": "Chapter 2 - Linux Philosophy and Concepts.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Untitled"
+              "title": "Outline of Chapter 2 - Linux Philosophy and Concepts"
             }
           }
         ]
@@ -162,13 +164,38 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "73f44f6dcb01ca5e",
+  "active": "1d4ecd9198af4ae2",
   "lastOpenFiles": [
-    "4-archives",
-    "3-resources",
-    "1-projects",
-    "2-areas",
-    "Untitled.md",
-    "0-inbox"
+    "Arch Linux installation/16 - Hyprland & qutebrowser keybindings.md",
+    "Arch Linux installation/17 - Docker & DevPod.md",
+    "Arch Linux installation/15 - Dot files.md",
+    "Arch Linux installation/14 - Basic shell & File editing.md",
+    "Arch Linux installation/13 - Lock screen & Idle daemon.md",
+    "Arch Linux installation/12 - Post install setup & Security.md",
+    "Arch Linux installation/11 - Window rules & Waybar.md",
+    "Arch Linux installation/10 - First Hyprland setup & peripherals & YAY.md",
+    "Arch Linux installation/09 - My (Hyprland) housekeeping.md",
+    "Arch Linux installation/09 - Houskeeping.md",
+    "Arch Linux installation/08 - Hyprland.md",
+    "Arch Linux installation/02 - Installation.md",
+    "Arch Linux installation/01 - Disk partitioning & Encryption.md",
+    "Arch Linux installation/00 - Booting the installation media.md",
+    "Arch Linux installation/05 - Boot loader.md",
+    "Arch Linux installation/06 - First boot!.md",
+    "Arch Linux installation/04 - mkinitcpio.md",
+    "Arch Linux installation/03 - Networking.md",
+    "Arch Linux installation/07 - Inspecting our system.md",
+    "Arch Linux installation/09 - Houskeeping",
+    "Screenshot 2025-04-26 at 18.27.36.png",
+    "edX Introduction to Linux/Chapter 9 - Processes.md",
+    "edX Introduction to Linux/Chapter 1 - The Linux Foundation.md",
+    "edX Introduction to Linux/Chapter 8 - Documentation.md",
+    "edX Introduction to Linux/Chapter 7 - Command Line Operations.md",
+    "Pasted image 20250407140038.png",
+    "edX Introduction to Linux/Chapter 5 - System Configuration from GUI.md",
+    "edX Introduction to Linux/Chapter 4 - GUI.md",
+    "edX Introduction to Linux/Chapter 3 - Linux Basics and System Startup.md",
+    "Arch Linux installation",
+    "edX Introduction to Linux"
   ]
 }
