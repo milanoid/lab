@@ -1,0 +1,10 @@
+{
+  "quick-explorer:browse-vault": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Y"
+    }
+  ]
+}
