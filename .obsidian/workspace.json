@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3-resources/LPIC-1.md",
+                "file": "3-resources/LPIC-1 certification.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "LPIC-1"
+              "title": "LPIC-1 certification"
             }
           },
           {
@@ -37,12 +37,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/101.1 Determine and configure hw settings.md",
+                "file": "3-resources/LPIC-1 certification.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "101.1 Determine and configure hw settings"
+              "title": "LPIC-1 certification"
             }
           }
         ],
@@ -119,7 +119,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/101.1 Determine and configure hw settings.md",
+                "file": "3-resources/LPIC-1 certification.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -129,7 +129,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 101.1 Determine and configure hw settings"
+              "title": "Backlinks for LPIC-1 certification"
             }
           },
           {
@@ -196,11 +196,11 @@
   },
   "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
-    "1-projects/LPIC-1 exam prep",
     "1-projects/LPIC-1 exam prep/101.1 Determine and configure hw settings.md",
+    "1-projects/LPIC-1 exam prep",
     "2-areas/Linux.md",
     "2-areas/sample-area-note.md",
-    "3-resources/LPIC-1.md",
+    "3-resources/LPIC-1 certification.md",
     "3-resources/sample-resource-note.md",
     "0-inbox/sample-inbox-note.md",
     "Arch Linux installation/16 - Hyprland & qutebrowser keybindings.md",
