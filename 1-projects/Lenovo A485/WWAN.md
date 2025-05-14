@@ -52,13 +52,3 @@ According the article there is no official driver. There is only an alpha stage 
 
 1. backup current Arch Linux installation using Clonezila
 2. dual boot Windows 10 installation (key in BIOS) https://wiki.archlinux.org/title/Dual_boot_with_Windows#Linux_before_Windows
-### CloneZilla
-
-backup destination is Synogy NAS with over NFS (Network File System):
-
-host: 192.168.1.36
-address: /volume1/images
-
-Synology NFS rule on the "images" directory:
-
-![[Pasted image 20250514145051.png]]

@@ -11,6 +11,18 @@ The disk is 256G SSD with 2 partitions for Arch Linux (EFI and LVM). There are 1
 
 On Windows installation boot select Advanced and make sure to select unallocated part of the disk.
 
+#### Turn off Windows Fast Boot and Hybernation
+
+- hybernation feature could corrupt shared boot partition
+
+`powercfg /H off`
+
+After that power off (restart is not enough) the system to be 100% sure the hybernation is off.
+
+https://www.tenforums.com/tutorials/4189-turn-off-fast-startup-windows-10-a.html
+
+
+
 
 
 
