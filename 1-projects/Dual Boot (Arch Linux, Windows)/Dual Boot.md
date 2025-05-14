@@ -3,7 +3,13 @@ As the first system installed is Arch Linux, I will follow the guide https://wik
 
 To be on save side - I did backup entire disk with Arch Linux using CloneZilla to my NAS. [[CloneZilla backup and restore]]]
 
+
+
 ### Installing Windows 10 alongside my Arch Linux
+
+The disk is 256G SSD with 2 partitions for Arch Linux (EFI and LVM). There are 100G unallocated.
+
+On Windows installation boot select Advanced and make sure to select unallocated part of the disk.
 
 
 
