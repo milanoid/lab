@@ -29,8 +29,3 @@ The Windows 10 installation sets the Windows as first to boot. In UEFI is set Wi
 
 
 
-
-
-
-
-
