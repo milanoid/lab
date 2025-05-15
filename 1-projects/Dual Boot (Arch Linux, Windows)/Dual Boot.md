@@ -21,6 +21,12 @@ After that power off (restart is not enough) the system to be 100% sure the hybe
 
 https://www.tenforums.com/tutorials/4189-turn-off-fast-startup-windows-10-a.html
 
+### change back boot order
+
+The Windows 10 installation sets the Windows as first to boot. In UEFI is set Windows Boot Manager as first. Changing it to Linux Boot Manager did solve it. The Linux Boot Manager offers both Windows and Linux (Arch)
+
+
+
 
 
 
