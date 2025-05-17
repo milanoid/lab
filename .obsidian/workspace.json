@@ -4,11 +4,49 @@
     "type": "split",
     "children": [
       {
-        "id": "ace47359bfb35891",
+        "id": "3663de8a8e292a4b",
         "type": "tabs",
         "children": [
           {
-            "id": "7c5d3ba2fd3c1211",
+            "id": "2bd700deaaf69e72",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "3-resources/LPIC-1 certification.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "LPIC-1 certification"
+            }
+          },
+          {
+            "id": "bb2095307370ebe7",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          },
+          {
+            "id": "990053fa67b45f6c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "3-resources/LPIC-1 certification.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "LPIC-1 certification"
+            }
+          },
+          {
+            "id": "b9c3b2054bb5e25d",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -21,7 +59,8 @@
               "title": "101.2 Boot the system"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -78,7 +117,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 361.5
+    "width": 200
   },
   "right": {
     "id": "c30d66fb63f83402",
@@ -94,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
+                "file": "3-resources/LPIC-1 certification.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +143,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 101.2 Boot the system"
+              "title": "Backlinks for LPIC-1 certification"
             }
           },
           {
@@ -169,18 +208,17 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7c5d3ba2fd3c1211",
+  "active": "b9c3b2054bb5e25d",
   "lastOpenFiles": [
-    "1-projects/LPIC-1 exam prep/101.1 Determine and configure hw settings.md",
+    "1-projects/Lenovo A485/WWAN.md",
+    "Pasted image 20250514145051.png",
     "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
     "1-projects/Dual Boot (Arch Linux, Windows)/Dual Boot.md",
-    "1-projects/Lenovo A485/WWAN.md",
-    "1-projects/CloneZilla backup and restore.md",
-    "1-projects/CloneZilla",
     "1-projects/Dual Boot (Arch Linux, Windows)",
-    "Pasted image 20250514145051.png",
+    "1-projects/CloneZilla backup and restore.md",
     "3-resources/LPIC-1 certification.md",
     "1-projects/Lenovo A485",
+    "1-projects/LPIC-1 exam prep/101.1 Determine and configure hw settings.md",
     "1-projects/LPIC-1 exam prep",
     "2-areas/Linux.md",
     "2-areas/sample-area-note.md",
@@ -201,7 +239,6 @@
     "Arch Linux installation/01 - Disk partitioning & Encryption.md",
     "Arch Linux installation/00 - Booting the installation media.md",
     "Arch Linux installation/05 - Boot loader.md",
-    "Arch Linux installation/06 - First boot!.md",
     "Arch Linux installation/09 - Houskeeping",
     "Screenshot 2025-04-26 at 18.27.36.png",
     "Pasted image 20250407140038.png",
