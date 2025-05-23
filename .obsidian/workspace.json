@@ -79,12 +79,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/102.2 Install a boot manager.md",
+                "file": "1-projects/LPIC-1 exam prep/102.3 Manager shared libraries.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "102.2 Install a boot manager"
+              "title": "102.3 Manager shared libraries"
+            }
+          },
+          {
+            "id": "a735d5e1be157c48",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-projects/LPIC-1 exam prep/102.3 Manager shared libraries.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "102.3 Manager shared libraries"
             }
           },
           {
@@ -102,7 +116,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -250,38 +264,44 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "86c08451f59ed558",
+  "active": "a735d5e1be157c48",
   "lastOpenFiles": [
-    "1-projects/LPIC-1 exam prep/102.1 Design hard disk layout.md",
-    "0-inbox/102.2 Install a boot manager.md",
-    "1-projects/LPIC-1 exam prep/101.3 Runlevels and targets.md",
-    "1-projects/LPIC-1 exam prep/101.1 Determine and configure hw settings.md",
-    "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
-    "1-projects/Lenovo A485/WWAN.md",
-    "Pasted image 20250514145051.png",
-    "1-projects/Dual Boot (Arch Linux, Windows)/Dual Boot.md",
+    "0-inbox/102.3 Manager shared libraries.md",
+    "1-projects/LPIC-1 exam prep/102.3 Manager shared libraries.md",
+    "1-projects/Arch Linux/pacman/pacman.md",
+    "1-projects/Linux/edX Introduction to Linux/Chapter 9 - Processes.md",
+    "1-projects/Linux/edX Introduction to Linux/Chapter 8 - Documentation.md",
+    "1-projects/Linux/edX Introduction to Linux/Chapter 7 - Command Line Operations.md",
+    "1-projects/Linux/edX Introduction to Linux/Chapter 5 - System Configuration from GUI.md",
+    "1-projects/Linux/edX Introduction to Linux/Chapter 4 - GUI.md",
+    "1-projects/Linux/edX Introduction to Linux/Chapter 3 - Linux Basics and System Startup.md",
+    "1-projects/Linux/edX Introduction to Linux/Chapter 2 - Linux Philosophy and Concepts.md",
+    "1-projects/Linux/edX Introduction to Linux/Chapter 1 - The Linux Foundation.md",
+    "1-projects/Linux/Arch Linux installation/17 - Docker & DevPod.md",
+    "1-projects/Linux/Arch Linux installation/16 - Hyprland & qutebrowser keybindings.md",
+    "1-projects/Linux/Arch Linux installation/15 - Dot files.md",
+    "1-projects/Linux/Arch Linux installation/14 - Basic shell & File editing.md",
+    "1-projects/Linux/Arch Linux installation/13 - Lock screen & Idle daemon.md",
+    "1-projects/Linux/Arch Linux installation/12 - Post install setup & Security.md",
+    "1-projects/Linux/Arch Linux installation/11 - Window rules & Waybar.md",
+    "1-projects/Linux/Arch Linux installation/10 - First Hyprland setup & peripherals & YAY.md",
+    "1-projects/Linux/Arch Linux installation/09 - My (Hyprland) housekeeping.md",
+    "1-projects/Linux/Arch Linux installation/09 - Houskeeping.md",
+    "1-projects/Linux/Arch Linux installation/08 - Hyprland.md",
+    "1-projects/Linux/Arch Linux installation/07 - Inspecting our system.md",
+    "1-projects/Linux/Arch Linux installation/06 - First boot!.md",
+    "1-projects/Linux/Arch Linux installation/05 - Boot loader.md",
+    "1-projects/Linux/Arch Linux installation/04 - mkinitcpio.md",
+    "1-projects/Linux/edX Introduction to Linux",
+    "1-projects/Linux/Screenshot 2025-04-26 at 18.27.36.png",
+    "1-projects/Linux/Pasted image 20250407140038.png",
+    "1-projects/Linux/Arch Linux installation",
+    "1-projects/Linux",
     "1-projects/Dual Boot (Arch Linux, Windows)",
-    "1-projects/CloneZilla backup and restore.md",
-    "3-resources/LPIC-1 certification.md",
+    "1-projects/Arch Linux/pacman",
+    "Pasted image 20250514145051.png",
     "1-projects/Lenovo A485",
     "1-projects/LPIC-1 exam prep",
-    "2-areas/Linux.md",
-    "2-areas/sample-area-note.md",
-    "3-resources/sample-resource-note.md",
-    "0-inbox/sample-inbox-note.md",
-    "Arch Linux installation/16 - Hyprland & qutebrowser keybindings.md",
-    "Arch Linux installation/17 - Docker & DevPod.md",
-    "Arch Linux installation/15 - Dot files.md",
-    "Arch Linux installation/14 - Basic shell & File editing.md",
-    "Arch Linux installation/13 - Lock screen & Idle daemon.md",
-    "Arch Linux installation/12 - Post install setup & Security.md",
-    "Arch Linux installation/11 - Window rules & Waybar.md",
-    "Arch Linux installation/10 - First Hyprland setup & peripherals & YAY.md",
-    "Arch Linux installation/09 - My (Hyprland) housekeeping.md",
-    "Arch Linux installation/09 - Houskeeping.md",
-    "Arch Linux installation/08 - Hyprland.md",
-    "Arch Linux installation/02 - Installation.md",
-    "Arch Linux installation/01 - Disk partitioning & Encryption.md",
     "Arch Linux installation/09 - Houskeeping",
     "Screenshot 2025-04-26 at 18.27.36.png",
     "Pasted image 20250407140038.png",
