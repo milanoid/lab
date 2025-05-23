@@ -6,6 +6,11 @@ configuration in `/etc/bluetooth/main.conf`
 
 position 3 - `34:88:5D:BE:ED:A2`
 
+Issue resolved - disable bonding requirement in `/etc/bluetooth/input.conf`:
+
+```
+ClassicBondedOnly=false
+```
 
 issue with connecting, bluetoothd
 
