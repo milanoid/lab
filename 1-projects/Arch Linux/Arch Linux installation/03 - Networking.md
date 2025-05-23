@@ -21,7 +21,7 @@ POST -> BIOS -> boot loader -> OS -> `init`
 - `ip link` - show all NIC
 
 
-Ethernet conenction
+Ethernet connection
 
 ```bash
 /etc/systemd/network/20-wired.network

@@ -6,7 +6,8 @@ always use `pacman -Syu`
 - u - upgrades all packages
 - y - refresh
 
-`pacman -Syu package_name`
+- `pacman -Syu package_name`
+- `pacman -Sw package_name` - downloads without installing
 
 #### package groups
 
@@ -28,3 +29,17 @@ Installs packages belonging to a group simultaneously.
 
 ### querying package database
 
+sync first `# pacman -Fy`
+than `pacman -Ss string`
+
+
+### cache
+
+in `/var/cache/pacman/pkg`
+
+`pacman -Sc` - remove unused and old packages
+
+
+## Configuration
+
+`/etc/pacman.conf`
