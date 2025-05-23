@@ -1,8 +1,13 @@
+[[Linux]]
+
 `bluetoothctl` - console frontend
 
 configuration in `/etc/bluetooth/main.conf`
 
 ### Keyboard Logitech K480
+
+-> PROBLEM with bonding (persistent pairing), also makes bluetoothd sometimes crash
+-> do not use as it would require pairing everytime
 
 position 3 - `34:88:5D:BE:ED:A2`
 
@@ -51,5 +56,13 @@ Failed to set privacy: Rejected (0x0b)
 
 ### Mouse Logitech M590 
 
+OK
 position 2 - EC:40:13:29:3A:60
+
+
+### Keyboard Satechi
+
+OK 
+
+`CB:AF:7F:B4:02:3F`
 
