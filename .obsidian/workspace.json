@@ -135,7 +135,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/103.1 Work on the command line.md",
+                "file": "1-projects/LPIC-1 exam prep/103.1 Work on the command line.md",
                 "mode": "source",
                 "source": false
               },
@@ -306,10 +306,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "6442822435bfbb33",
+  "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
     "1-projects/LPIC-1 exam prep/102.6 Linux as a virtualization guest.md",
-    "0-inbox/103.1 Work on the command line.md",
+    "1-projects/LPIC-1 exam prep/103.1 Work on the command line.md",
     "1-projects/Arch Linux/Arch Linux installation/17 - Docker & DevPod.md",
     "1-projects/Arch Linux/Arch Linux installation/10 - First Hyprland setup & peripherals & YAY.md",
     "1-projects/Arch Linux/Arch Linux installation/09 - My (Hyprland) housekeeping.md",
