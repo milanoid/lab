@@ -135,12 +135,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/102.6 Linux as a virtualization guest.md",
+                "file": "0-inbox/103.1 Work on the command line.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "102.6 Linux as a virtualization guest"
+              "title": "103.1 Work on the command line"
             }
           },
           {
@@ -308,8 +308,8 @@
   },
   "active": "6442822435bfbb33",
   "lastOpenFiles": [
-    "0-inbox/103.1 Work on the command line.md",
     "1-projects/LPIC-1 exam prep/102.6 Linux as a virtualization guest.md",
+    "0-inbox/103.1 Work on the command line.md",
     "1-projects/Arch Linux/Arch Linux installation/17 - Docker & DevPod.md",
     "1-projects/Arch Linux/Arch Linux installation/10 - First Hyprland setup & peripherals & YAY.md",
     "1-projects/Arch Linux/Arch Linux installation/09 - My (Hyprland) housekeeping.md",
