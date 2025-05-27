@@ -1,0 +1,37 @@
+Weight: 4
+
+https://linux1st.com/1031-work-on-the-command-line.html
+
+https://www.youtube.com/watch?v=X-zq9-FhjOA
+
+Terminal emulater - application running in GUI emulating text terminal.
+
+```
+milan@ubuntu:~$ readlink /bin/sh
+dash
+milan@ubuntu:~$ echo $SHELL
+/bin/bash
+milan@ubuntu:~$ type cd
+cd is a shell builtin
+milan@ubuntu:~$ which ls
+/usr/bin/ls
+milan@ubuntu:~$ whatis ls
+ls (1)               - list directory contents
+milan@ubuntu:~$ whereis ls
+ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz
+```
+
+### man pages
+
+`man <section_id> program`, e.g. `man 2 uname`
+
+### special characters
+
+escaping or qouting by `\`, e.g. `\*`
+
+-----
+
+pt 2 https://www.youtube.com/watch?v=KMvc1SyPgjw
+
+...
+
