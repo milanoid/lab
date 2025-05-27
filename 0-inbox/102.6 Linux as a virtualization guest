@@ -1,0 +1,48 @@
+Weight: 1
+
+https://linux1st.com/1026-linux-as-a-virtualization-guest.html
+
+https://www.youtube.com/watch?v=F3yl5Lx1htc
+
+## Hypervisor
+
+A layer between virtualized resources (CPU, RAM, Storage) and actual HW.
+
+#### Hypervisor type 1 vs type2
+
+Type 2 - "Hosted"
+
+- e.g. running VM in VirtualBox (having role of hypervisor) on a host OS (my Mac OS)
+- examples: VirtualBox, VMWare
+
+Type 1 - "Native" or "Bare matal"
+
+- Hypervisor runs directly on the HW (one layer less)
+- examples: KVM (in linux kernel), Xen, Hyper-V
+
+#### VM Create and Clone
+
+- OVF (Open Virtualization Format) - allows to move VMs between Hypervisors
+- OVA (Open Virtualization Archive) 
+- also there are templetes
+
+#### Host specific configuration
+
+- Hostname
+- NIC MAC address
+- Machnine ID
+- Storage UUID
+- any other UUID in the system
+
+`cat /etc/machine-d`
+
+#### Containers
+
+Newer concept, also called OS level virtualization. Slimmer than full VMs. A container uses underlying OS.
+
+#### IaaS
+
+Infrastructure as a Service. Cloud service providers - AWS, Google Cloud, MS Azure. Buying resources like electricity.
+
+`cloud-init` - helps to set up a cloud machine. https://cloud-init.io/
+
