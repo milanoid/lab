@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/103.4 Use streams, pipes, and redirects.md",
+                "file": "1-projects/Lenovo A485/WWAN.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "103.4 Use streams, pipes, and redirects"
+              "title": "WWAN"
             }
           }
         ],
@@ -200,6 +200,7 @@
   },
   "active": "f87c4a9d1773db78",
   "lastOpenFiles": [
+    "1-projects/LPIC-1 exam prep/103.4 Use streams, pipes, and redirects.md",
     "1-projects/Lenovo A485/WWAN.md",
     "0-inbox/106.1 Install and configure X11.md",
     "1-projects/LPIC-1 exam prep/105.2 Customize or write simple scripts.md",
@@ -219,7 +220,6 @@
     "0-inbox/sample-inbox-note.md",
     "1-projects/LPIC-1 exam prep/103.6 Modify process execution priorities.md",
     "1-projects/LPIC-1 exam prep/103.5 Create, monitor, and kill processes.md",
-    "1-projects/LPIC-1 exam prep/103.4 Use streams, pipes, and redirects.md",
     "1-projects/LPIC-1 exam prep/103.3 Perform basic file management.md",
     "1-projects/LPIC-1 exam prep/103.2 Process text streams using filters.md",
     "1-projects/LPIC-1 exam prep/103.1 Work on the command line.md",

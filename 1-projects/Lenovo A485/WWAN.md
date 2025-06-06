@@ -46,9 +46,10 @@ output of `lspci` (utility for displaying info about PCI busus)
 
 There is Arch Wiki page for that modem https://wiki.archlinux.org/title/Xmm7360-pci
 
-## TODO
 
 According the article there is no official driver. There is only an alpha stage driver, written in Python [https://github.com/xmm7360/xmm7360-pci](https://github.com/xmm7360/xmm7360-pci). Also it seems the modem must be first activated under Windows. 
+
+DONE
 
 1. backup current Arch Linux installation using Clonezila
 2. dual boot Windows 10 installation (key in BIOS) https://wiki.archlinux.org/title/Dual_boot_with_Windows#Linux_before_Windows
@@ -222,4 +223,88 @@ milan@jantar ~/repos/xmm7360-pci(lenovo-a485@kernel-6.14.9-arch) $ mmcli -m 0
            |           current: allowed: 3g, 4g; preferred: none
   -----------------------------
   3GPP     |              imei: 015987001484584
+```
+
+
+It is able to do some preliminary connection (e.g. I can see the provider 02) but than it fails. Debug ModemManager output:
+
+```
+ModemManager[9259]: <dbg> [1749212322.784970] [modem0] port 'net/wwan0' grabbed
+ModemManager[9259]: <dbg> [1749212322.785223] [modem0] port 'tty/ttyXMM2' grabbed
+ModemManager[9259]: <dbg> [1749212322.785403] [modem0] port 'tty/ttyXMM1' grabbed
+ModemManager[9259]: <inf> [1749212322.785486] [modem0] tty/ttyXMM2: at (primary)
+ModemManager[9259]: <inf> [1749212322.785491] [modem0] tty/ttyXMM1: at (secondary)
+ModemManager[9259]: <inf> [1749212322.785495] [modem0] tty/ttyXMM2: at (data primary)
+ModemManager[9259]: <inf> [1749212322.785499] [modem0] net/wwan0: net (data)
+ModemManager[9259]: <dbg> [1749212322.785503] [modem0] net ports available but ignored
+ModemManager[9259]: <dbg> [1749212322.785627] [modem0] [operation 0] default - initialization: scheduled
+ModemManager[9259]: <dbg> [1749212322.785631] [modem0] [operation 0] default - initialization: lock acquired
+ModemManager[9259]: <dbg> [1749212322.787103] [modem0] loading current capabilities...
+ModemManager[9259]: <dbg> [1749212322.866292] [modem0] setting EPS network as supported
+ModemManager[9259]: <dbg> [1749212322.866334] [modem0] setting CDMA1x/EVDO networks as unsupported
+ModemManager[9259]: <dbg> [1749212322.906771] [modem0] loading manufacturer...
+ModemManager[9259]: <dbg> [1749212322.916720] [modem0] loaded manufacturer: Fibocom
+ModemManager[9259]: <dbg> [1749212322.916742] [modem0] loading model...
+ModemManager[9259]: <dbg> [1749212322.926531] [modem0] loaded model: L850 LTE Module","L850
+ModemManager[9259]: <dbg> [1749212322.926542] [modem0] loading revision...
+ModemManager[9259]: <dbg> [1749212322.936582] [modem0] loaded revision: 18500.5001.00.05.27.30
+ModemManager[9259]: <dbg> [1749212322.936615] [modem0] allowed up to 1 active bearers
+ModemManager[9259]: <dbg> [1749212322.936664] [modem0] loading equipment identifier...
+ModemManager[9259]: <dbg> [1749212322.959710] [modem0] loaded equipment identifier: 015987001484584
+ModemManager[9259]: <dbg> [1749212322.959740] [modem0] loading device identifier...
+ModemManager[9259]: <dbg> [1749212322.959826] [modem0] device identifier built: 0000808600007360".Built@Jul12022:11:37:17"01598700148458418500.5001.00.05.27.30L850LTEModule","L850Fibocom -> 927e5e8706a0532ff8f4d02ea8deaf31707e349f
+ModemManager[9259]: <dbg> [1749212322.959837] [modem0] loaded device identifier: 927e5e8706a0532ff8f4d02ea8deaf31707e349f
+ModemManager[9259]: <dbg> [1749212322.959857] [modem0] loading supported modes...
+ModemManager[9259]: <dbg> [1749212322.971999] [modem0] generic query of supported 3GPP networks with *CNTI failed: 'Operation not supported'
+ModemManager[9259]: <dbg> [1749212322.972118] [modem0] device allows (3GPP) mode combination: 3g
+ModemManager[9259]: <dbg> [1749212322.972129] [modem0] device allows (3GPP) mode combination: 4g
+ModemManager[9259]: <dbg> [1749212322.972138] [modem0] device allows (3GPP) mode combination: 3g, 4g
+ModemManager[9259]: <dbg> [1749212322.999719] [modem0] loading supported IP families...
+ModemManager[9259]: <dbg> [1749212323.015368] [modem0] loading power state...
+ModemManager[9259]: <dbg> [1749212323.026608] [modem0] checking if unlock required...
+ModemManager[9259]: <inf> [1749212323.037354] [modem0] SIM is ready, and no need for the after SIM unlock step...
+ModemManager[9259]: <dbg> [1749212323.179809] [modem0/sim0] loading SIM identifier...
+ModemManager[9259]: <inf> [1749212323.209679] [modem0/sim0] loaded SIM identifier: ###
+ModemManager[9259]: <dbg> [1749212323.209714] [modem0/sim0] loading IMSI...
+ModemManager[9259]: <inf> [1749212323.219442] [modem0/sim0] loaded IMSI: ###
+ModemManager[9259]: <dbg> [1749212323.219455] [modem0/sim0] loading operator ID...
+ModemManager[9259]: <inf> [1749212323.271610] [modem0/sim0] loaded operator identifier: 23002
+ModemManager[9259]: <dbg> [1749212323.271627] [modem0/sim0] loading operator name...
+ModemManager[9259]: <inf> [1749212323.326857] [modem0/sim0] loaded operator name: O2.CZ
+ModemManager[9259]: <dbg> [1749212323.326867] [modem0/sim0] loading emergency numbers...
+ModemManager[9259]: <dbg> [1749212323.379972] [modem0/sim0] couldn't load list of emergency numbers: Failed to parse CRSM query result '+CRSM: 105,129'
+ModemManager[9259]: <dbg> [1749212323.380013] [modem0/sim0] selecting user-defined preferred network list...
+ModemManager[9259]: <dbg> [1749212323.391839] [modem0/sim0] setting preferred networks format...
+ModemManager[9259]: <dbg> [1749212323.404801] [modem0/sim0] loading preferred networks...
+ModemManager[9259]: <inf> [1749212323.489489] [modem0/sim0] loaded list of preferred networks: 28201 (gsm, umts, lte), 27603 (gsm, umts, lte), 50501 (gsm, umts, lte), 23205 (gsm, umts, lte), 25701 (gsm, umts, lte), 20610 (gsm, umts, lte), 20620 (gsm, umts, lte), 21890 (gsm, umts, lte), 28405 (gsm, umts, lte), 21902 (gsm, umts, lte), 46000 (gsm, umts, lte), 28010 (gsm, umts, lte), 23806 (gsm, umts, lte), 60203 (gsm, umts, lte), 24803 (gsm, umts, lte), 24491 (gsm, umts, lte), 20820 (gsm, umts, lte), 20801 (gsm, umts, lte), 28204 (gsm, umts, lte), 26203 (gsm, umts, lte), 26207 (gsm, umts, lte), 20210 (gsm, umts, lte), 21601 (gsm, umts, lte), 27411 (gsm, umts, lte), 27205 (gsm, umts, lte), 22288 (gsm, umts, lte), 22201 (gsm, umts, lte), 22299 (gsm, umts, lte), 29505 (gsm, umts, lte), 24603 (gsm, umts, lte), 27099 (gsm, umts, lte), 27801 (gsm, umts, lte), 25901 (gsm, umts, lte), 29701 (gsm, umts, lte), 20408 (gsm, umts, lte), 20404 (gsm, umts, lte), 24202 (gsm, umts, lte), 26006 (gsm, umts, lte), 26001 (gsm, umts, lte), 26806 (gsm, umts, lte), 22610 (gsm, umts, lte), 25002 (gsm, umts, lte), 22001 (gsm, umts, lte), 23101 (gsm, umts, lte), 23106 (gsm, umts, lte), 29370 (gsm, umts, lte), 29341 (gsm, umts, lte), 21403 (gsm, umts, lte), 24002 (gsm, umts, lte), 24001 (gsm, umts, lte), 22802 (gsm, umts, lte), 22801 (gsm, umts, lte), 28603 (gsm, umts, lte), 25506 (gsm, umts, lte), 23410 (gsm, umts, lte), 310410 (gsm, umts, lte)
+ModemManager[9259]: <inf> [1749212323.554671] [modem0/sim0] loaded GID1: FFFFFFFFFFFFFFFFFFFF
+ModemManager[9259]: <inf> [1749212323.619356] [modem0/sim0] loaded GID2: FFFFFFFFFFFFFFFFFFFF
+ModemManager[9259]: <dbg> [1749212323.619461] [modem0] loading own numbers...
+ModemManager[9259]: <dbg> [1749212323.629540] [modem0] couldn't load list of own numbers: Operation not allowed
+ModemManager[9259]: <dbg> [1749212323.629733] [modem0] loading enabled facility locks...
+ModemManager[9259]: <dbg> [1749212323.764999] [modem0] loading IMEI...
+ModemManager[9259]: <dbg> [1749212323.765086] [modem0] loaded IMEI: 015987001484584
+ModemManager[9259]: <dbg> [1749212323.765107] [modem0] loading UE mode of operation for EPS...
+ModemManager[9259]: <dbg> [1749212323.778442] [modem0] looking for the initial EPS bearer context cid,,,
+ModemManager[9259]: <dbg> [1749212323.778556] [modem0] initial EPS bearer context cid found: 0
+ModemManager[9259]: <dbg> [1749212323.830057] [modem0] supported storages loaded:
+ModemManager[9259]: <dbg> [1749212323.830071] [modem0]   mem1 (list/read/delete) storages: 'bm, me, sm, sr'
+ModemManager[9259]: <dbg> [1749212323.830081] [modem0]   mem2 (write/send) storages:       'me, sm'
+ModemManager[9259]: <dbg> [1749212323.830089] [modem0]   mem3 (reception) storages:        'bm, me, sm, sr'
+ModemManager[9259]: <dbg> [1749212323.841666] [modem0] current storages initialized:
+ModemManager[9259]: <dbg> [1749212323.841696] [modem0]   mem1 (list/read/delete) storages: 'sm'
+ModemManager[9259]: <dbg> [1749212323.841706] [modem0]   mem2 (write/send) storages:       'sm'
+ModemManager[9259]: <dbg> [1749212323.841746] [modem0] current storages initialized
+ModemManager[9259]: <dbg> [1749212323.877302] [modem0] couldn't initialize interface: 'OMA not supported'
+ModemManager[9259]: <dbg> [1749212323.877415] [modem0] couldn't initialize interface: 'SAR not supported'
+ModemManager[9259]: <dbg> [1749212323.906819] [modem0] periodic call list polling will be used if supported
+ModemManager[9259]: <dbg> [1749212323.906990] [modem0] No device ids set by plugin, adding generic ids
+ModemManager[9259]: <msg> [1749212323.907120] [modem0] state changed (unknown -> disabled)
+ModemManager[9259]: <dbg> [1749212323.907176] [modem0] [operation 0] default - initialization: lock released
+ModemManager[9259]: <dbg> [1749212342.279111] [modem0] [operation 1] override - disabling: override requested - no new operations will be allowed
+ModemManager[9259]: <dbg> [1749212342.279123] [modem0] [operation 1] override - disabling: lock acquired
+ModemManager[9259]: <dbg> [1749212342.279282] [modem0] [operation 1] override - disabling: lock released
+ModemManager[9259]: <dbg> [1749212342.279673] [modem0] cleaning up port 'tty/ttyXMM2'...
+ModemManager[9259]: <dbg> [1749212342.279690] [modem0] cleaning up port 'net/wwan0'...
+ModemManager[9259]: <dbg> [1749212342.279698] [modem0] cleaning up port 'tty/ttyXMM1'...
 ```
