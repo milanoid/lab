@@ -52,3 +52,19 @@ According the article there is no official driver. There is only an alpha stage 
 
 1. backup current Arch Linux installation using Clonezila
 2. dual boot Windows 10 installation (key in BIOS) https://wiki.archlinux.org/title/Dual_boot_with_Windows#Linux_before_Windows
+
+### Steps according to Arch Wiki article
+
+1. preparation
+`sudo pacman -Syu linux-headers base-devel acpi_call python-pyroute2 python-configargparse`
+
+2.  install
+   
+```
+$ git clone https://github.com/xmm7360/xmm7360-pci.git
+$ cd xmm7360-pci
+$ make && make load
+# python3 rpc/open_xdatachannel.py --apn apn.url
+# echo "nameserver 1.1.1.1" >> /etc/resolv.conf
+# ip link set wwan0 up
+```
