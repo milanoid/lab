@@ -55,7 +55,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/110.3 Securing data with encryption.md",
+                "file": "1-projects/LPIC-1 exam prep/110.3 Securing data with encryption.md",
                 "mode": "source",
                 "source": false
               },
@@ -212,10 +212,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4663ec615cf2246e",
+  "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
     "1-projects/LPIC-1 exam prep/110.2 Setup host security.md",
-    "0-inbox/110.3 Securing data with encryption.md",
+    "1-projects/LPIC-1 exam prep/110.3 Securing data with encryption.md",
     "1-projects/LPIC-1 exam prep/109.4 Configure client side DNS.md",
     "1-projects/LPIC-1 exam prep/110.1 Perform security administration tasks.md",
     "1-projects/LPIC-1 exam prep/109.3 Basic network troubleshooting.md",
