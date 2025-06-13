@@ -41,16 +41,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/110.2 Setup host security.md",
+                "file": "1-projects/LPIC-1 exam prep/110.2 Setup host security.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "110.2 Setup host security"
             }
+          },
+          {
+            "id": "4663ec615cf2246e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "0-inbox/110.3 Securing data with encryption.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "110.3 Securing data with encryption"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -198,10 +212,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "36915fc9efeb8c67",
+  "active": "4663ec615cf2246e",
   "lastOpenFiles": [
+    "1-projects/LPIC-1 exam prep/110.2 Setup host security.md",
+    "0-inbox/110.3 Securing data with encryption.md",
     "1-projects/LPIC-1 exam prep/109.4 Configure client side DNS.md",
-    "0-inbox/110.2 Setup host security.md",
     "1-projects/LPIC-1 exam prep/110.1 Perform security administration tasks.md",
     "1-projects/LPIC-1 exam prep/109.3 Basic network troubleshooting.md",
     "conflict-files-obsidian-git.md",
@@ -227,7 +242,6 @@
     "1-projects/LPIC-1 exam prep/103.5 Create, monitor, and kill processes.md",
     "1-projects/LPIC-1 exam prep/103.4 Use streams, pipes, and redirects.md",
     "1-projects/LPIC-1 exam prep/103.3 Perform basic file management.md",
-    "1-projects/LPIC-1 exam prep/103.2 Process text streams using filters.md",
     "1-projects/Arch Linux/Pasted image 20250407140038.png",
     "1-projects/Linux/edX Introduction to Linux",
     "1-projects/Linux/Screenshot 2025-04-26 at 18.27.36.png",
