@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/101.1 Determine and configure hw settings.md",
+                "file": "1-projects/LPIC-1 exam prep/102.3 Manager shared libraries.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "101.1 Determine and configure hw settings"
+              "title": "102.3 Manager shared libraries"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "udev",
+                "query": "runlevel",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,8 +74,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -170,19 +169,21 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9f5491a4de1aa2c3",
+  "active": "0b1be336e160452b",
   "lastOpenFiles": [
+    "1-projects/LPIC-1 exam prep/102.5 RPM and YUM package management.md",
+    "1-projects/LPIC-1 exam prep/101.3 Runlevels and targets.md",
+    "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
+    "1-projects/LPIC-1 exam prep/101.1 Determine and configure hw settings.md",
     "1-projects/LPIC-1 exam prep/104.1 Create partitions and filesystems.md",
     "1-projects/LPIC-1 exam prep/102.1 Design hard disk layout.md",
     "1-projects/LPIC-1 exam prep/104.3 Control mounting and unmounting of filesystems.md",
-    "1-projects/LPIC-1 exam prep/101.1 Determine and configure hw settings.md",
     "1-projects/LPIC-1 exam prep/103.6 Modify process execution priorities.md",
     "1-projects/LPIC-1 exam prep/103.5 Create, monitor, and kill processes.md",
     "4-archives/edX Introduction to Linux/Chapter 9 - Processes.md",
     "1-projects/Arch Linux/Arch Linux installation/07 - Inspecting our system.md",
     "0-inbox/2025-06-14.md",
     "1-projects/LPIC-1 exam prep/104.5 Manage file permissions and ownership.md",
-    "1-projects/LPIC-1 exam prep/102.5 RPM and YUM package management.md",
     "1-projects/LPIC-1 exam prep/103.3 Perform basic file management.md",
     "1-projects/LPIC-1 exam prep/104.7 Find system files and place files in the correct location.md",
     "1-projects/LPIC-1 exam prep/103.2 Process text streams using filters.md",
@@ -196,8 +197,6 @@
     "1-projects/LPIC-1 exam prep/110.1 Perform security administration tasks.md",
     "1-projects/LPIC-1 exam prep/109.4 Configure client side DNS.md",
     "0-inbox/109.4 Configure client side DNS.md",
-    "1-projects/LPIC-1 exam prep/109.1 Fundamentals of internet protocols.md",
-    "1-projects/LPIC-1 exam prep/108.4 Manage printers and printing.md",
     "Pasted image 20250608183559.png",
     "1-projects/Kubernetes Fundamentals",
     "1-projects/Arch Linux/Pasted image 20250407140038.png",
