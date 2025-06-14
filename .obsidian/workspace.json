@@ -8,35 +8,34 @@
         "type": "tabs",
         "children": [
           {
-            "id": "0b1be336e160452b",
+            "id": "536b796cf1df8b3e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/103.2 Process text streams using filters.md",
+                "file": "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "103.2 Process text streams using filters"
+              "title": "101.2 Boot the system"
             }
           },
           {
-            "id": "93c0e9977216251e",
+            "id": "c5646483a773d8c9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/section reviews.md",
+                "file": "1-projects/LPIC-1 exam prep/102.2 Install a boot manager.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "section reviews"
+              "title": "102.2 Install a boot manager"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -184,15 +183,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e6e596ef8a2b8255",
+  "active": "536b796cf1df8b3e",
   "lastOpenFiles": [
-    "1-projects/LPIC-1 exam prep/103.2 Process text streams using filters.md",
+    "1-projects/LPIC-1 exam prep/102.2 Install a boot manager.md",
+    "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
+    "1-projects/LPIC-1 exam prep/101.3 Runlevels and targets.md",
     "1-projects/LPIC-1 exam prep/section reviews.md",
+    "1-projects/LPIC-1 exam prep/103.2 Process text streams using filters.md",
     "1-projects/LPIC-1 exam prep/102.3 Manager shared libraries.md",
     "1-projects/LPIC-1 exam prep/102.6 Linux as a virtualization guest.md",
     "1-projects/LPIC-1 exam prep/102.5 RPM and YUM package management.md",
-    "1-projects/LPIC-1 exam prep/101.3 Runlevels and targets.md",
-    "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
     "1-projects/LPIC-1 exam prep/101.1 Determine and configure hw settings.md",
     "1-projects/LPIC-1 exam prep/104.1 Create partitions and filesystems.md",
     "1-projects/LPIC-1 exam prep/102.1 Design hard disk layout.md",
@@ -211,7 +211,6 @@
     "1-projects/LPIC-1 exam prep/109.3 Basic network troubleshooting.md",
     "0-inbox/110.1 Perform security administration tasks.md",
     "1-projects/LPIC-1 exam prep/110.3 Securing data with encryption.md",
-    "1-projects/LPIC-1 exam prep/110.2 Setup host security.md",
     "Pasted image 20250608183559.png",
     "1-projects/Kubernetes Fundamentals",
     "1-projects/Arch Linux/Pasted image 20250407140038.png",
