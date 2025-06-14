@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/102.3 Manager shared libraries.md",
+                "file": "1-projects/LPIC-1 exam prep/102.6 Linux as a virtualization guest.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "102.3 Manager shared libraries"
+              "title": "102.6 Linux as a virtualization guest"
             }
           }
         ]
@@ -169,8 +169,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "0b1be336e160452b",
+  "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
+    "1-projects/LPIC-1 exam prep/102.3 Manager shared libraries.md",
     "1-projects/LPIC-1 exam prep/102.5 RPM and YUM package management.md",
     "1-projects/LPIC-1 exam prep/101.3 Runlevels and targets.md",
     "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
@@ -196,7 +197,6 @@
     "1-projects/LPIC-1 exam prep/110.2 Setup host security.md",
     "1-projects/LPIC-1 exam prep/110.1 Perform security administration tasks.md",
     "1-projects/LPIC-1 exam prep/109.4 Configure client side DNS.md",
-    "0-inbox/109.4 Configure client side DNS.md",
     "Pasted image 20250608183559.png",
     "1-projects/Kubernetes Fundamentals",
     "1-projects/Arch Linux/Pasted image 20250407140038.png",
