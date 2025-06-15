@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/102.5 RPM and YUM package management.md",
+                "file": "1-projects/LPIC-1 exam prep/103.4 Use streams, pipes, and redirects.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "102.5 RPM and YUM package management"
+              "title": "103.4 Use streams, pipes, and redirects"
             }
           }
         ],
@@ -68,7 +68,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tee",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -89,7 +89,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -184,17 +185,18 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e6e596ef8a2b8255",
+  "active": "9f5491a4de1aa2c3",
   "lastOpenFiles": [
-    "1-projects/LPIC-1 exam prep/102.4 Use Debian package management.md",
+    "1-projects/LPIC-1 exam prep/103.2 Process text streams using filters.md",
+    "1-projects/LPIC-1 exam prep/103.1 Work on the command line.md",
+    "1-projects/LPIC-1 exam prep/104.7 Find system files and place files in the correct location.md",
     "1-projects/LPIC-1 exam prep/102.5 RPM and YUM package management.md",
+    "1-projects/LPIC-1 exam prep/102.4 Use Debian package management.md",
     "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
     "1-projects/LPIC-1 exam prep/102.2 Install a boot manager.md",
-    "1-projects/LPIC-1 exam prep/104.7 Find system files and place files in the correct location.md",
     "1-projects/LPIC-1 exam prep/105.1 Customize and use the shell environment.md",
     "1-projects/LPIC-1 exam prep/101.3 Runlevels and targets.md",
     "1-projects/LPIC-1 exam prep/section reviews.md",
-    "1-projects/LPIC-1 exam prep/103.2 Process text streams using filters.md",
     "1-projects/LPIC-1 exam prep/102.3 Manager shared libraries.md",
     "1-projects/LPIC-1 exam prep/102.6 Linux as a virtualization guest.md",
     "1-projects/LPIC-1 exam prep/101.1 Determine and configure hw settings.md",
@@ -211,7 +213,6 @@
     "1-projects/LPIC-1 exam prep/103.7 Search text files using regular expressions.md",
     "1-projects/LPIC-1 exam prep/103.4 Use streams, pipes, and redirects.md",
     "1-projects/LPIC-1 exam prep/109.2 Persistent network configuration.md",
-    "1-projects/LPIC-1 exam prep/109.3 Basic network troubleshooting.md",
     "Pasted image 20250608183559.png",
     "1-projects/Kubernetes Fundamentals",
     "1-projects/Arch Linux/Pasted image 20250407140038.png",
