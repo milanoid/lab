@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/102.4 Use Debian package management.md",
+                "file": "1-projects/LPIC-1 exam prep/102.5 RPM and YUM package management.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "102.4 Use Debian package management"
+              "title": "102.5 RPM and YUM package management"
             }
           }
         ],
@@ -184,10 +184,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c5646483a773d8c9",
+  "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
-    "1-projects/LPIC-1 exam prep/102.5 RPM and YUM package management.md",
     "1-projects/LPIC-1 exam prep/102.4 Use Debian package management.md",
+    "1-projects/LPIC-1 exam prep/102.5 RPM and YUM package management.md",
     "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
     "1-projects/LPIC-1 exam prep/102.2 Install a boot manager.md",
     "1-projects/LPIC-1 exam prep/104.7 Find system files and place files in the correct location.md",
