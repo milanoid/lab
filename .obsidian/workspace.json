@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
+                "file": "1-projects/LPIC-1 exam prep/102.1 Design hard disk layout.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "101.2 Boot the system"
+              "title": "102.1 Design hard disk layout"
             }
           }
         ]
@@ -171,6 +171,8 @@
   },
   "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
+    "1-projects/LPIC-1 exam prep/101.3 Runlevels and targets.md",
+    "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
     "1-projects/LPIC-1 exam prep/103.4 Use streams, pipes, and redirects.md",
     "1-projects/LPIC-1 exam prep/103.3 Perform basic file management.md",
     "1-projects/LPIC-1 exam prep/103.2 Process text streams using filters.md",
@@ -178,8 +180,6 @@
     "1-projects/LPIC-1 exam prep/102.6 Linux as a virtualization guest.md",
     "1-projects/LPIC-1 exam prep/102.5 RPM and YUM package management.md",
     "1-projects/LPIC-1 exam prep/102.4 Use Debian package management.md",
-    "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
-    "1-projects/LPIC-1 exam prep/101.3 Runlevels and targets.md",
     "1-projects/LPIC-1 exam prep/102.2 Install a boot manager.md",
     "1-projects/LPIC-1 exam prep/102.1 Design hard disk layout.md",
     "1-projects/LPIC-1 exam prep/104.1 Create partitions and filesystems.md",
