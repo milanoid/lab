@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/104.7 Find system files and place files in the correct location.md",
+                "file": "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "104.7 Find system files and place files in the correct location"
+              "title": "101.2 Boot the system"
             }
           }
         ]
@@ -53,8 +53,8 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "D-bus",
-                "matchingCase": true,
+                "query": "/etc/inittab",
+                "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
@@ -74,11 +74,12 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 309.5
   },
   "right": {
     "id": "c30d66fb63f83402",
@@ -169,8 +170,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e6e596ef8a2b8255",
+  "active": "7f0d5cbf50288ff9",
   "lastOpenFiles": [
+    "1-projects/LPIC-1 exam prep/104.7 Find system files and place files in the correct location.md",
     "1-projects/LPIC-1 exam prep/104.6 Create and change hard and symbolic links.md",
     "1-projects/LPIC-1 exam prep/104.5 Manage file permissions and ownership.md",
     "1-projects/LPIC-1 exam prep/104.3 Control mounting and unmounting of filesystems.md",
@@ -193,7 +195,6 @@
     "1-projects/LPIC-1 exam prep/102.1 Design hard disk layout.md",
     "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
     "1-projects/LPIC-1 exam prep/101.1 Determine and configure hw settings.md",
-    "1-projects/LPIC-1 exam prep/104.7 Find system files and place files in the correct location.md",
     "1-projects/LPIC-1 exam prep/105.1 Customize and use the shell environment.md",
     "1-projects/LPIC-1 exam prep/section reviews.md",
     "4-archives/edX Introduction to Linux/Chapter 9 - Processes.md",
