@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "dpkg",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,12 +74,11 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 309.5
+    "width": 467.5
   },
   "right": {
     "id": "c30d66fb63f83402",
