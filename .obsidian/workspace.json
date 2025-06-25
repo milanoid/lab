@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/105.1 Customize and use the shell environment.md",
+                "file": "1-projects/LPIC-1 exam prep/107.1 Manage user and group accounts and related system files.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "105.1 Customize and use the shell environment"
+              "title": "107.1 Manage user and group accounts and related system files"
             }
           }
         ]
@@ -169,10 +169,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7f0d5cbf50288ff9",
+  "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
-    "1-projects/LPIC-1 exam prep/shell-scripts/Untitled.md",
     "1-projects/LPIC-1 exam prep/105.1 Customize and use the shell environment.md",
+    "1-projects/LPIC-1 exam prep/shell-scripts/aFunction.sh",
+    "1-projects/LPIC-1 exam prep/shell-scripts/Untitled.md",
     "1-projects/LPIC-1 exam prep/105.2 Customize or write simple scripts.md",
     "1-projects/LPIC-1 exam prep/shell-scripts/myScriptLab.sh",
     "1-projects/LPIC-1 exam prep/shell-scripts/whileLoop.sh",
@@ -183,7 +184,6 @@
     "1-projects/LPIC-1 exam prep/shell-scripts/nestedIf.sh",
     "1-projects/LPIC-1 exam prep/shell-scripts/myscript.sh",
     "1-projects/LPIC-1 exam prep/shell-scripts/forLoop.sh",
-    "1-projects/LPIC-1 exam prep/shell-scripts/elseif.sh",
     "1-projects/LPIC-1 exam prep/104.7 Find system files and place files in the correct location.md",
     "1-projects/LPIC-1 exam prep/section reviews.md",
     "1-projects/LPIC-1 exam prep/103.6 Modify process execution priorities.md",
@@ -206,7 +206,6 @@
     "1-projects/LPIC-1 exam prep/102.3 Manager shared libraries.md",
     "1-projects/LPIC-1 exam prep/102.2 Install a boot manager.md",
     "1-projects/LPIC-1 exam prep/101.3 Runlevels and targets.md",
-    "1-projects/LPIC-1 exam prep/102.1 Design hard disk layout.md",
     "Pasted image 20250608183559.png",
     "1-projects/Arch Linux/Pasted image 20250407140038.png",
     "1-projects/Linux/Screenshot 2025-04-26 at 18.27.36.png",
