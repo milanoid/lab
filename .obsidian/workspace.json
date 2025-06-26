@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/107.1 Manage user and group accounts and related system files.md",
+                "file": "1-projects/LPIC-1 exam prep/107.2 Automate system administration tasks by scheduling jobs.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "107.1 Manage user and group accounts and related system files"
+              "title": "107.2 Automate system administration tasks by scheduling jobs"
             }
           }
         ]
@@ -171,6 +171,7 @@
   },
   "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
+    "1-projects/LPIC-1 exam prep/107.1 Manage user and group accounts and related system files.md",
     "1-projects/LPIC-1 exam prep/105.1 Customize and use the shell environment.md",
     "1-projects/LPIC-1 exam prep/shell-scripts/aFunction.sh",
     "1-projects/LPIC-1 exam prep/shell-scripts/Untitled.md",
