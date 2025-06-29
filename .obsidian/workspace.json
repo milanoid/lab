@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/108.3 Mail Transfer Agent (MTA) basics.md",
+                "file": "1-projects/LPIC-1 exam prep/108.2 System logging.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "108.3 Mail Transfer Agent (MTA) basics"
+              "title": "108.2 System logging"
             }
           }
         ]
@@ -171,6 +171,8 @@
   },
   "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
+    "1-projects/LPIC-1 exam prep/108.4 Manage printers and printing.md",
+    "1-projects/LPIC-1 exam prep/108.3 Mail Transfer Agent (MTA) basics.md",
     "1-projects/LPIC-1 exam prep/109.3 Basic network troubleshooting.md",
     "1-projects/LPIC-1 exam prep/109.2 Persistent network configuration.md",
     "1-projects/LPIC-1 exam prep/109.1 Fundamentals of internet protocols.md",
@@ -206,8 +208,6 @@
     "1-projects/LPIC-1 exam prep/104.2 Maintain the integrity of filesystems.md",
     "1-projects/LPIC-1 exam prep/104.1 Create partitions and filesystems.md",
     "1-projects/LPIC-1 exam prep/103.8 Basic file editing.md",
-    "1-projects/LPIC-1 exam prep/103.3 Perform basic file management.md",
-    "1-projects/LPIC-1 exam prep/103.2 Process text streams using filters.md",
     "Pasted image 20250608183559.png",
     "1-projects/Arch Linux/Pasted image 20250407140038.png",
     "1-projects/Linux/Screenshot 2025-04-26 at 18.27.36.png",
