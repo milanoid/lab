@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/110.2 Setup host security.md",
+                "file": "1-projects/LPIC-1 exam prep/110.1 Perform security administration tasks.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "110.2 Setup host security"
+              "title": "110.1 Perform security administration tasks"
             }
           }
         ]
@@ -171,6 +171,7 @@
   },
   "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
+    "1-projects/LPIC-1 exam prep/110.2 Setup host security.md",
     "1-projects/LPIC-1 exam prep/108.2 System logging.md",
     "1-projects/LPIC-1 exam prep/109.2 Persistent network configuration.md",
     "1-projects/LPIC-1 exam prep/108.4 Manage printers and printing.md",
@@ -207,7 +208,6 @@
     "1-projects/LPIC-1 exam prep/104.5 Manage file permissions and ownership.md",
     "1-projects/LPIC-1 exam prep/104.3 Control mounting and unmounting of filesystems.md",
     "1-projects/LPIC-1 exam prep/104.2 Maintain the integrity of filesystems.md",
-    "1-projects/LPIC-1 exam prep/104.1 Create partitions and filesystems.md",
     "Pasted image 20250608183559.png",
     "1-projects/Arch Linux/Pasted image 20250407140038.png",
     "1-projects/Linux/Screenshot 2025-04-26 at 18.27.36.png",
