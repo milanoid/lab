@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/108.2 System logging.md",
+                "file": "1-projects/LPIC-1 exam prep/110.2 Setup host security.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "108.2 System logging"
+              "title": "110.2 Setup host security"
             }
           }
         ]
@@ -169,10 +169,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "47269de904b50596",
+  "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
-    "1-projects/LPIC-1 exam prep/109.2 Persistent network configuration.md",
     "1-projects/LPIC-1 exam prep/108.2 System logging.md",
+    "1-projects/LPIC-1 exam prep/109.2 Persistent network configuration.md",
     "1-projects/LPIC-1 exam prep/108.4 Manage printers and printing.md",
     "1-projects/LPIC-1 exam prep/108.3 Mail Transfer Agent (MTA) basics.md",
     "1-projects/LPIC-1 exam prep/109.3 Basic network troubleshooting.md",
