@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "116cbce75c578527",
+        "id": "e078978fd625c70a",
         "type": "tabs",
         "children": [
           {
-            "id": "47269de904b50596",
+            "id": "44a2687b7b6de224",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -171,6 +171,10 @@
   },
   "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
+    "1-projects/LPIC-1 exam prep/105.2 Customize or write simple scripts.md",
+    "1-projects/LPIC-1 exam prep/103.4 Use streams, pipes, and redirects.md",
+    "1-projects/LPIC-1 exam prep/107.2 Automate system administration tasks by scheduling jobs.md",
+    "1-projects/LPIC-1 exam prep/110.1 Perform security administration tasks.md",
     "1-projects/LPIC-1 exam prep/110.2 Setup host security.md",
     "1-projects/LPIC-1 exam prep/108.2 System logging.md",
     "1-projects/LPIC-1 exam prep/109.2 Persistent network configuration.md",
@@ -181,12 +185,10 @@
     "Pasted image 20250629105100.png",
     "1-projects/LPIC-1 exam prep/107.3 Localisation and internationalisation.md",
     "1-projects/LPIC-1 exam prep/108.1 Maintain system time.md",
-    "1-projects/LPIC-1 exam prep/107.2 Automate system administration tasks by scheduling jobs.md",
     "1-projects/LPIC-1 exam prep/107.1 Manage user and group accounts and related system files.md",
     "1-projects/LPIC-1 exam prep/105.1 Customize and use the shell environment.md",
     "1-projects/LPIC-1 exam prep/shell-scripts/aFunction.sh",
     "1-projects/LPIC-1 exam prep/shell-scripts/Untitled.md",
-    "1-projects/LPIC-1 exam prep/105.2 Customize or write simple scripts.md",
     "1-projects/LPIC-1 exam prep/shell-scripts/myScriptLab.sh",
     "1-projects/LPIC-1 exam prep/shell-scripts/whileLoop.sh",
     "1-projects/LPIC-1 exam prep/shell-scripts/untilLoop.sh",
@@ -203,11 +205,9 @@
     "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
     "1-projects/LPIC-1 exam prep/103.5 Create, monitor, and kill processes.md",
     "1-projects/LPIC-1 exam prep/103.7 Search text files using regular expressions.md",
-    "1-projects/LPIC-1 exam prep/103.4 Use streams, pipes, and redirects.md",
     "1-projects/LPIC-1 exam prep/104.6 Create and change hard and symbolic links.md",
     "1-projects/LPIC-1 exam prep/104.5 Manage file permissions and ownership.md",
     "1-projects/LPIC-1 exam prep/104.3 Control mounting and unmounting of filesystems.md",
-    "1-projects/LPIC-1 exam prep/104.2 Maintain the integrity of filesystems.md",
     "Pasted image 20250608183559.png",
     "1-projects/Arch Linux/Pasted image 20250407140038.png",
     "1-projects/Linux/Screenshot 2025-04-26 at 18.27.36.png",
