@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 358.5110321044922
+    "width": 261.5024719238281
   },
   "right": {
     "id": "c30d66fb63f83402",
@@ -169,7 +169,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e6e596ef8a2b8255",
+  "active": "44a2687b7b6de224",
   "lastOpenFiles": [
     "1-projects/LPIC-1 exam prep/110.1 Perform security administration tasks.md",
     "1-projects/LPIC-1 exam prep/105.2 Customize or write simple scripts.md",
