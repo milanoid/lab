@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/110.3 Securing data with encryption.md",
+                "file": "1-projects/LPIC-1 exam prep/106.3 Accessibility.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "110.3 Securing data with encryption"
+              "title": "106.3 Accessibility"
             }
           }
         ]
@@ -171,6 +171,8 @@
   },
   "active": "44a2687b7b6de224",
   "lastOpenFiles": [
+    "1-projects/LPIC-1 exam prep/106.2 Graphical Desktops.md",
+    "1-projects/LPIC-1 exam prep/110.3 Securing data with encryption.md",
     "1-projects/LPIC-1 exam prep/110.1 Perform security administration tasks.md",
     "1-projects/LPIC-1 exam prep/105.2 Customize or write simple scripts.md",
     "1-projects/LPIC-1 exam prep/103.4 Use streams, pipes, and redirects.md",
@@ -206,8 +208,6 @@
     "1-projects/LPIC-1 exam prep/103.5 Create, monitor, and kill processes.md",
     "1-projects/LPIC-1 exam prep/103.7 Search text files using regular expressions.md",
     "1-projects/LPIC-1 exam prep/104.6 Create and change hard and symbolic links.md",
-    "1-projects/LPIC-1 exam prep/104.5 Manage file permissions and ownership.md",
-    "1-projects/LPIC-1 exam prep/104.3 Control mounting and unmounting of filesystems.md",
     "Pasted image 20250608183559.png",
     "1-projects/Arch Linux/Pasted image 20250407140038.png",
     "1-projects/Linux/Screenshot 2025-04-26 at 18.27.36.png",
