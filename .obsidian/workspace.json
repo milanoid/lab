@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/106.3 Accessibility.md",
+                "file": "1-projects/LPIC-1 exam prep/107.1 Manage user and group accounts and related system files.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "106.3 Accessibility"
+              "title": "107.1 Manage user and group accounts and related system files"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 261.5024719238281
+    "width": 328.5024719238281
   },
   "right": {
     "id": "c30d66fb63f83402",
@@ -171,6 +171,7 @@
   },
   "active": "44a2687b7b6de224",
   "lastOpenFiles": [
+    "1-projects/LPIC-1 exam prep/106.3 Accessibility.md",
     "1-projects/LPIC-1 exam prep/106.2 Graphical Desktops.md",
     "1-projects/LPIC-1 exam prep/110.3 Securing data with encryption.md",
     "1-projects/LPIC-1 exam prep/110.1 Perform security administration tasks.md",
@@ -207,7 +208,6 @@
     "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
     "1-projects/LPIC-1 exam prep/103.5 Create, monitor, and kill processes.md",
     "1-projects/LPIC-1 exam prep/103.7 Search text files using regular expressions.md",
-    "1-projects/LPIC-1 exam prep/104.6 Create and change hard and symbolic links.md",
     "Pasted image 20250608183559.png",
     "1-projects/Arch Linux/Pasted image 20250407140038.png",
     "1-projects/Linux/Screenshot 2025-04-26 at 18.27.36.png",
