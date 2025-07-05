@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/109.1 Fundamentals of internet protocols.md",
+                "file": "1-projects/LPIC-1 exam prep/108.4 Manage printers and printing.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "109.1 Fundamentals of internet protocols"
+              "title": "108.4 Manage printers and printing"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Syslog",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -169,8 +170,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e6e596ef8a2b8255",
+  "active": "9f5491a4de1aa2c3",
   "lastOpenFiles": [
+    "1-projects/LPIC-1 exam prep/108.3 Mail Transfer Agent (MTA) basics.md",
+    "1-projects/LPIC-1 exam prep/109.1 Fundamentals of internet protocols.md",
     "1-projects/LPIC-1 exam prep/107.3 Localisation and internationalisation.md",
     "1-projects/LPIC-1 exam prep/108.1 Maintain system time.md",
     "1-projects/LPIC-1 exam prep/107.2 Automate system administration tasks by scheduling jobs.md",
@@ -180,14 +183,12 @@
     "1-projects/LPIC-1 exam prep/106.2 Graphical Desktops.md",
     "1-projects/LPIC-1 exam prep/109.2 Persistent network configuration.md",
     "1-projects/LPIC-1 exam prep/109.3 Basic network troubleshooting.md",
-    "1-projects/LPIC-1 exam prep/109.1 Fundamentals of internet protocols.md",
     "1-projects/LPIC-1 exam prep/107.1 Manage user and group accounts and related system files.md",
     "1-projects/LPIC-1 exam prep/106.3 Accessibility.md",
     "1-projects/LPIC-1 exam prep/105.2 Customize or write simple scripts.md",
     "1-projects/LPIC-1 exam prep/103.4 Use streams, pipes, and redirects.md",
     "1-projects/LPIC-1 exam prep/110.2 Setup host security.md",
     "1-projects/LPIC-1 exam prep/108.4 Manage printers and printing.md",
-    "1-projects/LPIC-1 exam prep/108.3 Mail Transfer Agent (MTA) basics.md",
     "Pasted image 20250629105100.png",
     "1-projects/LPIC-1 exam prep/105.1 Customize and use the shell environment.md",
     "1-projects/LPIC-1 exam prep/shell-scripts/aFunction.sh",
