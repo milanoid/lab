@@ -4,24 +4,67 @@
     "type": "split",
     "children": [
       {
-        "id": "e078978fd625c70a",
+        "id": "b39307077ba08da5",
         "type": "tabs",
         "children": [
           {
-            "id": "44a2687b7b6de224",
+            "id": "e061a9a1a5cde059",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/LPIC-1 exam prep/107.1 Manage user and group accounts and related system files.md",
+                "file": "1-projects/LPIC-1 exam prep/109.2 Persistent network configuration.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "107.1 Manage user and group accounts and related system files"
+              "title": "109.2 Persistent network configuration"
+            }
+          },
+          {
+            "id": "85fe9e780738e8c3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-projects/LPIC-1 exam prep/109.4 Configure client side DNS.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "109.4 Configure client side DNS"
+            }
+          },
+          {
+            "id": "36915fc9efeb8c67",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-projects/LPIC-1 exam prep/110.2 Setup host security.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "110.2 Setup host security"
+            }
+          },
+          {
+            "id": "4663ec615cf2246e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-projects/Kubernetes Fundamentals/Part 1 - Kubernetes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Part 1 - Kubernetes"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -78,7 +121,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 328.5024719238281
+    "width": 340.5
   },
   "right": {
     "id": "c30d66fb63f83402",
@@ -160,8 +203,8 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "graph:Open graph view": false,
       "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
@@ -169,50 +212,50 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "44a2687b7b6de224",
+  "active": "4663ec615cf2246e",
   "lastOpenFiles": [
-    "1-projects/LPIC-1 exam prep/106.3 Accessibility.md",
-    "1-projects/LPIC-1 exam prep/105.1 Customize and use the shell environment.md",
-    "1-projects/LPIC-1 exam prep/106.2 Graphical Desktops.md",
-    "1-projects/LPIC-1 exam prep/107.1 Manage user and group accounts and related system files.md",
-    "1-projects/LPIC-1 exam prep/110.3 Securing data with encryption.md",
-    "1-projects/LPIC-1 exam prep/110.1 Perform security administration tasks.md",
-    "1-projects/LPIC-1 exam prep/108.2 System logging.md",
-    "1-projects/LPIC-1 exam prep/108.4 Manage printers and printing.md",
-    "1-projects/LPIC-1 exam prep/108.3 Mail Transfer Agent (MTA) basics.md",
-    "1-projects/LPIC-1 exam prep/109.1 Fundamentals of internet protocols.md",
-    "1-projects/LPIC-1 exam prep/107.3 Localisation and internationalisation.md",
-    "1-projects/LPIC-1 exam prep/108.1 Maintain system time.md",
-    "1-projects/LPIC-1 exam prep/107.2 Automate system administration tasks by scheduling jobs.md",
-    "1-projects/LPIC-1 exam prep/109.2 Persistent network configuration.md",
-    "1-projects/LPIC-1 exam prep/109.3 Basic network troubleshooting.md",
-    "1-projects/LPIC-1 exam prep/105.2 Customize or write simple scripts.md",
-    "1-projects/LPIC-1 exam prep/103.4 Use streams, pipes, and redirects.md",
-    "1-projects/LPIC-1 exam prep/110.2 Setup host security.md",
+    "1-projects/Kubernetes Fundamentals/setup.md",
+    "1-projects/Kubernetes Fundamentals/Part 1 - Kubernetes.md",
+    "4-archives/CloneZilla backup and restore.md",
+    "4-archives/LPIC-1 exam prep/101.2 Boot the system.md",
     "Pasted image 20250629105100.png",
-    "1-projects/LPIC-1 exam prep/shell-scripts/aFunction.sh",
-    "1-projects/LPIC-1 exam prep/shell-scripts/Untitled.md",
-    "1-projects/LPIC-1 exam prep/shell-scripts/myScriptLab.sh",
-    "1-projects/LPIC-1 exam prep/shell-scripts/whileLoop.sh",
-    "1-projects/LPIC-1 exam prep/shell-scripts/untilLoop.sh",
-    "1-projects/LPIC-1 exam prep/shell-scripts/readUserInput.sh",
-    "1-projects/LPIC-1 exam prep/shell-scripts/readFile.sh",
-    "1-projects/LPIC-1 exam prep/shell-scripts/passParams.sh",
-    "1-projects/LPIC-1 exam prep/shell-scripts/nestedIf.sh",
-    "1-projects/LPIC-1 exam prep/shell-scripts/myscript.sh",
-    "1-projects/LPIC-1 exam prep/shell-scripts/forLoop.sh",
-    "1-projects/LPIC-1 exam prep/104.7 Find system files and place files in the correct location.md",
-    "1-projects/LPIC-1 exam prep/section reviews.md",
-    "1-projects/LPIC-1 exam prep/103.6 Modify process execution priorities.md",
-    "1-projects/LPIC-1 exam prep/102.4 Use Debian package management.md",
-    "1-projects/LPIC-1 exam prep/101.2 Boot the system.md",
-    "1-projects/LPIC-1 exam prep/103.5 Create, monitor, and kill processes.md",
-    "1-projects/LPIC-1 exam prep/103.7 Search text files using regular expressions.md",
     "Pasted image 20250608183559.png",
+    "Pasted image 20250514145051.png",
+    "2-areas/Linux.md",
+    "1-projects/Arch Linux/Pacman.md",
+    "1-projects/Arch Linux/Bluetooth.md",
+    "4-archives/Lenovo A485/WWAN.md",
+    "4-archives/LPIC-1 exam prep/110.3 Securing data with encryption.md",
+    "4-archives/LPIC-1 exam prep/shell-scripts/whileLoop.sh",
+    "4-archives/LPIC-1 exam prep/shell-scripts/untilLoop.sh",
+    "4-archives/LPIC-1 exam prep/shell-scripts/readUserInput.sh",
+    "4-archives/LPIC-1 exam prep/shell-scripts/readFile.sh",
+    "4-archives/LPIC-1 exam prep/shell-scripts/passParams.sh",
+    "4-archives/LPIC-1 exam prep/shell-scripts/nestedIf.sh",
+    "4-archives/LPIC-1 exam prep/shell-scripts/myscript.sh",
+    "4-archives/LPIC-1 exam prep/shell-scripts/forLoop.sh",
+    "4-archives/LPIC-1 exam prep/shell-scripts/myScriptLab.sh",
+    "4-archives/LPIC-1 exam prep/shell-scripts/elseif.sh",
+    "4-archives/LPIC-1 exam prep/section reviews.md",
+    "0-inbox/2025-06-14.md",
+    "4-archives/LPIC-1 exam prep/110.2 Setup host security.md",
+    "4-archives/LPIC-1 exam prep/109.4 Configure client side DNS.md",
+    "4-archives/LPIC-1 exam prep/110.1 Perform security administration tasks.md",
+    "4-archives/LPIC-1 exam prep/109.3 Basic network troubleshooting.md",
+    "conflict-files-obsidian-git.md",
+    "4-archives/LPIC-1 exam prep/109.2 Persistent network configuration.md",
+    "4-archives/LPIC-1 exam prep/109.1 Fundamentals of internet protocols.md",
+    "4-archives/LPIC-1 exam prep/108.4 Manage printers and printing.md",
+    "4-archives/LPIC-1 exam prep/108.3 Mail Transfer Agent (MTA) basics.md",
+    "4-archives/LPIC-1 exam prep/108.2 System logging.md",
+    "4-archives/LPIC-1 exam prep/108.1 Maintain system time.md",
+    "4-archives/LPIC-1 exam prep/107.3 Localisation and internationalisation.md",
+    "4-archives/LPIC-1 exam prep/107.2 Automate system administration tasks by scheduling jobs.md",
+    "4-archives/LPIC-1 exam prep/107.1 Manage user and group accounts and related system files.md",
+    "4-archives/LPIC-1 exam prep/106.2 Graphical Desktops.md",
     "1-projects/Arch Linux/Pasted image 20250407140038.png",
     "1-projects/Linux/Screenshot 2025-04-26 at 18.27.36.png",
     "1-projects/Linux/Pasted image 20250407140038.png",
-    "Pasted image 20250514145051.png",
     "Screenshot 2025-04-26 at 18.27.36.png",
     "Pasted image 20250407140038.png"
   ]
