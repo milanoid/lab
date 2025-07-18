@@ -88,6 +88,29 @@
     "type": "split",
     "children": [
       {
+        "id": "59336a430b6c4ea8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9f5491a4de1aa2c3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "pacman",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          }
+        ]
+      },
+      {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
         "children": [
@@ -102,23 +125,6 @@
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
-            }
-          },
-          {
-            "id": "9f5491a4de1aa2c3",
-            "type": "leaf",
-            "state": {
-              "type": "search",
-              "state": {
-                "query": "",
-                "matchingCase": false,
-                "explainSearch": false,
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-search",
-              "title": "Search"
             }
           },
           {
@@ -226,7 +232,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "58a61d320c6f7e90",
+  "active": "9f5491a4de1aa2c3",
   "lastOpenFiles": [
     "0-inbox/sample-inbox-note.md",
     "0-inbox/GNU Stow.md",
