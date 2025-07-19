@@ -1,4 +1,4 @@
-https://www.youtube.com/watch?v=NoFiYOqnC4o
+https://www.youtube.com/watch?v=NoFiYOqnC4oe w
 
 GNU Stow Github repo
 
@@ -13,3 +13,8 @@ naming convention and mapping
 ~/.config/ghostty -> ghostty/.config/ghostty
 
 ~/.bashrc -> bash/.bashrc
+
+
+usage
+
+stow -t ~ nvimwith
