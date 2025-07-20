@@ -18,6 +18,8 @@ sda                 8:0    0 238.5G  0 disk
 
 ### resize with unallocated free space within existing LVM volume group
 
+1. 
+
 ```bash
 # check for free space available
 milan@jantar:~$ sudo vgs svarog
