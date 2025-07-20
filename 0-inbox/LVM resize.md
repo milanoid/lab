@@ -54,7 +54,7 @@ e2fsck -f /dev/mapper/svarog-home
 ```
 
 
-TODO: The RescueZilla has older version of `e2fsck` - use different Ubuntu/Debian live:
+Resolved: The RescueZilla has older version of `e2fsck` - using Arch linux install usb.
 
 ```bash
 e2fsck -f /dev/mapper/svarog-home
@@ -63,4 +63,19 @@ e2fsck 1.46.5 (30-Dec-2021)
 e2fsck: Get a newer version of e2fsck!
 
 /dev/mapper/svarog-home: ******* WARNING: Filesystem still has errors *****
+```
+
+
+### Shrinking LVM /root, grow /home
+
+```bash
+# shrink root
+e2fsck -f /dev/mapper/svarog-root
+resize2fs /dev/mapper/svarog-root 70G
+lvreduce -L 70G /dev/svarog/root
+
+# grow home
+lvextend -l +100%FREE /dev/svarog/home
+e2fsck -f /dev/mapper/svarog-home
+resize2fs /dev/mapper/svarog-home
 ```
