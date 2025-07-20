@@ -18,7 +18,11 @@ sda                 8:0    0 238.5G  0 disk
 
 ### resize with unallocated free space within existing LVM volume group
 
-1. 
+Boot into RescueZilla and open the LUKS:
+
+```bash
+cryptsetup luksOpen /dev/sda2 svarog
+```
 
 ```bash
 # check for free space available
@@ -36,4 +40,27 @@ milan@jantar:~$ sudo lvs
   home svarog -wi-ao---- <14.49g
   root svarog -wi-ao---- 100.00g
   swap svarog -wi-ao----   8.00g
+```
+
+```bash
+# Extend using all available free space 
+sudo lvextend -l +100%FREE /dev/svarog/home
+
+# Resize the filesystem 
+sudo resize2fs /dev/mapper/svarog-home # for ext4
+
+# the last command said I need to run `e2fsck` first:
+e2fsck -f /dev/mapper/svarog-home
+```
+
+
+TODO: The RescueZilla has older version of `e2fsck` - use different Ubuntu/Debian live:
+
+```bash
+e2fsck -f /dev/mapper/svarog-home
+e2fsck 1.46.5 (30-Dec-2021)
+/dev/mapper/svarog-home has unsupported feature(s): FEATURE_C12
+e2fsck: Get a newer version of e2fsck!
+
+/dev/mapper/svarog-home: ******* WARNING: Filesystem still has errors *****
 ```
