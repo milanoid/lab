@@ -18,7 +18,7 @@ kubectl edit pods/nginx
 ### Creating yaml manifest from scratch
 
 Options
-- using an example definition and do adjustment
+- using an example definition and do adjustment (e.g. from K. docs)
 - running `kubectl get pods/nginx -o yaml` (verbose)
 - using `kubectl run` with `dry-run` option to generate the base manifest
 
@@ -70,4 +70,8 @@ kubectl apply -f nginx.yaml
 pod/nginx-yaml configured
 ```
 
+
+#### tip for exam
+
+Search for example yaml files (CTRL+F and `apiVersion`). Make sure the `vim` has configured `:set paste` otherwise the pasted block losts formatting and possibly become invalid yaml.
 
