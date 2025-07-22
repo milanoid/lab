@@ -18,3 +18,5 @@ naming convention and mapping
 usage
 
 stow -t ~ nvimwith
+stow -v 3 -t ~ vim (verbose)
+

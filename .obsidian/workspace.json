@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubernetes Fundamentals/Part 1 - Kubernetes.md",
+                "file": "1-projects/Kubernetes Fundamentals/Part 1.3 - Pods as Code - YAML.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Part 1 - Kubernetes"
+              "title": "Part 1.3 - Pods as Code - YAML"
             }
           }
         ],
@@ -208,8 +208,11 @@
   },
   "active": "8fd18e57196c0e6f",
   "lastOpenFiles": [
-    "1-projects/Kubernetes Fundamentals/Part 2 - Pods.md",
-    "1-projects/Kubernetes Fundamentals/Part 1 - Kubernetes.md",
+    "kubecraft/kubernetes-fundamentals",
+    "kubecraft",
+    "1-projects/Kubernetes Fundamentals/Part 1.2  - Pods.md",
+    "1-projects/Kubernetes Fundamentals/Part 1.3 - Pods as Code - YAML.md",
+    "1-projects/Kubernetes Fundamentals/Part 1.1 - What is Kubernetes?.md",
     "4-archives/GNU Stow.md",
     "0-inbox/2025-06-14.md",
     "4-archives/LVM resize.md",
@@ -235,7 +238,6 @@
     "4-archives/LPIC-1 exam prep/shell-scripts/nestedIf.sh",
     "4-archives/LPIC-1 exam prep/shell-scripts/myscript.sh",
     "4-archives/LPIC-1 exam prep/shell-scripts/forLoop.sh",
-    "4-archives/LPIC-1 exam prep/shell-scripts/myScriptLab.sh",
     "4-archives/LPIC-1 exam prep/section reviews.md",
     "4-archives/LPIC-1 exam prep/110.2 Setup host security.md",
     "4-archives/LPIC-1 exam prep/109.4 Configure client side DNS.md",
@@ -245,8 +247,6 @@
     "4-archives/LPIC-1 exam prep/109.2 Persistent network configuration.md",
     "4-archives/LPIC-1 exam prep/109.1 Fundamentals of internet protocols.md",
     "4-archives/LPIC-1 exam prep/108.4 Manage printers and printing.md",
-    "4-archives/LPIC-1 exam prep/108.3 Mail Transfer Agent (MTA) basics.md",
-    "4-archives/LPIC-1 exam prep/108.2 System logging.md",
     "1-projects/Arch Linux/Pasted image 20250407140038.png",
     "1-projects/Linux/Screenshot 2025-04-26 at 18.27.36.png",
     "1-projects/Linux/Pasted image 20250407140038.png",
