@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/LVM resize.md",
+                "file": "1-projects/Kubernetes Fundamentals/Part 1 - Kubernetes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "LVM resize"
+              "title": "Part 1 - Kubernetes"
             }
           }
         ],
@@ -62,7 +62,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 25.03128911138924,
+        "dimension": 32.6797385620915,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -86,7 +86,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 74.96871088861077,
+        "dimension": 67.3202614379085,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -115,8 +115,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 340.5
   },
   "right": {
     "id": "c30d66fb63f83402",
@@ -210,10 +209,11 @@
   "active": "8fd18e57196c0e6f",
   "lastOpenFiles": [
     "1-projects/Kubernetes Fundamentals/Part 2 - Pods.md",
-    "0-inbox/LVM resize.md",
     "1-projects/Kubernetes Fundamentals/Part 1 - Kubernetes.md",
+    "4-archives/GNU Stow.md",
+    "0-inbox/2025-06-14.md",
+    "4-archives/LVM resize.md",
     "3-resources/LPIC-1 certification.md",
-    "0-inbox/GNU Stow.md",
     "0-inbox/sample-inbox-note.md",
     "Untitled",
     "1-projects/Kubernetes Fundamentals/setup.md",
@@ -237,7 +237,6 @@
     "4-archives/LPIC-1 exam prep/shell-scripts/forLoop.sh",
     "4-archives/LPIC-1 exam prep/shell-scripts/myScriptLab.sh",
     "4-archives/LPIC-1 exam prep/section reviews.md",
-    "0-inbox/2025-06-14.md",
     "4-archives/LPIC-1 exam prep/110.2 Setup host security.md",
     "4-archives/LPIC-1 exam prep/109.4 Configure client side DNS.md",
     "4-archives/LPIC-1 exam prep/110.1 Perform security administration tasks.md",

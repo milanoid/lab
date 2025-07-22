@@ -22,3 +22,15 @@ Story
 - bunch of VMs communication each other
 - instead of HAPROXY it has _Control Plane_
 - VM -> is now _worker node_
+
+
+#### Kubernetes Terminology
+
+- Cluster - a group of Nodes with Control Plane
+- Node - a group of one or more Pods
+- Pod - a group of one or more Containers
+- Control Plane
+- Control Plane - Scheduler
+- Control Plane - API Server
+- Namespace
+- 
