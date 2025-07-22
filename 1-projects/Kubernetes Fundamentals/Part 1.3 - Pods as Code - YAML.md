@@ -41,3 +41,33 @@ spec:
 status: {}
 ```
 
+```bash
+# generate and update
+kubectl run nginx-yaml --image=nginx --dry-run=client -o yaml > nginx.yaml
+...
+milan@jantar:$cat nginx.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: nginx
+    mehtod: fromcode
+  name: nginx-yaml
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+```
+#### Running the pod using the manifest
+
+1. `create` - only creates
+2. `apply` - detects changes
+
+```bash
+# at first it says `created` after a modification
+# it detects the change and says `configured`
+kubectl apply -f nginx.yaml
+pod/nginx-yaml configured
+```
+
+
