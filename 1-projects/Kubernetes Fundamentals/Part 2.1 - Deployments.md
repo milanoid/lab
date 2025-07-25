@@ -58,3 +58,30 @@ milan@jantar:~/repos/lab (main)$ kubectl create deployment test --image=httpd --
 kubectl apply -f deploy.yaml
 deployment.apps/test created
 ```
+
+#### replica set
+
+- basic scaling and self-healing
+- no update strategy
+- resource should not be managed by users
+
+Deployment -> Replica Set -> Pods
+
+deployment adds:
+- rolling updates and rollbacks
+- update strategies (RollingUpdate, Recreate)
+- revision history
+- declarative updates
+
+```bash
+kubectl get replicasets.apps
+NAME              DESIRED   CURRENT   READY   AGE
+test-6546ccdcf9   3         3         3       4h49m
+```
+
+tip: pipe the documentation to vim:
+
+- note the trailing dash character
+```bash
+kubectl create deployment -h | nvim -
+```
