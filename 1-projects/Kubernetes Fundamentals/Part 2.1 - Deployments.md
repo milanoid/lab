@@ -59,7 +59,7 @@ kubectl apply -f deploy.yaml
 deployment.apps/test created
 ```
 
-#### replica set
+#### Replica set
 
 - basic scaling and self-healing
 - no update strategy
@@ -84,4 +84,22 @@ tip: pipe the documentation to vim:
 - note the trailing dash character
 ```bash
 kubectl create deployment -h | nvim -
+```
+
+
+#### Strategy
+
+- specifies the strategy to replace old Pods with new ones
+- _Recreate_ (all get killed first) vs _RollingUpdate_ (one by one)
+
+tip: use `watch` command to monitor the strategy in action
+
+```bash
+# teminal 1 - watch
+watch kubectl get pods
+```
+
+```bash
+# terminal 2 - trigger the update strategy
+kubectl apply --filename deploy.yaml
 ```

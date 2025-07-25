@@ -5,7 +5,7 @@ metadata:
     app: test
   name: test
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app: test
@@ -15,5 +15,5 @@ spec:
         app: test
     spec:
       containers:
-      - image: httpd
+      - image: httpd:alpine3.18
         name: httpd
