@@ -102,4 +102,12 @@ watch kubectl get pods
 ```bash
 # terminal 2 - trigger the update strategy
 kubectl apply --filename deploy.yaml
+deployment.apps/test configured
+# in case of no chaange detected:
+# deployment.apps/test unchanged
 ```
+
+##### Rolling Update
+
+- `maxUnavailable: 1` - how many Pods can be terminated from the value set in `replicas`
+- `maxSurge: 1` - how many extra Pods can be created over the value set in `replicas`
