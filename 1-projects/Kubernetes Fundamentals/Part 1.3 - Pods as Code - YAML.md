@@ -73,5 +73,5 @@ pod/nginx-yaml configured
 
 #### tip for exam
 
-Search for example yaml files (CTRL+F and `apiVersion`). Make sure the `vim` has configured `:set paste` otherwise the pasted block losts formatting and possibly become invalid yaml.
+Search for example yaml files (CTRL+F and `apiVersion`). Make sure the `vim` has configured `:set paste` otherwise the pasted block lost formatting and possibly become invalid yaml.
 
