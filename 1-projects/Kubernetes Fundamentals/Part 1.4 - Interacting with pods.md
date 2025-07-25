@@ -32,3 +32,13 @@ root@nginx-doc:/# echo $SHELL
 ```
 
 To exit the session type `CTRL+D` or type `exit`.
+
+
+#### Exercise
+
+requirements: running `httpd` and `nginx` pod:
+
+- `kubectl run httpd --image=httpd`
+- `kubectl run nginx --image=nginx`
+
+Exec to `httpd` pod and run `ping` and `curl` command using IP address of another (nginx) pod.
