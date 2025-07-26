@@ -51,4 +51,31 @@ kubectl create namespace mealie --output yaml --dry-run=client > namespace.yaml
 kubectl apply -f namespace.yaml
 ```
 
+### list resources in a specific namespace
 
+```bash
+# run a pod in default namespace
+kubect run milan --image=nginx
+
+# see it won't appear in the `mealie` namespace
+kubectl get pods --namespace mealie
+
+# run another pod in `mealie` namespace
+kubectl run milan --image=nginx --namespace mealie
+
+# see it is listed in the `mealie` namespace
+kubectl get pods --namespace mealie
+NAME    READY   STATUS    RESTARTS   AGE
+milan   1/1     Running   0          101s
+```
+
+### setting a default namespace
+
+```bash
+kubectl config current-context
+rancher-desktop
+
+# update the current context to use a specific namespace
+kubectl config set-context --current --namespace=mealie
+Context "rancher-desktop" modified.
+```
