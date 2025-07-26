@@ -111,3 +111,22 @@ deployment.apps/test configured
 
 - `maxUnavailable: 1` - how many Pods can be terminated from the value set in `replicas`
 - `maxSurge: 1` - how many extra Pods can be created over the value set in `replicas`
+
+
+#### Simulating failing deploy
+
+By running a command in container  - `exit 1` - see `deploy-failing.yaml`
+```yaml
+    name: httpd
+    command: ["/bin/bash", "-c"] # override the default command
+    args: ["sleep 5; exit 1"] # sleep for 30 seconds then exit with an error
+```
+
+
+```bash
+test-585f799b58-mkfgk   0/1     RunContainerError   4 (17s ago)   98s
+test-585f799b58-thklq   0/1     RunContainerError   4 (16s ago)   98s
+...
+test-585f799b58-mkfgk   0/1     CrashLoopBackOff   2 (24s ago)   39s
+test-585f799b58-thklq   0/1     CrashLoopBackOff   2 (23s ago)   39s
+```
