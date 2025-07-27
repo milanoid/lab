@@ -90,9 +90,23 @@
               "icon": "lucide-file",
               "title": "Part 2.2 - Deployment - Namespaces"
             }
+          },
+          {
+            "id": "a1a49d7d2ae8cd87",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-projects/Kubernetes Fundamentals/Part 2.3 - Deployments - Mealie.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Part 2.3 - Deployments - Mealie"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -248,8 +262,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9ab74128f64e150e",
+  "active": "a1a49d7d2ae8cd87",
   "lastOpenFiles": [
+    "1-projects/Kubernetes Fundamentals/Part 2.2 - Deployment - Namespaces.md",
+    "1-projects/Kubernetes Fundamentals/Part 2.3 - Deployments - Mealie.md",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/mealie/namespace.yaml~",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/mealie/namespace.yaml",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/mealie",
@@ -260,9 +276,7 @@
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/deployments/deploy-failing.yaml",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/deployments",
     "1-projects/Kubernetes Fundamentals/Part 2.1 - Deployments.md",
-    "1-projects/Kubernetes Fundamentals/Part 2.2 - Deployment - Namespaces.md",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/deploy-failing.yaml~",
-    "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/deploy-failing.yaml",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/Kubernetes Fundamentels - Part 2 - Deployments.md",
     "kubecraft/kubernetes-fundamentals/Part 1 - Kubernetes?/Kubernetes Fundamentels - Part 1.md",
     "1-projects/Kubernetes Fundamentals/Part 1.3 - Pods as Code - YAML.md",
