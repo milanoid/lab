@@ -16,7 +16,7 @@ spec:
         app: mealie
     spec:
       containers:
-      - image: hkotel/mealie:v1.2.0
+      - image: hkotel/mealie:v3.0.2
         name: mealie
         ports:
             # exposes port to a pod
