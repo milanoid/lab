@@ -104,9 +104,23 @@
               "icon": "lucide-file",
               "title": "Part 2.3 - Deployments - Mealie"
             }
+          },
+          {
+            "id": "ee0e1aa06c4fa59d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-projects/Kubernetes Fundamentals/Part 3 - Networking.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Part 3 - Networking"
+            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -262,11 +276,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a1a49d7d2ae8cd87",
+  "active": "ee0e1aa06c4fa59d",
   "lastOpenFiles": [
+    "1-projects/Kubernetes Fundamentals/Part 2.3 - Deployments - Mealie.md",
+    "1-projects/Kubernetes Fundamentals/Part 3 - Networking.md",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/mealie/deployment.yaml~",
     "1-projects/Kubernetes Fundamentals/Part 2.2 - Deployment - Namespaces.md",
-    "1-projects/Kubernetes Fundamentals/Part 2.3 - Deployments - Mealie.md",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/mealie/deployment.yaml",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/mealie/namespace.yaml~",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/mealie/namespace.yaml",
