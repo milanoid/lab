@@ -111,16 +111,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubernetes Fundamentals/Part 3 - Networking.md",
+                "file": "1-projects/Kubernetes Fundamentals/Part 3.1 - Networking.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Part 3 - Networking"
+              "title": "Part 3.1 - Networking"
+            }
+          },
+          {
+            "id": "4c6f2c1258ba6c3e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-projects/Kubernetes Fundamentals/Part 3.2 - Services.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Part 3.2 - Services"
             }
           }
         ],
-        "currentTab": 7
+        "currentTab": 8
       }
     ],
     "direction": "vertical"
@@ -276,21 +290,23 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ee0e1aa06c4fa59d",
+  "active": "4c6f2c1258ba6c3e",
   "lastOpenFiles": [
+    "kubecraft/kubernetes-fundamentals/Part 3 - Networking/service.yaml~",
+    "kubecraft/kubernetes-fundamentals/Part 3 - Networking/service.yaml",
+    "kubecraft/kubernetes-fundamentals/Part 3 - Networking/frontend.yaml~",
+    "kubecraft/kubernetes-fundamentals/Part 3 - Networking/frontend.yaml",
+    "kubecraft/kubernetes-fundamentals/Part 3 - Networking/deploy-failing.yaml",
+    "kubecraft/kubernetes-fundamentals/Part 3 - Networking",
+    "1-projects/Kubernetes Fundamentals/Part 3.1 - Networking.md",
+    "1-projects/Kubernetes Fundamentals/Part 3.2 - Services.md",
     "1-projects/Kubernetes Fundamentals/Part 2.3 - Deployments - Mealie.md",
-    "1-projects/Kubernetes Fundamentals/Part 3 - Networking.md",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/mealie/deployment.yaml~",
     "1-projects/Kubernetes Fundamentals/Part 2.2 - Deployment - Namespaces.md",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/mealie/deployment.yaml",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/mealie/namespace.yaml~",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/mealie/namespace.yaml",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/mealie",
-    "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/deployments/deploy.yaml",
-    "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/deployments/deploy-rolling-update.yaml",
-    "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/deployments/deploy-recreate.yaml",
-    "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/deployments/deploy-generated-by-dry-run.yaml",
-    "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/deployments/deploy-failing.yaml",
     "1-projects/Kubernetes Fundamentals/Part 2.1 - Deployments.md",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/Kubernetes Fundamentels - Part 2 - Deployments.md",
     "kubecraft/kubernetes-fundamentals/Part 1 - Kubernetes?/Kubernetes Fundamentels - Part 1.md",
@@ -315,8 +331,6 @@
     "4-archives/Lenovo A485/WWAN.md",
     "4-archives/LPIC-1 exam prep/110.3 Securing data with encryption.md",
     "4-archives/LPIC-1 exam prep/section reviews.md",
-    "4-archives/LPIC-1 exam prep/110.2 Setup host security.md",
-    "4-archives/LPIC-1 exam prep/109.4 Configure client side DNS.md",
     "1-projects/Arch Linux/Pasted image 20250407140038.png",
     "1-projects/Linux/Screenshot 2025-04-26 at 18.27.36.png",
     "1-projects/Linux/Pasted image 20250407140038.png",
