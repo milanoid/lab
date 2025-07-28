@@ -132,9 +132,23 @@
               "icon": "lucide-file",
               "title": "Part 3.2 - Services"
             }
+          },
+          {
+            "id": "1390067aa19d61ba",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-projects/Kubernetes Fundamentals/Part 3.3 - Ingress.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Part 3.3 - Ingress"
+            }
           }
         ],
-        "currentTab": 8
+        "currentTab": 9
       }
     ],
     "direction": "vertical"
@@ -290,8 +304,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4c6f2c1258ba6c3e",
+  "active": "1390067aa19d61ba",
   "lastOpenFiles": [
+    "1-projects/Kubernetes Fundamentals/Part 3.2 - Services.md",
+    "1-projects/Kubernetes Fundamentals/Part 3.3 - Ingress.md",
     "kubecraft/kubernetes-fundamentals/Part 3 - Networking/service.yaml~",
     "kubecraft/kubernetes-fundamentals/Part 3 - Networking/service.yaml",
     "kubecraft/kubernetes-fundamentals/Part 3 - Networking/frontend.yaml~",
@@ -299,14 +315,12 @@
     "kubecraft/kubernetes-fundamentals/Part 3 - Networking/deploy-failing.yaml",
     "kubecraft/kubernetes-fundamentals/Part 3 - Networking",
     "1-projects/Kubernetes Fundamentals/Part 3.1 - Networking.md",
-    "1-projects/Kubernetes Fundamentals/Part 3.2 - Services.md",
     "1-projects/Kubernetes Fundamentals/Part 2.3 - Deployments - Mealie.md",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/mealie/deployment.yaml~",
     "1-projects/Kubernetes Fundamentals/Part 2.2 - Deployment - Namespaces.md",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/mealie/deployment.yaml",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/mealie/namespace.yaml~",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/mealie/namespace.yaml",
-    "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/mealie",
     "1-projects/Kubernetes Fundamentals/Part 2.1 - Deployments.md",
     "kubecraft/kubernetes-fundamentals/Part 2 - Deployments/Kubernetes Fundamentels - Part 2 - Deployments.md",
     "kubecraft/kubernetes-fundamentals/Part 1 - Kubernetes?/Kubernetes Fundamentels - Part 1.md",
