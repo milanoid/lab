@@ -153,12 +153,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubernetes Fundamentals/Part 4 - Storage - Ephemeral Storage.md",
+                "file": "1-projects/Kubernetes Fundamentals/Part 4.1 - Storage - Ephemeral Storage.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Part 4 - Storage - Ephemeral Storage"
+              "title": "Part 4.1 - Storage - Ephemeral Storage"
             }
           },
           {
@@ -167,12 +167,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubernetes Fundamentals/Part 4 - Persistent Storage.md",
+                "file": "1-projects/Kubernetes Fundamentals/Part 4.2- Persistent Storage.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Part 4 - Persistent Storage"
+              "title": "Part 4.2- Persistent Storage"
             }
           }
         ],
@@ -334,20 +334,20 @@
   },
   "active": "efa726fbb20c2a07",
   "lastOpenFiles": [
-    "1-projects/Kubernetes Fundamentals/Part 4 - Storage - Ephemeral Storage.md",
-    "1-projects/Kubernetes Fundamentals/Part 4 - Persistent Storage.md",
+    "1-projects/Kubernetes Fundamentals/Part 4.1 - Storage - Ephemeral Storage.md",
+    "1-projects/Kubernetes Fundamentals/Part 4.2- Persistent Storage.md",
+    "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments/deployment.yaml~",
+    "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments/storage.yaml~",
+    "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments/storage.yaml",
+    "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments/namespace.yaml",
+    "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments/deployment.yaml",
+    "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments/service.yaml",
     "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments/nginx-busybox-pod.yaml~",
     "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments/nginx-pod.yaml~",
     "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments/nginx-busybox-pod.yaml",
     "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments/nginx-pod.yaml",
-    "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments",
-    "kubecraft/kubernetes-fundamentals/Part 4 - Storage",
     "1-projects/Kubernetes Fundamentals/Part 3.3 - Ingress.md",
     "1-projects/Kubernetes Fundamentals/Part 3.2 - Services.md",
-    "kubecraft/kubernetes-fundamentals/Part 3 - Networking/service.yaml~",
-    "kubecraft/kubernetes-fundamentals/Part 3 - Networking/service.yaml",
-    "kubecraft/kubernetes-fundamentals/Part 3 - Networking/frontend.yaml~",
-    "kubecraft/kubernetes-fundamentals/Part 3 - Networking/frontend.yaml",
     "1-projects/Kubernetes Fundamentals/Part 3.1 - Networking.md",
     "1-projects/Kubernetes Fundamentals/Part 2.3 - Deployments - Mealie.md",
     "1-projects/Kubernetes Fundamentals/Part 2.2 - Deployment - Namespaces.md",
@@ -372,7 +372,6 @@
     "2-areas/Linux.md",
     "1-projects/Arch Linux/Pacman.md",
     "1-projects/Arch Linux/Bluetooth.md",
-    "4-archives/Lenovo A485/WWAN.md",
     "1-projects/Arch Linux/Pasted image 20250407140038.png",
     "1-projects/Linux/Screenshot 2025-04-26 at 18.27.36.png",
     "1-projects/Linux/Pasted image 20250407140038.png",
