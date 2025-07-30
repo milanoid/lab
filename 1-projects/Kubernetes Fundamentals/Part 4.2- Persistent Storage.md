@@ -89,3 +89,7 @@ local-path (default)   rancher.io/local-path   Delete          WaitForFirstConsu
 various storage classes (for VMWare, Azure ...)
 
 
+### modes
+
+ReadWriteOnce - R/W but one the same Node only
+ReadWriteMany - R/W for all Nodes
