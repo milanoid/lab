@@ -167,12 +167,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubernetes Fundamentals/Part 4.2- Persistent Storage.md",
+                "file": "1-projects/Kubernetes Fundamentals/Part 4.1 - Storage - Ephemeral Storage.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Part 4.2- Persistent Storage"
+              "title": "Part 4.1 - Storage - Ephemeral Storage"
             }
           }
         ],
@@ -334,8 +334,8 @@
   },
   "active": "efa726fbb20c2a07",
   "lastOpenFiles": [
+    "1-projects/Kubernetes Fundamentals/Part 4.2 - Persistent Storage.md",
     "1-projects/Kubernetes Fundamentals/Part 4.1 - Storage - Ephemeral Storage.md",
-    "1-projects/Kubernetes Fundamentals/Part 4.2- Persistent Storage.md",
     "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments/deployment.yaml~",
     "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments/storage.yaml~",
     "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments/storage.yaml",
