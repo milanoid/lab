@@ -41,5 +41,12 @@ Volumes:
 ```
 
 
-#### sharing storage among 2 container in a Pod
+#### Sharing storage among 2 containers in a Pod
 
+see file `nginx-busybox-pod.yaml` (a pod with 2 containers mounted with the same volume)
+
+connecting to a specific container in a multicontainer pod
+
+- `kubectl exec -it nginx-busybox-storage --container busybox -- /bin/sh`
+
+Creating a file in one container at /scratch makes the file instantly available to another container in the same path /scratch.

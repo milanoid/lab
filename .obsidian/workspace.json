@@ -160,9 +160,23 @@
               "icon": "lucide-file",
               "title": "Part 4 - Storage - Ephemeral Storage"
             }
+          },
+          {
+            "id": "efa726fbb20c2a07",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-projects/Kubernetes Fundamentals/Part 4 - Persistent Storage.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Part 4 - Persistent Storage"
+            }
           }
         ],
-        "currentTab": 10
+        "currentTab": 11
       }
     ],
     "direction": "vertical"
@@ -318,8 +332,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e9090ad2b8d7f665",
+  "active": "efa726fbb20c2a07",
   "lastOpenFiles": [
+    "1-projects/Kubernetes Fundamentals/Part 4 - Storage - Ephemeral Storage.md",
+    "1-projects/Kubernetes Fundamentals/Part 4 - Persistent Storage.md",
     "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments/nginx-busybox-pod.yaml~",
     "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments/nginx-pod.yaml~",
     "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments/nginx-busybox-pod.yaml",
@@ -327,13 +343,11 @@
     "kubecraft/kubernetes-fundamentals/Part 4 - Storage/deployments",
     "kubecraft/kubernetes-fundamentals/Part 4 - Storage",
     "1-projects/Kubernetes Fundamentals/Part 3.3 - Ingress.md",
-    "1-projects/Kubernetes Fundamentals/Part 4 - Storage - Ephemeral Storage.md",
     "1-projects/Kubernetes Fundamentals/Part 3.2 - Services.md",
     "kubecraft/kubernetes-fundamentals/Part 3 - Networking/service.yaml~",
     "kubecraft/kubernetes-fundamentals/Part 3 - Networking/service.yaml",
     "kubecraft/kubernetes-fundamentals/Part 3 - Networking/frontend.yaml~",
     "kubecraft/kubernetes-fundamentals/Part 3 - Networking/frontend.yaml",
-    "kubecraft/kubernetes-fundamentals/Part 3 - Networking/deploy-failing.yaml",
     "1-projects/Kubernetes Fundamentals/Part 3.1 - Networking.md",
     "1-projects/Kubernetes Fundamentals/Part 2.3 - Deployments - Mealie.md",
     "1-projects/Kubernetes Fundamentals/Part 2.2 - Deployment - Namespaces.md",
