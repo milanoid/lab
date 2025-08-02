@@ -61,3 +61,4 @@ Host hpmini01
 
 Now `ssh hpmini01` opens ssh session!
 
+
