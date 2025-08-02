@@ -223,12 +223,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/02 - HomeLab - K3s install.md",
+                "file": "0-inbox/01 - HomeLab - Ubuntu server installation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02 - HomeLab - K3s install"
+              "title": "01 - HomeLab - Ubuntu server installation"
             }
           },
           {
@@ -404,8 +404,8 @@
   },
   "active": "78b840c846003b68",
   "lastOpenFiles": [
-    "0-inbox/01 - HomeLab - Ubuntu server installation.md",
     "0-inbox/02 - HomeLab - K3s install.md",
+    "0-inbox/01 - HomeLab - Ubuntu server installation.md",
     "1-projects/Kubernetes Fundamentals/Part 7 - Monitoring.md",
     "0-inbox/sample-inbox-note.md",
     "kubecraft/kubernetes-fundamentals/Part 7 - Monitoring/values.yaml~",

@@ -1,3 +1,11 @@
+
+boot USB flash
+
+```bash
+sudo dd if=/home/milan/Downloads/ubuntu.iso of=/dev/sdb bs=4M status=progress oflag=sync
+```
+
+
 ### UbuntuServer@HPmini01
 
 HW: HP EliteDesk 705 G2 Mini (CPU AMD A8-8600B R6, 8GB RAM, 128GB SSD, TDP 15W)
