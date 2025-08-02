@@ -9,7 +9,7 @@ Disk partitioning
 
 - Use entire disk
 - Set up this disk as an LVM group
-- Encrypt the LVM group with LUKS (pass in LastPass: UbuntuServer@HPmini01)
+- DO NOT Encrypt the LVM group with LUKS (after a restart I would need type in password via keyboard)
 - LVM Volume group: ubuntu-vg
 - LVM Logical volume: ubuntu-lv (ext4, mount /) 100G, free space left
 
