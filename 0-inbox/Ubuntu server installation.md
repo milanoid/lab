@@ -1,6 +1,6 @@
 ### UbuntuServer@HPmini01
 
-HW: HP EliteDesk 705 G2 Mini (CPU AMD A7/A8 8GB RAM, 128GB SSD, TDP 15W)
+HW: HP EliteDesk 705 G2 Mini (CPU AMD A8-8600B R6, 8GB RAM, 128GB SSD, TDP 15W)
 hostname: hpmini01
 mac address: EC:B1:D7:6B:21:0E
 private ip address: 192.168.1.236
@@ -11,6 +11,15 @@ HW: HP EliteDesk 705 G2 Mini (CPU AMD PRO A8-8600B, 8GB RAM, 128GB SSD, TDP 15W)
 hostname: hpmini02
 mac address: EC:B1:D7:6E:E0:CF
 private ip address: 192.168.1.232
+
+### UbuntuServer@HPmini03
+
+TODO - too hungry, replace with machine now running Batocera
+
+HW: HP EliteDesk 705 G2 Mini (CPU AMD PRO A10-8770E R7, 16GB RAM, 500GB HYBRID+M.2, TDP 35W)
+hostname: hpmini03
+mac address: 
+private ip address: 
 
 
 Disk partitioning
