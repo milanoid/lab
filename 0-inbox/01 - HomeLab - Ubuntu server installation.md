@@ -62,3 +62,22 @@ Host hpmini01
 Now `ssh hpmini01` opens ssh session!
 
 
+
+#### Post install config
+
+TODO: disable ssh login using password, only public cert allow
+
+Disable unnecessary service - for some reason ModemManager was running:
+
+```bash
+milan@hpmini01:~$ pstree
+systemd─┬─50-motd-news───wget
+        ├─ModemManager───3*[{ModemManager}]
+```
+
+```bash
+# disable and stop the ModemManager service
+sudo systemctl disable ModemManager.service
+sudo systemctl stop ModemManager.service
+```
+
