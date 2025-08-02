@@ -1,9 +1,17 @@
 ### UbuntuServer@HPmini01
 
-HW: HP EliteDesk 705 G2 Mini (CPU AMD A7/A8 8GB RAM, 128GB SSD)
+HW: HP EliteDesk 705 G2 Mini (CPU AMD A7/A8 8GB RAM, 128GB SSD, TDP 15W)
 hostname: hpmini01
 mac address: EC:B1:D7:6B:21:0E
 private ip address: 192.168.1.236
+
+### UbuntuServer@HPmini02
+
+HW: HP EliteDesk 705 G2 Mini (CPU AMD PRO A8-8600B, 8GB RAM, 128GB SSD, TDP 15W)
+hostname: hpmini02
+mac address: EC:B1:D7:6E:E0:CF
+private ip address: 192.168.1.232
+
 
 Disk partitioning
 
