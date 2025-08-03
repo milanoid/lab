@@ -223,12 +223,40 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/01 - HomeLab - Ubuntu server installation.md",
+                "file": "0-inbox/02 - HomeLab - K3s install.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01 - HomeLab - Ubuntu server installation"
+              "title": "02 - HomeLab - K3s install"
+            }
+          },
+          {
+            "id": "a06871fb17d4ca4d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "0-inbox/03 - HomeLab - Flux install.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "03 - HomeLab - Flux install"
+            }
+          },
+          {
+            "id": "2053b16e0cc199df",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "0-inbox/04 - HomeLab - Deploy an app using Flux.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "04 - HomeLab - Deploy an app using Flux"
             }
           },
           {
@@ -246,7 +274,7 @@
             }
           }
         ],
-        "currentTab": 15
+        "currentTab": 17
       }
     ],
     "direction": "vertical"
@@ -402,8 +430,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "78b840c846003b68",
+  "active": "2053b16e0cc199df",
   "lastOpenFiles": [
+    "0-inbox/03 - HomeLab - Flux install.md",
+    "0-inbox/04 - HomeLab - Deploy an app using Flux.md",
     "0-inbox/02 - HomeLab - K3s install.md",
     "0-inbox/01 - HomeLab - Ubuntu server installation.md",
     "1-projects/Kubernetes Fundamentals/Part 7 - Monitoring.md",
@@ -438,8 +468,6 @@
     "0-inbox/2025-06-14.md",
     "4-archives/LVM resize.md",
     "3-resources/LPIC-1 certification.md",
-    "1-projects/Kubernetes Fundamentals/setup.md",
-    "4-archives/CloneZilla backup and restore.md",
     "Pasted image 20250629105100.png",
     "Pasted image 20250608183559.png",
     "Pasted image 20250514145051.png",
