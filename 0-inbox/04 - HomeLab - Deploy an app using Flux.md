@@ -65,3 +65,9 @@ receivers.notification.toolkit.fluxcd.io     2025-08-03T15:27:05Z
 # print the Flux CD Custom Resource as yaml
 milan@jantar:~$ kubectl get customresourcedefinitions.apiextensions.k8s.io kustomizations.kustomize.toolkit.fluxcd.io --output yaml
 ```
+
+```bash
+milan@jantar:~$ kubectl --namespace flux-system get gitrepositories.source.toolkit.fluxcd.io
+NAME          URL                                             AGE   READY   STATUS
+flux-system   ssh://git@github.com/milanoid/homelab-cluster   21h   True    stored artifact for revision 'main@sha1:7ae59ff75fe8cbfd3b2c427ac7dbcc95f6fb79c4'
+```
