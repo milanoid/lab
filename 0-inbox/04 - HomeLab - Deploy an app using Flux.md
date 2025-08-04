@@ -72,3 +72,37 @@ NAME          URL                                             AGE   READY   STAT
 flux-system   ssh://git@github.com/milanoid/homelab-cluster   21h   True    stored artifact for revision 'main@sha1:7ae59ff75fe8cbfd3b2c427ac7dbcc95f6fb79c4'
 ```
 
+- creating the monorepo structure following the Repository structure https://fluxcd.io/flux/guides/repository-structure/
+
+```bash
+milan@jantar:~/repos/homelab-cluster (main)$ tree
+.
+├── apps
+│   ├── base
+│   │   └── linkding
+│   │       ├── deployment.yaml
+│   │       ├── kustomization.yaml
+│   │       └── namespace.yaml
+│   └── staging
+│       └── linkding
+│           └── kustomization.yaml
+└── clusters
+    └── staging
+        ├── apps.yaml
+        └── flux-system
+            ├── gotk-components.yaml
+            ├── gotk-sync.yaml
+            └── kustomization.yaml
+
+9 directories, 8 files
+```
+
+Before
+```bash
+# befor commit and push - rev.7ae59ff7
+milan@jantar:~/repos/homelab-cluster (main)$ flux get kustomizations
+NAME            REVISION                SUSPENDED       READY   MESSAGE
+flux-system     main@sha1:7ae59ff7      False           True    Applied revision: main@sha1:7ae59ff7
+```
+After
+
