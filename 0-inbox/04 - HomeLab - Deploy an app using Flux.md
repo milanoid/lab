@@ -71,3 +71,4 @@ milan@jantar:~$ kubectl --namespace flux-system get gitrepositories.source.toolk
 NAME          URL                                             AGE   READY   STATUS
 flux-system   ssh://git@github.com/milanoid/homelab-cluster   21h   True    stored artifact for revision 'main@sha1:7ae59ff75fe8cbfd3b2c427ac7dbcc95f6fb79c4'
 ```
+
