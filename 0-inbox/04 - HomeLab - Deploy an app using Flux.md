@@ -106,3 +106,20 @@ flux-system     main@sha1:7ae59ff7      False           True    Applied revision
 ```
 After
 
+```bash
+milan@jantar:~/repos/homelab-cluster (main)$ flux get kustomizations
+NAME            REVISION                SUSPENDED       READY   MESSAGE
+flux-system     main@sha1:7ae59ff7      False           Unknown Reconciliation in progress
+```
+
+```bash
+milan@jantar:~/repos/homelab-cluster (main)$ flux get kustomizations                                                         NAME            REVISION                SUSPENDED       READY   MESSAGE                                                      apps            main@sha1:d404857a      False           True    Applied revision: main@sha1:d404857a
+flux-system     main@sha1:d404857a      False           True    Applied revision: main@sha1:d404857a                         milan@jantar:~/repos/homelab-cluster (main)$ git log --oneline                                                               d404857 (HEAD -> main, origin/main, origin/HEAD) fix typo
+```
+
+
+```bash
+milan@jantar:~/repos/homelab-cluster (main)$ kubectl get pods --namespace linkding
+NAME                        READY   STATUS    RESTARTS   AGE
+linkding-55fb4cbfd7-47vvc   1/1     Running   0          106s
+```
