@@ -193,10 +193,10 @@
   },
   "active": "85b59585335cd79a",
   "lastOpenFiles": [
-    "0-inbox/sample-inbox-note.md",
     "0-inbox/04 - HomeLab - Deploy an app using Flux.md",
-    "0-inbox/03 - HomeLab - Flux install.md",
     "0-inbox/05 - Application Configuration, Storage.md",
+    "0-inbox/sample-inbox-note.md",
+    "0-inbox/03 - HomeLab - Flux install.md",
     "1-projects/Kubernetes Fundamentals/Part 3.3 - Ingress.md",
     "4-archives/LPIC-1 exam prep/104.2 Maintain the integrity of filesystems.md",
     "4-archives/LPIC-1 exam prep/103.5 Create, monitor, and kill processes.md",
