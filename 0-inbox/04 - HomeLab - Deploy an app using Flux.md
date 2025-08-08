@@ -123,3 +123,17 @@ milan@jantar:~/repos/homelab-cluster (main)$ kubectl get pods --namespace linkdi
 NAME                        READY   STATUS    RESTARTS   AGE
 linkding-55fb4cbfd7-47vvc   1/1     Running   0          106s
 ```
+
+### port forward
+
+either via K9s (SHIFT+F) on the pod level or via command line:
+
+```bash
+milan@jantar:~$ kubectl --namespace linkding port-forward linkding-55fb4cbfd7-47vvc 8080:9090
+Forwarding from 127.0.0.1:8080 -> 9090
+Forwarding from [::1]:8080 -> 9090
+Handling connection for 8080
+Handling connection for 8080
+```
+The application is now accessible on http://localhost:8080/.
+
