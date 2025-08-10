@@ -23,3 +23,51 @@ root          28  0.0  0.0   4608  3712 pts/0    Ss   14:52   0:00 bash
 root        6229  100  0.0   8540  4352 pts/0    R+   15:00   0:00 ps aux
 ```
 
+To find the user running the Linkding app:
+
+- check `ps aux` within the container
+- check Dockerfile of the application https://github.com/search?q=repo%3Asissbruecker%2Flinkding%20www-data&type=code
+- find the user ID in the `/etc/passwd`
+
+### apply the changes
+
+`flux reconcile kustomization apps` - force the reconciliation now
+
+- ? I had to add `runAsUser` on the container level unlike Mischa solution, without that the container still run with root account
+```yaml
+milan@jantar:~/repos/homelab-cluster (main)$ cat apps/base/linkding/deployment.yaml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linkding
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: linkding
+  template:
+    metadata:
+      labels:
+        app: linkding
+    securityContext:
+      fsGrop: 33  # www-data group ID
+      runAsUser: 33  # www-data user ID
+      runAsGroup: 33  # www-data group ID
+    spec:
+      containers:
+        - name: linkding
+          image: sissbruecker/linkding:1.31.0
+          ports:
+            - containerPort: 9090
+          volumeMounts:
+            - mountPath: /etc/linkding/data
+              name: linkding-data
+          securityContext:
+            allowPrivilegesEscalation: false
+            runAsUser: 33
+      volumes:
+        - name: linkding-data
+          persistentVolumeClaim:
+            claimName: linkding-data-pvc
+```
