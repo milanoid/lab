@@ -8,7 +8,8 @@
 		"ghcr.io/devcontainers/features/azure-cli:1": {},
 		"ghcr.io/devcontainers/features/github-cli:1": {},
 		"ghcr.io/flexwie/devcontainer-features/op:1": {},
-		"ghcr.io/kreemer/features/stow:1": {}
+		"ghcr.io/kreemer/features/stow:1": {},
+		"ghcr.io/joshspicer/more-features/cowsay:1": {}
 	},
 
 	"remoteEnv": {
