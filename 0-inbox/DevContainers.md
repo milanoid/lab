@@ -56,3 +56,13 @@ milan@jantar:~/repos/lab/0-inbox/devcontainers (main)$ devpod ls
     devcontainers | local:/home/milan/repos/lab/0-inbox/devcontainers |         | docker   | none | 2m0s        | 12m18s
     pi            | local:/home/milan/repos/pi                        |         | docker   | none | 2259h41m13s | 2259h48m45s
 ```
+
+Recreate a devcontainer:
+
+`devpod --ide=none up . --recreate`
+
+Start devpod with dotfiles:
+
+```
+devpod up https://github.com/example/repo --dotfiles https://github.com/my-user/my-dotfiles-repo
+```
