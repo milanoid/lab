@@ -66,3 +66,9 @@ Start devpod with dotfiles:
 ```
 devpod up https://github.com/example/repo --dotfiles https://github.com/my-user/my-dotfiles-repo
 ```
+
+Start devpod with dotfiles from a specific branch
+
+```bash
+evpod --ide=none up . --dotfiles https://github.com/milanoid/dotfiles.git@devcontainers --recreate
+```
