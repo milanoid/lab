@@ -41,7 +41,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/07 - HomeLab - Expose Linkding to the Internet.md",
+                "file": "1-projects/Kubernetes HomeLab/07 - HomeLab - Expose Linkding to the Internet.md",
                 "mode": "source",
                 "source": false
               },
@@ -70,7 +70,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "process",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -206,9 +206,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c1a23d3d9ce31b23",
+  "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
-    "0-inbox/07 - HomeLab - Expose Linkding to the Internet.md",
+    "1-projects/Kubernetes HomeLab/07 - HomeLab - Expose Linkding to the Internet.md",
     "1-projects/Kubernetes HomeLab/06 - HomeLab - Securing Linkding application.md",
     "0-inbox/DevContainers.md",
     "0-inbox/devcontainers/devcontainers",
