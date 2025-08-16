@@ -137,7 +137,18 @@ milan@jantar:~/repos/homelab-cluster (main)$ tree
 │           ├── cloudflare.yaml
 │           ├── kustomization.yaml
 │           └── test-secret.yaml
-├── clusters
+├── clusters:12.986Z info Kustomization/flux-system.flux-system - server-side apply for cluster definitions completed
+2025-08-16T17:08:13.242Z info Kustomization/flux-system.flux-system - server-side apply completed
+2025-08-16T17:08:13.277Z info Kustomization/flux-system.flux-system - Reconciliation finished in 1.478939642s, next run in 10m0s
+2025-08-16T17:08:13.372Z info Kustomization/apps.flux-system - server-side apply for cluster definitions completed
+2025-08-16T17:08:13.415Z info Kustomization/apps.flux-system - server-side apply completed
+2025-08-16T17:08:13.437Z info Kustomization/apps.flux-system - Reconciliation finished in 193.497838ms, next run in 1m0s
+2025-08-16T17:08:23.871Z info Kustomization/apps.flux-system - server-side apply for cluster definitions completed
+2025-08-16T17:08:23.903Z info Kustomization/apps.flux-system - server-side apply completed
+2025-08-16T17:08:23.923Z info Kustomization/apps.flux-system - Reconciliation finished in 185.293729ms, next run in 1m0s
+2025-08-16T17:09:10.741Z info GitRepository/flux-system.flux-system - garbage collected 1 artifacts
+2025-08-16T17:09:11.908Z info GitRepository/flux-system.flux-system - no changes since last reconcilation: observed revision 'main@sha1:82263ad3a55e9906ce328820dfe460b926465dc6'
+2025-08-16T17:09:24.572Z info Kustomization/apps.flux-system - server-s
 │   └── staging
 │       ├── apps.yaml
 │       ├── flux-system
@@ -154,3 +165,40 @@ flux logs
 2025-08-16T15:53:10.219Z error Kustomization/apps.flux-system - Reconciliation failed after 158.297856ms, next try in 1m0s Secret/linkding/test-secret is SOPS encrypted, configuring decryption is required for this secret to be reconciled
 2025-08-16T15:53:23.822Z error Kustomization/apps.flux-system - Reconciliation failed after 176.22762ms, next try in 1m0s Secret/linkding/test-secret is SOPS encrypted, configuring decryption is required for this secret to be reconciled
 ```
+
+```bash
+2025-08-16T17:07:56.236Z error Kustomization/flux-system.flux-system - Reconciliation failed after 114.325874ms, next try in 10m0s failed to decode Kubernetes YAML from /tmp/kustomization-3555084269/clusters/staging/sops.yaml: missing Resource metadata <nil>
+```
+
+the problem was with naming the file - correct is `.sops.yaml`
+
+```bash
+milan@jantar:~/repos/homelab-cluster (main)$ tree
+.
+├── apps
+│   ├── base
+│   │   └── linkding
+│   │       ├── deployment.yaml
+│   │       ├── kustomization.yaml
+│   │       ├── namespace.yaml
+│   │       ├── service.yaml
+│   │       └── storage.yaml
+│   └── staging
+│       └── linkding
+│           ├── cloudflare.yaml
+│           ├── kustomization.yaml
+│           └── test-secret.yaml
+├── clusters
+│   └── staging
+│       ├── apps.yaml
+│       └── flux-system
+│           ├── gotk-components.yaml
+│           ├── gotk-sync.yaml
+│           └── kustomization.yaml
+└── README.md
+
+9 directories, 13 files
+milan@jantar:~/repos/homelab
+```
+
+TODO - In the course comment note on correctness of the file placement and regex.
