@@ -118,3 +118,39 @@ creation_rules:
     encrypted_regex: ^(data|stringData)$
     age: age1jnfhet7cj900tg9f0dwgqktjwux4km4hen8gnevpujm5260sayesujm92y
 ```
+
+pushing it all to git:
+
+```bash
+milan@jantar:~/repos/homelab-cluster (main)$ tree
+.
+├── apps
+│   ├── base
+│   │   └── linkding
+│   │       ├── deployment.yaml
+│   │       ├── kustomization.yaml
+│   │       ├── namespace.yaml
+│   │       ├── service.yaml
+│   │       └── storage.yaml
+│   └── staging
+│       └── linkding
+│           ├── cloudflare.yaml
+│           ├── kustomization.yaml
+│           └── test-secret.yaml
+├── clusters
+│   └── staging
+│       ├── apps.yaml
+│       ├── flux-system
+│       │   ├── gotk-components.yaml
+│       │   ├── gotk-sync.yaml
+│       │   └── kustomization.yaml
+│       └── sops.yaml
+└── README.md
+```
+
+
+```bash
+flux logs
+2025-08-16T15:53:10.219Z error Kustomization/apps.flux-system - Reconciliation failed after 158.297856ms, next try in 1m0s Secret/linkding/test-secret is SOPS encrypted, configuring decryption is required for this secret to be reconciled
+2025-08-16T15:53:23.822Z error Kustomization/apps.flux-system - Reconciliation failed after 176.22762ms, next try in 1m0s Secret/linkding/test-secret is SOPS encrypted, configuring decryption is required for this secret to be reconciled
+```
