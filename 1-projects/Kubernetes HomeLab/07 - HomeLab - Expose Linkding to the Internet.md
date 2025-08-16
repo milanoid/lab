@@ -120,5 +120,41 @@ Enter:
 
 [cf838265-1863-4c1b-a710-f8bb9fbf038b.cfargotunnel.com](http://cf838265-1863-4c1b-a710-f8bb9fbf038b.cfargotunnel.com "http://cf838265-1863-4c1b-a710-f8bb9fbf038b.cfargotunnel.com")
 
-servre.milanoid.net
+[server.milanoid.net](https://server.milanoid.net)
 
+#### cloudflared deployement
+
+- in file `cloudflare.yaml`
+
+```bash
+milan ~/repos/homelab-cluster [main] $ tree
+.
+├── README.md
+├── apps
+│   ├── base
+│   │   └── linkding
+│   │       ├── deployment.yaml
+│   │       ├── kustomization.yaml
+│   │       ├── namespace.yaml
+│   │       ├── service.yaml
+│   │       └── storage.yaml
+│   └── staging
+│       └── linkding
+│           ├── cloudflare.yaml
+│           └── kustomization.yaml
+└── clusters
+    └── staging
+        ├── apps.yaml
+        └── flux-system
+            ├── gotk-components.yaml
+            ├── gotk-sync.yaml
+            └── kustomization.yaml
+
+9 directories, 12 files
+```
+
+an error on missing .pem file but connection works!
+
+```bash
+2025-08-16T10:15:19Z ERR Cannot determine default origin certificate path. No file cert.pem in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp /etc/cloudflared /usr/local
+```
