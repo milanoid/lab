@@ -269,3 +269,27 @@ kubectl create secret generic linkding-super-user --from-literal=LD_SUPERUSER_NA
 sops --encrypt --in-place apps/staging/linkding/linkding-secrets.yaml
 ```
 
+```bash
+# update the linkding deployement
+# must refer to secrets name
+...
+spec:
+      containers:
+        - name: linkding
+          image: sissbruecker/linkding:1.31.0
+          ports:
+            - containerPort: 9090
+          envFrom:
+            - secretRef:
+                name: linkding-super-user
+     
+...
+```
+
+Now when open the shell of the pod:
+
+```bash
+<<K9s-Shell>> Pod: linkding/linkding-59946f455c-84qpt | Container: linkding
+www-data@linkding-59946f455c-84qpt:/etc/linkding$ echo $LD_SUPERUSER_NAME
+milan
+```
