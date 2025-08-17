@@ -202,3 +202,39 @@ milan@jantar:~/repos/homelab
 ```
 
 TODO - In the course comment note on correctness of the file placement and regex.
+
+
+---
+Exercise
+
+## Exercise 1
+
+Remember that cloudflare-tunnel secret we created earlier?
+
+Here’s the first exercise:
+
+Delete that from the cluster and replace it with an encrypted secret deployed through Flux.
+
+## Exercise 2
+
+Next, let’s improve our Linkding setup.
+
+Remember when we set up our Linkding deployment? we had to run this command:
+
+```
+k exec -it linkding-7bffb6cdb9-h7mnm -- python manage.py createsuperuser --username=mischa --email=mischa@example.com
+```
+
+This is clunky, we want our application to be deployed fully automatically. Right?
+
+In order to achieve this, Linkding has the following environment variables:
+
+LD_SUPERUSER_NAME
+
+LD_SUPERUSER_PASSWORD
+
+When these are set, a superuser is created automatically which we can use to log in.
+
+Exercise: Pass these environment variables to the container using a secret.
+
+Really try to do this yourself.
