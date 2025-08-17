@@ -223,10 +223,10 @@ Delete that from the cluster and replace it with an encrypted secret deployed th
 
 - create `tunnel-credentials.yaml` file with only base64 encoded credentials from the cloudflare tunnel file
 ```
-kubectl create secret generic tunnel-credentials --from-file=/home/milan/.cloudflared/cf838265-1863-4c1b-a710-f8bb9fbf038b.json --dry-run=client --output yaml > apps/staging/linkding/tunnel-credentials.yaml
+kubectl create secret generic tunnel-credentials --from-file=credentials.json=/home/milan/.cloudflared/cf838265-1863-4c1b-a710-f8bb9fbf038b.json --dry-run=client --output yaml > apps/staging/linkding/tunnel-credentials.yaml
 ```
 
-- the output file didn't meet the `yamllint` standards (line too long 281>80) - fixed by using so called _folder block scalar_ `>`
+- (OPTIONAL) the output file didn't meet the `yamllint` standards (line too long 281>80) - fixed by using so called _folder block scalar_ `>`
 
 - encrypt the file using `sops`
 
@@ -256,3 +256,16 @@ When these are set, a superuser is created automatically which we can use to log
 Exercise: Pass these environment variables to the container using a secret.
 
 Really try to do this yourself.
+
+
+
+```bash
+# create yaml file with secret (base64!)
+kubectl create secret generic linkding-super-user --from-literal=LD_SUPERUSER_NAME='milan' --from-literal=LD_SUPERUSER_PASSWORD='<secret-password-here>' --dry-run=client --output yaml > apps/staging/linkding/linkding-secrets.yaml
+```
+
+```bash
+# encrypy
+sops --encrypt --in-place apps/staging/linkding/linkding-secrets.yaml
+```
+
