@@ -293,3 +293,6 @@ Now when open the shell of the pod:
 www-data@linkding-59946f455c-84qpt:/etc/linkding$ echo $LD_SUPERUSER_NAME
 milan
 ```
+
+
+reading: https://12factor.net/
