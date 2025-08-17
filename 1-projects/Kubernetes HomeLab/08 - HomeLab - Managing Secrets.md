@@ -215,15 +215,33 @@ Here’s the first exercise:
 
 Delete that from the cluster and replace it with an encrypted secret deployed through Flux.
 
+---
+
+- deleting the "manually" create secret
+
+`kubectl delete secrets tunnel-credentials` 
+
+- create `tunnel-credentials.yaml` file with only base64 encoded credentials from the cloudflare tunnel file
+```
+kubectl create secret generic tunnel-credentials --from-file=/home/milan/.cloudflared/cf838265-1863-4c1b-a710-f8bb9fbf038b.json --dry-run=client --output yaml > apps/staging/linkding/tunnel-credentials.yaml
+```
+
+- the output file didn't meet the `yamllint` standards (line too long 281>80) - fixed by using so called _folder block scalar_ `>`
+
+- encrypt the file using `sops`
+
+```bash
+# spos uses .sops file (with configuration)
+sops --encrypt --in-place apps/staging/linkding/tunnel-credentials.yaml
+```
+
 ## Exercise 2
 
 Next, let’s improve our Linkding setup.
 
 Remember when we set up our Linkding deployment? we had to run this command:
 
-```
 k exec -it linkding-7bffb6cdb9-h7mnm -- python manage.py createsuperuser --username=mischa --email=mischa@example.com
-```
 
 This is clunky, we want our application to be deployed fully automatically. Right?
 
