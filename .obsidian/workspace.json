@@ -48,9 +48,23 @@
               "icon": "lucide-file",
               "title": "09 - HomeLab - Monitoring & Helm"
             }
+          },
+          {
+            "id": "f9e018ebbc9f6158",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "0-inbox/VPN server with dynamic IP.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "VPN server with dynamic IP"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -207,13 +221,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e4ea897b2d01a2b5",
+  "active": "f9e018ebbc9f6158",
   "lastOpenFiles": [
-    "1-projects/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
+    "1-projects/Kubernetes HomeLab/07 - HomeLab - Expose Linkding to the Internet.md",
+    "1-projects/Kubernetes HomeLab/10 - HomeLab - Ingress with Traefik.md",
     "1-projects/Kubernetes HomeLab/09 - HomeLab - Monitoring & Helm.md",
+    "1-projects/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
     "0-inbox/VPN server with dynamic IP.md",
     "2-areas/Linux.md",
-    "1-projects/Kubernetes HomeLab/07 - HomeLab - Expose Linkding to the Internet.md",
     "1-projects/Kubernetes HomeLab/06 - HomeLab - Securing Linkding application.md",
     "1-projects/Kubernetes HomeLab/05 - HomeLab - Application Configuration, Storage.md",
     "1-projects/Kubernetes HomeLab/04 - HomeLab - Deploy an app using Flux.md",
@@ -244,7 +259,6 @@
     "kubecraft/kubernetes-fundamentals/Part 6 - Helm/helm/values.yaml~",
     "kubecraft/kubernetes-fundamentals/Part 6 - Helm/helm/values.yaml",
     "4-archives/Kubernetes Fundamentals/Part 5 - K9s.md",
-    "4-archives/Kubernetes Fundamentals/Part 4.1 - Storage - Ephemeral Storage.md",
     "Pasted image 20250629105100.png",
     "Pasted image 20250608183559.png",
     "Pasted image 20250514145051.png",
