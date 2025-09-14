@@ -311,8 +311,29 @@ sops --age=$AGE_PUBLIC \
 ```
 
 
+FluxCD vs ArgoCD
 
+- Unlike ArgoCD, the Flux keeps the older version of Helm charts:
 
+```bash
+homelab-cluster main ? ❯ kubectl get secrets
+NAME                                                                             TYPE                 DATA   AGE
+sh.helm.release.v1.kube-prometheus-stack.v1                                      helm.sh/release.v1   1      20d
+sh.helm.release.v1.kube-prometheus-stack.v2                                      helm.sh/release.v1   1      115m
+sh.helm.release.v1.kube-prometheus-stack.v3                                      helm.sh/release.v1   1      104m
+sh.helm.release.v1.kube-prometheus-stack.v4                                      helm.sh/release.v1   1      55m
+sh.helm.release.v1.kube-prometheus-stack.v5                                      helm.sh/release.v1   1      17m
+```
+
+```bash
+homelab-cluster main ? ❯ helm history kube-prometheus-stack
+REVISION        UPDATED                         STATUS          CHART                           APP VERSION     DESCRIPTION
+1               Sun Aug 24 16:48:16 2025        superseded      kube-prometheus-stack-66.2.2    v0.78.2         Install complete
+2               Sun Sep 14 10:01:01 2025        superseded      kube-prometheus-stack-66.2.2    v0.78.2         Upgrade complete
+3               Sun Sep 14 10:11:16 2025        superseded      kube-prometheus-stack-77.6.2    v0.85.0         Upgrade complete
+4               Sun Sep 14 11:00:33 2025        superseded      kube-prometheus-stack-77.6.2    v0.85.0         Upgrade complete
+5               Sun Sep 14 11:38:15 2025        deployed        kube-prometheus-stack-77.6.2    v0.85.0         Upgrade complete
+```
 
 
 
