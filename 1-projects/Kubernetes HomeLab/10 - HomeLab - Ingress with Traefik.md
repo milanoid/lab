@@ -261,7 +261,60 @@ values:
 
 Git commit/push and all changes will be applied via Flux.
 
+```bash
+homelab-cluster main ? ✗ kubens
+✔ Active namespace is "monitoring".
+
+homelab-cluster main ? ❯ kubectl get ingress
+NAME                            CLASS     HOSTS                  ADDRESS         PORTS   AGE
+kube-prometheus-stack-grafana   traefik   grafana.milanoid.net   192.168.1.231   80      59m
+```
+
+
+
 https://grafana.milanoid.net/
+
+
+#### Extra: adding TLS cert for https connection
+
+- by default the Traefik expose a TREAFIK DEFAULT CERT
+
+Creating my own certificate:
+
+```bash
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+  -keyout ./tls.key \
+  -out ./tls.crt \
+  -subj "/C=US/ST=Prague/L=Basement/O=Home Lab Heroes Inc./OU=Department of Monitoring/CN=grafana.milanoid.net" \
+  -addext "subjectAltName=DNS:grafana.milanoid.net"
+```
+
+it creates 2 files - `tls.key` (private key) and `tls.crt` (public key)
+
+Based on these files we can create Kubernetes secret:
+
+```bash
+kubectl create secret tls grafana-tls-secret \
+  --cert=tls.crt \
+  --key=tls.key \
+  --namespace=monitoring \
+  --dry-run=client \
+  -o yaml > grafana-tls-secret.yaml
+```
+Now using the `age` we need to encrypt it:
+
+`export AGE_PUBLIC=age1jnfhet7cj900tg9f0dwgqktjwux4km4hen8gnevpujm5260sayesujm92y`
+
+```bash
+sops --age=$AGE_PUBLIC \
+--encrypt --encrypted-regex '^(data|stringData)$' --in-place grafana-tls-secret.yaml
+```
+
+
+
+
+
+
 
 
 
