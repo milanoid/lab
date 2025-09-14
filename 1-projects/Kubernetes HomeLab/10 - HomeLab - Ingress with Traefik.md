@@ -228,7 +228,7 @@ Benefits:
 - works on any machine (as it uses public DNS record for the address)
 - we are using Cloudflare as my local DNS!
 
-Excercise
+### Excercise
 
 - Create an _Ingress Resource_ through the Graphana Helm chart
 
@@ -236,6 +236,14 @@ Excercise
 # checking Values
 homelab-cluster main ❯ helm show values prometheus-community/kube-prometheus-stack
 ```
+
+```bash
+# output all the Values to a file for inspection in nvim
+helm show values prometheus-community/kube-prometheus-stack > values.yaml
+
+```
+
+
 
 - it's about adding "ingress" to `/monitoring/controllers/kube-prometheus-stack/release.yaml`
 
