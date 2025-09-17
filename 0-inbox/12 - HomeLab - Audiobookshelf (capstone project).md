@@ -9,7 +9,7 @@ https://www.audiobookshelf.org/docs#docker-compose-install
 
 - The application should use port 3005
     
-- This should be configured through a ConfigMap
+- This should be configured through a [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/#using-configmaps-as-environment-variables)
     
 - It should have a ClusterIP service using port 3005
 
