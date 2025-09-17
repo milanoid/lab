@@ -4,80 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "54754e7d024c1c6e",
+        "id": "9422083da339c130",
         "type": "tabs",
         "children": [
           {
-            "id": "938a6c35a246f2b2",
+            "id": "ff54bdc000f1b9c8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2-areas/Linux.md",
+                "file": "1-projects/Kubernetes HomeLab/11 - HomeLab - Automated Image updates.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Linux"
+              "title": "11 - HomeLab - Automated Image updates"
             }
           },
           {
-            "id": "0fe7720088f58bd0",
+            "id": "51bc9a6ac33f0333",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
+                "file": "0-inbox/12 - HomeLab - Audiobookshelf (capstone project).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "08 - HomeLab - Managing Secrets"
-            }
-          },
-          {
-            "id": "e4ea897b2d01a2b5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-projects/Kubernetes HomeLab/09 - HomeLab - Monitoring & Helm.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "09 - HomeLab - Monitoring & Helm"
-            }
-          },
-          {
-            "id": "f9e018ebbc9f6158",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-projects/Kubernetes HomeLab/10 - HomeLab - Ingress with Traefik.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "10 - HomeLab - Ingress with Traefik"
-            }
-          },
-          {
-            "id": "69433467fcca99f7",
-            "type": "leaf",
-            "state": {
-              "type": "bases",
-              "state": {
-                "file": "0-inbox/Untitled 1.base",
-                "viewName": "Table"
-              },
-              "icon": "lucide-table",
-              "title": "Untitled 1"
+              "title": "12 - HomeLab - Audiobookshelf (capstone project)"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -89,7 +48,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 32.65993265993266,
+        "dimension": 15.797788309636651,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -97,7 +56,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "sops",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -113,7 +72,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 67.34006734006735,
+        "dimension": 84.20221169036336,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -234,12 +193,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "69433467fcca99f7",
+  "active": "51bc9a6ac33f0333",
   "lastOpenFiles": [
-    "0-inbox/Untitled.base",
-    "0-inbox/Untitled 1.base",
     "1-projects/Kubernetes HomeLab/11 - HomeLab - Automated Image updates.md",
+    "0-inbox/12 - HomeLab - Audiobookshelf (capstone project).md",
     "1-projects/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
+    "0-inbox/Untitled 3.base",
+    "0-inbox/Untitled 2.base",
+    "0-inbox/Untitled 1.base",
+    "0-inbox/Untitled.base",
     "1-projects/Kubernetes HomeLab/10 - HomeLab - Ingress with Traefik.md",
     "1-projects/Kubernetes HomeLab/09 - HomeLab - Monitoring & Helm.md",
     "0-inbox/VPN server with dynamic IP.md",
@@ -269,9 +231,6 @@
     "4-archives/Kubernetes Fundamentals/Part 7 - Monitoring.md",
     "kubecraft/kubernetes-fundamentals/Part 7 - Monitoring/values.yaml~",
     "kubecraft/kubernetes-fundamentals/Part 7 - Monitoring/nvim",
-    "kubecraft/kubernetes-fundamentals/Part 7 - Monitoring/values.yaml",
-    "kubecraft/kubernetes-fundamentals/Part 7 - Monitoring",
-    "kubecraft/kubernetes-fundamentals/Part 6 - Helm/helm/values.yaml~",
     "Pasted image 20250629105100.png",
     "Pasted image 20250608183559.png",
     "Pasted image 20250514145051.png",
