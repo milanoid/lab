@@ -39,3 +39,7 @@ suggested volumes:
 3. `/audiobooks`
 4. `/books`
 5. `/podcasts`
+
+
+- `flux get kustomizations apps` - get status, handy if the reconsilation stucks - shows the errors
+
