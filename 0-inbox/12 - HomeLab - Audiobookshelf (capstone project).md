@@ -13,6 +13,11 @@ https://www.audiobookshelf.org/docs#docker-compose-install
     
 - It should have a ClusterIP service using port 3005
 
+- [ ] Access the application through a port-forward and upload an audio file.
+
+user: root
+pass: passrott
+
 ghcr.io/advplyr/audiobookshelf:2.29.0
 
 ### change of the source branch for FluxCD
@@ -21,7 +26,16 @@ after a branch change in `gotk-sync.yaml` it needs to be re-apply:
 
 `kubectl apply -f clusters/staging/flux-system/gotk-sync.yaml`
 
-```bash
+## Stage 2
 
+Add persistent volumes for all of the suggested volumes in the Audiobookshelf documentation.
 
-```
+Audiobooks and configuration should persist when you restart the pod.
+
+suggested volumes:
+
+1. `/config`
+2. `/metadata`
+3. `/audiobooks`
+4. `/books`
+5. `/podcasts`
