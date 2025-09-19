@@ -13,7 +13,7 @@ https://www.audiobookshelf.org/docs#docker-compose-install
     
 - It should have a ClusterIP service using port 3005
 
-- [ ] Access the application through a port-forward and upload an audio file.
+- [x] Access the application through a port-forward and upload an audio file.
 
 user: root
 pass: passrott
@@ -37,9 +37,11 @@ suggested volumes:
 1. `/config`
 2. `/metadata`
 3. `/audiobooks`
-4. `/books`
-5. `/podcasts`
-
 
 - `flux get kustomizations apps` - get status, handy if the reconsilation stucks - shows the errors
 
+## Stage 3
+
+Run Audiobookshelf as the “node” user (meaning: not running it as root) and make it accessible from the public internet.
+
+The tunnel secret should be encrypted with SOPS and deployed through Flux.
