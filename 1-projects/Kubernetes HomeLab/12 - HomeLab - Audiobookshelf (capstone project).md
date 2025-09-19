@@ -49,5 +49,26 @@ Run Audiobookshelf as the “node” user (meaning: not running it as root) and 
   
   `chown -R node:node config metadata audibooks`
 
-- 
+- using `.sops` config file (contains my AGE public key)
 
+```
+# create .yaml file with unencrypted tunnel data
+kubectl create secret generic audiobooks-tunnel-credentials --from-file=credentials.json=./89bd5528-bdf9-486a-99ca-6680e5f6d9ec.json --dry-run=client -o yaml > audibookshelf-tunnel-credentials.json
+
+
+# encrypt
+sops --config ~/repos/homelab-cluster/.sops.yaml --encrypt --in-place audibookshelf-tunnel-credentials.yaml
+```
+
+#### Adding to Cloudflare DNS
+
+Go to cloudflare DNS, add a new record
+
+select CNAME
+
+Enter:
+
+
+[89bd5528-bdf9-486a-99ca-6680e5f6d9ec.cfargotunnel.com](http://89bd5528-bdf9-486a-99ca-6680e5f6d9ec.cfargotunnel.com "http://89bd5528-bdf9-486a-99ca-6680e5f6d9ec.cfargotunnel.com")
+
+[audiobooks.milanoid.net](https://audibooks.milanoid.net)
