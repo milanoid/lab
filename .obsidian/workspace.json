@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubernetes HomeLab/07 - HomeLab - Expose Linkding to the Internet.md",
+                "file": "1-projects/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "07 - HomeLab - Expose Linkding to the Internet"
+              "title": "08 - HomeLab - Managing Secrets"
             }
           }
         ]
@@ -180,6 +180,7 @@
   },
   "active": "146116978b2434ad",
   "lastOpenFiles": [
+    "1-projects/Kubernetes HomeLab/07 - HomeLab - Expose Linkding to the Internet.md",
     "1-projects/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
     "1-projects/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
     "1-projects/Kubernetes HomeLab/11 - HomeLab - Automated Image updates.md",
@@ -191,7 +192,6 @@
     "1-projects/Kubernetes HomeLab/10 - HomeLab - Ingress with Traefik.md",
     "1-projects/Kubernetes HomeLab/09 - HomeLab - Monitoring & Helm.md",
     "0-inbox/VPN server with dynamic IP.md",
-    "1-projects/Kubernetes HomeLab/07 - HomeLab - Expose Linkding to the Internet.md",
     "2-areas/Linux.md",
     "1-projects/Kubernetes HomeLab/06 - HomeLab - Securing Linkding application.md",
     "1-projects/Kubernetes HomeLab/05 - HomeLab - Application Configuration, Storage.md",
