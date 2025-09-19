@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "fcb2602931d5f55c",
+        "id": "4f501d1fa065e2a0",
         "type": "tabs",
         "children": [
           {
-            "id": "146116978b2434ad",
+            "id": "8baeb480ccd53d7c",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -41,7 +41,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Adding to Cloudflare DNS",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -178,11 +178,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "146116978b2434ad",
+  "active": "8baeb480ccd53d7c",
   "lastOpenFiles": [
-    "1-projects/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
     "1-projects/Kubernetes HomeLab/07 - HomeLab - Expose Linkding to the Internet.md",
     "1-projects/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
+    "1-projects/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
     "1-projects/Kubernetes HomeLab/11 - HomeLab - Automated Image updates.md",
     "1-projects/Kubernetes HomeLab/03 - HomeLab - Flux install.md",
     "0-inbox/Untitled 3.base",

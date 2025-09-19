@@ -72,3 +72,6 @@ Enter:
 [89bd5528-bdf9-486a-99ca-6680e5f6d9ec.cfargotunnel.com](http://89bd5528-bdf9-486a-99ca-6680e5f6d9ec.cfargotunnel.com "http://89bd5528-bdf9-486a-99ca-6680e5f6d9ec.cfargotunnel.com")
 
 [audiobooks.milanoid.net](https://audibooks.milanoid.net)
+
+
+Tips on applications to host: https://github.com/awesome-selfhosted/awesome-selfhosted
