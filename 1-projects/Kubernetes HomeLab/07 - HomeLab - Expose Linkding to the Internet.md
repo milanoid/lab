@@ -1,6 +1,6 @@
 
 1. most obvious way - open a port on (Wifi) router and port forward to the pod (RISKY)
-2. Cloudflare Tunnel (thiw way)
+2. Cloudflare Tunnel (this way)
 
 https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/
 
@@ -8,9 +8,9 @@ https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/
 
 - create account (free tier)
 - purchase Cloudflare domain
-- install the `cloudflared` (where? On Ubuntu Server running my cluster?)
+- install the `cloudflared` (where? on cluster as deployment)
 - authenticate, generate secret
-- use the secret in the deployement
+- use the secret in the deployment
 
 
 #### install `clouadflared`, create tunnel and generate secret

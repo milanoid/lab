@@ -42,6 +42,12 @@ suggested volumes:
 
 ## Stage 3
 
-Run Audiobookshelf as the “node” user (meaning: not running it as root) and make it accessible from the public internet.
+Run Audiobookshelf as the “node” user (meaning: not running it as root) and make it accessible from the public internet. The tunnel secret should be encrypted with SOPS and deployed through Flux.
 
-The tunnel secret should be encrypted with SOPS and deployed through Flux.
+---
+- As the PVC run first with app under root user the directories and files were under root ownership. I had to do: 
+  
+  `chown -R node:node config metadata audibooks`
+
+- 
+
