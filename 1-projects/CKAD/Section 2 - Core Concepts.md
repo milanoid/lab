@@ -2,7 +2,7 @@
 
 https://containerd.io/
 
-### Pod
+### Pod (hejno)
 
 - usually has a 1 container
 - but can have more (sidecar/helper container)
