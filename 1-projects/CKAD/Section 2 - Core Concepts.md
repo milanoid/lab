@@ -1,3 +1,4 @@
+- `~/repos/ckad/section02-core-concepts`
 ### containerd
 
 https://containerd.io/
