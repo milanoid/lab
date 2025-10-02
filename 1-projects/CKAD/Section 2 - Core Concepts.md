@@ -11,3 +11,9 @@ https://containerd.io/
 
 
 
+## KodeKloud
+
+https://learn.kodekloud.com/user/dashboard
+
+- [x] account created
+- [x] course (free) enrolled
