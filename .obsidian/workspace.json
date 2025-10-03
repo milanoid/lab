@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/CKAD/Section 2 - Core Concepts.md",
+                "file": "4-archives/VPN server with dynamic IP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Section 2 - Core Concepts"
+              "title": "VPN server with dynamic IP"
             }
           }
         ],
@@ -193,10 +193,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e6e596ef8a2b8255",
+  "active": "cd31614cad0c00ba",
   "lastOpenFiles": [
-    "1-projects/CKAD/Intro.md",
     "1-projects/CKAD/Section 2 - Core Concepts.md",
+    "1-projects/CKAD/Intro.md",
     "0-inbox/Untitled.base",
     "0-inbox/Untitled 3.base",
     "0-inbox/Untitled 2.base",
