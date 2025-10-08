@@ -144,3 +144,16 @@ There might be a lot of Pods running. We need to label them so the ReplicaSet ca
 3. or `kubectl scale --replicas=6 replicaset myapp-replicaset` - using the replicaset
 
 The `scale` command change is manual change. The definition file is kept untouched.
+
+
+## Scenarios
+
+### bad update
+
+The deployment is updated with a new image version of an app. While doing the rolling update (or when it is done) the app does not work as expected.
+
+quick roll back:
+
+```bash
+kubectl rollout undo deployment/your-deployment
+```
