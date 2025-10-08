@@ -146,7 +146,7 @@ There might be a lot of Pods running. We need to label them so the ReplicaSet ca
 The `scale` command change is manual change. The definition file is kept untouched.
 
 
-## Scenarios
+## ReplicaSet scenarios
 
 ### bad update
 
@@ -155,5 +155,81 @@ The deployment is updated with a new image version of an app. While doing the ro
 quick roll back:
 
 ```bash
-kubectl rollout undo deployment/your-deployment
+kubectl rollout undo deployment/webhosting
 ```
+
+note - as I am using FluxCD and git driven GitOps approach, after the rollout it gets back to the version specified in git. The rollout in my case would be the create a PR and merge that to the monitored branch `main`.
+
+
+
+# Deployments
+
+rolling update (default)
+
+
+### Hierarchy of Kubernetes objects
+
+1. Deployment
+2. ReplicaSet
+3. Pod
+
+Deployment creates a ReplicaSet which creates Pod(s).
+
+```bash
+# all command to show them all
+milan@SPM-LN4K9M0GG7 ~ $ kubectl get all
+NAME                               READY   STATUS    RESTARTS   AGE
+pod/cloudflared-6fc569995f-59k22   1/1     Running   0          2d14h
+pod/cloudflared-6fc569995f-77ktv   1/1     Running   0          2d14h
+pod/webhosting-558ccf9bcd-7shf9    1/1     Running   0          15m
+pod/webhosting-558ccf9bcd-94gqn    1/1     Running   0          15m
+
+NAME                 TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+service/webhosting   ClusterIP   10.43.168.46   <none>        80/TCP    2d14h
+
+NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/cloudflared   2/2     2            2           2d14h
+deployment.apps/webhosting    2/2     2            2           2d14h
+
+NAME                                     DESIRED   CURRENT   READY   AGE
+replicaset.apps/cloudflared-6fc569995f   2         2         2       2d14h
+replicaset.apps/webhosting-558ccf9bcd    2         2         2       57m
+replicaset.apps/webhosting-587c779d5f    0         0         0       2d14h
+replicaset.apps/webhosting-7bd86f9db9    0         0         0       43h
+```
+
+
+# Namespaces
+
+- to isolate resources
+
+
+created automatically:
+
+- `default`
+- `kube-system`
+- `kube-public`
+
+
+### referring the resources across namespaces
+
+`<service-name>.<namespace>.svc.cluster.local`
+
+e.g.
+
+`db-service.dev.svc.cluster.local` 
+
+- where `cluster.local` is a default DNS name of the cluster
+
+
+vs within the namespace just use the `<service-name>`
+
+
+### switching the config to use a namespace permanently
+
+`kubectl config set-context --current --namespace=linkding` 
+
+
+### ResourceQuota 
+
+- limits resources in a namespace (CPU, pods ... etc)
