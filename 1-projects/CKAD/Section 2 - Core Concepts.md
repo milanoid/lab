@@ -233,3 +233,114 @@ vs within the namespace just use the `<service-name>`
 ### ResourceQuota 
 
 - limits resources in a namespace (CPU, pods ... etc)
+
+
+# Services
+
+- provides connectivity between various groups of pods (e.g. fronted & backend)
+- another Kubernetes object 
+
+## Use cases
+
+### External communication
+
+Scenario - kubernetes node running on my laptop
+
+- laptop 192.168.1.10
+- node    192.168.1.2
+- pod with an application 10.244.0.2 (internal IP)
+
+To access the webservice from my laptop, a Service is needed. The service can listen to a port on the node and forward the traffic to a pod with application - [NodePort](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport) Service.
+
+## Service Types
+
+https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+
+- NodePort
+- ClusterIP - sets up a virtual IP address
+- LoadBalencer
+
+### NodePort
+
+- Maps port on the node to a port on the pod
+- Maps a port to a single Pod
+	- _Target Port_ (on the Pod)
+	- _Port_ (on the Service itself)
+	- _Node Port_ (on the Node) - range 30000 - 32767
+
+```bash
+kubectl create service nodeport --tcp 80:80 my-service --dry-run=client -o yaml
+```
+
+`~/repos/ckad/section02-core-concepts`
+
+```yaml
+# service-definition.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: my-service
+  name: my-service
+spec:
+  ports:
+  - name: 80-80
+    port: 80
+    targetPort: 80 # if not provided, defaults to value of `port`
+    nodePort: 30008 # if not provided, a free port is auto-provided
+  selector:
+    app: myapp # this tells the service where to route the traffic
+	type: front-end
+  type: NodePort
+```
+
+```yaml
+# pod-definition.yaml
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+    type: front-end
+
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+```
+
+
+```
+kubectl apply -f pod-definition.yaml
+
+kubectl apply -f service-definition.yaml
+
+curl http://192.168.1.231:30008 (IP of my Node) -> Nginx welcome screen
+```
+
+### other use cases
+
+1. A node with multiple Pods - the Service load balance the load across all the Pods
+2. A multi Node cluster - the service spans over all the Nodes and distributes the load to Pods in the individual Nodes
+
+### Cluster IP
+
+https://kubernetes.io/docs/concepts/services-networking/cluster-ip-allocation/
+
+- groups multiple Pods to one IP address
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: linkding
+spec:
+  ports:
+    - port: 9090
+      targetPort: 9090 # optional
+  selector:
+    app: linkding
+  type: ClusterIP
+```
