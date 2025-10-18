@@ -14,3 +14,9 @@ pass: lastpass
 https://prowlarr.com/
 
 https://hotio.dev/containers/prowlarr/
+
+
+### Download Client
+
+https://hub.docker.com/r/linuxserver/qbittorrent
+
