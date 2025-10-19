@@ -34,5 +34,5 @@ TODO
 - [ ] not enough disk space on hpmini - NAS?
 - [ ] VPN for security reasons (torrents)
 - [ ] cleanup - switch back to `main`
-- [ ] 
+- [ ] service (+cloudflare DNS)
 
