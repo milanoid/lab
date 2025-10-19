@@ -36,3 +36,26 @@ TODO
 - [ ] cleanup - switch back to `main`
 - [ ] service (+cloudflare DNS)
 
+
+### Synology NAS as storage device
+
+- DS218play
+
+1. enable NFS in Synology UI
+2. ` apt install nfs-common` - install NFS client on the Ubuntu server running K3s
+3. create PVC
+
+```yaml
+apiVersion: v1  
+kind: PersistentVolume  
+metadata:  
+  name: synology-nfs-pv  
+spec:  
+  capacity:  
+    storage: 100Gi  
+  accessModes:  
+    - ReadWriteMany  
+  nfs:  
+    path: /volume1/video 
+    server: 192.168.1.36
+```
