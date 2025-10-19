@@ -59,3 +59,12 @@ spec:
     path: /volume1/video 
     server: 192.168.1.36
 ```
+
+
+### testing NFS connection from mac
+
+```bash
+sudo mkdir -p /Volumes/synology-nfs
+
+sudo mount -t nfs -o resvport 192.168.1.36:/volume1/k8s /Volumes/synology-nfs
+```
