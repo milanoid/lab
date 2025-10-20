@@ -68,3 +68,13 @@ sudo mkdir -p /Volumes/synology-nfs
 
 sudo mount -t nfs -o resvport 192.168.1.36:/volume1/k8s /Volumes/synology-nfs
 ```
+
+
+Modifying storage is complex - spec is immutable. I had to disable entire deployment, make a change and than enable it back.
+
+
+```
+flux get kustomizations apps
+
+READY MESSAGE apps downloaders@sha1:d4eb6de0 False False PersistentVolumeClaim/downloaders/synology-nfs-pvc dry-run failed (Invalid): PersistentVolumeClaim "synology-nfs-pvc" is invalid: spec: Forbidden: spec is immutable after creation except resources.requests and volumeAttributesClassName for bound claims core.PersistentVolumeClaimSpec{ AccessModes: {"ReadWriteOnce"}, Selector: nil, Resources:
+```

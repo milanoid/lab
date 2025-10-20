@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/CKAD/Section 3 - Configuration.md",
+                "file": "1-projects/Downloaders.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Section 3 - Configuration"
+              "title": "Downloaders"
             }
           }
         ],
@@ -195,8 +195,8 @@
   },
   "active": "8b43954536a1c8e8",
   "lastOpenFiles": [
-    "1-projects/CKAD/Section 2 - Core Concepts.md",
     "1-projects/CKAD/Section 3 - Configuration.md",
+    "1-projects/CKAD/Section 2 - Core Concepts.md",
     "4-archives/Kubernetes HomeLab/06 - HomeLab - Securing Linkding application.md",
     "4-archives/LVM resize.md",
     "1-projects/Downloaders.md",
