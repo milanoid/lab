@@ -344,3 +344,43 @@ spec:
     app: linkding
   type: ClusterIP
 ```
+
+
+# Certification Tip: Imperative Commands
+
+- declarative way -> using definition .yaml files
+- imperative way -> direct call to kubectl:
+
+```bash
+kubectl run nginx --image=nginx --dry-run=client -o yaml > nginx-pod.yaml
+```
+
+## Formating Output with kubectl
+
+1. `-o json`Output a JSON formatted API object.
+    
+2. `-o name`Print only the resource name and nothing else.
+    
+3. `-o wide`Output in the plain-text format with any additional information.
+    
+4. `-o yaml`Output a YAML formatted API object.
+
+
+https://kubernetes.io/docs/reference/kubectl/quick-reference/
+
+
+### Explain command
+
+`kubectl api-resources`
+
+```
+# man pages - top level only
+kubectl explain pods
+
+# doc on a specific field
+kubectl explain pods.spec
+
+# list all fields
+kubectl explain pods --recursive
+```
+
