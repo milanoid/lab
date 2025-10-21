@@ -59,3 +59,19 @@ bf13a3aceead  7 years ago  /bin/sh -c #(nop)  EXPOSE 15671/tcp 15672/tcp  0B
 <missing>     7 years ago  /bin/sh -c #(nop) ADD file:d423aa6d423df23...  53.8MB
 
 ```
+
+
+passing argument to process running in container:
+
+```
+# Dockerfile, runs `sleep` command with default value of 5 (can be overriden)
+FROM ubuntu
+ENTRYPOINT ["sleep"]
+CMD ["5"]
+
+# passing 10 seconds to `sleep` command (overrides the CMD value)
+docker run ubuntu-sleeper 10
+
+# overriding the ENTRYPOINT
+docker run --entrypoint sleep2.0 ubuntu-sleeper 10
+```
