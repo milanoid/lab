@@ -66,8 +66,8 @@ passing argument to process running in container:
 ```
 # Dockerfile, runs `sleep` command with default value of 5 (can be overriden)
 FROM ubuntu
-ENTRYPOINT ["sleep"]
-CMD ["5"]
+ENTRYPOINT ["sleep"] # command to run
+CMD ["5"]            # argument for the command
 
 # passing 10 seconds to `sleep` command (overrides the CMD value)
 docker run ubuntu-sleeper 10
@@ -75,3 +75,23 @@ docker run ubuntu-sleeper 10
 # overriding the ENTRYPOINT
 docker run --entrypoint sleep2.0 ubuntu-sleeper 10
 ```
+
+### Commands and Arguments in Kubernetes
+
+```yaml
+apiVersion: v1
+kind Pod
+metadata:
+  - name: ubuntu-slepper
+    image: ubuntu-sleepr
+    command: ["sleep2.0"] # corresponds to entrypoint
+    args: ["10"]          # argument to be passed to the container
+```
+
+
+| Docker/Dockerfile | Kubernetes/Pod manifest |
+| ----------------- | ----------------------- |
+| `Entrypoint`      | `command`               |
+| `CMD`             | `args`                  |
+
+
