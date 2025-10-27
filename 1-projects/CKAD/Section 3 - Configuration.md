@@ -95,3 +95,58 @@ metadata:
 | `CMD`             | `args`                  |
 
 
+### Environment variables in Kubernetes
+
+- direct plain key value specification
+  
+```yaml
+env:
+  - name: APP_COLOR
+    value: pink
+```
+
+- _ConfigMap_ 
+```yaml
+env:
+  - name: APP_COLOR
+    valueFrom:
+      configMapKeyRef: 
+```
+
+- _Secrets_
+  
+```yaml
+env:
+  - name: APP_COLOR
+    valueFrom:
+      secretKeyRef:
+```
+
+
+#### ConfigMaps
+
+Imperative approach
+
+- `kubectl create configmap <config-name> --from-literal=<key>=<value>`
+- `kubectl create configmap <config-name> --from-file=<path-to-file>`
+
+Declarative approach
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  APP_COLOR: blue
+  APP_MODE: prod
+```
+
+
+Using it in a pod (injecting)
+
+```yaml
+    envFrom:
+      - configMapRef:
+          name: app-config
+```
