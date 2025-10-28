@@ -89,3 +89,18 @@ PV status
 
 - `Bound`
 - `Released`
+
+
+prowlarr
+
+- PVC `prowlarr-config-pvc` (local-path)
+
+radarr
+
+- PVC `radarr-config-pvc` (local-path)
+- PVC `synology-nfs-pvc` (NFS)
+
+torrent-client
+
+- PVC `qbittorrent-config-pvc` (local-path)
+- PVC `synology-nfs-pvc` (NFS)
