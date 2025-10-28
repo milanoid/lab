@@ -78,3 +78,14 @@ flux get kustomizations apps
 
 READY MESSAGE apps downloaders@sha1:d4eb6de0 False False PersistentVolumeClaim/downloaders/synology-nfs-pvc dry-run failed (Invalid): PersistentVolumeClaim "synology-nfs-pvc" is invalid: spec: Forbidden: spec is immutable after creation except resources.requests and volumeAttributesClassName for bound claims core.PersistentVolumeClaimSpec{ AccessModes: {"ReadWriteOnce"}, Selector: nil, Resources:
 ```
+
+---
+
+- each application in a separate namespace with its own deployment
+- storage - PV in its own directory `persistant-volumes` (no namespace - available for entire cluster)
+
+
+PV status
+
+- `Bound`
+- `Released`
