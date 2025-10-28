@@ -121,4 +121,5 @@ https://github.com/ruddarr/app
 
 - [ ] expose Radarr via Cloudflare tunnel
 - [ ] connect the app with Radarr
+- [ ] add Sonarr too!
 - [ ] profit
