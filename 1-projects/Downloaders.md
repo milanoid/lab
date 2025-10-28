@@ -31,7 +31,7 @@ pass: lastpass
 
 TODO
 
-- [ ] not enough disk space on hpmini - NAS?
+- [x] not enough disk space on hpmini - NAS?
 - [ ] VPN for security reasons (torrents)
 - [ ] cleanup - switch back to `main`
 - [ ] service (+cloudflare DNS)
@@ -104,3 +104,14 @@ torrent-client
 
 - PVC `qbittorrent-config-pvc` (local-path)
 - PVC `synology-nfs-pvc` (NFS)
+---
+
+## NFS access rights
+
+the app containers are running `chown` command on its config files. Pods needs to be set to use user existing on NAS:
+
+```
+PUID: "1024"    # NAS user `admin`  
+PGID: "101"     # NAS group `administrators`
+```
+
