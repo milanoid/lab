@@ -115,3 +115,10 @@ PUID: "1024"    # NAS user `admin`
 PGID: "101"     # NAS group `administrators`
 ```
 
+# Mobile app
+
+https://github.com/ruddarr/app
+
+- [ ] expose Radarr via Cloudflare tunnel
+- [ ] connect the app with Radarr
+- [ ] profit
