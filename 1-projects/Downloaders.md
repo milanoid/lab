@@ -123,3 +123,8 @@ https://github.com/ruddarr/app
 - [ ] connect the app with Radarr
 - [ ] add Sonarr too!
 - [ ] profit
+
+### Subtitles
+
+- https://www.bazarr.media/
+- 
