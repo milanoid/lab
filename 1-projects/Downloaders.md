@@ -127,4 +127,9 @@ https://github.com/ruddarr/app
 ### Subtitles
 
 - https://www.bazarr.media/
-- 
+
+**You CANNOT store your config directory over an NFS share as it is unsupported by SQLITE. You'll face a locked database error.**
+
+https://wiki.bazarr.media/Getting-Started/Installation/Docker/docker/
+
+https://hub.docker.com/r/linuxserver/bazarr
