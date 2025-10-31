@@ -128,7 +128,7 @@ https://github.com/ruddarr/app
 
 - https://www.bazarr.media/
 
-- [ ] 
+- [x] 
 
 **You CANNOT store your config directory over an NFS share as it is unsupported by SQLITE. You'll face a locked database error.**
 

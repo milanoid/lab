@@ -35,7 +35,8 @@
               "title": "Downloaders"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -192,8 +193,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a71820409c50052f",
+  "active": "8b43954536a1c8e8",
   "lastOpenFiles": [
+    "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
     "4-archives/Kubernetes HomeLab/03 - HomeLab - Flux install.md",
     "1-projects/Downloaders.md",
     "1-projects/CKAD/Section 3 - Configuration.md",
@@ -201,7 +203,6 @@
     "1-projects/CKAD/Section 2 - Core Concepts.md",
     "4-archives/Kubernetes HomeLab/06 - HomeLab - Securing Linkding application.md",
     "4-archives/LVM resize.md",
-    "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
     "4-archives/Kubernetes HomeLab/11 - HomeLab - Automated Image updates.md",
     "0-inbox/sample-inbox-note.md",
     "4-archives/Kubernetes HomeLab/10 - HomeLab - Ingress with Traefik.md",
