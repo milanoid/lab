@@ -48,7 +48,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 61.518987341772146,
+        "dimension": 35.24027459954233,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -56,7 +56,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "flux",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -72,7 +72,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 38.48101265822785,
+        "dimension": 64.75972540045767,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -193,7 +193,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "8b43954536a1c8e8",
+  "active": "9f5491a4de1aa2c3",
   "lastOpenFiles": [
     "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
     "4-archives/Kubernetes HomeLab/03 - HomeLab - Flux install.md",
