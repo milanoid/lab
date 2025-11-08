@@ -252,3 +252,13 @@ DB_HOST DB_PASSWORD
 cat /opt/app-secret-volumes/DB_PASSWORD
 secret-password-here
 ```
+
+Additional Resource - YT video on Secrets Manager https://www.youtube.com/watch?v=MTnQW9MxnRI
+
+
+## Demo - Encrypting Secret Data at Rest
+
+https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/
+
+`sudo apt install etcdctl` - on hpmini
+
