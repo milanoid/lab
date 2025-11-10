@@ -260,5 +260,73 @@ Additional Resource - YT video on Secrets Manager https://www.youtube.com/watch?
 
 https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/
 
-`sudo apt install etcdctl` - on hpmini
+### etcd install
 
+Update: this below would install the server, not needed for this excercise
+
+installing `etcd` (on ubuntu hpmini) https://github.com/etcd-io/etcd/releases/tag/v3.4.37
+- installed `etcd` and `etcdctl` binaries into `/usr/local/bin/`
+
+```bash
+milan@hpmini01:~$ etcdctl version
+etcdctl version: 3.4.37
+API version: 3.4
+```
+
+=> Do this instead: `apt-get install etcd-client`
+- installs the client only
+- server running on control plane
+
+In my K3s installation I don't have running `etcd` server:
+
+```
+kubectl get pods -n kube-system | grep "etcd"
+```
+
+But Mumshad's installation does have it:
+
+```
+kubectl get pods -n kube-system | grep "etcd"
+NAME READY   STATUS      RESTARTS         AGE
+etcd-controlplane  1/1     Running     6 (4d14h ago)    99d
+```
+
+INFO - K3s by default does not come with `etcd` but uses SQLite `/var/lib/rancher/k3s/server/db/state.db` instead.
+
+`sudo apt install sqlite3`
+
+view the content:
+
+`root@hpmini01:/var/lib/rancher/k3s/server/db# sqlite3 state.db`
+
+```
+SQLite version 3.45.1 2024-01-30 16:01:20
+Enter ".help" for usage hints.
+sqlite> .tables
+kine
+sqlite> .schema kine
+CREATE TABLE kine
+                        (
+                                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                name INTEGER,
+                                created INTEGER,
+                                deleted INTEGER,
+                                create_revision INTEGER,
+                                prev_revision INTEGER,
+                                lease INTEGER,
+                                value BLOB,
+                                old_value BLOB
+                        );
+CREATE INDEX kine_name_index ON kine (name);
+CREATE INDEX kine_name_id_index ON kine (name,id);
+CREATE INDEX kine_id_deleted_index ON kine (id,deleted);
+CREATE INDEX kine_prev_revision_index ON kine (prev_revision);
+CREATE UNIQUE INDEX kine_name_prev_revision_uindex ON kine (name, prev_revision);
+```
+
+```
+# show data
+sqlite> SELECT * FROM kine LIMIT 2;
+1|compact_rev_key|1|0|0|11093527|0||
+2|/registry/health|1|0|0|0|0|{"health":"true"}|
+```
