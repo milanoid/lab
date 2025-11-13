@@ -330,3 +330,93 @@ sqlite> SELECT * FROM kine LIMIT 2;
 1|compact_rev_key|1|0|0|11093527|0||
 2|/registry/health|1|0|0|0|0|{"health":"true"}|
 ```
+
+
+## Security context (in Docker)
+
+- unlike VMs the container shares the kernel with the host
+- isolation by _Namespaces_
+- all the process within container are run by the host but in its own namespace
+- by default docker runs processes as `root` user
+
+```bash
+# run container with `sleep` command
+docker run ubuntu sleep 3600
+
+# ps aux in container
+$ docker exec -it 56da524f871f bash
+root@56da524f871f:/# ps aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.0   2272  1204 ?        Ss   09:31   0:00 sleep 3600
+root           2  0.0  0.0   4300  3548 pts/0    Ss   09:32   0:00 bash
+root           5  0.0  0.0   7632  3468 pts/0    R+   09:32   0:00 ps aux
+
+# ps aux on host - the sleep process should be here
+# I see just 'podman run' coommand? Maybe a podman feature?
+ps aux | grep sleep
+milan            55857   0.0  0.1 411943264  15488 s006  S+   10:31AM   0:00.05 podman run ubuntu sleep 3600
+milan            56541   0.0  0.0 410733616   1568 s009  S+   10:33AM   0:00.00 grep sleep
+```
+
+
+#### Users
+
+Process in a container runs as `root` by default. Can be changed though:
+
+```Dockerfile
+FROM ubuntu
+USER 1000
+```
+
+- `root` has all the capabilities on the system, the full list is in `/usr/include/linux/capability.h`
+- by default the `root` in docker has limited capabilities (e.g. cannot reboot the host)
+- can explicitly enable/disable capabilities
+  
+```bash
+# add extra cap
+docker run --cap-add MAC_ADMIN ubuntu
+
+# remove a cap
+docker run --cap-drop KILL ubuntu
+
+# with all caps!
+docker run --privileged ubuntu
+```
+
+- similarly we can configure it in Kubernetes
+- in K8s it is either on container level or on a Pod level
+- settings on container level take precedens over the Pod level settings
+
+```yaml
+---  
+apiVersion: apps/v1  
+kind: Deployment  
+metadata:  
+  name: linkding  
+spec:
+  containers:  
+    - name: ubuntu  
+      image: ubuntu 
+      securityContext:  
+        allowPrivilegesEscalation: false  
+        runAsUser: 33
+        capabilities:
+	      add: ["MAC_ADMIN"]
+```
+
+Practice test:
+
+To get to shell of a pod 
+
+```bash
+kubectl exec -it pods/ubuntu-sleeper -- bash
+```
+
+To change the user used for run
+
+```bash
+kubectl edit pods ubuntu-sleeper
+
+# do edits, some changes cannot be applied (such as securityContext)
+# the file needs to be written to a .yaml, then applied
+```

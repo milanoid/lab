@@ -393,5 +393,4 @@ Try to do this with as few steps as possible.
 
 --
 kubectl run --image=httpd:alpine httpd --port 80 --expose=true
-
 ```
