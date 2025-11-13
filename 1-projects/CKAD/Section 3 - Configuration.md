@@ -420,3 +420,18 @@ kubectl edit pods ubuntu-sleeper
 # do edits, some changes cannot be applied (such as securityContext)
 # the file needs to be written to a .yaml, then applied
 ```
+
+
+# Resource requirements
+
+CPU and MEM - monitored by _Kubernetes Scheduler_
+
+- assignes Pod to a Node based on the Node utilization 
+
+Pod has Resource Requests, e.g. 1 CPU and 4Gi MEM.
+
+### CPU
+
+- `0.1` or `100m` (mili)
+- minimum `1m`
+- 
