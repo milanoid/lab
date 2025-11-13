@@ -434,4 +434,58 @@ Pod has Resource Requests, e.g. 1 CPU and 4Gi MEM.
 
 - `0.1` or `100m` (mili)
 - minimum `1m`
-- 
+
+1 CPU is
+- 1 AWS vCPU
+- 1 GCP Core
+- 1 Azure Core
+- 1 Hyperthread
+
+
+### MEM
+
+- 256Mi or in bytes 268435456 or 268M
+- 1G vs 1Gi
+
+1G (Gigabyte) = 1 000 000 000 bytes
+1Gi (Gigibyte) = 1 073 741 824 bytes
+
+### Resource Limits
+
+- a Pod can be limited to use less than maximum resources available
+- e.g. total CPU is 10, can be limited to 5 or total MEM is 16G can be limited to 8GB
+
+```yaml
+# on container level
+resources:
+  requests:
+	memory: "1Gi"
+	cpu: 2
+  limits:
+    memory: "2Gi"
+    cpu: 2
+```
+
+
+#### Exceeding limits
+
+- CPU is throttled 
+- MEM is not, can exceed the limit temporarily, if constantly it will be terminated with OOM error 
+
+Best practices
+
+CPU - Requests, No Limits
+
+##### LimitRange
+
+- on namespace level object
+
+```
+apiVersion: v1
+kind: LimitRange
+...
+```
+
+##### Resource Quotas
+
+- on namespace level object
