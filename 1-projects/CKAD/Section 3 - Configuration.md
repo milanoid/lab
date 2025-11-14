@@ -503,7 +503,7 @@ kubectl create serviceaccount dashboard-sa
 kubectl create token dashboard-sa
 
 # view
-kubectl get serviceaccoun
+kubectl get serviceaccount
 
 # token - to be used by external application (in Secret object)
 kubectl describe serviceaccount dashboard-sa
