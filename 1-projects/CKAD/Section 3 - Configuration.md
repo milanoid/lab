@@ -552,11 +552,11 @@ In a Pod definition:
 
 ```yaml
 spec:
+. serviceAccountName: dashboard-sa
+  automountServiceAccountToken: false # true by default
   containers:
     - name: ubuntu
       image: ubuntu:latest
-  serviceAccountName: dashboard-sa
-  automountServiceAccountToken: false # true by default
 ```
 
 Decoding the token:
