@@ -489,3 +489,112 @@ kind: LimitRange
 ##### Resource Quotas
 
 - on namespace level object
+
+
+# Service Account
+
+User (Admin, Developer) vs Service Account (Prometheus, Jenkins)
+
+```
+# create a service account
+kubectl create serviceaccount dashboard-sa
+
+# then create service account token (previously was auto-created)
+kubectl create token dashboard-sa
+
+# view
+kubectl get serviceaccoun
+
+# token - to be used by external application (in Secret object)
+kubectl describe serviceaccount dashboard-sa
+
+# to get the token
+kubectl describe secret dashboard-sa-token-kbbdm
+```
+
+The secret can be mounted as a volume to a Pod (with an application), so the app can use the token.
+
+All namespaces has `default` service account and its already mounted as a Mount. It's very restricted.
+
+
+```yaml
+Containers:
+  sonarr:
+    Container ID:   containerd://3371bc4865816331b34900f59601af8da8b8bb9997121744ceb045d5797412fa
+    Image:          ghcr.io/hotio/sonarr:release-4.0.16.2944
+    Image ID:       ghcr.io/hotio/sonarr@sha256:20cf6013b2b35c035f9ce7d5e8149eccf03c933c58ea40a9bd397e57a6dee714
+    Port:           8989/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Tue, 11 Nov 2025 18:41:53 +0100
+    Ready:          True
+    Restart Count:  0
+    Environment Variables from:
+      sonarr-configmap  ConfigMap  Optional: false
+    Environment:        <none>
+    Mounts:
+      /config from sonarr-config (rw,path="sonarr/config")
+      /data from sonarr-data (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-2n9nd (ro)
+```
+
+Can read to token on shell:
+
+```
+cat /var/run/secrets/kubernetes.io/serviceaccount/token
+
+eyJhbGciOiJSUzI1NiIsImtpZCI6InlsQ25VV2I2TDBkLW5jbmdLN2Q4SHI3a1JmQ2F3ekpkR1Bka0VDRVJLMGcifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiLCJrM3MiXSwiZXhwIjoxNzk0NjQ0MzU1LCJpYXQiOjE3NjMxMDgzNTUsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRl ...
+```
+
+Creating a new Service Account
+
+In a Pod definition:
+
+```yaml
+spec:
+  containers:
+    - name: ubuntu
+      image: ubuntu:latest
+  serviceAccountName: dashboard-sa
+  automountServiceAccountToken: false # true by default
+```
+
+Decoding the token:
+
+`jq -R 'split(".") | select(length > 0) | .[0],.[1] | @base64d | fromjson' <<< [token]`
+
+```bash
+jq -R 'split(".") | select(length > 0) | .[0],.[1] | @base64d | fromjson' <<< eyJhbGciOiJSUzI1NiIsImtpZCI6InlsQ25VV2I2TDBkLW5jbmdLN2Q4SHI3a1JmQ2F3ekpkR1Bka0VDRVJLMGcifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiLCJrM3MiXSwiZXhwIjoxNzk0NjQ0MzU1LCJpYXQiOjE3NjMxMDgzNTUsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwianRpIjoiNDlkMWUyYjctNGE2NC00Yjk2LWI4ZGMtNGI5NDhkZTU4MjYwIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJsaW5rZGluZyIsIm5vZGUiOnsibmFtZSI6ImhwbWluaTAxIiwidWlkIjoiOTA2YzAzNmItZWU1ZS00YWZmLWFhMzktMjFkZmRlMDUwMGFkIn0sInBvZCI6eyJuYW1lIjoibGlua2RpbmctNTZmNTljOTU5NC00c3RrayIsInVpZCI6IjA0MjRiMjJhLTdkZGItNDcwMC05MWIxLWE3MjcxZTRkNGM3NyJ9LCJzZXJ2aWNlYWNjb3VudCI6eyJuYW1lIjoiZGVmYXVsdCIsInVpZCI6IjIzZDIyZjM1LWQzNjctNDQwOC05MzQ2LTc1MjM1OWNlY2Q2YiJ9LCJ3YXJuYWZ0ZXIiOjE3NjMxMTE5NjJ9LCJuYmYiOjE3NjMxMDgzNTUsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpsaW5rZGluZzpkZWZhdWx0In0.liipjUmFYrW_0VNDNPTzu-KFhRo21nFif3iAP6Wy9Wj301NR5OWsuMF4gJQTa_ohdyxBzhWtN6r_SANWaRvex7_XM5u6FP_ve6JD6GwXhLpMs8xkZhq5w2M-foHGOxLK2rIt9B5O9lr-duuMFwa9T4Dvwsd6Rukxajqr2UtHeLqAj5zwdrmb4oyt5LuXZu1qvDwaHo6m0PcgONT0d9L3wi65uq3BHOMWkAUAZQt2kT4-a_JTfgGpSiRNRqNJDqkET5pPG2e2sbcggaDJ7UD6Phb9ukR847ZlOYwt8QnnPvgqoyetGCtJfokI4cEG01lbr2uxT8nuIaPrb5WUlSECGA
+{
+  "alg": "RS256",
+  "kid": "ylCnUWb6L0d-ncngK7d8Hr7kRfCawzJdGPdkECERK0g"
+}
+{
+  "aud": [
+    "https://kubernetes.default.svc.cluster.local",
+    "k3s"
+  ],
+  "exp": 1794644355,
+  "iat": 1763108355,
+  "iss": "https://kubernetes.default.svc.cluster.local",
+  "jti": "49d1e2b7-4a64-4b96-b8dc-4b948de58260",
+  "kubernetes.io": {
+    "namespace": "linkding",
+    "node": {
+      "name": "hpmini01",
+      "uid": "906c036b-ee5e-4aff-aa39-21dfde0500ad"
+    },
+    "pod": {
+      "name": "linkding-56f59c9594-4stkk",
+      "uid": "0424b22a-7ddb-4700-91b1-a7271e4d4c77"
+    },
+    "serviceaccount": {
+      "name": "default",
+      "uid": "23d22f35-d367-4408-9346-752359cecd6b"
+    },
+    "warnafter": 1763111962
+  },
+  "nbf": 1763108355,
+  "sub": "system:serviceaccount:linkding:default"
+}
+```

@@ -101,7 +101,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 444.5
+    "width": 216.5
   },
   "right": {
     "id": "c30d66fb63f83402",
@@ -193,7 +193,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e6e596ef8a2b8255",
+  "active": "8b43954536a1c8e8",
   "lastOpenFiles": [
     "1-projects/CKAD/Section 2 - Core Concepts.md",
     "1-projects/CKAD/Section 3 - Configuration.md",
