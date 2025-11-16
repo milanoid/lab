@@ -119,10 +119,10 @@ PGID: "101"     # NAS group `administrators`
 
 https://github.com/ruddarr/app
 
-- [ ] expose Radarr via Cloudflare tunnel
-- [ ] connect the app with Radarr
-- [ ] add Sonarr too!
-- [ ] profit
+- [x] ~expose Radarr via Cloudflare tunnel~ local only
+- [x] connect the app with Radarr
+- [x] add Sonarr too!
+- [x] profit
 
 ### Subtitles
 
