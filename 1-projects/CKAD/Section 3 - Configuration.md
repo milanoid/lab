@@ -598,3 +598,69 @@ jq -R 'split(".") | select(length > 0) | .[0],.[1] | @base64d | fromjson' <<< ey
   "sub": "system:serviceaccount:linkding:default"
 }
 ```
+
+# Taints and Tolerations
+
+taint (n.) - skvrna
+taint (v.) - zamořit (ale i postřik či sprej proti komárům)
+
+vs.
+_Node affinity_ - a property of Pods that _attracts_ them to a set of _nodes_.
+
+https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
+### Pod and Node 
+
+analogy - Pod (a bug) vs Node (person) - Taint (sprej) on a person vs. a bug (tolerant or intoleran to taint)
+
+- what Pods can be scheduled on which Node
+- a Node can be taint
+- Pods by default are intolerant to taint
+- only Pods **set to** tolerate a taint can land on the taint Pod
+
+### adding a taint
+
+`kubectl taint nodes node-name key=value:taint-effect`
+
+### remove a taint
+
+`kubectl taint nodes node-name key=value:taint-effect-`
+
+`taint-effect` 
+- specify what happens to a Pod if it does not tolerate the taint 
+- _NoSchedule_ - won't be scheduled, guaranteed
+- _PreferNoSchedule_ - not guaranteed 
+- _NoExecute_
+
+```yaml
+# pod definition
+...
+  containers: ubuntu
+  - name: ubuntu
+    image: ubuntu
+  tolerations:
+   - key: "app"
+     operatorator: "Equal"
+     value: "blue"
+     effect: "NoSchedule"
+```
+
+
+```shell
+kubectl describe node hpmini01
+
+Name:               hpmini01
+Roles:              control-plane,master
+...
+Taints:             <none>
+
+```
+
+
+If a Pod is intolerant - in `kubectl describe pod`:
+
+```
+  Type     Reason            Age   From               Message
+  ----     ------            ----  ----               -------
+  Warning  FailedScheduling  30s   default-scheduler  0/2 nodes are available: 1 node(s) had untolerated taint {node-role.kubernetes.io/control-plane: }, 1 node(s) had untolerated taint {spray: mortein}. no new claims to deallocate, preemption: 0/2 nodes are available: 2 Preemption is not helpful for scheduling.
+```
+
