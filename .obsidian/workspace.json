@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/K3s additional agent node.md",
+                "file": "4-archives/Kubernetes HomeLab/01 - HomeLab - Ubuntu server installation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "K3s additional agent node"
+              "title": "01 - HomeLab - Ubuntu server installation"
             }
           }
         ],
@@ -209,8 +209,11 @@
   },
   "active": "1d95a7f7392ce702",
   "lastOpenFiles": [
-    "0-inbox/devcontainers/DevContainers.md",
     "0-inbox/K3s additional agent node.md",
+    "4-archives/Kubernetes HomeLab/02 - HomeLab - K3s install.md",
+    "4-archives/Kubernetes HomeLab/01 - HomeLab - Ubuntu server installation.md",
+    "4-archives/Chapter 7 - Command Line Operations.md",
+    "0-inbox/devcontainers/DevContainers.md",
     "0-inbox/sample-inbox-note.md",
     "1-projects/CKAD/Section 3 - Configuration.md",
     "4-archives/Downloaders.md",
@@ -236,15 +239,12 @@
     "2-areas/Linux.md",
     "4-archives/Kubernetes HomeLab/05 - HomeLab - Application Configuration, Storage.md",
     "4-archives/Kubernetes HomeLab/04 - HomeLab - Deploy an app using Flux.md",
-    "4-archives/Kubernetes HomeLab/02 - HomeLab - K3s install.md",
-    "4-archives/Kubernetes HomeLab/01 - HomeLab - Ubuntu server installation.md",
     "0-inbox/devcontainers/devcontainers",
     "0-inbox/devcontainers/devcontainer.json",
     "0-inbox/devcontainers",
     "4-archives/Arch Linux installation/07 - Inspecting our system.md",
     "4-archives/Kubernetes Fundamentals/Part 3.3 - Ingress.md",
     "4-archives/LPIC-1 exam prep/104.2 Maintain the integrity of filesystems.md",
-    "4-archives/LPIC-1 exam prep/103.5 Create, monitor, and kill processes.md",
     "Pasted image 20250629105100.png",
     "Pasted image 20250608183559.png",
     "Pasted image 20250514145051.png",
