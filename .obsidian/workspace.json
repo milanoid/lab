@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
+                "file": "0-inbox/K3s additional agent node.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "12 - HomeLab - Audiobookshelf (capstone project)"
+              "title": "K3s additional agent node"
             }
           },
           {
@@ -49,8 +49,7 @@
               "title": "01 - HomeLab - Ubuntu server installation"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -70,7 +69,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "generate",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -207,18 +206,18 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1d95a7f7392ce702",
+  "active": "a71820409c50052f",
   "lastOpenFiles": [
+    "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
+    "4-archives/Kubernetes HomeLab/01 - HomeLab - Ubuntu server installation.md",
     "0-inbox/K3s additional agent node.md",
     "4-archives/Kubernetes HomeLab/02 - HomeLab - K3s install.md",
-    "4-archives/Kubernetes HomeLab/01 - HomeLab - Ubuntu server installation.md",
     "4-archives/Chapter 7 - Command Line Operations.md",
     "0-inbox/devcontainers/DevContainers.md",
     "0-inbox/sample-inbox-note.md",
     "1-projects/CKAD/Section 3 - Configuration.md",
     "4-archives/Downloaders.md",
     "1-projects/CKAD/Section 2 - Core Concepts.md",
-    "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
     "4-archives/Kubernetes HomeLab/03 - HomeLab - Flux install.md",
     "1-projects/CKAD/Dockerfile",
     "4-archives/Kubernetes HomeLab/06 - HomeLab - Securing Linkding application.md",
