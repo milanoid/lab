@@ -664,3 +664,38 @@ If a Pod is intolerant - in `kubectl describe pod`:
   Warning  FailedScheduling  30s   default-scheduler  0/2 nodes are available: 1 node(s) had untolerated taint {node-role.kubernetes.io/control-plane: }, 1 node(s) had untolerated taint {spray: mortein}. no new claims to deallocate, preemption: 0/2 nodes are available: 2 Preemption is not helpful for scheduling.
 ```
 
+# Node selectors
+
+in multinode cluster to specify on which node a pod should run (e.g. a node with a specific HW)
+
+`kubectl label nodes <node> <label-key>=<label-value>`
+
+
+limitations - Node Affinity is more versatile
+
+# Node affinity
+
+to make sure a Pod is hosted on a particular Node
+
+https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity
+
+- more complex than Node Selectors
+- supports operators such as "Exists", "In", "NotIn" in _matchExpression_
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: with-node-affinity
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: topology.kubernetes.io/zone
+            operator: In
+            values:
+            - antarctica-east1
+            - antarctica-west1
+```
