@@ -699,3 +699,12 @@ spec:
             - antarctica-east1
             - antarctica-west1
 ```
+
+
+# Node Affinity vs Taints and Tolerations
+
+Can be used in combination to achieve a scenario:
+
+- red, green, blue pods to be run only on respective nodes
+- any other pod to be run on other nodes within the cluster
+
