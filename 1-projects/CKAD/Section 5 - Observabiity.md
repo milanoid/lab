@@ -18,3 +18,28 @@ https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-read
 
 Readiness probe - to detect when we can route traffic to the application running in the Pod
 Liveness probe - detects when to restart the container
+
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: liveness
+  name: liveness-http
+spec:
+  containers:
+  - name: liveness
+    image: registry.k8s.io/e2e-test-images/agnhost:2.40
+    args:
+    - liveness
+    livenessProbe:
+      httpGet:
+        path: /healthz
+        port: 8080
+        httpHeaders:
+        - name: Custom-Header
+          value: Awesome
+      initialDelaySeconds: 3
+      periodSeconds: 3
+```
