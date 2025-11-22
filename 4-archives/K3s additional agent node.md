@@ -13,6 +13,19 @@ On another HP machine install:
 - [ ] experiment with [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/), e.g. have some apps only on one Node
 
 
+Ubuntu setup
+
+```bash
+wget https://github.com/fastfetch-cli/fastfetch/releases/download/2.55.1/fastfetch-linux-amd64.deb
+
+sudo dpkg -i fastfetch-linux-amd64.deb
+
+rm -f fastfetch-linux-amd64.deb
+
+# needed for NFS storage (Synology)
+apt install nfs-common
+```
+
 - `K3S_TOKEN` in `/var/lib/rancher/k3s/server/node-token` on your server node
 
 ```bash
