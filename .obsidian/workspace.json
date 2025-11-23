@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4-archives/K3s additional agent node.md",
+                "file": "1-projects/CKAD/Section 5 - Observabiity.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "K3s additional agent node"
+              "title": "Section 5 - Observabiity"
             }
           },
           {
@@ -235,10 +235,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "64d69042554ff9c8",
+  "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
-    "4-archives/Downloaders.md",
     "4-archives/K3s additional agent node.md",
+    "4-archives/Downloaders.md",
     "1-projects/CKAD/Section 5 - Observabiity.md",
     "1-projects/CKAD/Section 4 - Multi-Container Pods.md",
     "1-projects/CKAD/Section 3 - Configuration.md",

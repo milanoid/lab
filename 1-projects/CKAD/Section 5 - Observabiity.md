@@ -43,3 +43,24 @@ spec:
       initialDelaySeconds: 3
       periodSeconds: 3
 ```
+
+# Logging
+
+`kubectl logs -f pod-name [container-name]`
+
+- in case of multi-container pod a container name must be explicitly specified
+
+# Monitoring Kubernetes Cluster Components
+
+Metric Server 
+- one per cluster
+- in memory, data not on disk
+
+`kubelet`, `cAdvisor`
+
+Install (for minicube cluster):
+
+`kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+`kubectl top pod|node`
+
