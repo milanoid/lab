@@ -107,3 +107,143 @@ How to rollback
 
 `kubectl rollout undo deployment my-app-deployment`
 
+# Deployment Strategy - Blue Green
+
+- old - blue
+- new - green
+
+New (green) is deployed but 100 % traffic is still routed to old (blue) until all tests pass. Then we switch to new (green). Best with service mesh like [Istio](https://istio.io/latest/about/service-mesh/).
+
+In practice
+
+- Uses `labels` and `selector` to distinguish green vs blue
+- Service exposes the blue deployment
+- after tests on green pass, we can re-route the Service to green by changing the `seletor`
+
+# Deployment Strategy - Canary Updates
+
+- small percentage, e.g. 5 % (canary), is deployed and traffic routed to for testing
+- if passed - raise the ratio to 100 %
+
+In practice
+
+- Service binded to both deployments (canary and primary)
+- only 5 % is routed to canary
+- uses common label - e.g. `app:front-end` (so it routes it equally 50/50)
+- uses `version: v1` (primary) and `version: v2` (canary)
+- 50/50 -> 5/100 can be achieved by reducing the number of canary pods
+
+There is a limited way how to achieve this with pure Kubernetes. So there are specialized services - e.g. [Istion](https://istio.io/latest/about/service-mesh/
+) mesh.
+
+
+# Jobs
+
+Types of Workloads
+
+- web app
+- database
+- ... these are meant to run all the time
+
+but there are other workloads (analytics, batch processing ... ) meant to run a task (job) and then finish -> `Jobs`
+
+### In Docker/Podman
+
+```bash
+podman run ubuntu expr 3 + 2
+5
+
+podman ps -a | grep "expr"
+d694daa86f82  docker.io/library/ubuntu:latest                                   expr 3 + 2            About a minute ago  Exited (0) About a minute ago              amazing_archimedes
+```
+- container stops after finishing the task
+- not the `Exited (0)` status
+
+### In Kubernetes
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: math-pod
+spec:
+  containers:
+  - name: math-add
+    image: ubuntu
+    command: ['expr`, `3`, `+`, `2`]
+```
+
+or `kubectl run math-pod --image=ubuntu --command -- expr 3 + 2`
+
+- that would restart the pod as it goes to `Completed` state
+- Kubernetes tries to recreate it again and again:
+  
+```
+Events:
+  Type     Reason     Age                 From               Message
+  ----     ------     ----                ----               -------
+  Normal   Scheduled  112s                default-scheduler  Successfully assigned homarr/math-pod to hpmini02
+  Normal   Pulled     111s                kubelet            Successfully pulled image "ubuntu" in 910ms (910ms including waiting). Image size: 29734095 bytes.
+  Normal   Pulled     109s                kubelet            Successfully pulled image "ubuntu" in 921ms (921ms including waiting). Image size: 29734095 bytes.
+  Normal   Pulled     93s                 kubelet            Successfully pulled image "ubuntu" in 867ms (867ms including waiting). Image size: 29734095 bytes.
+  Normal   Pulled     64s                 kubelet            Successfully pulled image "ubuntu" in 923ms (923ms including waiting). Image size: 29734095 bytes.
+  Normal   Pulling    21s (x5 over 111s)  kubelet            Pulling image "ubuntu"
+  Normal   Created    20s (x5 over 110s)  kubelet            Created container: math-pod
+  Normal   Pulled     20s                 kubelet            Successfully pulled image "ubuntu" in 929ms (929ms including waiting). Image size: 29734095 bytes.
+  Normal   Started    19s (x5 over 110s)  kubelet            Started container math-pod
+  Warning  BackOff    4s (x9 over 108s)   kubelet            Back-off restarting failed container math-pod in pod math-pod_homarr(c5b2dd6a-d8ac-4e2c-9c6e-e191b4513258)
+```
+
+`Job` - is set to run a set of Pods to done a task
+
+```yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: math-add-job
+spec:
+  completions: 3
+  template:
+    spec:
+      containers:
+        - name: math-add
+          image: ubuntu
+          command: ['expr', '3', '+', '2']
+      restartPolicy: Never
+```
+
+- 3 pods are created sequentially
+- can be set to run in parallel - `parallelism: 3`
+
+```bash
+kubectl logs jobs/math-add-job
+5
+
+# delete - deletes job AND 3 pods created to run the job (completions: 3)
+kubectl delete jobs.batch math-add-job
+job.batch "math-add-job" deleted
+```
+
+# CronJobs
+
+Job - runs instantly 
+CronJob - on schedule 
+
+```yaml
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: reporting-cron-job
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+	  completions: 3
+	  template:
+	    spec:
+	      containers:
+	        - name: math-add
+	          image: ubuntu
+	          command: ['expr', '3', '+', '2']
+	      restartPolicy: Never
+```
