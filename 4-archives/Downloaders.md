@@ -33,8 +33,8 @@ TODO
 
 - [x] not enough disk space on hpmini - NAS?
 - [ ] VPN for security reasons (torrents)
-- [ ] cleanup - switch back to `main`
-- [ ] service (+cloudflare DNS)
+- [x] cleanup - switch back to `main`
+- [x] service (+cloudflare DNS)
 
 
 ### Synology NAS as storage device
@@ -135,3 +135,46 @@ https://github.com/ruddarr/app
 https://wiki.bazarr.media/Getting-Started/Installation/Docker/docker/
 
 https://hub.docker.com/r/linuxserver/bazarr
+
+
+# Homarr
+
+https://homarr.dev/docs/getting-started/installation/helm
+
+- create a namespace
+- create a secret for SQLite DB
+- (optional) install using updated `values.yaml` https://github.com/homarr-labs/charts/blob/dev/charts/homarr/values.yaml
+
+
+
+```bash
+# namespace
+kubectl create namespace homarr
+
+# generate secret key
+SECRET=$(openssl rand -hex 32)
+
+# create Kubernetes secret
+kubectl -n homarr create secret generic db-encryption --from-literal=db-encryption-key=$SECRET
+
+# install
+helm install homarr oci://ghcr.io/homarr-labs/charts/homarr --namespace homarr
+
+Pulled: ghcr.io/homarr-labs/charts/homarr:8.3.0
+Digest: sha256:f548e78c04d9611c1a593b02961f76697c1fa572362de12cadfac0f516d2cb10
+NAME: homarr
+LAST DEPLOYED: Mon Nov 24 09:53:34 2025
+NAMESPACE: homarr
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+1. Get the application URL by running these commands:
+  export POD_NAME=$(kubectl get pods --namespace homarr -l "app.kubernetes.io/name=homarr,app.kubernetes.io/instance=homarr" -o jsonpath="{.items[0].metadata.name}")
+  export CONTAINER_PORT=$(kubectl get pod --namespace homarr $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
+  echo "Visit http://127.0.0.1:8080 to use your application"
+  kubectl --namespace homarr port-forward $POD_NAME 8080:$CONTAINER_PORT
+```
+
+
+user: admin/3l71UwvO#7 (temp)
