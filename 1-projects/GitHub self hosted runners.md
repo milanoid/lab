@@ -60,13 +60,42 @@ Your release is named arc-runner-set.
 ```
 
 
+```bash
+# to use a different PAT run upgrade
+# GITHUB_PAT=my-pat
+
+INSTALLATION_NAME="arc-runner-set"
+NAMESPACE="arc-runners"
+GITHUB_CONFIG_URL="https://github.com/milanoid/fizz-buzz"
+
+helm upgrade "${INSTALLATION_NAME}" \
+    --namespace "${NAMESPACE}" \
+    --set githubConfigUrl="${GITHUB_CONFIG_URL}" \
+    --set githubConfigSecret.github_token="${GITHUB_PAT}" \
+    oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
+Pulled: ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set:0.13.0
+Digest: sha256:8c7de2bc84e9596b1137a48c462a566c828f507707e64dac58675de1e483ac03
+Release "arc-runner-set" has been upgraded. Happy Helming!
+NAME: arc-runner-set
+LAST DEPLOYED: Thu Nov 27 17:09:01 2025
+NAMESPACE: arc-runners
+STATUS: deployed
+REVISION: 2
+TEST SUITE: None
+NOTES:
+Thank you for installing gha-runner-scale-set.
+
+Your release is named arc-runner-set.
+```
+
+
 Check installation
 
 ```bash
 helm list -A
 ```
 
-TODO setup runner & test
+- [x] https://github.com/milanoid/fizz-buzz/actions
+- [ ] describe in my own words how it works
 
-https://docs.github.com/en/actions/tutorials/use-actions-runner-controller/quickstart#using-runner-scale-sets
 
