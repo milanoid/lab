@@ -186,3 +186,55 @@ spec:
         - protocol: TCP
           port: 80
 ```
+
+# Ingress Networking
+
+Ingress vs Services
+
+Ingress
+
+- tls/ssl
+- routing to different cluster services based on url path
+- load balancing
+
+### Ingress deployment process
+
+1. deploy _Ingress Controller_ - nginx, haproxy, istio or traefik (K3s)
+2. configure path based rules - called _Ingress Resources_
+
+
+Task - deploy nginx controller
+
+1. kind `Deployment`
+2. kind `ConfigMap` - for nginx configuraion
+3. kind `Service` (NodePort) - to make it accessible for customers
+4. kind `ServiceAccount` - to access all the components
+
+#### Ingress Resource
+
+- url path based routing 
+
+kind `Ingress`
+
+example: https://github.com/milanoid/homelab-cluster/blob/main/apps/staging/radarr/ingress.yaml
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: radarr
+spec:
+  ingressClassName: traefik
+  rules:
+    # to be accessed from LAN/VPN only
+    - host: radarr.milanoid.net # subdomain of my cloudflare domain
+      http:
+        paths:
+          - backend:
+              service:
+                name: radarr
+                port:
+                  number: 7878
+            path: /
+            pathType: Prefix
+```
