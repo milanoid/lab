@@ -98,22 +98,41 @@ helm list -A
 - [x] https://github.com/milanoid/fizz-buzz/actions
 - [ ] describe in my own words how it works
 - [ ] install DiD (Docker in Docker) to support docker based workflows
+- [ ] `RUNNER_ALLOW_RUNASROOT` - dirty workaround
 
 ```yaml
 githubConfigUrl: "https://github.com/milanoid/fizz-buzz"
 
 githubConfigSecret:
-  github_token: "<your-PAT>"
+  github_token: ""
 
 template:
   spec:
     containers:
     - name: runner
       image: ghcr.io/actions/actions-runner:latest
-      command: ["/home/runner/run.sh"]
       env:
-      - name: DOCKER_HOST
-        value: tcp://localhost:2375
+      - name: RUNNER_ALLOW_RUNASROOT
+        value: "1"
+      command:
+      - /bin/bash
+      - -c
+      - |
+        # Wait for Docker to be ready
+        echo "Waiting for Docker daemon..."
+        for i in $(seq 1 60); do
+          if docker ps >/dev/null 2>&1; then
+            echo "Docker is ready!"
+            break
+          fi
+          echo "Waiting for Docker... (attempt $i/60)"
+          sleep 2
+        done
+
+        # Start the runner
+        /home/runner/run.sh
+      securityContext:
+        runAsUser: 0
       volumeMounts:
       - name: work
         mountPath: /home/runner/_work
@@ -121,6 +140,11 @@ template:
         mountPath: /var/run
     - name: dind
       image: docker:dind
+      command: ["dockerd"]
+      args:
+      - --host=unix:///var/run/docker.sock
+      - --host=tcp://0.0.0.0:2375
+      - --tls=false
       env:
       - name: DOCKER_TLS_CERTDIR
         value: ""
