@@ -97,5 +97,68 @@ helm list -A
 
 - [x] https://github.com/milanoid/fizz-buzz/actions
 - [ ] describe in my own words how it works
+- [ ] install DiD (Docker in Docker) to support docker based workflows
+
+```yaml
+githubConfigUrl: "https://github.com/milanoid/fizz-buzz"
+
+githubConfigSecret:
+  github_token: "<your-PAT>"
+
+template:
+  spec:
+    containers:
+    - name: runner
+      image: ghcr.io/actions/actions-runner:latest
+      command: ["/home/runner/run.sh"]
+      env:
+      - name: DOCKER_HOST
+        value: tcp://localhost:2375
+      volumeMounts:
+      - name: work
+        mountPath: /home/runner/_work
+      - name: dind-sock
+        mountPath: /var/run
+    - name: dind
+      image: docker:dind
+      env:
+      - name: DOCKER_TLS_CERTDIR
+        value: ""
+      securityContext:
+        privileged: true
+      volumeMounts:
+      - name: work
+        mountPath: /home/runner/_work
+      - name: dind-sock
+        mountPath: /var/run
+    volumes:
+    - name: work
+      emptyDir: {}
+    - name: dind-sock
+      emptyDir: {}
+```
 
 
+```bash
+INSTALLATION_NAME="arc-runner-set"
+NAMESPACE="arc-runners"
+GITHUB_CONFIG_URL="https://github.com/milanoid/fizz-buzz"
+
+helm upgrade "${INSTALLATION_NAME}" \
+    --namespace "${NAMESPACE}" \
+    -f values.yaml \
+    oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
+Pulled: ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set:0.13.0
+Digest: sha256:8c7de2bc84e9596b1137a48c462a566c828f507707e64dac58675de1e483ac03
+Release "arc-runner-set" has been upgraded. Happy Helming!
+NAME: arc-runner-set
+LAST DEPLOYED: Fri Nov 28 08:49:59 2025
+NAMESPACE: arc-runners
+STATUS: deployed
+REVISION: 3
+TEST SUITE: None
+NOTES:
+Thank you for installing gha-runner-scale-set.
+
+Your release is named arc-runner-set.
+```
