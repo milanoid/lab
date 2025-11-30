@@ -254,8 +254,10 @@ helm upgrade "${INSTALLATION_NAME}" \
     --set template.spec.containers[0].name=runner \
     --set githubConfigUrl="${GITHUB_CONFIG_URL}" \
     --set githubConfigSecret.github_token="${GITHUB_PAT}" \
-    --set runner.imagePullSecrets.name=ghcr-milanoid-secret \
+    --set template.spec.imagePullSecrets[0].name=ghcr-milanoid-secret \
     oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
 ```
 
-- [ ] the auth still does not work :(
+- [x] now it pulls
+
+
