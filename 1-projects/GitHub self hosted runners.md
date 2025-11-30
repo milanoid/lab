@@ -216,8 +216,46 @@ GITHUB_CONFIG_URL="https://github.com/milanoid/fizz-buzz"
 
 helm upgrade "${INSTALLATION_NAME}" \
     --namespace "${NAMESPACE}" \
-    --set runner.image=ghcr.io/milanoid/my-runner-java-17:latest \
+    --set template.spec.containers[0].image=ghcr.io/milanoid/my-runner-java-17:latest \
+    --set template.spec.containers[0].name=runner \
     --set githubConfigUrl="${GITHUB_CONFIG_URL}" \
     --set githubConfigSecret.github_token="${GITHUB_PAT}" \
     oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
 ```
+
+Now the custom image is set, but the pull won't work until a secret is set.
+
+```
+│   Normal   Pulling    7s    kubelet            Pulling image "ghcr.io/milanoid/my-runner-java-17:latest"                                                                                 │
+│   Warning  Failed     7s    kubelet            Failed to pull image "ghcr.io/milanoid/my-runner-java-17:latest": failed to pull and unpack image "ghcr.io/milanoid/my-runner-java-17:lat │
+│ est": failed to resolve reference "ghcr.io/milanoid/my-runner-java-17:latest": failed to authorize: failed to fetch anonymous token: unexpected status from GET request to https://ghcr. │
+│ io/token?scope=repository%3Amilanoid%2Fmy-runner-java-17%3Apull&service=ghcr.io: 401 Unauthorized
+```
+
+```bash
+NAMESPACE="arc-runners"
+kubectl create secret docker-registry ghcr-milanoid-secret \
+--docker-server=ghcr.io \
+--docker-username=milanoid \
+--docker-password=${GITHUB_PAT} \
+--namespace=${NAMESPACE}
+```
+
+
+```bash
+# upgrade ARC to use my image & set ghrc access
+INSTALLATION_NAME="arc-runner-set"
+NAMESPACE="arc-runners"
+GITHUB_CONFIG_URL="https://github.com/milanoid/fizz-buzz"
+
+helm upgrade "${INSTALLATION_NAME}" \
+    --namespace "${NAMESPACE}" \
+    --set template.spec.containers[0].image=ghcr.io/milanoid/my-runner-java-17:latest \
+    --set template.spec.containers[0].name=runner \
+    --set githubConfigUrl="${GITHUB_CONFIG_URL}" \
+    --set githubConfigSecret.github_token="${GITHUB_PAT}" \
+    --set runner.imagePullSecrets.name=ghcr-milanoid-secret \
+    oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
+```
+
+- [ ] the auth still does not work :(
