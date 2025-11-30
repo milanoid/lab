@@ -186,3 +186,38 @@ Thank you for installing gha-runner-scale-set.
 
 Your release is named arc-runner-set.
 ```
+
+
+# using my custom image as the runner
+
+
+
+```bash
+# build
+docker build --build-arg JAVA_VERSION=17 -t my-runner-java-17:latest .
+
+# tag
+docker tag localhost/my-runner-java-17:latest ghcr.io/milanoid/my-runner-java-17:latest
+
+# login to ghcr
+export CR_PAT=YOUR_TOKEN
+echo $CR_PAT | docker login ghcr.io -u milanoid --password-stdin
+
+# push
+docker push ghcr.io/milanoid/my-runner-java-17:latest
+```
+
+
+```bash
+# upgrade ARC to use my image
+INSTALLATION_NAME="arc-runner-set"
+NAMESPACE="arc-runners"
+GITHUB_CONFIG_URL="https://github.com/milanoid/fizz-buzz"
+
+helm upgrade "${INSTALLATION_NAME}" \
+    --namespace "${NAMESPACE}" \
+    --set runner.image=ghcr.io/milanoid/my-runner-java-17:latest \
+    --set githubConfigUrl="${GITHUB_CONFIG_URL}" \
+    --set githubConfigSecret.github_token="${GITHUB_PAT}" \
+    oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
+```
