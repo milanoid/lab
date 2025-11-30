@@ -194,7 +194,10 @@ Your release is named arc-runner-set.
 
 ```bash
 # build
-docker build --build-arg JAVA_VERSION=17 -t my-runner-java-17:latest .
+#docker build --build-arg JAVA_VERSION=17 -t my-runner-java-17:latest .
+
+# build on Apple Silicon for Intel/Amd CPU
+docker buildx build --platform linux/amd64 --build-arg JAVA_VERSION=17 -t my-runner-java-17:latest --load .
 
 # tag
 docker tag localhost/my-runner-java-17:latest ghcr.io/milanoid/my-runner-java-17:latest
