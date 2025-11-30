@@ -263,4 +263,4 @@ helm upgrade "${INSTALLATION_NAME}" \
 
 - [x] now it pulls
 
-
+- [ ] keeps crashing in a loop, although the platform is ok
