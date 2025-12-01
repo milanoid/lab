@@ -238,3 +238,18 @@ spec:
             path: /
             pathType: Prefix
 ```
+
+Nginx specific:
+
+https://kubernetes.github.io/ingress-nginx/examples/rewrite/
+
+rewrite target -> changes the url user has passed in, e.g. `public-host/watch` to `video-service/`
+
+```yaml
+apiVersion: networking.k8s.io/v1 
+kind: Ingress 
+metadata:   
+  annotations: nginx.ingress.kubernetes.io/use-regex: "true"
+  nginx.ingress.kubernetes.io/rewrite-target: /
+name: rewrite
+```
