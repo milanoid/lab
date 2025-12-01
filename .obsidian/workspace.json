@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/GitHub self hosted runners.md",
+                "file": "1-projects/CKAD/Section 7 - Services & Networking.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GitHub self hosted runners"
+              "title": "Section 7 - Services & Networking"
             }
           },
           {
@@ -293,8 +293,8 @@
   },
   "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
-    "0-inbox/Golden image for Maestro tests.md",
     "1-projects/GitHub self hosted runners.md",
+    "0-inbox/Golden image for Maestro tests.md",
     "1-projects/CKAD/Section 7 - Services & Networking.md",
     "1-projects/CKAD/Section 6 - Pod Design.md",
     "4-archives/Downloaders.md",
