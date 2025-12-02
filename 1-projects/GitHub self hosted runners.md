@@ -264,3 +264,42 @@ helm upgrade "${INSTALLATION_NAME}" \
 - [x] now it pulls
 
 - [ ] keeps crashing in a loop, although the platform is ok, locally on mini PC it starts ok
+
+```bash
+# back to default ARC
+INSTALLATION_NAME="arc-runner-set"
+NAMESPACE="arc-runners"
+GITHUB_CONFIG_URL="https://github.com/milanoid/fizz-buzz"
+
+helm upgrade "${INSTALLATION_NAME}" \
+    --namespace "${NAMESPACE}" \
+    --set template.spec.containers[0].image=ghcr.io/actions/actions-runner:2.330.0 \
+    --set template.spec.containers[0].name=runner \
+    --set githubConfigUrl="${GITHUB_CONFIG_URL}" \
+    --set githubConfigSecret.github_token="${GITHUB_PAT}" \
+    --set template.spec.imagePullSecrets[0].name=ghcr-milanoid-secret \
+    oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
+```
+
+
+```bash
+# uninstall Helm
+helm uninstall arc --namespace arc-systems
+helm uninstall arc-runner-set --namespace=arc-runners
+```
+
+
+
+```bash
+INSTALLATION_NAME="arc-runner-set"
+NAMESPACE="arc-runners"
+GITHUB_CONFIG_URL="https://github.com/milanoid/fizz-buzz"
+helm install "${INSTALLATION_NAME}" \
+    --namespace "${NAMESPACE}" \
+    --set template.spec.containers[0].image=ghcr.io/milanoid/my-runner-java-17:latest \
+    --set template.spec.containers[0].name=runner \
+    --set githubConfigUrl="${GITHUB_CONFIG_URL}" \
+    --set githubConfigSecret.github_token="${GITHUB_PAT}" \
+    --set template.spec.imagePullSecrets[0].name=ghcr-milanoid-secret \
+    oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
+```
