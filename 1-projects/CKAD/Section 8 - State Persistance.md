@@ -137,9 +137,9 @@ spec:
     
   volumes:
   - name: data-volume
-  hostPath:
-    path: /data
-    type: Directory
+	hostPath:
+      path: /data
+      type: Directory
 ```
 
 - the example would work well on a Single Node cluster!
@@ -185,4 +185,45 @@ spec:
 
 
 ## Persistent Volume Claims
+
+- PVC is bind to PV
+- it's 1:1 relationship
+- can use `selector` to make sure PVC is bound to a specific PV
+
+
+By default if PVC is deleted, PV is retained. Can be controlled by `persistentVolumeReclaimPolicy`:
+
+- _Reclaim_ - keeps PV and its data
+- _Delete_ - deletes PV
+- _Recycle (deprecated)_ - data deleted, PV made available for claims again
+
+https://kubernetes.io/docs/concepts/storage/persistent-volumes/#claims-as-volumes
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx
+      volumeMounts:
+      - mountPath: "/var/www/html"
+        name: mypd
+  volumes:
+    - name: mypd
+      persistentVolumeClaim:
+        claimName: myclaim
+```
+
+
+https://kubernetes.io/docs/concepts/storage
+
+LAB
+
+```bash
+# run command within a pod
+kubectl exec webapp -- cat /log/app.log
+```
 
