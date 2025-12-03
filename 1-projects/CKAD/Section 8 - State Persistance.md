@@ -69,7 +69,7 @@ docker run -v data_volume2:/var/lib/mysql mysql
 docker run -v /data/mysql:/var/lib/mysql mysq
 ```
 
-### `--mount` is preffered
+### `--mount` is preferred
 
 Using `-v` is a legacy way. Preferred is to use `--mount`:
 
@@ -93,4 +93,96 @@ docker run \
 
 # Volume Driver Plugins in Docker
 
+
+default - `Local`
+
+others - `Azure File Storage`, `Convoy`, `Flocker`, `gce-docker` ...
+
+Specify Volume Driver on container start:
+
+```bash
+docker run -it \
+  --name mysql
+  --volume-driver= rexray/ebs
+  --mount src=ebs-vol,target=/var/1
+```
+
+
+# Volumes in Kubernetes
+
+Let's start again with Docker first:
+
+- docker containers are meant to be transient (temporary)
+- started to perform an action and destroyed when finished
+
+In Kubernetes it's similar
+
+- a Pod is transient in nature
+- to persist data generate by the Pod we need to attach a Volume
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: random-number-generator
+spec:
+  containers:
+  - image: alpine
+    name: alpine
+    command: ["/bin/sh","-c"]
+    args: ["shuf -i 0-100 -n 1 >> /opt/number.out;"]
+    volumeMounts:
+    - mountPath: /opt
+      name data-volume
+    
+  volumes:
+  - name: data-volume
+  hostPath:
+    path: /data
+    type: Directory
+```
+
+- the example would work well on a Single Node cluster!
+- for multi Node (my case) one can use `NFS`, `Flocker`, `GlusterFS`, public cloud solutions by AWS, Azure, Google
+
+
+
+
+```yaml
+volumes:
+- name: data-volume
+  awsElasticBlockStore:
+    volumeID: <volume-id>
+    fsType: ext4
+```
+
+
+# Persistent Volumes
+
+The examples above shows the Volumes spec as part of the Pod specification. So it is tied to the Pod. Not good for Persistent Volumes.
+
+For env with a lot of Pods each would need to specify the Volume again.
+
+Better to centralize the Storage:
+
+- a cluster wide Storage solution
+- each Pod than can claim a part of the storage using PVC
+
+
+```yaml
+apiVesion: v1
+kind: PersistantVolume
+metadata:
+  name: pv-vol1
+spec:
+  accesModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1G
+  hostPath:
+    path: /tmp/data
+```
+
+
+## Persistent Volume Claims
 
