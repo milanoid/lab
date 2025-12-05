@@ -170,17 +170,17 @@ Better to centralize the Storage:
 
 
 ```yaml
-apiVesion: v1
-kind: PersistantVolume
+apiVersion: v1
+kind: PersistentVolume
 metadata:
-  name: pv-vol1
+  name: pv-log
 spec:
-  accesModes:
-  - ReadWriteOnce
+  accessModes:
+  - ReadWriteMany
   capacity:
-    storage: 1G
+    storage: 100Mi
   hostPath:
-    path: /tmp/data
+    path: /pv/log
 ```
 
 
