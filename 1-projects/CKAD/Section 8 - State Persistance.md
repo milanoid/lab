@@ -227,3 +227,14 @@ LAB
 kubectl exec webapp -- cat /log/app.log
 ```
 
+# Storage Classes
+
+(no part of the CKAD)
+
+- _Static Provisioning_ - manually create the disk (e.g. in cloud) than create PV
+- _Dynamic Provisioning_ - using SC the storage is provisioned when PVC is created
+
+AWS EBS (Elastic Block Store) 
+
+- in Free tier 30 GB - https://aws.amazon.com/ebs/pricing/
+
