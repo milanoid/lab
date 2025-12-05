@@ -238,3 +238,5 @@ AWS EBS (Elastic Block Store)
 
 - in Free tier 30 GB - https://aws.amazon.com/ebs/pricing/
 
+# Stateful Sets
+
