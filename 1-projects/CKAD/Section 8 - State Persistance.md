@@ -240,3 +240,85 @@ AWS EBS (Elastic Block Store)
 
 # Stateful Sets
 
+described with MySQL (master-slave) replication model
+
+Use case - when a service in a Pod depends on running state another Pod. The regular Deployment doesn't ensure that because Pods are started "randomly". 
+
+- similar to Deployment but:
+- Pods are created in sequential order
+- Pods assigned unique and ordinal id (no more random names)
+- they keep the id even after recreate
+
+#### Introduction to Stateful Sets
+
+https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/
+
+definition is the same as Deployment
+
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  ports:
+  - port: 80
+    name: web
+  clusterIP: None
+  selector:
+    app: nginx
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: web
+spec:
+  selector:
+    matchLabels:
+      app: nginx # has to match .spec.template.metadata.labels
+  serviceName: "nginx"
+  replicas: 3 # by default is 1
+  minReadySeconds: 10 # by default is 0
+  template:
+    metadata:
+      labels:
+        app: nginx # has to match .spec.selector.matchLabels
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: nginx
+        image: registry.k8s.io/nginx-slim:0.24
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+  - metadata:
+      name: www
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "my-storage-class"
+      resources:
+        requests:
+          storage: 1Gi
+```
+
+### Headless Services
+
+- as a normal service but without IP
+- no load-balancing
+- `.spec.clusterIP: None`
+
+
+https://kubernetes.io/docs/concepts/services-networking/service/#headless-services
+
+
+### Storage in Stateful Sets
+
+VolumeClaimTemplate
+
