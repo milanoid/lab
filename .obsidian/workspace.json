@@ -101,7 +101,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 400.5
+    "width": 400.5,
+    "collapsed": true
   },
   "right": {
     "id": "c30d66fb63f83402",
@@ -193,7 +194,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e6e596ef8a2b8255",
+  "active": "f6b8b7d098ae887d",
   "lastOpenFiles": [
     "1-projects/CKAD/Section 8 - State Persistance.md",
     "1-projects/CKAD/Section 9 - Security.md",

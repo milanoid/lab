@@ -65,3 +65,65 @@ To show what config is used:
 Switch context
 
 - `kubectl config use-context prod-user@production`
+
+
+# API Groups
+
+- `/api` - core api
+- `/apis` - named api
+- `/version`
+
+- /apis/apps
+- /apis/storage
+
+```bash
+# auth required
+curl -k https://localhost:6443
+{
+  "kind": "Status",
+  "apiVersion": "v1",
+  "metadata": {},
+  "status": "Failure",
+  "message": "Unauthorized",
+  "reason": "Unauthorized",
+  "code": 401
+}
+
+# either pass cert
+curl -k https://localhost:6443 \
+--key admin.key \
+--cert admin.crt \
+--cacert ca.crt
+
+# or start proxy server
+kubectl proxy
+Starting to serve on 127.0.0.1:8001
+
+# then
+curl http://localhost:8001/version
+{
+  "major": "1",
+  "minor": "33",
+  "emulationMajor": "1",
+  "emulationMinor": "33",
+  "minCompatibilityMajor": "1",
+  "minCompatibilityMinor": "32",
+  "gitVersion": "v1.33.3+k3s1",
+  "gitCommit": "236cbf257332b293f444abe6f24d699ff628173e",
+  "gitTreeState": "clean",
+  "buildDate": "2025-07-26T02:08:27Z",
+  "goVersion": "go1.24.4",
+  "compiler": "gc",
+  "platform": "linux/amd64"
+}
+```
+
+# Authorization
+
+- Node - Node Authorizer
+- ABAC - Attribute Based Authorization
+- RBAC - Role Based Authorization
+- Webhook
+
+Modes - Always Allow vs Always Deny
+
