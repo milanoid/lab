@@ -204,3 +204,9 @@ kubernetes-admin
 kubectl auth can-i get pod --as dev-user
 no
 ```
+
+
+# Cluster Roles
+
+- cluster wide
+
