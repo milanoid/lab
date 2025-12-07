@@ -221,5 +221,23 @@ _Cluster scope_
 - Nodes, PV, cluster roles, namespaces ...
 
 
+# Admission Controllers
 
+extra rules, more granular, e.g.:
 
+- do not allow `:latest` tag for images
+- allow only internal image registry
+- do not allow `runAs root`
+- ...
+
+default Admission Controller 
+- `AlwaysPullImages=true`
+- `NamespeceExists` (do not allow create a resource in a non-existent namespace)
+
+Viewing Enabled Admission Controllers
+
+```bash
+kube-apiserver -h | grep enable-admission-plugins
+# for adm based systems
+kubectl exec kube-apiserver-controlplane -n kube-system -- kube-apiserver -h | grep enable-admission-plugins
+```
