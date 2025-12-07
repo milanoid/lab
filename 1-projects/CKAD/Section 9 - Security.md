@@ -127,3 +127,80 @@ curl http://localhost:8001/version
 
 Modes - Always Allow vs Always Deny
 
+Can have multiple modes set (Node, RBAC, Webhook) - each is evaluated:
+- if Denied it checks the next mode specified
+- if Allowed - no other is checked
+
+# RBAC
+
+https://kubernetes.io/docs/reference/access-authn-authz/rbac/#privilege-escalation-prevention-and-bootstrapping
+
+1. object apiVersion `rbac.authorization.k8s.io/v1`, Kind `Role`
+2. object apiVersion  `rbac.authorization.k8s.io/v1`, Kind `RoleBinding`
+
+- applied to per-namespace 
+
+
+```bash
+kubectl get role -A
+NAMESPACE     NAME                                             CREATED AT
+arc-runners   arc-runner-set-754b578d-listener                 2025-12-02T14:21:44Z
+arc-runners   arc-runner-set-gha-rs-manager                    2025-12-02T14:21:42Z
+arc-systems   arc-gha-rs-controller-listener                   2025-12-02T14:18:20Z
+kube-public   system:controller:bootstrap-signer               2025-08-02T15:32:08Z
+kube-system   extension-apiserver-authentication-reader        2025-08-02T15:32:08Z
+kube-system   system::leader-locking-kube-controller-manager   2025-08-02T15:32:08Z
+kube-system   system::leader-locking-kube-scheduler            2025-08-02T15:32:08Z
+kube-system   system:controller:bootstrap-signer               2025-08-02T15:32:08Z
+kube-system   system:controller:cloud-provider                 2025-08-02T15:32:08Z
+kube-system   system:controller:token-cleaner                  2025-08-02T15:32:08Z
+monitoring    kube-prometheus-stack-grafana                    2025-08-24T16:48:33Z
+
+# rolebinding
+kubectl get rolebindings.rbac.authorization.k8s.io -A
+NAMESPACE     NAME                                                 ROLE                                                  AGE
+arc-runners   arc-runner-set-754b578d-listener                     Role/arc-runner-set-754b578d-listener                 4d22h
+arc-runners   arc-runner-set-gha-rs-manager                        Role/arc-runner-set-gha-rs-manager                    4d22h
+arc-systems   arc-gha-rs-controller-listener                       Role/arc-gha-rs-controller-listener                   4d22h
+kube-public   system:controller:bootstrap-signer                   Role/system:controller:bootstrap-signer               126d
+kube-system   k3s-cloud-controller-manager-authentication-reader   Role/extension-apiserver-authentication-reader        126d
+kube-system   metrics-server-auth-reader                           Role/extension-apiserver-authentication-reader        126d
+kube-system   system::extension-apiserver-authentication-reader    Role/extension-apiserver-authentication-reader        126d
+kube-system   system::leader-locking-kube-controller-manager       Role/system::leader-locking-kube-controller-manager   126d
+kube-system   system::leader-locking-kube-scheduler                Role/system::leader-locking-kube-scheduler            126d
+kube-system   system:controller:bootstrap-signer                   Role/system:controller:bootstrap-signer               126d
+kube-system   system:controller:cloud-provider                     Role/system:controller:cloud-provider                 126d
+kube-system   system:controller:token-cleaner                      Role/system:controller:token-cleaner                  126d
+monitoring    kube-prometheus-stack-grafana                        Role/kube-prometheus-stack-grafana                    104d
+
+```
+
+### checking access
+
+```bash
+$ kubectl auth can-i create deployments
+yes
+
+# as an Admin I can inpersonate user
+kubectl auth can-i create deployements --as dev-user
+```
+
+Practice
+
+Get authorization settings:
+
+`kubectl get pod/kube-apiserver-controlplane --namespace kube-system --output=yaml`
+
+Get users (defined in kubeconfig)
+
+```bash
+kubectl config get-users 
+NAME
+dev-user
+kubernetes-admin
+```
+
+```bash
+kubectl auth can-i get pod --as dev-user
+no
+```
