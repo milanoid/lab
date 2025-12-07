@@ -209,4 +209,17 @@ no
 # Cluster Roles
 
 - cluster wide
+- A Node cannot be isolated within a namespace (as it is cluster scoped)
+
+
+_Namespace scope_
+
+- Pods, Jobs, Services, ConfigMaps, Secrets, PVC ...
+- list: `kubectl api-resources --namespaced=true`
+
+_Cluster scope_ 
+- Nodes, PV, cluster roles, namespaces ...
+
+
+
 
