@@ -415,5 +415,52 @@ Lab
     ```
 
 
-# Custom Resource Definition
+# Custom Resource Definition (CRD)
+
+- A Resource (e.g. Deployment) is stored in etcd datastore.
+- Controller - process running in a background and monitors status of Resources
+
+Controller - written in Go and part of the Kubernetes
+
+Custom Resource - my own resource, e.g. FlightTicket
+Custom Controller - my own impl of controller (e.g. making a HTTP call to book a ticket)
+
+### 1. create CRD
+
+```yaml
+apiVersion: apiextension.k8s.io/v1
+kind: CustomResourceDefinition
+metadata
+  name: flighttickets.flights.com
+spec:
+  scope: Namespaced
+  group: flights.com
+  names:
+    kind: FlighTicket
+    singular: flightticket
+    plural: flighttickets
+    shortNames:
+      - ft
+  versions:
+    - name: v1
+      server: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+        
+        ...
+```
+
+
+### 2. create resource
+
+```bash
+# create CRD
+kubectl create flighttcket-custom-definition.yaml
+
+# create resource
+kubectl create -f flightticket.yaml
+```
+
+### 3.  implement controller
 
