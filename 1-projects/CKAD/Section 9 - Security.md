@@ -319,3 +319,76 @@ kubectl apply -f /root/pod-with-conflict.yaml
 Error from server: error when creating "/root/pod-with-conflict.yaml": admission webhook "webhook-server.webhook-demo.svc" denied the request: runAsNonRoot specified, but runAsUser set to 0 (the root user)
 ```
 
+# API Versions
+
+- GA - Generally Available (version)
+- Alpha 
+  - first developed and released
+  - not enabled by default
+  - may lack e2e tests
+  - can be buggy and without support
+- Beta
+  - enabled by default
+  - with e2e tests
+  - minor bugs
+  - it might be moved to GA later
+
+
+`/apis/apps` can support multiple versions
+
+There is _preferred_  and _storage.
+
+- _preferred_ - default version
+- _storage_ - version in which the Kubernetes object is stored
+
+```bash
+
+# with proxy
+kubectl proxy
+Starting to serve on 127.0.0.1:8001
+
+
+curl -k http://localhost:8001/apis/batch
+{
+  "kind": "APIGroup",
+  "apiVersion": "v1",
+  "name": "batch",
+  "versions": [
+    {
+      "groupVersion": "batch/v1",
+      "version": "v1"
+    }
+  ],
+  "preferredVersion": {
+    "groupVersion": "batch/v1",
+    "version": "v1"
+  }
+```
+
+Getting storage version - need to query etcd directly.
+
+# API Deprecations
+
+- rule #1 - API elements can only be removed by incrementing the version of the API group
+- rule #2 - API objects must be able to round-trip between API versions in a given release w/o information loss
+- rule #4a older API version must be supported: 
+  - GA: 12 months or 3 releases
+  - Beta: 9 months or 3 releases
+  - Alpha: 0 releases
+
+https://kubernetes.io/releases/
+
+
+### Kubectl Convert
+
+- when old API gets removed the existing manifest files to a new version
+
+
+```
+kubectl convert -f <old-file> --output-version <new-api>
+```
+
+- may not be installed https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/
+```bash
+
+```
