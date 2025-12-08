@@ -389,6 +389,31 @@ kubectl convert -f <old-file> --output-version <new-api>
 ```
 
 - may not be installed https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/
-```bash
 
-```
+
+Lab
+
+- get short names: `kubectl api-resources`
+- see the API group a `job` is part of: `kubectl explain job`
+- get preferred version: 
+  ```
+    kubectl proxy 8001&
+    
+    curl http://localhost:8001/apis/authorization.k8.io
+    ```
+
+- enable `alpha`
+  
+  ```bash
+    # backup first than edit
+    vi /etc/kubernetes/manifests/kube-apiserver.yaml
+    
+    ...
+    --runtime-config=rbac.authorization.k8s.io/v1alpha1
+    ...
+    
+    ```
+
+
+# Custom Resource Definition
+
