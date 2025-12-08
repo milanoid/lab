@@ -464,3 +464,43 @@ kubectl create -f flightticket.yaml
 
 ### 3.  implement controller
 
+..... below
+
+# Custom Controllers
+
+any process or code running in cluster
+
+Can be in Python or any other language but Go is preferred as the Kubernetes is in Go so one can reuse libraries etc.
+
+https://github.com/kubernetes/sample-controller
+
+
+```bash
+brew install go
+
+# customize the sample-controller
+..
+
+# build
+go build -o sample-controller .
+
+# run
+/sample-controller -kubeconfig=$HOME/.kube/config
+I1208 16:21:52.814104   29744 controller.go:126] "Setting up event handlers"
+I1208 16:21:52.814294   29744 controller.go:168] "Starting Foo controller"
+I1208 16:21:52.814298   29744 controller.go:171] "Waiting for informer caches to sync"
+E1208 16:21:52.836045   29744 reflector.go:429] "The watchlist request ended with an error, falling back to the standard LIST/WATCH semantics because making progress is better than deadlocking" err="the server could not find the requested resource (get foos.samplecontroller.k8s.io)"
+```
+
+
+**Distribution** - package as a Docker image and run it cluster as a Pod.
+
+- [ ] Check [ARC](https://github.com/actions/actions-runner-controller) - Action Runner Controller
+
+# Operators
+
+Custom Resource Definition (CRD) + Custom Controller = Operator
+
+_Operator Framework_ - e.g. etcd operator
+
+https://operatorhub.io/
