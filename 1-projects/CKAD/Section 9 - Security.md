@@ -241,3 +241,6 @@ kube-apiserver -h | grep enable-admission-plugins
 # for adm based systems
 kubectl exec kube-apiserver-controlplane -n kube-system -- kube-apiserver -h | grep enable-admission-plugins
 ```
+
+# Validating and Mutating Admission Controllers
+
