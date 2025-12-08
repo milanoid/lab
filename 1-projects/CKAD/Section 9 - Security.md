@@ -244,3 +244,43 @@ kubectl exec kube-apiserver-controlplane -n kube-system -- kube-apiserver -h | g
 
 # Validating and Mutating Admission Controllers
 
+- Validating - `NamespaceExists` - rejects request if the namespace does not exist
+- Mutating - `DefaultStorageClass` - a PVC request w/o StorageClass specified defaults to a default StorageClass, mutates - changes the request
+
+### setting up my own Admission Webhooks (Dynamic Admission Control)
+
+Can create my own - both types - _Mutating Adminission Webhook_ and _Validating Admission Webhook_.
+
+1. deploy Admission Webhook Server 
+   - not part of the Kubernetes, a custom code e.g. Python
+   - can be deployed on the cluster or hosted elsewhere
+1. configure Webhook in Kubernetes
+
+
+
+```yaml
+piVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: "pod-policy.example.com"
+webhooks:
+- name: "pod-policy.example.com"
+  rules:
+  - apiGroups:   [""]
+    apiVersions: ["v1"]
+    operations:  ["CREATE"]
+    resources:   ["pods"]
+    scope:       "Namespaced"
+  clientConfig:
+    service:
+      namespace: "example-namespace"
+      name: "example-service"
+    caBundle: <CA_BUNDLE>
+  admissionReviewVersions: ["v1"]
+  sideEffects: None
+  timeoutSeconds: 5
+```
+
+
+
+
