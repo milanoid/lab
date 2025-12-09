@@ -120,3 +120,145 @@ Kustomize:
  ```
 # Kustomize ApiVersion & Kind
 
+- technically optional but use them
+
+```
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+```
+
+# Managing directories
+
+```bash
+~/k8s
+├── api-depl.yaml
+├── api-service.yaml
+├── db-service.yaml
+└── db-depl.yaml
+```
+
+.. later we split that to a separate directories
+
+```bash
+~/k8s
+├── api
+|	├── api-depl.yaml
+|	├── api-service.yaml
+└── db
+	├── db-service.yaml
+	└── db-depl.yaml
+```
+
+which brings the need to run `apply` for each dir:
+
+```bash
+kubectl apply -f k8s/api/
+
+kubectl apply -f k8s/db/
+```
+
+it becomes a tedious job 
+
+Here it comes `kustomization.yaml`:
+
+```bash
+~/k8s
+└── kustomization.yaml
+├── api
+|	├── api-depl.yaml
+|	├── api-service.yaml
+└── db
+	├── db-service.yaml
+	└── db-depl.yaml
+	
+	
+# kustomization.yaml:
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - api/api-depl.yaml
+  - api/api-service.yaml
+  - db/db-depl.yaml
+  - db/db-service.yaml
+    
+    
+# to apply
+kustomize build k8s/ | kubectl apply -f -
+
+```
+
+but still (imagine having dozens of directories)
+
+```bash
+~/k8s
+├── kustomization.yaml
+├── api/
+├── cache/
+├── kafka/
+├── rabbit/
+├── ...
+└── db/
+
+# the kustomization.yaml file would be huge
+```
+
+lets split that once more
+
+```bash
+~/k8s
+├── kustomization.yaml
+├── api/
+|    ├── kustomization.yaml
+├── cache/
+|    ├── kustomization.yaml
+├── kafka/
+|    ├── kustomization.yaml
+├── rabbit/
+|    ├── kustomization.yaml
+├── ...
+└── db/
+     └── kustomization.yaml
+```
+
+
+outer (root) `kustomization.yaml`:
+
+```yaml
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - api/
+  - db/
+  - cache/
+  .....
+```
+
+Apply: `kustomize build k8s/ | kubectl apply -f -`
+
+
+# Common Transformers
+
+- some build in, can write my own too
+
+What issue they solve?
+
+- e.g. we want to have same label on all the resources
+
+
+- `commonLabel` - adds a label to all Kubernetes resources
+- `namePrefix/Suffix` - adds a common prefix-suffix to all resource names
+- `Namespace` - adds a common namespaces
+- `commonAnnotations`
+
+
+# Image Transformers
+
+```yaml
+images:
+  - name: nginx
+    newName: haproxy
+```
+
