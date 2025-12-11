@@ -276,5 +276,5 @@ change both
 images:
   - name: nginx
     newName: haproxy
-    newTag: 2.4
+    newTag: "2.4"
 ```
