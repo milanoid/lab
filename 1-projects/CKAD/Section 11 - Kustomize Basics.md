@@ -256,9 +256,25 @@ What issue they solve?
 
 # Image Transformers
 
+change image
 ```yaml
 images:
   - name: nginx
     newName: haproxy
 ```
 
+change image tag
+```yaml
+images:
+  - name: nginx
+    newTag: 2.4
+```
+
+change both
+
+```yaml
+images:
+  - name: nginx
+    newName: haproxy
+    newTag: 2.4
+```
