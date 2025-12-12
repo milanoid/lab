@@ -278,3 +278,72 @@ images:
     newName: haproxy
     newTag: "2.4"
 ```
+
+# Patches Intro
+
+- another method to modify Kubernetes configs
+- more surgical approach to target
+
+3 parameters
+
+1. Operation Type: add/remove/replace
+2. Target: Kind, Name, Namespace ...
+3. Value
+
+```yaml
+# api-depl.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+.....
+```
+
+```yaml
+# kustomization.yaml
+# Json 6902
+patches:
+  - target:
+      kind: Deployment
+      name: api-deployment
+      
+    patch: |-
+      - op: replace
+        path: /metadata/name
+        value: web-development
+```
+
+
+## Json 6902 vs Strategic Merge Patch
+
+- both equal, can use either
+
+```yaml
+# kustomization.yaml
+# strategic merge patch
+patches:
+  - patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: api-deployment
+      spec:
+        replicas: 5
+```
+
+```yaml
+# kustomization.yaml
+# Json 6902
+patches:
+  - target:
+      kind: Deployment
+      name: api-deployment
+      
+    patch: |-
+      - op: replace
+        path: /metadata/name
+        value: web-development
+```
+
+# Different Types of Patches
