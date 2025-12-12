@@ -317,7 +317,7 @@ patches:
 
 ## Json 6902 vs Strategic Merge Patch
 
-- both equal, can use either
+	- both equal, can use either
 
 ```yaml
 # kustomization.yaml
@@ -347,3 +347,199 @@ patches:
 ```
 
 # Different Types of Patches
+
+1. inline (above)
+2. separate file (also can be both Json 6902 or strategic merge)
+
+```yaml
+# Kustomization
+patches:
+  - path: replica-patch.yaml
+    target:
+      kind: Deployment
+      name: nginx-deployment
+```
+
+```yaml
+# replica-path.yaml
+- op: replace
+  path: /spec/replicas
+  values: 5
+```
+
+# Patches Dictionary
+
+
+```yaml
+# api-depl.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  ...
+  template:
+    metadata:
+      labels:
+        org: KodeKloud
+        component: api
+   ...
+```
+
+```yaml kustomization
+patches:
+  - label-patch.yaml
+```
+
+- use `null` to remove
+```yaml
+# label-patch.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  ...
+  template:
+    metadata:
+      labels:
+        org: null
+```
+
+
+# Patches List
+
+
+```yaml
+# api-depl.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  ...
+  template:
+    metadata:
+      labels:
+        org: KodeKloud
+        component: api
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+```
+
+
+replace
+```yaml
+# kustomization (json 6902)
+patches:
+  - target:
+      kind: Deployment
+      name: api-deployment
+      
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0
+        value:
+          name: haproxy
+          image: haproxy
+```
+
+`-` append to end of the list 
+```yaml
+# kustomization (json 6902)
+patches:
+  - target:
+      kind: Deployment
+      name: api-deployment
+      
+    patch: |-
+      - op: add
+        path: /spec/template/spec/containers/-
+        value:
+          name: haproxy
+          image: haproxy
+```
+
+delete using strategic merge
+
+```yaml
+# label-patch.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  ...
+  template:
+    spec:
+      containers:
+        - $patch: delete
+	      image: nginx
+```
+
+# Overlays
+
+```
+k8s/
+├── base/
+│   ├── deployment.yaml
+│   ├── kustomization.yaml
+│   └── service.yaml
+└── overlays/
+    ├── dev/
+    │   ├── cpu_count.yaml
+    │   ├── kustomization.yaml
+    │   └── replica_count.yaml
+    └── prod/
+        ├── cpu_count.yaml
+        ├── kustomization.yaml
+        └── replica_count.yaml
+```
+
+```yaml
+# dev/kustomization
+bases:
+  - ../../base
+patch: |-
+	 - op: replace
+	   path: /spec/replicas
+	   value: 2
+```
+
+
+# Component
+
+- components provide the ability to define reusable pieces of configuration logic (resources + patches) that can be included in multiple overlays
+- components are useful in situations where applications support multiple optional features that need to be enabled only in a subset of overlays
+
+
+E.g.  caching or DB to apply only to subset of overlays (prod, stage, not dev)
+
+
+```yaml
+#@components/db/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+resources:
+  - postgres-depl.yaml
+
+secretGenerator:
+  - name: postgres-cred
+    literals:
+      - password=postgres123
+patches:
+  - deploylment-patch.yaml
+
+```
+
+```yaml
+# overlay/premium/kustomization
+bases:
+  - ../../base
+
+components:
+  - ../../components/db
+```
