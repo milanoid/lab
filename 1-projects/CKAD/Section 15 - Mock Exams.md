@@ -14,6 +14,15 @@ Create a service `messaging-service` to expose the `redis` deployment in the `ma
 - Use the right type of Service
 - Use the right labels
 
+```bash
+kubectl expose deployment redis --port=6379 --name=messaging-service --namespace=marketing
+```
+
+
+```bash
+# with same name instead of delete then apply we can run `replace`
+kubectl replace -f webapp-color.yaml --force
+```
 
 ## create a deployment
 
@@ -24,5 +33,7 @@ Create a `redis` deployment using the image `redis:alpine` with `1 replica` and 
 - Service created correctly?
 - Network Policy allows the correct pods?
 - Network Policy applied on the correct pods?
+
+
 
 - [ ] how to `explain` with details on e.g. pod's `.spec`?
