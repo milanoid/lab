@@ -125,12 +125,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/CKAD/Section 15 - Mock Exams.md",
+                "file": "4-archives/LPIC-1 exam prep/104.3 Control mounting and unmounting of filesystems.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Section 15 - Mock Exams"
+              "title": "104.3 Control mounting and unmounting of filesystems"
             }
           }
         ],
@@ -146,7 +146,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 16.385542168674696,
+        "dimension": 51.566265060240966,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -154,7 +154,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "fstab",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -170,7 +170,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 83.6144578313253,
+        "dimension": 48.433734939759034,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -291,10 +291,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e6e596ef8a2b8255",
+  "active": "92ceedde0d3f73ce",
   "lastOpenFiles": [
-    "1-projects/CKAD/Section 14 - Lightning Labs.md",
+    "4-archives/LPIC-1 exam prep/104.1 Create partitions and filesystems.md",
+    "4-archives/LPIC-1 exam prep/101.2 Boot the system.md",
+    "4-archives/Arch Linux installation/02 - Installation.md",
+    "4-archives/LPIC-1 exam prep/103.6 Modify process execution priorities.md",
     "1-projects/CKAD/Section 15 - Mock Exams.md",
+    "1-projects/CKAD/Section 14 - Lightning Labs.md",
     "1-projects/CKAD/Section 13 - Certification Tips.md",
     "1-projects/GitHub self hosted runners.md",
     "1-projects/CKAD/Section 5 - Observabiity.md",
@@ -315,10 +319,6 @@
     "4-archives/K3s additional agent node.md",
     "1-projects/CKAD/Section 3 - Configuration.md",
     "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
-    "4-archives/Kubernetes HomeLab/01 - HomeLab - Ubuntu server installation.md",
-    "4-archives/Kubernetes HomeLab/02 - HomeLab - K3s install.md",
-    "4-archives/Chapter 7 - Command Line Operations.md",
-    "0-inbox/devcontainers/DevContainers.md",
     "1-projects/CKAD/Dockerfile",
     "1-projects/Downloaders",
     "0-inbox/Untitled.base",
