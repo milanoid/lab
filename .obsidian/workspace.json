@@ -160,7 +160,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 25.28445006321112,
+        "dimension": 64.0960809102402,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -184,7 +184,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 74.71554993678888,
+        "dimension": 35.9039190897598,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -307,6 +307,8 @@
   },
   "active": "25abd57d3b294000",
   "lastOpenFiles": [
+    "4-archives/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
+    "4-archives/Kubernetes HomeLab/11 - HomeLab - Automated Image updates.md",
     "0-inbox/expired GH token for Renovate.md",
     "4-archives/LPIC-1 exam prep/104.2 Maintain the integrity of filesystems.md",
     "0-inbox/Golden image for Maestro tests.md",
@@ -331,8 +333,6 @@
     "4-archives/kubernetes-masterclass/Helm.md",
     "1-projects/CKAD/Section 4 - Multi-Container Pods.md",
     "4-archives/kubernetes-masterclass/Storage.md",
-    "4-archives/kubernetes-masterclass/K9s.md",
-    "4-archives/Kubernetes HomeLab/09 - HomeLab - Monitoring & Helm.md",
     "1-projects/CKAD/Dockerfile",
     "1-projects/Downloaders",
     "0-inbox/Untitled.base",
