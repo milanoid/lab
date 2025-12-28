@@ -5,7 +5,7 @@ multicontainer pod sharing:
 - network (can call each other via localhost)
 - storage
 
-## Desing patterns
+## Design patterns
 
 ### co-located containers
 

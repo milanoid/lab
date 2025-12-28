@@ -259,7 +259,7 @@ Can create my own - both types - _Mutating Adminission Webhook_ and _Validating 
 
 
 ```yaml
-piVersion: admissionregistration.k8s.io/v1
+apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingWebhookConfiguration
 metadata:
   name: "pod-policy.example.com"

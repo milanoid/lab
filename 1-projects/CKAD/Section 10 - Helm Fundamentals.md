@@ -8,7 +8,7 @@ Helm Chart
 - yaml files with deployment, secret, pv, pvc converted to templates (with vars `{{ Values.image}}`)
 - `values.yaml`
 
-templetes + values.yaml = Helm Chart
+templates + values.yaml = Helm Chart
 
 `Chart.yaml`
 

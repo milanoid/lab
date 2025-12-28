@@ -36,4 +36,17 @@ Create a `redis` deployment using the image `redis:alpine` with `1 replica` and 
 
 
 
-- [ ] how to `explain` with details on e.g. pod's `.spec`?
+- [x] how to `explain` with details on e.g. pod's `.spec`?
+
+```bash
+kubectl explain pods.spec.hostname
+KIND:       Pod
+VERSION:    v1
+
+FIELD: hostname <string>
+
+
+DESCRIPTION:
+    Specifies the hostname of the Pod If not specified, the pod's hostname will
+    be set to a system-defined value.
+```
