@@ -4,151 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "0bab11bd6f40ce4a",
+        "id": "b405927f5d616d9f",
         "type": "tabs",
         "children": [
           {
-            "id": "4962185be2a0877b",
+            "id": "b0ea9536daa13b9d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/CKAD/Section 8 - State Persistance.md",
+                "file": "1-projects/CKAD/Section 2 - Core Concepts.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Section 8 - State Persistance"
-            }
-          },
-          {
-            "id": "f6b8b7d098ae887d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-projects/CKAD/Section 9 - Security.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Section 9 - Security"
-            }
-          },
-          {
-            "id": "d7f8bb6beb5bda7d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-projects/CKAD/Section 10 - Helm Fundamentals.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Section 10 - Helm Fundamentals"
-            }
-          },
-          {
-            "id": "0fa076c804a82f05",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-projects/CKAD/Section 11 - Kustomize Basics.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Section 11 - Kustomize Basics"
-            }
-          },
-          {
-            "id": "b9bf80d0bb4939dd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-projects/GitHub self hosted runners.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "GitHub self hosted runners"
-            }
-          },
-          {
-            "id": "97b8ef691d14f4b7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-projects/CKAD/Section 13 - Certification Tips.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Section 13 - Certification Tips"
-            }
-          },
-          {
-            "id": "e9b6c7531ab87531",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-projects/CKAD/Section 13 - Certification Tips.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Section 13 - Certification Tips"
-            }
-          },
-          {
-            "id": "21a9053fe5c27fbc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-projects/CKAD/Section 14 - Lightning Labs.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Section 14 - Lightning Labs"
-            }
-          },
-          {
-            "id": "92ceedde0d3f73ce",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "4-archives/LPIC-1 exam prep/104.2 Maintain the integrity of filesystems.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "104.2 Maintain the integrity of filesystems"
-            }
-          },
-          {
-            "id": "25abd57d3b294000",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "4-archives/Kubernetes HomeLab/11 - HomeLab - Automated Image updates.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "11 - HomeLab - Automated Image updates"
+              "title": "Section 2 - Core Concepts"
             }
           }
-        ],
-        "currentTab": 9
+        ]
       }
     ],
     "direction": "vertical"
@@ -160,7 +33,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 64.0960809102402,
+        "dimension": 25.125628140703515,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -168,7 +41,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "renovate",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -184,7 +57,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 35.9039190897598,
+        "dimension": 74.87437185929649,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -305,12 +178,21 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "25abd57d3b294000",
+  "active": "b0ea9536daa13b9d",
   "lastOpenFiles": [
-    "4-archives/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
+    "1-projects/CKAD/Intro.md",
+    "Networking.pdf",
+    "KodeKloud-Kubernetes-CKAD.pdf",
+    "Services+(1).pdf",
+    "1-projects/CKAD/Section 2 - Core Concepts.md",
+    "1-projects/GitHub self hosted runners.md",
     "4-archives/Kubernetes HomeLab/11 - HomeLab - Automated Image updates.md",
-    "0-inbox/expired GH token for Renovate.md",
     "4-archives/LPIC-1 exam prep/104.2 Maintain the integrity of filesystems.md",
+    "1-projects/CKAD/Section 14 - Lightning Labs.md",
+    "1-projects/CKAD/Section 13 - Certification Tips.md",
+    "1-projects/CKAD/Section 11 - Kustomize Basics.md",
+    "4-archives/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
+    "0-inbox/expired GH token for Renovate.md",
     "0-inbox/Golden image for Maestro tests.md",
     "4-archives/LPIC-1 exam prep/104.3 Control mounting and unmounting of filesystems.md",
     "4-archives/LPIC-1 exam prep/104.1 Create partitions and filesystems.md",
@@ -318,21 +200,14 @@
     "4-archives/Arch Linux installation/02 - Installation.md",
     "4-archives/LPIC-1 exam prep/103.6 Modify process execution priorities.md",
     "1-projects/CKAD/Section 15 - Mock Exams.md",
-    "1-projects/CKAD/Section 14 - Lightning Labs.md",
-    "1-projects/CKAD/Section 13 - Certification Tips.md",
-    "1-projects/GitHub self hosted runners.md",
     "1-projects/CKAD/Section 5 - Observabiity.md",
     "1-projects/CKAD/Section 7 - Services & Networking.md",
     "1-projects/CKAD/Section 8 - State Persistance.md",
     "1-projects/CKAD/Section 9 - Security.md",
-    "1-projects/CKAD/Section 11 - Kustomize Basics.md",
     "1-projects/CKAD/Section 12 - Additional Practice - Kubernetes Challenges.md",
     "1-projects/CKAD/Section 10 - Helm Fundamentals.md",
     "1-projects/CKAD/Section 6 - Pod Design.md",
     "4-archives/Downloaders.md",
-    "4-archives/kubernetes-masterclass/Helm.md",
-    "1-projects/CKAD/Section 4 - Multi-Container Pods.md",
-    "4-archives/kubernetes-masterclass/Storage.md",
     "1-projects/CKAD/Dockerfile",
     "1-projects/Downloaders",
     "0-inbox/Untitled.base",
@@ -340,9 +215,6 @@
     "0-inbox/Untitled 2.base",
     "0-inbox/Untitled 1.base",
     "1-projects/CKAD",
-    "0-inbox/devcontainers/devcontainers",
-    "0-inbox/devcontainers/devcontainer.json",
-    "0-inbox/devcontainers",
     "Pasted image 20250629105100.png",
     "Pasted image 20250608183559.png",
     "Pasted image 20250514145051.png",
