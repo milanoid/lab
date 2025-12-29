@@ -13,15 +13,44 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
+                "file": "4-archives/Kubernetes HomeLab/11 - HomeLab - Automated Image updates.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "12 - HomeLab - Audiobookshelf (capstone project)"
+              "title": "11 - HomeLab - Automated Image updates"
+            }
+          },
+          {
+            "id": "bcaf8614709710ec",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "0-inbox/iSCSI as Persistant Volume.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "iSCSI as Persistant Volume"
+            }
+          },
+          {
+            "id": "3919ba4ee568d96a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "4-archives/Downloaders.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Downloaders"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -33,7 +62,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 25.125628140703515,
+        "dimension": 54.48798988621998,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -41,7 +70,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "nfs",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -57,7 +86,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 74.87437185929649,
+        "dimension": 45.51201011378003,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -178,13 +207,18 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "b0ea9536daa13b9d",
+  "active": "bcaf8614709710ec",
   "lastOpenFiles": [
+    "4-archives/Downloaders.md",
+    "0-inbox/iSCSI as Persistant Volume.md",
+    "0-inbox/PiHole.md",
     "4-archives/Kubernetes HomeLab/11 - HomeLab - Automated Image updates.md",
+    "0-inbox/expired GH token for Renovate.md",
+    "1-projects/CKAD/Section 15 - Mock Exams.md",
+    "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
     "4-archives/Kubernetes HomeLab/07 - HomeLab - Expose Linkding to the Internet.md",
     "4-archives/Kubernetes HomeLab/04 - HomeLab - Deploy an app using Flux.md",
     "4-archives/Kubernetes HomeLab/03 - HomeLab - Flux install.md",
-    "1-projects/CKAD/Section 15 - Mock Exams.md",
     "1-projects/CKAD/Section 14 - Lightning Labs.md",
     "1-projects/CKAD/Section 13 - Certification Tips.md",
     "1-projects/CKAD/Section 12 - Additional Practice - Kubernetes Challenges.md",
@@ -204,11 +238,6 @@
     "Services+(1).pdf",
     "1-projects/GitHub self hosted runners.md",
     "4-archives/LPIC-1 exam prep/104.2 Maintain the integrity of filesystems.md",
-    "4-archives/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
-    "0-inbox/expired GH token for Renovate.md",
-    "0-inbox/Golden image for Maestro tests.md",
-    "4-archives/LPIC-1 exam prep/104.3 Control mounting and unmounting of filesystems.md",
-    "4-archives/LPIC-1 exam prep/104.1 Create partitions and filesystems.md",
     "1-projects/CKAD/Dockerfile",
     "1-projects/Downloaders",
     "0-inbox/Untitled.base",
