@@ -11,6 +11,16 @@ https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 
 
 
-iSCSC
+# iSCSI
 
-driver: https://github.com/kubernetes-csi/csi-driver-iscsi
+
+# Synology settings
+
+Enable in Synology: https://kb.synology.com/cs-cz/DSM/tutorial/How_to_use_the_iSCSI_Target_service_on_Synology_NAS
+
+In SAN Manager:
+
+1. [ ] create LUN (Logical Unit Number)
+2. [ ] Thick vs Thin provisioning
+
+Kubernetes driver: https://github.com/kubernetes-csi/csi-driver-iscsi
