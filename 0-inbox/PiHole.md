@@ -123,3 +123,5 @@ Profit!
 
 Added extra blocklist https://github.com/hagezi/dns-blocklists?tab=readme-ov-file#normal
 
+Issue with Rolling Update
+https://github.com/MoJo2600/pihole-kubernetes/issues/397
