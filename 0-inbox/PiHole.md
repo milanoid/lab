@@ -23,6 +23,9 @@ helm show values mojo2600/pihole > pihole.values.yaml
 helm install pihole mojo2600/pihole --namespace pihole --create-namespace --values=pihole.values.yaml
 ```
 
+
+values.yaml - `~/Documents/pihole.values.yaml`
+
 Install output
 ```bash
 helm install pihole mojo2600/pihole --namespace pihole --create-namespace --values=pihole.values.yaml
