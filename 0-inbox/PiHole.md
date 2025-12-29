@@ -88,9 +88,10 @@ allow to get IP address in my LAN range 192.168.x.x:
 ```yaml
 serviceDns:
   type: LoadBalancer
-  annotations:
-    metallb.universe.tf/allow-shared-ip: pihole-svc
 ```
+K3s has its own LoadBalancer - https://github.com/k3s-io/klipper-lb
+
+
 
 - another way is to use ingress (traefik)
 
