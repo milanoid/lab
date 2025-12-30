@@ -131,3 +131,20 @@ https://github.com/MoJo2600/pihole-kubernetes/issues/397
 
 - now using localPath
 - [ ] switch to NAS (NFS or iSCSI)
+
+
+### Issue with NTP
+
+```bash
+│ 2025-12-30 13:38:04.014 UTC [189M] WARNING: Insufficient permissions to set system time (CAP_SYS_TIME required), NTP client not available                                                │
+```
+
+`CAP_SYS_TIME`
+
+```yaml
+capabilities: {
+  add:
+  - CAP_SYS_TIME
+}
+ 
+```
