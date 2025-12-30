@@ -125,3 +125,9 @@ Added extra blocklist https://github.com/hagezi/dns-blocklists?tab=readme-ov-fil
 
 Issue with Rolling Update
 https://github.com/MoJo2600/pihole-kubernetes/issues/397
+
+
+# Persistant storage
+
+- now using localPath
+- [ ] switch to NAS (NFS or iSCSI)
