@@ -143,8 +143,11 @@ https://github.com/MoJo2600/pihole-kubernetes/issues/397
 
 ```yaml
 capabilities: {
-  add:
-  - CAP_SYS_TIME
+  add: [SYS_TIME, SYS_NICE]
 }
- 
+```
+
+
+```bash
+2025-12-30 15:54:38.120 UTC [68/T70] ERROR: Failed to receive data from NTP server pool.ntp.org (162.159.200.123): Timeout
 ```
