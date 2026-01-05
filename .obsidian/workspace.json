@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/CKAD/Section 14 - Lightning Labs.md",
+                "file": "1-projects/CKAD/Section 7 - Services & Networking.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Section 14 - Lightning Labs"
+              "title": "Section 7 - Services & Networking"
             }
           }
         ]
@@ -180,8 +180,9 @@
   },
   "active": "7087cf9240d91ccf",
   "lastOpenFiles": [
-    "1-projects/CKAD/Section 15 - Mock Exams.md",
+    "1-projects/CKAD/Section 9 - Security.md",
     "1-projects/CKAD/Section 14 - Lightning Labs.md",
+    "1-projects/CKAD/Section 15 - Mock Exams.md",
     "1-projects/CKAD/Section 13 - Certification Tips.md",
     "0-inbox/Section 14 - Lightning Labs.md",
     "4-archives/Downloaders.md",
@@ -199,7 +200,6 @@
     "1-projects/CKAD/Section 12 - Additional Practice - Kubernetes Challenges.md",
     "1-projects/CKAD/Section 11 - Kustomize Basics.md",
     "1-projects/CKAD/Section 10 - Helm Fundamentals.md",
-    "1-projects/CKAD/Section 9 - Security.md",
     "1-projects/CKAD/Section 8 - State Persistance.md",
     "1-projects/CKAD/Section 7 - Services & Networking.md",
     "1-projects/CKAD/Section 6 - Pod Design.md",
