@@ -82,17 +82,15 @@ spec:
 
 ---
 
-- [ ] Task 2
+- [ ] Task 2 - fix network policy
 
+There are 2 pods - `webapp-color` and `secure-pod` and a service `secure-service`. Troubleshoot why incoming connections to `webapp-color` are not successful.  
 
 ```bash
-# run a command in a pod/container
-kubectl exec pods/webapp-color -- ping secure-pod
-ping: bad address 'secure-pod'
-command terminated with exit code 1
-
 # get to pod`s container shell
+# and try the connection to secure-pod (via secure-service)
 kubectl exec -it pods/webapp-color -- sh
+wget http://secure-service
 ```
 
 There is a network policy denying all Ingress traffic for all Pods within the namespace
@@ -120,6 +118,33 @@ kind: List
 metadata:
   resourceVersion: ""
 ```
+
+```bash
+# get pod labels (for referencing in new policy)
+kubectl get pods --show-labels
+```
+
+```yaml
+# export the exxisting deny-all polic to a file
+kubectl get netpol default-deny -o yaml > netpol.yaml
+
+# update:
+spec:
+  podSelector:
+    matchLabels:
+	  - run: secure-pod
+  policyTypes:
+  - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              name: webapp-color
+      ports:
+        - protocol: TCP
+          port: 80
+```
+
 
 ### Lightning lab 2
 
