@@ -4,63 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "b405927f5d616d9f",
+        "id": "24cc02a9e90c508e",
         "type": "tabs",
         "children": [
           {
-            "id": "b0ea9536daa13b9d",
+            "id": "7087cf9240d91ccf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/PiHole.md",
+                "file": "1-projects/CKAD/Section 14 - Lightning Labs.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "PiHole"
-            }
-          },
-          {
-            "id": "bcaf8614709710ec",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "0-inbox/iSCSI as Persistant Volume.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "iSCSI as Persistant Volume"
-            }
-          },
-          {
-            "id": "1d096c73ce713eb8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "4-archives/kubernetes-masterclass/Helm.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Helm"
-            }
-          },
-          {
-            "id": "3919ba4ee568d96a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "4-archives/Downloaders.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Downloaders"
+              "title": "Section 14 - Lightning Labs"
             }
           }
         ]
@@ -75,7 +33,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 54.48798988621998,
+        "dimension": 27.586206896551722,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -83,7 +41,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "helm",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -99,7 +57,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 45.51201011378002,
+        "dimension": 72.41379310344827,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -220,23 +178,24 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "b0ea9536daa13b9d",
+  "active": "7087cf9240d91ccf",
   "lastOpenFiles": [
+    "1-projects/CKAD/Section 13 - Certification Tips.md",
+    "1-projects/CKAD/Section 14 - Lightning Labs.md",
+    "0-inbox/Section 14 - Lightning Labs.md",
+    "4-archives/Downloaders.md",
     "4-archives/kubernetes-masterclass/Helm.md",
+    "0-inbox/iSCSI as Persistant Volume.md",
+    "0-inbox/Jellyfin.md",
     "0-inbox/PiHole.md",
     "4-archives/Kubernetes HomeLab/11 - HomeLab - Automated Image updates.md",
-    "0-inbox/iSCSI as Persistant Volume.md",
-    "4-archives/Downloaders.md",
     "4-archives/Kubernetes HomeLab/09 - HomeLab - Monitoring & Helm.md",
-    "0-inbox/Jellyfin.md",
     "0-inbox/expired GH token for Renovate.md",
     "1-projects/CKAD/Section 15 - Mock Exams.md",
     "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
     "4-archives/Kubernetes HomeLab/07 - HomeLab - Expose Linkding to the Internet.md",
     "4-archives/Kubernetes HomeLab/04 - HomeLab - Deploy an app using Flux.md",
     "4-archives/Kubernetes HomeLab/03 - HomeLab - Flux install.md",
-    "1-projects/CKAD/Section 14 - Lightning Labs.md",
-    "1-projects/CKAD/Section 13 - Certification Tips.md",
     "1-projects/CKAD/Section 12 - Additional Practice - Kubernetes Challenges.md",
     "1-projects/CKAD/Section 11 - Kustomize Basics.md",
     "1-projects/CKAD/Section 10 - Helm Fundamentals.md",
@@ -247,7 +206,6 @@
     "1-projects/CKAD/Section 5 - Observabiity.md",
     "1-projects/CKAD/Section 4 - Multi-Container Pods.md",
     "1-projects/CKAD/Section 3 - Configuration.md",
-    "1-projects/CKAD/Section 2 - Core Concepts.md",
     "Networking.pdf",
     "KodeKloud-Kubernetes-CKAD.pdf",
     "Services+(1).pdf",
