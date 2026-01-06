@@ -206,6 +206,12 @@ metadata:
 - `emptyDir` - lives as long as the Pod lives
 - maybe not needed to put all in a yaml file (_declarative_ approach) E.g. creating a namespace and configMap via _imperative_ approach
 
+---
+
+- [x] Task 4
+
+
+
 ### Lightning lab 2
 
 - [ ] https://uklabs.kodekloud.com/topic/lightning-lab-2-2/
