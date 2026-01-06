@@ -82,7 +82,7 @@ spec:
 
 ---
 
-- [ ] Task 2 - fix network policy
+- [x] Task 2 - fix network policy
 
 There are 2 pods - `webapp-color` and `secure-pod` and a service `secure-service`. Troubleshoot why incoming connections to `webapp-color` are not successful.  
 
@@ -144,8 +144,27 @@ spec:
         - protocol: TCP
           port: 80
 ```
+---
+
+- [x] Task 3
+
+```bash
+# pod with namespce
+kubectl run time-check --image=busybox --dry-run=client --output yaml
+
+# set namespace
+kubectl config set-context --current --namespace dvl1987
+
+# configmap
+kubectl create configmap time-config --dry-run=client -o yaml --from-literal=TIME_FREQ=10
+```
+
 
 
 ### Lightning lab 2
 
 - [ ] https://uklabs.kodekloud.com/topic/lightning-lab-2-2/
+
+
+
+
