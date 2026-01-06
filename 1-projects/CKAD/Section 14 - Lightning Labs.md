@@ -146,7 +146,7 @@ spec:
 ```
 ---
 
-- [x] Task 3
+- [x] Task 3 - create a pod running a command in a namespace
 
 ```bash
 # pod with namespce
@@ -157,9 +157,54 @@ kubectl config set-context --current --namespace dvl1987
 
 # configmap
 kubectl create configmap time-config --dry-run=client -o yaml --from-literal=TIME_FREQ=10
+
+# volume for pod
+# https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
+# https://kubernetes.io/docs/concepts/storage/volumes/#emptydir-configuration-example
+```
+
+```yaml
+# full solution
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dvl1987
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: time-check
+  name: time-check
+  namespace: dvl1987
+spec:
+  containers:
+  - image: busybox
+    name: time-check
+    command: ['sh', '-c', 'while true; do date; sleep $TIME_FREQ; done > /opt/time/time-check.log' ]
+    envFrom:
+      - configMapRef: 
+          name: time-config
+    volumeMounts:
+    - mountPath: /opt/time
+      name: time-volume
+  volumes:
+  - name: time-volume
+    emptyDir:
+---
+apiVersion: v1
+data:
+  TIME_FREQ: "10"
+kind: ConfigMap
+metadata:
+  name: time-config
 ```
 
 
+- no need to create a PV
+- use volume of type `emtpyDir` defined on the containers level and mount it
+- `emptyDir` - lives as long as the Pod lives
+- maybe not needed to put all in a yaml file (_declarative_ approach) E.g. creating a namespace and configMap via _imperative_ approach
 
 ### Lightning lab 2
 
