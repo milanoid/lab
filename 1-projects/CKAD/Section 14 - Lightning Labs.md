@@ -208,7 +208,59 @@ metadata:
 
 ---
 
-- [x] Task 4
+- [x] Task 4 - Deployment with 4 replicas and rollback to a previous version
+
+```bash
+# base deployment
+ubectl create deployment nginx-deploy --image=nginx:1.16 --replicas=4 --dry-run=cl
+ient -oyaml
+```
+
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-deploy
+  name: nginx-deploy
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: nginx-deploy
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 2
+  template:
+    metadata:
+      labels:
+        app: nginx-deploy
+    spec:
+      containers:
+      - image: nginx:1.16
+        name: nginx
+```
+
+
+```bash
+# update the image to 1.17
+# a) by changing the deployement yaml file and apply (declaratove)
+# b) via "set" (imperative)
+kubectl set image deployment nginx-deploy nginx=nginx:1.17
+```
+
+```bash
+# Rollback to the previous deployment
+kubectl rollout undo deployment/nginx-deploy 
+```
+
+---
+
+- [ ] Task 5 - Create a Redis Deployment
+
+
 
 
 
