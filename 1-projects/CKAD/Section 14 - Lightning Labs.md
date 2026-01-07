@@ -347,4 +347,80 @@ Follow up
 
 
 
+- [x] Task 1 - list pods across namespaces, identify the one not in ready state and troubleshoot, then add a probe
 
+
+```bash
+# switch to desired namespace
+kubectl config set-context --current --namespace dev1401
+
+# identify what's wrong
+kubectl describe pod/nginx1401
+
+  Warning  Unhealthy  61s (x36 over 6m9s)  kubelet            Readiness probe failed: Get "http://172.17.1.4:8080/": dial tcp 172.17.1.4:8080: connect: connection refused
+  
+  
+# fix
+kubectl edit pod/nginx1401
+
+# save to a file, delete old pod and crete a new one
+kubectl apply -f /tmp/kubectl-edit-3177094624.yaml 
+
+
+# create livenessProbe
+```
+
+```yaml
+livenessProbe:
+      exec:
+        command:
+          - "ls"
+          - "/var/www/html/file_check"
+      initialDelaySeconds: 10
+      periodSeconds: 60
+      
+      
+# other syntax
+# command: ["ls", "/var/www/html/file_check"]
+```
+
+#### Probes
+
+https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
+
+- `livenessProbe` - is it alive? Restart if not
+- `readinessProbe` - remove container from service endpoints
+
+---
+
+- [ ] Task 2 - Create a cronjob
+
+https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
+
+```yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: dice
+spec:
+  concurrencyPolicy: Forbid
+  schedule: '*/1 * * * *'
+  jobTemplate:
+    metadata:
+      name: dice
+    spec:
+      backoffLimit: 25
+	  activeDeadlineSeconds: 20
+      template:
+        spec:
+          containers:
+          - image: kodekloud/throw-dice
+            name: dice
+          restartPolicy: Never
+```
+
+follow up:
+
+- `activeDeadlineSeconds` - 
+- `backoffLimit` - 
+- `restartPolicy` -
