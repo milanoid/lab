@@ -261,8 +261,85 @@ kubectl rollout undo deployment/nginx-deploy
 - [ ] Task 5 - Create a Redis Deployment
 
 
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: redis
+  name: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      volumes:
+        - emptyDir: {}
+          name: data
+      containers:
+      - image: redis:alpine
+        name: redis
+        resources:
+          requests:
+            cpu: 200m
+        ports:
+          - containerPort: 6379
+        volumeMounts:
+          - name: data
+            mountPath: /redis-master-data
+        envFrom:
+          - configMapRef: 
+              name: redis-config
+```
 
+that seems OK but validation fails on that, their solution:
 
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: redis
+  name: redis
+spec:
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      volumes:
+      - name: data
+        emptyDir: {}
+      - name: redis-config
+        configMap:
+          name: redis-config
+      containers:
+      - image: redis:alpine
+        name: redis
+        volumeMounts:
+        - mountPath: /redis-master-data
+          name: data
+        - mountPath: /redis-master
+          name: redis-config
+        ports:
+        - containerPort: 6379
+        resources:
+          requests:
+            cpu: "0.2"
+```
+
+Follow up
+
+- [ ] diff between `envFrom` and `configMap` as volume
 
 ### Lightning lab 2
 
