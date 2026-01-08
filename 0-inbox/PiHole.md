@@ -130,7 +130,7 @@ https://github.com/MoJo2600/pihole-kubernetes/issues/397
 # Persistant storage
 
 - now using localPath
-- [ ] switch to NAS (NFS or iSCSI)
+- [ ] switch to NAS (~NFS~ or iSCSI) - Pihole uses SQLite which can't be used on NFS!
 
 
 ### Issue with NTP
@@ -150,4 +150,19 @@ capabilities: {
 
 ```bash
 2025-12-30 15:54:38.120 UTC [68/T70] ERROR: Failed to receive data from NTP server pool.ntp.org (162.159.200.123): Timeout
+```
+
+
+---
+
+# Switch to declarative
+
+```bash
+# explain
+kubectl explain helmrepositories.spec
+
+# get heml repos (hemlrepository.yaml applied)
+kubectl get helmrepositories.source.toolkit.fluxcd.io
+NAME       URL                                             AGE   READY   STATUS
+mojo2600   https://mojo2600.github.io/pihole-kubernetes/   16m   True    stored artifact: revision 'sha256:b12f590a62b605ee877c250cc4c302fbc1086c5e440ffb4009560d598f79b8a2'
 ```
