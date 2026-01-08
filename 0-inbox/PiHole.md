@@ -157,6 +157,8 @@ capabilities: {
 
 # Switch to declarative
 
+https://fluxcd.io/flux/guides/helmreleases/
+
 ```bash
 # explain
 kubectl explain helmrepositories.spec
