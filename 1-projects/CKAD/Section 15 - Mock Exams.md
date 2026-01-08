@@ -2,6 +2,8 @@ real like exams
 
 https://uklabs.kodekloud.com/topic/mock-exam-1-5/
 
+# Mock exam 1
+
 ## create a service
 
 imperative command to create a service:
@@ -50,3 +52,7 @@ DESCRIPTION:
     Specifies the hostname of the Pod If not specified, the pod's hostname will
     be set to a system-defined value.
 ```
+
+
+# Mock exam 2
+
