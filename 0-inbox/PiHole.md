@@ -166,3 +166,7 @@ kubectl get helmrepositories.source.toolkit.fluxcd.io
 NAME       URL                                             AGE   READY   STATUS
 mojo2600   https://mojo2600.github.io/pihole-kubernetes/   16m   True    stored artifact: revision 'sha256:b12f590a62b605ee877c250cc4c302fbc1086c5e440ffb4009560d598f79b8a2'
 ```
+
+
+https://github.com/milanoid/homelab-cluster/pull/52
+
