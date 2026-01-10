@@ -393,7 +393,7 @@ https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-prob
 
 ---
 
-- [ ] Task 2 - Create a cronjob
+- [x] Task 2 - Create a cronjob
 
 https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
 
@@ -424,3 +424,11 @@ follow up:
 - `activeDeadlineSeconds` - 
 - `backoffLimit` - 
 - `restartPolicy` -
+
+---
+
+- [ ] Task 3 - create a busybox pod which sleeps for 3600, mount existing secret, schedule to controlplane node only
+
+
+
+
