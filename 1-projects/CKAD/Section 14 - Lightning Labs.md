@@ -429,6 +429,35 @@ follow up:
 
 - [ ] Task 3 - create a busybox pod which sleeps for 3600, mount existing secret, schedule to controlplane node only
 
-
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: my-busybox
+  name: my-busybox
+  namespace: dev2406
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+            - key: node-role.kubernetes.io/control-plane
+              operator: Exists
+  volumes:
+    - name: secret-volume
+      secret:
+        secretName: dotfile-secret
+  containers:
+  - image: busybox
+    name: my-busybox
+    command: ["sh", "-c", "sleep"]
+    args: ["3600"]
+    volumeMounts:
+    - name: secret-volume
+      readOnly: true
+      mountPath: "/etc/secret-volume"
+```
 
 
