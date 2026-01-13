@@ -427,7 +427,7 @@ follow up:
 
 ---
 
-- [ ] Task 3 - create a busybox pod which sleeps for 3600, mount existing secret, schedule to controlplane node only
+- [x] Task 3 - create a busybox pod which sleeps for 3600, mount existing secret, schedule to controlplane node only
 
 ```yaml
 apiVersion: v1
@@ -460,4 +460,168 @@ spec:
       mountPath: "/etc/secret-volume"
 ```
 
+---
 
+- [ ] Task 4 - ingress resource to route HTTP traffic to multiple hostnames
+
+? is it fanout? https://kubernetes.io/docs/concepts/services-networking/ingress/#simple-fanout
+
+```bash
+# apperels-service & video-service
+controlplane ~ ➜  kubectl get service
+NAME               TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+apparels-service   ClusterIP   172.20.196.171   <none>        8080/TCP   76s
+kubernetes         ClusterIP   172.20.0.1       <none>        443/TCP    16m
+video-service      ClusterIP   172.20.134.196   <none>        8080/TCP   76s
+```
+
+- `video-service` should be accessible on `http://watch.ecom-store.com:30093/video`
+- `apperels-service` should be accessible on `http://apparels.ecom-store.com:30093/wear`
+
+
+video service
+
+```bash
+kubectl describe service video-service 
+Name:                     video-service
+Namespace:                default
+Labels:                   <none>
+Annotations:              <none>
+Selector:                 app=webapp-video
+Type:                     ClusterIP
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       172.20.134.196
+IPs:                      172.20.134.196
+Port:                     <unset>  8080/TCP
+TargetPort:               8080/TCP
+Endpoints:                172.17.0.8:8080
+Session Affinity:         None
+Internal Traffic Policy:  Cluster
+Events:                   <none>
+```
+
+wear service
+
+```bash
+kubectl describe service apparels-service 
+Name:                     apparels-service
+Namespace:                default
+Labels:                   <none>
+Annotations:              <none>
+Selector:                 app=webapp-apparels
+Type:                     ClusterIP
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       172.20.196.171
+IPs:                      172.20.196.171
+Port:                     <unset>  8080/TCP
+TargetPort:               8080/TCP
+Endpoints:                172.17.0.9:8080
+Session Affinity:         None
+Internal Traffic Policy:  Cluster
+Events:                   <none>
+```
+
+
+
+```bash
+# generate the base yaml
+kubectl create ingress ingress-vh-routing --rule=watch.ecom-store.com/video=video-service:30093 --rule=apparels.ecom-store.com/wear=apperels-service:30093 --dry-run=client -oyaml
+```
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-vh-routing
+spec:
+  rules:
+  - host: watch.ecom-store.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: video-service
+            port:
+              number: 30093
+        path: /video
+        pathType: Exact
+  - host: apparels.ecom-store.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: apperels-service
+            port:
+              number: 30093
+        path: /wear
+        pathType: Exact
+status:
+  loadBalancer: {}
+```
+
+
+Ingress frequently uses annotations:
+
+https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+
+```bash
+kubectl explain ingress.metadata.annotations
+GROUP:      networking.k8s.io
+KIND:       Ingress
+VERSION:    v1
+
+FIELD: annotations <map[string]string>
+
+
+DESCRIPTION:
+    Annotations is an unstructured key value map stored with a resource that may
+    be set by external tools to store and retrieve arbitrary metadata. They are
+    not queryable and should be preserved when modifying objects. More info:
+    https://ku
+```
+
+```yaml
+"metadata": {
+  "annotations": {
+    "key1" : "value1",
+    "key2" : "value2"
+  }
+}
+```
+
+Final ingress
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-vh-routing
+  annotations: 
+     nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: watch.ecom-store.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: video-service
+            port:
+              number: 8080
+        path: /video
+        pathType: Prefix
+  - host: apparels.ecom-store.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: apparels-service
+            port:
+              number: 8080 
+        path: /wear
+        pathType: Prefix
+status:
+  loadBalancer: {}
+```
