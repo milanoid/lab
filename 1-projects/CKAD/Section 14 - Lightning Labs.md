@@ -343,7 +343,7 @@ Follow up
 
 ### Lightning lab 2
 
-- [ ] https://uklabs.kodekloud.com/topic/lightning-lab-2-2/
+- [x] https://uklabs.kodekloud.com/topic/lightning-lab-2-2/
 
 
 
@@ -462,7 +462,7 @@ spec:
 
 ---
 
-- [ ] Task 4 - ingress resource to route HTTP traffic to multiple hostnames
+- [x] Task 4 - ingress resource to route HTTP traffic to multiple hostnames
 
 ? is it fanout? https://kubernetes.io/docs/concepts/services-networking/ingress/#simple-fanout
 
@@ -624,4 +624,25 @@ spec:
         pathType: Prefix
 status:
   loadBalancer: {}
+```
+
+---
+
+- [ ] Task 5 - Redirect warnings to file
+
+```bash
+# see the pod runs 3 containers
+
+kubectl get pods dev-pod-dind-878516 
+NAME                  READY   STATUS    RESTARTS   AGE
+dev-pod-dind-878516   3/3     Running   0          2m59s
+
+# details in
+kubectl describe pods dev-pod-dind-878516 
+
+# inspect logs of a specific container of the pod
+kubectl logs pods/dev-pod-dind-878516 -c log-x
+
+# log WARNINGS to a file
+kubectl logs pods/dev-pod-dind-878516 -c log-x | grep WARNING > /opt/dind-878516_logs.txt
 ```
