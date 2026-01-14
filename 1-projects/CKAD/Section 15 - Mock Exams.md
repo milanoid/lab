@@ -139,7 +139,7 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: front-end-service
+    app: front-end-service # should it be my-webapp?
   type: NodePort
 ```
 
@@ -189,4 +189,59 @@ External Traffic (from outside cluster)
 2. **Internal Pod → Service port (80) → targetPort (80) → Pod**
     - Used by other pods inside the cluster
 
-The key insight: The Service acts as a load balancer that listens on `port: 80` and distributes traffic to the `targetPort: 80` on any pod matching the selector `app: front-end-service`.
+The key insight: The Service acts as a load balancer that listens on `port: 80` and distributes traffic to the `targetPort: 80` on any pod matching the selector `app: front-end-service`
+
+---
+
+# Mock exam 3
+
+Add a taint to the node `node01` of the cluster. Use the specification below:
+
+key: `app_type`, value: `alpha` and effect: `NoSchedule`  
+  
+Create a pod called `alpha`, image: `redis` with toleration to `node01`.
+
+
+
+```bash
+# taint
+kubectl taint node node01 app_type=alpha:NoSchedule
+node/node01 tainted
+
+# check
+kubectl describe nodes node01 
+...
+Taints:             app_type=alpha:NoSchedule
+...
+
+
+```
+
+
+```bash
+# Pod base yaml
+kubectl run --image=redis alpha --dry-run=client -oyaml > pod.yaml
+
+
+# explain
+kubectl explain pod.spec.tolerations | less
+```
+
+
+```yaml
+# pod with toleration
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: alpha
+  name: alpha
+spec:
+  containers:
+  - image: redis
+    name: alpha
+  tolerations:
+  - key: app_type
+    value: alpha
+    effect: NoSchedule     
+```
