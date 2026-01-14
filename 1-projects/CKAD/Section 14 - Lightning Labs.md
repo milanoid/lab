@@ -628,7 +628,7 @@ status:
 
 ---
 
-- [ ] Task 5 - Redirect warnings to file
+- [x] Task 5 - Redirect warnings to file
 
 ```bash
 # see the pod runs 3 containers
