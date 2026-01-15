@@ -41,7 +41,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "release please",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -178,7 +178,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7087cf9240d91ccf",
+  "active": "9f5491a4de1aa2c3",
   "lastOpenFiles": [
     "1-projects/CKAD/Section 14 - Lightning Labs.md",
     "1-projects/CKAD/Section 15 - Mock Exams.md",
