@@ -451,5 +451,169 @@ Here's the complete path your request takes:
 
 ---
 
-## Task 5/9 Ingress
+## Task 5/9 - readinessProbe
 
+We have deployed a new pod called `pod-with-rprobe`. This Pod has an initial delay before it is Ready. Update the newly created pod `pod-with-rprobe` with a `readinessProbe` using the given spec
+
+- httpGet path: /ready  
+- httpGet port: 8080
+
+```bash
+# save the pod spec to a file
+kubectl get pods pod-with-rprobe -oyaml > pod.yaml
+
+# update the file with probe
+...
+readinessProbe: 
+  httpGet:
+    path: /ready
+    port: 8080
+...
+
+# cannot be applied, must delete and recreate
+kubectl delete pods pod-with-rprobe
+
+kubectl apply -f pod.yaml
+```
+
+
+## Task 6/9 - livenessProbe
+
+Create a new pod called `nginx1401` in the `default` namespace with the image `nginx`. Add a livenessProbe to the container to restart it if the command `ls /var/www/html/probe` fails. This check should start after a delay of `10 seconds` and run `every 60 seconds`.
+
+You may delete and recreate the object. Ignore the warnings from the probe.
+
+
+```bash
+# base spec
+kubectl run nginx1401 --image=nginx --dry-run=client -oyaml > pod.yaml
+```
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: nginx1401
+  name: nginx1401
+spec:
+  containers:
+  - image: nginx
+    name: nginx1401
+    livenessProbe:
+      initialDelaySeconds: 10
+      periodSeconds: 60
+      exec:
+        command: ["sh", "-c","ls", "/var/www/html/probe"]
+```
+
+
+## Task 7/9 - Job
+
+Create a job called `whalesay` with image `busybox` and command `echo "cowsay I am going to ace CKAD!"`.  
+  
+- completions: `10`  
+- backoffLimit: `6`  
+- restartPolicy: `Never`
+
+This simple job runs the popular cowsay game that was modifed by docker…
+
+
+
+```bash
+# crate base spec file
+kubectl create job whalesay --image=busybox --dry-run=client -oyaml > job.yaml
+
+# describe
+kubectl explain jobs.spec | less
+```
+
+```yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: whalesay
+spec:
+  backoffLimit: 6
+  completions: 10
+  template:
+    spec:
+      containers:
+      - image: busybox
+        name: whalesay
+        command: ["sh", "-c", "echo", "cowsay I am going to ace CKAD!"]
+      restartPolicy: Never
+```
+
+
+## Task 8/9 - pod with 2 containers
+
+Create a pod called `multi-pod` with two containers.  
+  
+Container 1:  name: `jupiter`, image: `nginx`  
+Container 2:  name: `europa`, image: `busybox`  command: `sleep 4800`
+
+Environment Variables:  
+  
+Container 1:  `type: planet`
+Container 2:  `type: moon`
+
+
+```bash
+# base spec file
+kubectl run multi-pod --image=nginx --dry-run=client -oyaml > multi.yaml
+```
+
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: multi-pod
+  name: multi-pod
+spec:
+  containers:
+  - image: nginx
+    name: jupiter
+    env:
+      - name: type
+        value: planet
+  - image: busybox
+    name: europa
+    command: ["/bin/sh","-c","sleep 4800"]
+    env:
+      - name: type
+        value: moon
+```
+
+
+
+```bash
+kubectl logs -c europa pods/multi-pod 
+BusyBox v1.37.0 (2024-09-26 21:31:42 UTC) multi-call binary.
+
+Usage: sleep [N]...
+
+Pause for a time equal to the total of the args given, where each arg can
+have an optional suffix of (s)econds, (m)inutes, (h)ours, or (d)ays
+```
+
+## Task 9/9 -  PV
+
+Create a PersistentVolume called `custom-volume` with size: 50MiB reclaim policy:`retain`, Access Modes: `ReadWriteMany` and hostPath: `/opt/data`
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: custom-volume
+spec:
+  capacity:
+    storage: 50Mi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /opt/data
+```
