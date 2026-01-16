@@ -56,6 +56,8 @@ DESCRIPTION:
 ---
 # Mock exam 2
 
+## Task 1/9 Deployment, Service
+
 https://uklabs.kodekloud.com/topic/mock-exam-2-5/
 
 Create a deployment called `my-webapp` with image: `nginx`, label `tier:frontend` and `2` replicas. Expose the deployment as a NodePort service with name `front-end-service` , port: `80` and NodePort: `30083`
@@ -193,7 +195,7 @@ The key insight: The Service acts as a load balancer that listens on `port: 80` 
 
 ---
 
-# Mock exam 3
+## Task 2/9 Taint, Toleration
 
 Add a taint to the node `node01` of the cluster. Use the specification below:
 
@@ -245,3 +247,209 @@ spec:
     value: alpha
     effect: NoSchedule     
 ```
+
+---
+
+## Task 3/9 Node Label, Affinity
+
+Apply a label `app_type=beta` to node `controlplane`. Create a new deployment called `beta-apps` with image: `nginx` and replicas: `3`. Set Node Affinity to the deployment to place the PODs on `controlplane` only.
+
+NodeAffinity: `requiredDuringSchedulingIgnoredDuringExecution`
+
+
+```bash
+# apply label to Node
+kubectl label nodes controlplane app_type=beta
+node/controlplane labeled
+
+# show labels
+kubectl get nodes --show-labels
+```
+
+```bash
+# deployment base
+kubectl create deployment beta-apps --image=nginx --replicas=3 --dry-run=client -oyaml > depl.yaml
+```
+
+
+
+https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes-using-node-affinity/
+```yaml
+# updated deployment
+# kubectl explain pod.spec.affinity
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: beta-apps
+  name: beta-apps
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: beta-apps
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: beta-apps
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                - key: app_type
+                  operator: In
+                  values:
+                  - beta 
+ 
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+status: {}
+
+```
+
+---
+
+## Task 4/9 Ingress
+
+Create a new Ingress Resource for the service `my-video-service` to be made available at the URL: `http://ckad-mock-exam-solution.com:30093/video`.
+
+To create an ingress resource, the following details are: -  
+  
+- `annotation`: `nginx.ingress.kubernetes.io/rewrite-target: /`  
+- `host`: `ckad-mock-exam-solution.com`  
+- `path`: `/video`  
+  
+Once set up, the curl test of the URL from the nodes should be successful: `HTTP 200`
+
+```bash
+# service details
+# note the Endpoints - its the IP where I can curl the app running in the Pod
+kubectl describe service my-video-service 
+Name:                     my-video-service
+Namespace:                default
+Labels:                   <none>
+Annotations:              <none>
+Selector:                 app=webapp-video
+Type:                     ClusterIP
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       172.20.62.180
+IPs:                      172.20.62.180
+Port:                     <unset>  8080/TCP
+TargetPort:               8080/TCP
+Endpoints:                172.17.1.5:8080
+Session Affinity:         None
+Internal Traffic Policy:  Cluster
+Events:                   <none>
+
+# details wide
+kubectl get service my-video-service -o wide
+NAME               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE     SELECTOR
+my-video-service   ClusterIP   172.20.62.180   <none>        8080/TCP   3m35s   app=webapp-video
+
+
+# curl to the app (172.17.1.5 is the IP in Endpoints)
+curl http://172.17.1.5:8080
+<!doctype html>
+<title>Hello from Flask</title>
+<body style="background: #30336b;">
+
+<div style="color: #e4e4e4;
+    text-align:  center;
+    height: 90px;
+    vertical-align:  middle;">
+    <img src="https://res.cloudinary.com/cloudusthad/image/upload/v1547052431/video.jpg">
+
+</div>
+
+</body>
+```
+
+
+
+https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource
+```yaml
+# ingress
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  annotations: 
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: ckad-mock-exam-solution.com
+    http:
+      paths:
+      - path: /video
+        pathType: Prefix
+        backend:
+          service:
+            name: my-video-service
+            port:
+              number: 8080 # <--- port of the service
+```
+
+
+```bash
+# after appyl, success!
+# no need to specify port 30093 anywhere
+curl http://ckad-mock-exam-solution.com:30093/video
+<!doctype html>
+<title>Hello from Flask</title>
+<body style="background: #30336b;">
+
+<div style="color: #e4e4e4;
+    text-align:  center;
+    height: 90px;
+    vertical-align:  middle;">
+    <img src="https://res.cloudinary.com/cloudusthad/image/upload/v1547052431/video.jpg">
+
+</div>
+
+</body>
+```
+
+
+#### missing piece - port 30093
+
+```bash
+## The Missing Piece: NodePort or LoadBalancer
+
+#The port 30093 is coming from **how the Ingress Controller itself is exposed**. #There are a few common ways this happens:
+#Most Likely Scenario: Ingress Controller with NodePort
+
+#Your NGINX Ingress Controller is probably exposed via a **NodePort Service**. If you run:
+
+kubectl get svc -n ingress-nginx
+NAME                                 TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)                      AGE
+ingress-nginx-controller             NodePort    172.20.94.49   <none>        80:30093/TCP,443:31436/TCP   20m
+ingress-nginx-controller-admission   ClusterIP   172.20.40.19   <none>        443/TCP    
+
+```
+
+Here's the complete path your request takes: 
+
+``` 
+	Browser (port 30093)
+	↓
+	Node IP:30093 (NodePort)
+	↓
+	Ingress Controller Service (port 80)
+	↓
+	Ingress Controller Pod (reads Ingress rules)
+	↓ 
+	my-video-service:8080 (ClusterIP)
+	↓
+	Pod (172.17.1.5:8080) with label app=webapp-video
+```
+
+---
+
+## Task 5/9 Ingress
+
