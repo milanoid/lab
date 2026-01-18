@@ -30,3 +30,27 @@ chown: changing ownership of '/config/qBittorrent/.DS_Store': Operation not perm
 # disable macOS to create .DS_Store on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 ```
+
+
+2. app in crash-loop
+
+```bash
+tail -f /config/qBittorrent/logs/qbittorrent.log
+
+(N) 2026-01-18T18:23:23 - qBittorrent v5.1.4 started. Process ID: 268
+(N) 2026-01-18T18:23:23 - Using config directory: /config/qBittorrent
+(N) 2026-01-18T18:23:23 - qBittorrent termination initiated
+(N) 2026-01-18T18:23:23 - qBittorrent is now ready to exit
+(N) 2026-01-18T18:23:24 - qBittorrent v5.1.4 started. Process ID: 288
+(N) 2026-01-18T18:23:24 - Using config directory: /config/qBittorrent
+(N) 2026-01-18T18:23:25 - qBittorrent termination initiated
+(N) 2026-01-18T18:23:25 - qBittorrent is now ready to exit
+(N) 2026-01-18T18:23:26 - qBittorrent v5.1.4 started. Process ID: 300
+(N) 2026-01-18T18:23:26 - Using config directory: /config/qBittorrent
+(N) 2026-01-18T18:23:27 - qBittorrent termination initiated
+(N) 2026-01-18T18:23:27 - qBittorrent is now ready to exit
+^X(N) 2026-01-18T18:23:28 - qBittorrent v5.1.4 started. Process ID: 309
+(N) 2026-01-18T18:23:28 - Using config directory: /config/qBittorrent
+(N) 2026-01-18T18:23:29 - qBittorrent termination initiated
+(N) 2026-01-18T18:23:29 - qBittorrent is now ready to exit
+```
