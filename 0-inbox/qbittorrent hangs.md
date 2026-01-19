@@ -58,6 +58,12 @@ tail -f /config/qBittorrent/logs/qbittorrent.log
 
 ## solution
 
-swtich the qbittorrent config directory from NFS storage to Pods localPath
+switch the qbittorrent config directory from NFS storage to Pods localPath
+
+
+```bash
+# qbittorrent config dir on hpmini02 (pod binded to it)
+milan@hpmini02:/srv/qbittorrent/config/qBittorrent
+```
 
 - [ ] todo - fix the issue with new password after a pod restart 
