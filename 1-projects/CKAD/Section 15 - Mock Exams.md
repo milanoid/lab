@@ -653,3 +653,9 @@ Process
 - [x] register for exam (since then 12 months to schedule and take the exam)
 - [x] schedule the exam (up to 90 days in advance, 24h cancelation policy)
 - [ ] after booking do Tutorial Test (3 attempts), install PSI's Secure Browser
+	- [x] first run (SP MacBook, session started using Firefox than switch to Secure Browser)
+	- [ ] second run
+- [ ] Exam Simulator @ https://trainingportal.linuxfoundation.org/
+	- [ ] first attempt
+	- [ ] second attempt
+- [ ] 
