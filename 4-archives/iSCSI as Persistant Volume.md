@@ -24,3 +24,5 @@ In SAN Manager:
 2. [ ] Thick vs Thin provisioning
 
 Kubernetes driver: https://github.com/kubernetes-csi/csi-driver-iscsi
+
+Postponed. Too complex.

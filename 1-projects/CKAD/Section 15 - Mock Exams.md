@@ -617,3 +617,39 @@ spec:
   hostPath:
     path: /opt/data
 ```
+
+
+# Register for Certification
+
+
+- Candidate Handbook https://docs.linuxfoundation.org/tc-docs/certification/lf-handbook2
+
+## online exam by PSI
+
+- proctoring
+- quite and private room
+- good lighting 
+- valid ID needed (OP)
+- check-in might take time
+- HW compatibility check https://syscheck.bridge.psiexams.com/ (Fails in Firefox, Brave OK)
+- [ ] main display iPhone mount point
+- Linux Foundation portal https://trainingportal.linuxfoundation.org/learn/dashboard/
+- Resources allowed: 
+	- https://kubernetes.io/docs/
+	- https://kubernetes.io/blog/
+	- https://helm.sh/docs/
+
+
+
+"We strongly advise test takers to **avoid using work-provided devices for their exams**"
+- Selfservice make me admin should fix that?
+- no company VPN connection
+
+
+Process
+
+"Milan: You're Pre-Approved! You are eligible to take this exam until 8/31/2026."
+
+- [x] register for exam (since then 12 months to schedule and take the exam)
+- [x] schedule the exam (up to 90 days in advance, 24h cancelation policy)
+- [ ] after booking do Tutorial Test (3 attempts), install PSI's Secure Browser
