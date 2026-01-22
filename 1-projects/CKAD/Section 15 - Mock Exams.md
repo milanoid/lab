@@ -659,3 +659,129 @@ Process
 	- [ ] first attempt
 	- [ ] second attempt
 - [ ] 
+
+
+# Killercoda
+
+- Firefox recommended
+- https://killercoda.com/killer-shell-ckad
+
+### vim setup for exam
+
+```bash
+# ~/.vimrc
+
+# expandtab: use spaces for tab
+set expandtab
+# tabstop: amount of spaces used for tab
+set tabstop=2
+# shiftwidth: amount of spaces used during indentation
+set shiftwidth=2
+```
+
+### SSH basics
+
+During the exam you'll be provided with a command you need to run before every question to connect to a dedicated host.
+
+### kubectl contexts
+
+```bash
+# list existing contexts
+controlplane:~$ kubectl config get-contexts 
+CURRENT   NAME                          CLUSTER      AUTHINFO           NAMESPACE
+*         kubernetes-admin@kubernetes   kubernetes   kubernetes-admin   
+          purple                        kubernetes   kubernetes-admin   purple
+          yellow                        kubernetes   kubernetes-admin   yellow
+          
+# switch to a context
+controlplane:~$ kubectl config use-context purple 
+Switched to context "purple".
+```
+
+### Pod with resources
+
+Create a new _Namespace_ `limit` .
+In that _Namespace_ create a _Pod_ named `resource-checker` of image `httpd:alpine` .
+The container should be named `my-container` .
+It should request `30m` CPU and be limited to `300m` CPU.
+It should request `30Mi` memory and be limited to `30Mi` memory.
+
+```bash
+# namespace
+kubectl create namespace limit
+
+# base yaml
+kubectl run --image=httpd:alpine resource-checker --namespace limit -oyaml --dry-run=client > resource-checker.yaml
+
+# explain pod limits
+kubectl explain pods.spec.containers.resources | less
+
+
+# pods
+kubectl apply -f resource-checker.yaml
+
+Error from server (BadRequest): error when creating "resource-checker.yaml": Pod in version "v1" cannot be handled as a Pod: unable to parse quantity's suffix
+```
+
+```yaml
+# resource-checker.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: resource-checker
+  name: resource-checker
+  namespace: limit
+spec:
+  containers:
+  - image: httpd:alpine
+    name: my-container
+    resources:
+      requests:
+        cpu: "30m"
+        memory: "30Mi" # typo "30mi"
+      limits:
+        cpu: "300m"
+        memory: "30Mi" # typo "30mi"
+```
+
+
+### ConfigMap Access in Pods
+
+1. Create a _ConfigMap_ named `trauerweide` with content `tree=trauerweide`
+2. Create the _ConfigMap_ stored in existing file `/root/cm.yaml`
+
+```bash
+kubectl create configmap --from-literal=tree=trauerweide trauerweide --dry-run=client -oyaml
+
+apiVersion: v1
+data:
+  tree: trauerweide
+kind: ConfigMap
+metadata:
+  name: trauerweide
+```
+
+1. Create a _Pod_ named `pod1` of image `nginx:alpine`
+2. Make key `tree` of _ConfigMap_ `trauerweide` available as environment variable `TREE1`
+3. Mount all keys of _ConfigMap_ `birke` as volume. The files should be available under `/etc/birke/*`
+4. Test env+volume access in the running _Pod_
+
+```bash
+# create base yaml
+kubectl run pod1 --image=nginx:alpine -oyaml --dry-run=client > pod1.yaml
+
+# explain env for pods
+kubectl explain pods.spec.containers.envFrom | less
+```
+
+```yaml
+
+```
+
+
+
+---
+### Exam Simulator (#1)
+
+
