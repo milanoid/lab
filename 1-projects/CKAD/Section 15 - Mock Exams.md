@@ -820,6 +820,109 @@ lrwxrwxrwx    1 root     root            11 Jan 22 08:14 tree -> ..data/tree
 
 ### ReadinessProbe
 
+Create a _Deployment_ named `space-alien-welcome-message-generator` of image `httpd:alpine` with one replica.
+
+It should've a ReadinessProbe which executes the command `stat /tmp/ready` . This means once the file exists the _Pod_ should be ready.
+
+The `initialDelaySeconds` should be `10` and `periodSeconds` should be `5` .
+
+Create the _Deployment_ and observe that the _Pod_ won't get ready.
+
+
+```bash
+# create base yaml
+kubectl create deployment --image=httpd:alpine space-alien-welcome-message-generator -oyaml --dry-run=client > depl.yaml
+```
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: space-alien-welcome-message-generator
+  name: space-alien-welcome-message-generator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: space-alien-welcome-message-generator
+  template:
+    metadata:
+      labels:
+        app: space-alien-welcome-message-generator
+    spec:
+      containers:
+      - image: httpd:alpine
+        name: httpd
+        readinessProbe:
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          exec:
+            command: ["stat", "/tmp/ready"]
+```
+
+```bash
+# probe fails, pod is not in READY state
+controlplane:~$ kubectl get pods
+NAME                                                     READY   STATUS    RESTARTS   AGE
+space-alien-welcome-message-generator-66b7c9d6d5-hlf7v   0/1     Running   0          118s
+
+# make it ready
+kubectl exec pods/space-alien-welcome-message-generator-66b7c9d6d5-hlf7v -- touch /tmp/ready
+
+# READY
+controlplane:~$ kubectl get pods
+NAME                                                     READY   STATUS    RESTARTS   AGE
+space-alien-welcome-message-generator-66b7c9d6d5-hlf7v   1/1     Running   0          3m11s
+```
+
+
+### Build and run a Container
+
+Create a new file `/root/Dockerfile` to build a container image from. It should:
+
+- use `bash` as base
+- run `ping killercoda.com`
+
+Build the image and tag it as `pinger` .
+
+Run the image (create a container) named `my-ping` .
+
+```bash
+cat Dockerfile 
+FROM bash
+CMD ping killercoda.com
+
+# buld and tag
+docker build /root/ --tag pinger
+
+# man docker-run
+man docker-run
+
+# run
+docker run --rm --name="my-ping" pinger
+```
+
+Tag the image, which is currently tagged as `pinger` , also as `local-registry:5000/pinger` .
+
+Then push the image into the local registry.
+
+```bash
+# man docker-tag
+docker tag pinger:latest local-registry:5000/pinger
+
+# man
+man docker-image-push
+
+# push image (latest)
+docker image push local-registry:5000/pinger
+
+# push a specific image tag
+docker image push local-registry:5000/pinger:v1
+```
+
+### Rollout Rolling
+
 
 ---
 ### Exam Simulator (#1)
