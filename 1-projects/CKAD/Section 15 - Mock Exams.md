@@ -776,9 +776,49 @@ kubectl explain pods.spec.containers.envFrom | less
 ```
 
 ```yaml
+# a lot of description reading
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: pod1
+  name: pod1
+spec:
+  volumes:
+    - name: birke
+      configMap:
+        name: birke
+  containers:
+  - image: nginx:alpine
+    name: pod1
+    env:
+      - name: TREE1
+        valueFrom:
+          configMapKeyRef:
+            key: tree
+            name: trauerweide 
+    volumeMounts:
+      - name: birke
+        mountPath: /etc/birke/ 
+```
+
+```bash
+# check
+kubectl exec -it pods/pod1 -- sh
+set # to print envs
+
+TREE1='trauerweide'
+
+# ls -l /etc/birke/
+total 0
+lrwxrwxrwx    1 root     root            17 Jan 22 08:14 department -> ..data/department
+lrwxrwxrwx    1 root     root            12 Jan 22 08:14 level -> ..data/level
+lrwxrwxrwx    1 root     root            11 Jan 22 08:14 tree -> ..data/tree
 
 ```
 
+
+### ReadinessProbe
 
 
 ---
