@@ -923,6 +923,249 @@ docker image push local-registry:5000/pinger:v1
 
 ### Rollout Rolling
 
+- default strategy
+- invoked by e.g. changing image in a deployment
+
+### Rollout Green-Blue
+
+- having two deployments running alongside
+- having one service which we can switch to use v1 vs v2 deployment
+
+Existing deployment _wonderful-v1_ with image `httpd:alpine`. Switch it to `nginx:alpine`.
+
+The switch should happen instantly. Meaning that from the moment of rollout, all new requests should hit the new image.
+
+1. Create a new _Deployment_ `wonderful-v2` which uses image `nginx:alpine` with `4` replicas. It's _Pods_ should have labels `app: wonderful` and `version: v2`
+    
+2. Once all new _Pods_ are running, change the selector label of _Service_ `wonderful` to `version: v2`
+    
+3. Finally scale down _Deployment_ `wonderful-v1` to `0` replicas
+   
+```bash
+kubectl scale deploy wonderful-v1 --replicas 0   
+```
+
+### Rollout Canary
+
+The switch should not happen fast or automatically, but using the Canary approach:
+
+- 20% of requests should hit the new image
+- 80% of requests should hit the old image
+
+For this create a new _Deployment_ `wonderful-v2` which uses image `nginx:alpine` .
+
+The total amount of _Pods_ of both _Deployments_ combined should be 10.
+
+```bash
+# total pods 10
+# 8 v1 (80 %)
+# 2 v2 (20 %) 
+
+# reduce # of replicas of v1 deployment
+kubectl scale deployment wonderful-v1 --replicas=8 
+
+# v2
+controlplane:~$ cat /wonderful/v2.yaml 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: wonderful
+  name: wonderful-v2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: wonderful
+  template:
+    metadata:
+      labels:
+        app: wonderful
+    spec:
+      containers:
+      - image: nginx:alpine
+        name: nginx
+```
+
+### Custom Resource Definitions
+
+Write the list of all installed CRDs into `/root/crds` .
+
+Write the list of all _DbBackup_ objects into `/root/db-backups` .
+
+```bash
+# get CRDs
+kubectl get customresourcedefinitions.apiextensions.k8s.io > /root/crds
+kubectl get db-backups.stable.killercoda.com -A > /root/db-backups
+```
+
+The team worked really hard for months on a new Shopping-Items CRD which is currently in beta.
+
+Install it from `/code/crd.yaml` .
+
+Then create a _ShoppingItem_ object named `bananas` in _Namespace_ `default` . The `dueDate` should be `tomorrow` and the `description` should be `buy yellow ones` .
+
+```bash
+# install new CRD
+kubectl apply -f /code/crd.yaml 
+customresourcedefinition.apiextensions.k8s.io/shopping-items.beta.killercoda.com created
+
+# CRD is
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: shopping-items.beta.killercoda.com
+spec:
+  group: beta.killercoda.com
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                description:
+                  type: string
+                dueDate:
+                  type: string
+  scope: Namespaced
+  names:
+    plural: shopping-items
+    singular: shopping-i
+    kind: ShoppingItem
+
+
+# create CRD resoource bananas
+apiVersion: "beta.killercoda.com/v1" # group/name ?
+kind: ShoppingItem
+metadata:
+  name: bananas
+spec:
+  description: "buy yellow ones"
+  dueDate: "tomorrow"
+```
+
+
+Delete the CRD and all _ShoppingItem_ objects again.
+
+```bash
+kubectl delete customresourcedefinitions.apiextensions.k8s.io shopping-items.beta.killercoda.com
+```
+
+### Helm
+
+Write the list of all Helm releases in the cluster into `/root/releases` .
+
+```bash
+# list (mind the -A for all namespaces)
+helm list -A
+NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART              APP VERSION
+apiserver       team-yellow     1               2026-01-22 13:35:26.488787137 +0000 UTC deployed        apache-11.4.29     2.4.65     
+webserver       team-blue       1               2026-01-22 13:35:13.700410951 +0000 UTC deployed        apache-11.4.29     2.4.65
+
+# uninstall
+helm uninstall -n team-blue webserver
+release "webserver" uninstalled
+
+# install a helm chart
+# dev - user picked name for the release
+helm install dev falcosecurity/falco -n team-yellow
+
+
+# list again
+helm ls -A
+NAME    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART      APP VERSION
+dev     team-yellow     1               2026-01-22 13:42:33.386476308 +0000 UTC deployed        falco-7.2.10.42.1  
+```
+
+### Ingress Create
+
+There are two existing _Deployments_ in _Namespace_ `world` which should be made accessible via an _Ingress_.
+
+First: create ClusterIP _Services_ for both _Deployments_ for port `80` . The _Services_ should have the same name as the _Deployments_.
+
+```bash
+# switch to ns
+kubectl config set-context --current --namespace=world
+
+# create service for each deployment
+kubectl create service clusterip europe --tcp=80:80
+kubectl create service clusterip asia --tcp=80:80
+
+```
+
+The Nginx Ingress Controller has been installed.
+
+Create a new _Ingress_ resource called `world` for domain name `world.universe.mine` . The domain points to the K8s Node IP via `/etc/hosts` .
+
+The _Ingress_ resource should have two routes pointing to the existing _Services_:
+
+`http://world.universe.mine:30080/europe/`
+
+and
+
+`http://world.universe.mine:30080/asia/`
+
+```bash
+# check the setting of ingress-nginx controller
+kubectl -n ingress-nginx get svc ingress-nginx-controller -oyaml
+
+...
+ports:
+  - appProtocol: http
+    name: http
+    nodePort: 30080
+    port: 80
+    protocol: TCP
+    targetPort: http
+...
+
+# nodePort: 30080
+
+# find out the igressClassName with:
+kubectl get ingressclasses.networking.k8s.io 
+NAME    CONTROLLER             PARAMETERS   AGE
+nginx   k8s.io/ingress-nginx   <none>       39m
+
+
+kubectl create ingress world --rule=world.universe.mine/europe=europe:80 --rule=world.universe.mine/asia=asia:80 --class=nginx --annotation=nginx.ingress.kubernetes.io/rewrite-target=/
+
+
+### tricky parts - ingressClassname, annotations
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: world
+  namespace: world
+  annotations:
+    # this annotation removes the need for a trailing slash when calling urls
+    # but it is not necessary for solving this scenario
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx # k get ingressclass
+  rules:
+  - host: "world.universe.mine"
+    http:
+      paths:
+      - path: /europe
+        pathType: Prefix
+        backend:
+          service:
+            name: europe
+            port:
+              number: 80
+      - path: /asia
+        pathType: Prefix
+        backend:
+          service:
+            name: asia
+            port:
+              number: 80
+```
 
 ---
 ### Exam Simulator (#1)
