@@ -155,6 +155,9 @@ Service
 
 ```bash
 kubectl create service nodeport front-end-service --node-port=30083 --tcp=80  --dry-run=client -oyaml > service.yaml
+
+# or `expose`
+kubectl expose deployment my-webapp --port=30083 --type NodePort --name front-end-service --target-port=80
 ```
 
 
