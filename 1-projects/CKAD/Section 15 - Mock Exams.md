@@ -53,6 +53,11 @@ DESCRIPTION:
     be set to a system-defined value.
 ```
 
+
+```bash
+# after editing a rs scale 0 to zero and back to 4 to "restart"
+kubectl scale replicaset rs-d33393 --replicas 0|4
+```
 ---
 # Mock exam 2
 
@@ -1175,8 +1180,101 @@ We need a new _NetworkPolicy_ named `np` that restricts all _Pods_ in _Na
 
 The _NetworkPolicy_ should still allow all outgoing DNS traffic on port `53` TCP and UDP.
 
-```bash
+```yaml
+controlplane:~$ cat np.yaml 
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: np
+  namespace: space1
+spec:
+  podSelector: {}
+  policyTypes:
+  - Egress
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          # use `k get ns --show-labels`
+          kubernetes.io/metadata.name: space2
+  - ports:
+    - protocol: TCP
+      port: 53
+    - protocol: UDP
+      port: 53
 
+```
+
+
+```bash
+# should work
+# [service].[namespace].svc.cluster.local
+k -n space1 exec app1-0 -- curl -m 1 microservice1.space2.svc.cluster.local
+k -n space1 exec app1-0 -- curl -m 1 microservice2.space2.svc.cluster.local
+k -n space1 exec app1-0 -- nslookup tester.default.svc.cluster.local
+k -n space1 exec app1-0 -- nslookup killercoda.com
+
+# these should not work
+k -n space1 exec app1-0 -- curl -m 1 tester.default.svc.cluster.local
+k -n space1 exec app1-0 -- curl -m 1 killercoda.com
+```
+
+### Admission Controllers
+
+- a code which intercepts kubectl API server, modifies requests (e.g. to restrict a certain operation)
+
+```bash
+# We can check the kube-apiserver manifest:
+cat /etc/kubernetes/manifests/kube-apiserver.yaml
+
+# Or the running process:
+ps aux | grep kube-apiserver
+
+
+##
+cat /etc/kubernetes/manifests/kube-apiserver.yaml | grep admission-plugins
+    - --enable-admission-plugins=NodeRestriction,LimitRanger,Priority
+      
+# enabled are: NodeRestriction,LimitRanger,Priority
+```
+
+
+### Api Deprecations
+
+```bash
+kubectl version
+Client Version: v1.34.3
+Kustomize Version: v5.7.1
+Server Version: v1.34.3
+
+
+```
+
+
+# 10  mistakes
+
+1. switch context (there are multiple clusters)
+2. don't type, copy'n'paste (CTRL+SHIFT+V)
+3. basic linux commands (pipe, grep, redirect)
+4. vague tasks 
+5. vim (cut'n'paste, `set paste` command - to keep formatting)
+6. using wrong tools to troubleshoot (`describe`, `k get events -n namespace`, `logs`)
+7. don't write yaml from scratch (copy'n'paste from doc or use imparative command)
+8. double check if time left
+9. don't aim for 100%, skip some questions if necessary (q are weighted)
+10. better to answer 50 % of a question than skip it (partial points)
+
+
+Find which pod consumes the most resources
+
+```bash
+kubectl top pod --containers
+POD                               NAME          CPU(cores)   MEMORY(bytes)
+bazarr-6c4dcc6db8-vj8hz           bazarr        5m           234Mi
+prowlarr-b667bf985-pzdnb          prowlarr      2m           237Mi
+radarr-d44fb4744-4r9fx            radarr        2m           199Mi
+sonarr-6c8bb8c585-wzrcw           sonarr        2m           250Mi
+torrent-client-6c8dc987f4-nkpb7   qbittorrent   38m          728Mi
 ```
 
 ---
