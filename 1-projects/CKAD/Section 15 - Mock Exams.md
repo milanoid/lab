@@ -57,14 +57,34 @@ DESCRIPTION:
 ```bash
 # after editing a rs scale 0 to zero and back to 4 to "restart"
 kubectl scale replicaset rs-d33393 --replicas 0|4
+
+# or delete all pods with a label
+kubectl delete pod --label name=busybox-pod
 ```
 
+
+```bash
+# change color task
+# instead of delete and create a pod, replace can be used
+kubectl replace -f pod.yaml
+```
 
 ```bash
 # decode secrets
 kubectl get secrets db-secret-xxdf -o jsonpath='{.da
 ta}'
 {"DB_Host":"c3FsMDE=","DB_Password":"cGFzc3dvcmQxMjM=","DB_User":"cm9vdA=="}
+```
+
+```bash
+# creating a service via `expose`
+kubectl expose deployment redis --name=redis --port=6379 --target-port=6379
+```
+
+```bash
+# create a pod with 2 containers
+
+
 ```
 ---
 # Mock exam 2
