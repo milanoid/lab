@@ -1167,6 +1167,18 @@ spec:
               number: 80
 ```
 
+### NetworkPolicy Namespace Selector
+
+There are existing _Pods_ in _Namespace_ `space1` and `space2` .
+
+We need a new _NetworkPolicy_ named `np` that restricts all _Pods_ in _Namespace_ `space1` to only have outgoing traffic to _Pods_ in _Namespace_ `space2` . Incoming traffic not affected.
+
+The _NetworkPolicy_ should still allow all outgoing DNS traffic on port `53` TCP and UDP.
+
+```bash
+
+```
+
 ---
 ### Exam Simulator (#1)
 
