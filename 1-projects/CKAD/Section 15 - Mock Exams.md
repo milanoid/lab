@@ -1329,5 +1329,10 @@ set paste
 set number
 ```
 
+run a command in a temp pod
+	`kubectl run --image=nginx -it --rm temp -- curl http://some-address`
 
-`kubectl config set-context --current --namespace <desired-namespace>`
+
+ set default namespace
+ 
+	`kubectl config set-context --current --namespace <desired-namespace>`
