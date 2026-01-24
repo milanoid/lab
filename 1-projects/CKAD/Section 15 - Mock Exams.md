@@ -1336,3 +1336,7 @@ run a command in a temp pod
  set default namespace
  
 	`kubectl config set-context --current --namespace <desired-namespace>`
+
+sidecar
+ - `initContainer` with `restartPolicy: Always`
+
