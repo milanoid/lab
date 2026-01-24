@@ -1311,7 +1311,22 @@ torrent-client-6c8dc987f4-nkpb7   qbittorrent   38m          728Mi
 ---
 ### Exam Simulator (#1)
 
+38 / 113 (11/22 questions)
 
-deployment undo: "rollout undo"
+1. deployment undo: "rollout undo"
 
-https://stackoverflow.com/questions/235839/indent-multiple-lines-quickly-in-vi
+2. vim indent multiple lines https://stackoverflow.com/questions/235839/indent-multiple-lines-quickly-in-vi (visual, select lines, `<` or `>`, `.` to indent again )
+3. enable line numbers in vim?
+4. copy'n'paste - extra space? - left click only!
+
+
+```bash
+# ~/.vimrc
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set paste
+set number
+```
+
+
