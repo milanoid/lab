@@ -1312,3 +1312,6 @@ torrent-client-6c8dc987f4-nkpb7   qbittorrent   38m          728Mi
 ### Exam Simulator (#1)
 
 
+deployment undo: "rollout undo"
+
+https://stackoverflow.com/questions/235839/indent-multiple-lines-quickly-in-vi
