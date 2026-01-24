@@ -1330,3 +1330,4 @@ set number
 ```
 
 
+`kubectl config set-context --current --namespace <desired-namespace>`
