@@ -1344,3 +1344,9 @@ label/annotate multiple resources
 
 - `kubectl label --selector=key=value pods another_key=value`
 - `kubectl annotate --selector=key=value pods annotation="ann-value"`
+
+run a pod using a Service Account
+
+`.spec.serviceAccountName` - there is always a SA running a pod, `default` if not specified
+
+
