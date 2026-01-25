@@ -1358,6 +1358,12 @@ install a helm chart with my values file
 
 `helm install --values=values.yaml <release> <chart>`
 
+install a helm chart, override a value
+```
+helm -n mercury install internal-issue-report-apache killershell/apache \
+  --set replicaCount=2
+```
+
 
 ? patch - can I change namespace of a running pod?
 
