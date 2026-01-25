@@ -1350,3 +1350,10 @@ run a pod using a Service Account
 `.spec.serviceAccountName` - there is always a SA running a pod, `default` if not specified
 
 
+get helm chart values
+
+`helm show values chart`
+
+install a helm chart with my values file
+
+`helm install --values=values.yaml <release> <chart>`
