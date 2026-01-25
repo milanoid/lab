@@ -1340,3 +1340,7 @@ run a command in a temp pod
 sidecar
  - `initContainer` with `restartPolicy: Always`
 
+label/annotate multiple resources
+
+- `kubectl label --selector=key=value pods another_key=value`
+- `kubectl annotate --selector=key=value pods annotation="ann-value"`
