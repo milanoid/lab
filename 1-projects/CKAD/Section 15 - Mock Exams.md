@@ -1357,3 +1357,9 @@ get helm chart values
 install a helm chart with my values file
 
 `helm install --values=values.yaml <release> <chart>`
+
+
+? patch - can I change namespace of a running pod?
+
+? deployment rollout?
+
