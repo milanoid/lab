@@ -1397,3 +1397,27 @@ kubectl scale replicaset rs-d33393 --replicas=4
 ```bash
 kubectl expose deployment redis --port=6379 --name=messaging-service
 ```
+
+
+# D-day
+
+2 hours exam
+### MacBook
+
+- restart, close all apps but Chrome
+- fully charged
+- shutdown VPN
+- Self Service - Elevate to Admin
+- only charger connected, no external monitor etc.
+
+### Room
+
+- lights on
+- charger
+- glass of water
+
+### ID
+
+- ID card ready
+- shutdown iPhone after identification
+
