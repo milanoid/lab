@@ -1365,9 +1365,13 @@ helm -n mercury install internal-issue-report-apache killershell/apache \
 ```
 
 
-? patch - can I change namespace of a running pod? - using a yaml patch file
+- [x] ? patch - can I change namespace of a running pod? - using a yaml patch file
 
 ? deployment rollout ?
 
-? blue/green deployment ?
+- [x] ? blue/green deployment ? 
+
+podman OCI
+
+`podman save --format oci-archive -o ubuntu.oci localhost/os/ubuntu:v1`
 
