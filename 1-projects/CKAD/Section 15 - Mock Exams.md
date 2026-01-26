@@ -1376,6 +1376,7 @@ podman OCI
 `podman save --format oci-archive -o ubuntu.oci localhost/os/ubuntu:v1`
 
 
+namespace scoped limits https://kubernetes.io/docs/concepts/policy/resource-quotas/
 
 - update a resource with a new image
 
