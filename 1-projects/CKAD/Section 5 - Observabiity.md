@@ -46,9 +46,11 @@ spec:
 
 # Logging
 
-`kubectl logs -f pod-name [container-name]`
+`kubectl logs -f pod-name`
 
 - in case of multi-container pod a container name must be explicitly specified
+
+`kubectl logs -f pod-name -c [container-name]`
 
 # Monitoring Kubernetes Cluster Components
 
