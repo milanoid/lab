@@ -1375,3 +1375,25 @@ podman OCI
 
 `podman save --format oci-archive -o ubuntu.oci localhost/os/ubuntu:v1`
 
+
+
+- update a resource with a new image
+
+```bash
+# update image
+kubectl set image replicasets/rs-d33393 busybox-container=busybox
+replicaset.apps/rs-d33393 image updated
+
+# scale to 0
+kubectl scale replicaset rs-d33393 --replicas=0
+
+# scale back to 4 (now with new image)
+kubectl scale replicaset rs-d33393 --replicas=4
+```
+
+
+- use `expose` to semi-automatically create a service for a deployment
+
+```bash
+kubectl expose deployment redis --port=6379 --name=messaging-service
+```
