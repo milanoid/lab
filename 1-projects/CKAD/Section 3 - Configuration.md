@@ -336,7 +336,7 @@ sqlite> SELECT * FROM kine LIMIT 2;
 
 - unlike VMs the container shares the kernel with the host
 - isolation by _Namespaces_
-- all the process within container are run by the host but in its own namespace
+- all the processes within container are run by the host but in its own namespace
 - by default docker runs processes as `root` user
 
 ```bash
