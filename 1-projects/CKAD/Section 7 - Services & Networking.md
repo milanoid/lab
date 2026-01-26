@@ -126,11 +126,11 @@ spec:
         namespaceSelector:
           matchLabels:
             kubernetes.io/metadata.name: prod
-       - ipBlock:
+	  - ipBlock:
 		  cidr: 192.168.5.10/32
-       ports:
-       - protocol: TCP
-         port: 3306
+      ports:
+        - protocol: TCP
+          port: 3306
 ```
 
 It works like this:
@@ -140,15 +140,15 @@ It works like this:
 
 
 ```yaml
-# by adding '=' before `namespaceSelector` we have 3 separate ruls, with logical OR between each
+# by adding '-' before `namespaceSelector` we have 3 separate ruls, with logical OR between each
 - from:
       - podSelector:
           matchLabels:
             name: api-pod
-       - namespaceSelector:
-           matchLabels:
+      - namespaceSelector:
+          matchLabels:
              kubernetes.io/metadata.name: prod
-       - ipBlock:
+      - ipBlock:
 		  cidr: 192.168.5.10/32
        ports:
        - protocol: TCP
@@ -205,8 +205,8 @@ Ingress
 
 Task - deploy nginx controller
 
-1. kind `Deployment`
-2. kind `ConfigMap` - for nginx configuraion
+1. kind `Deployment`x
+2. kind `ConfigMap` - for nginx configuration
 3. kind `Service` (NodePort) - to make it accessible for customers
 4. kind `ServiceAccount` - to access all the components
 

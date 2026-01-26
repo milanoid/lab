@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/CKAD/Section 7 - Services & Networking.md",
+                "file": "1-projects/CKAD/Section 8 - State Persistance.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Section 7 - Services & Networking"
+              "title": "Section 8 - State Persistance"
             }
           }
         ],
@@ -195,6 +195,7 @@
   },
   "active": "fb4491c92581ff08",
   "lastOpenFiles": [
+    "1-projects/CKAD/Section 7 - Services & Networking.md",
     "1-projects/CKAD/Section 6 - Pod Design.md",
     "1-projects/CKAD/Section 5 - Observabiity.md",
     "1-projects/CKAD/Section 4 - Multi-Container Pods.md",
@@ -214,7 +215,6 @@
     "4-archives/Kubernetes HomeLab/02 - HomeLab - K3s install.md",
     "1-projects/CKAD/Section 13 - Certification Tips.md",
     "0-inbox/PiHole.md",
-    "1-projects/CKAD/Section 7 - Services & Networking.md",
     "1-projects/CKAD/Section 9 - Security.md",
     "0-inbox/Section 14 - Lightning Labs.md",
     "4-archives/kubernetes-masterclass/Helm.md",
