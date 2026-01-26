@@ -46,13 +46,14 @@ spec:
 https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/
 
 - similar to init, but stays running (sidecar)
-- unlike co-located setup we can define which starts first
+- unlike co-located setup we can define which starts first,
+- same as regular init but must have `restartPolicy: Always`
 
 
 
 ```yaml
 # example of a Deployment with two containers, one of which is a sidecar:
-# restartPolicy: Always -> that makes it sidecar?
+# restartPolicy: Always -> that makes it sidecar
 
 apiVersion: apps/v1
 kind: Deployment
