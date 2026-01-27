@@ -62,7 +62,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 20.064464141821112,
+        "dimension": 54.76493011435832,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -70,7 +70,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "--from-literal",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -86,7 +86,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 79.93553585817888,
+        "dimension": 45.23506988564168,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -207,10 +207,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e6e596ef8a2b8255",
+  "active": "fffcd5990171a0a3",
   "lastOpenFiles": [
-    "1-projects/CKAD/Section 15 - Mock Exams.md",
+    "4-archives/Downloaders.md",
     "1-projects/CKAD/Exam.md",
+    "1-projects/CKAD/Section 15 - Mock Exams.md",
     "1-projects/CKAD/Section 8 - State Persistance.md",
     "1-projects/CKAD/Section 7 - Services & Networking.md",
     "1-projects/CKAD/Section 6 - Pod Design.md",
@@ -225,7 +226,6 @@
     "4-archives/iSCSI as Persistant Volume.md",
     "0-inbox/qbittorrent hangs.md",
     "4-archives/LPIC-1 exam prep/103.7 Search text files using regular expressions.md",
-    "4-archives/Downloaders.md",
     "4-archives/Kubernetes HomeLab/10 - HomeLab - Ingress with Traefik.md",
     "4-archives/Kubernetes HomeLab/03 - HomeLab - Flux install.md",
     "4-archives/Kubernetes HomeLab/02 - HomeLab - K3s install.md",

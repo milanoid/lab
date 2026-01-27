@@ -16,3 +16,4 @@ topics
 - expose deployment via a service (`k expose`)
 - cpu & memory requests and limits (checking existing _ResourceQuota_ and _LimitRange_)
 - fixing a pod issue with _Service Account_
+- CronJob - run a job using the CronJob definition
