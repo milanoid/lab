@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/CKAD/Section 15 - Mock Exams.md",
+                "file": "1-projects/CKAD/Exam.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Section 15 - Mock Exams"
+              "title": "Exam"
             }
           }
         ],
@@ -209,9 +209,9 @@
   },
   "active": "fffcd5990171a0a3",
   "lastOpenFiles": [
+    "1-projects/CKAD/Section 15 - Mock Exams.md",
     "1-projects/CKAD/Exam.md",
     "4-archives/Downloaders.md",
-    "1-projects/CKAD/Section 15 - Mock Exams.md",
     "1-projects/CKAD/Section 8 - State Persistance.md",
     "1-projects/CKAD/Section 7 - Services & Networking.md",
     "1-projects/CKAD/Section 6 - Pod Design.md",
