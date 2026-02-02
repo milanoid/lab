@@ -84,7 +84,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "pihole",
+                "query": "MetalLB",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -221,7 +221,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "8a1c850da4c26961",
+  "active": "9f5491a4de1aa2c3",
   "lastOpenFiles": [
     "0-inbox/incident.md",
     "0-inbox/PiHole.md",
