@@ -53,14 +53,17 @@
             "id": "8a1c850da4c26961",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "0-inbox/PiHole.md",
-                "mode": "source",
-                "source": false
+                "file": "Untitled.canvas",
+                "viewState": {
+                  "x": 0,
+                  "y": 0,
+                  "zoom": 0
+                }
               },
-              "icon": "lucide-file",
-              "title": "PiHole"
+              "icon": "lucide-layout-dashboard",
+              "title": "Untitled"
             }
           }
         ],
@@ -221,10 +224,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9f5491a4de1aa2c3",
+  "active": "8a1c850da4c26961",
   "lastOpenFiles": [
-    "0-inbox/incident.md",
     "0-inbox/PiHole.md",
+    "Untitled.canvas",
+    "0-inbox/incident.md",
     "1-projects/CKAD/Exam.md",
     "1-projects/CKAD/Section 15 - Mock Exams.md",
     "4-archives/Downloaders.md",
@@ -248,7 +252,6 @@
     "1-projects/CKAD/Section 13 - Certification Tips.md",
     "1-projects/CKAD/Section 9 - Security.md",
     "0-inbox/Section 14 - Lightning Labs.md",
-    "4-archives/kubernetes-masterclass/Helm.md",
     "Networking.pdf",
     "KodeKloud-Kubernetes-CKAD.pdf",
     "Services+(1).pdf",
