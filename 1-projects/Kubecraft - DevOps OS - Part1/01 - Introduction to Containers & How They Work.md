@@ -123,3 +123,12 @@ Back to containers - each container:
 └─────────────────────────────────┘
 ```
 
+# Products
+
+- Docker Desktop - for companies its paid
+- Podman (by RedHat)
+- Rancher Desktop (Suse)
+
+
+Docker was deprecated as a Kubernetes runtime.
+
