@@ -1,1 +1,0 @@
-fix - pihole, indexer (localPath)

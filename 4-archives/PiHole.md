@@ -1,6 +1,6 @@
 with DoH (DNS over HTTPS)?
 
-- [ ] prerequisite [[iSCSI as Persistant Volume]]
+- [ ] ~~prerequisite [[iSCSI as Persistant Volume]]~~
 
 ## Docker
 

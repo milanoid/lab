@@ -66,4 +66,4 @@ switch the qbittorrent config directory from NFS storage to Pods localPath
 milan@hpmini02:/srv/qbittorrent/config/qBittorrent
 ```
 
-- [ ] todo - fix the issue with new password after a pod restart 
+- [x] todo - fix the issue with new password after a pod restart 
