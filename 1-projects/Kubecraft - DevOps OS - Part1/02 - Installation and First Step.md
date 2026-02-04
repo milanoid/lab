@@ -72,4 +72,38 @@ docker exec -it frosty_swartz bash
 
 # auto remove on exit
 docker run -it --rm nginx bash
+
+# port forwarding
+docker run -d -p 8080:80 nginx
+
+curl localhost:8080
+<!DOCTYPE html>
+
+# port fwd with a random port
+docker run -d -p 80 nginx
+
+# env vars
+docker run -d \
+ --name mydb \
+ -e POSTGRES_PASSWORD=secret \
+ -e POSTGRES_USER=milan \
+ -e POSTGRES_DB=mydb \
+postgres
+
+# envs from a file
+docker run -d --env-file db.env postgres
+
+# read logs
+docker logs -f mydb
+
+# cleanup
+docker ps -a
+docker rm # for exited
+docker rm -f mydb # for running
+docker rmi nginx:1.28 # remove image
+docker container prune
+docker image prune
+
+# nuclear option
+docker system prune -a
 ```
