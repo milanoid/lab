@@ -62,9 +62,21 @@
               "icon": "lucide-file",
               "title": "04 - Building Docker Images Dockerfiles"
             }
+          },
+          {
+            "id": "d18716922715e2e7",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.11.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.11.7"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -221,7 +233,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a5c1c032605f0ac1",
+  "active": "d18716922715e2e7",
   "lastOpenFiles": [
     "1-projects/Kubecraft - DevOps OS - Part1/03 - Container Lifecycle Management.md",
     "1-projects/Kubecraft - DevOps OS - Part1/04 - Building Docker Images Dockerfiles.md",
