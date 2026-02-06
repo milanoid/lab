@@ -71,5 +71,6 @@ agent up and connected
 
 ## Sample repo setup
 
-### connect to GitHub
+- [x] connect to GitHub
+- [ ] 
 
