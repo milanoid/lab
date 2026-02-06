@@ -97,12 +97,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4-archives/K3s additional agent node.md",
+                "file": "4-archives/Arch Linux installation/10 - First Hyprland setup & peripherals & YAY.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "K3s additional agent node"
+              "title": "10 - First Hyprland setup & peripherals & YAY"
             }
           }
         ],
@@ -126,7 +126,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "stub",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -265,6 +265,7 @@
   },
   "active": "8d678aec425b4112",
   "lastOpenFiles": [
+    "4-archives/K3s additional agent node.md",
     "1-projects/Kubecraft - DevOps OS - Part1/06 - Docker Compose & Capstone Project.md",
     "1-projects/Kubecraft - DevOps OS - Part1/05 - Security & Container Best Practices.md",
     "1-projects/Kubecraft - DevOps OS - Part1/04 - Building Docker Images Dockerfiles.md",
@@ -292,7 +293,6 @@
     "4-archives/CKAD/Intro.md",
     "4-archives/CKAD/Section 2 - Core Concepts.md",
     "4-archives/CKAD/Section 14 - Lightning Labs.md",
-    "4-archives/iSCSI as Persistant Volume.md",
     "Networking.pdf",
     "KodeKloud-Kubernetes-CKAD.pdf",
     "Services+(1).pdf",

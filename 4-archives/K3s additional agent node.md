@@ -91,3 +91,24 @@ pod/test-pod created
 kubectl run nginx-test --image=nginx --overrides='{"spec":{"nodeName":"hpmini02"}}'
 
 ```
+
+
+# hpmini03
+
+all above but _ImagePullBackOff_ on some pods
+
+```bash
+Warning  FailedCreatePodSandBox  4m51s                   kubelet            Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "8fe516 │
+│ 71b495f4eaf187e3691691b9c8897546cd412736a81532bf7f25df8d70": plugin type="flannel" failed (add): failed to load flannel 'subnet.env' file: open /run/flannel/subnet.env: no such file or │
+│  directory. Check the flannel pod log for this node.
+```
+
+
+A DNS issue?
+
+```bash
+nslookup registry-1.docker.io
+;; communications error to 127.0.0.53#53: connection refused
+;; communications error to 127.0.0.53#53: connection refused
+;; communications error to 127.0.0.53#53: connection refused
+```
