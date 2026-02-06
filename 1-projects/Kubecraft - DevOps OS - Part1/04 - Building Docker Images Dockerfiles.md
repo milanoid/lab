@@ -375,3 +375,35 @@ Error: internal error: unable to copy from source docker://ghcr.io/milanoid/back
     
 
 **Verify**: You should see different messages based on environment variables.
+
+
+
+
+```bash
+# build as latest
+docker build -t greeter .
+
+# tag to 2.0.0
+docker tag greeter:latest greeter:2.0.0
+
+# run with custom values
+docker run -e GREETING=Welcome -e NAME=Docker greeter:2.0.0
+================================
+  Welcome, Docker!
+  Running in container: 5dfc5d2c4741
+================================
+
+# tag & push to ghcr
+docker tag greeter:2.0.0 ghcr.io/milanoid/greeter:2.0.0
+docker push ghcr.io/milanoid/greeter:2.0.0 
+
+# delete from local
+docker rmi ghcr.io/milanoid/greeter:2.0.0
+
+# pull
+ocker pull ghcr.io/milanoid/greeter:2.0.0
+2.0.0: Pulling from milanoid/greeter
+Digest: sha256:00b9d669a05ffca42a4bfd6f113b3f73a4aa8feb5c0cc8aa43c1f46eed108529
+Status: Downloaded newer image for ghcr.io/milanoid/greeter:2.0.0
+ghcr.io/milanoid/greeter:2.0.0
+```
