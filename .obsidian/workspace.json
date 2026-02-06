@@ -97,12 +97,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/06 - Docker Compose & Capstone Project.md",
+                "file": "4-archives/K3s additional agent node.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "06 - Docker Compose & Capstone Project"
+              "title": "K3s additional agent node"
             }
           }
         ],
@@ -265,8 +265,8 @@
   },
   "active": "8d678aec425b4112",
   "lastOpenFiles": [
+    "1-projects/Kubecraft - DevOps OS - Part1/06 - Docker Compose & Capstone Project.md",
     "1-projects/Kubecraft - DevOps OS - Part1/05 - Security & Container Best Practices.md",
-    "0-inbox/06 - Docker Compose & Capstone Project.md",
     "1-projects/Kubecraft - DevOps OS - Part1/04 - Building Docker Images Dockerfiles.md",
     "1-projects/Kubecraft - DevOps OS - Part1/03 - Container Lifecycle Management.md",
     "1-projects/Kubecraft - DevOps OS - Part1/02 - Installation and First Step.md",
