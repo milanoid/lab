@@ -248,3 +248,130 @@ docker build --no-cache -t myapp .
 ## 4.8 Tagging best practices
 
 
+### Use semantic versioning
+
+```bash
+docker build -t myapp:1.0.0 .  # points tot the latest 1.0.x 
+docker build -t myapp:1 .      # points to the latest 1.x.x
+```
+
+### Include git commit
+
+```bash
+docker build -t myapp:${git ref-parse --short HEAD}
+```
+
+
+### Never rely on latest
+
+```bash
+# Bad - what version is this?
+docker pull myapp:latest
+
+# Good - explicit version
+docker pull myapp:1.2.3
+```
+
+### Tag for container registries
+
+```bash
+# Docker Hub
+docker build -t username/myapp:1.0.0 .
+
+# Other registries
+docker build -t ghcr.io/username/myapp:1.0.0 .
+docker build -t registry.example.com/myapp:1.0.0 .
+```
+
+
+## 4.9 Pushing to GitHub Container Registry
+
+
+- create a new Token (classic) with scope `write:packages` `delete:packages`
+- name `containercourse`
+
+
+```bash
+export CR_PAT=ghp_xxxxxxxxxxxxxxxxxxxxxx
+
+# login
+echo $CR_PAT | docker login ghcr.io -u milanoid --password-stdin
+```
+
+### Tag and Push
+
+Image format: `ghcr.io/OWNER/IMAGE_NAME:TAG`
+
+```bash
+# tag local image for ghcr.io
+docker tag backup:1.0.0 ghcr.io/milanoid/backup:1.0.0
+
+# push to ghcr
+docker push ghcr.io/milanoid/backup:1.0.0
+```
+
+
+### Build and Push
+
+```bash
+docker build -t ghcr.io/milanoid/backup:1.0.0 .
+docker push ghcr.io/milanoid/backup:1.0.0
+```
+
+Pushed images in https://github.com/milanoid?tab=packages - by default it's private.
+
+
+### Pulling on other machine
+
+```bash
+docker pull ghcr.io/milanoid/backup:1.0.0
+Trying to pull ghcr.io/milanoid/backup:1.0.0...
+Error: internal error: unable to copy from source docker://ghcr.io/milanoid/backup:1.0.0: initializing source docker://ghcr.io/milanoid/backup:1.0.0: Requesting bearer token: received unexpected HTTP status: 403 Forbidden
+```
+
+- need to either login (see above) or make the package _public_
+
+## Challenge
+
+**Task**: Containerize a greeting script with configurable messages.
+
+1. Create a directory `greeter`
+    
+2. Create `greet`:
+    
+    ```
+    #!/bin/bash
+    echo "================================"
+    echo "  ${GREETING:-Hello}, ${NAME:-World}!"
+    echo "  Running in container: $(hostname)"
+    echo "================================"
+    ```
+    
+3. Write a Dockerfile that:
+    
+    - Uses `ubuntu:24.04` as base
+        
+    - Sets WORKDIR to `/app`
+        
+    - Copies the script
+        
+    - Makes it executable
+        
+    - Sets default ENV values for GREETING and NAME
+        
+    - Runs the script
+        
+4. Build as `greeter:2.0.0`
+    
+5. Run it with default values
+    
+6. Run it with custom values: `-e GREETING=Welcome -e NAME=Docker`
+    
+7. Push it to the GitHub Container Registry
+    
+8. Remove your local image
+    
+9. Pull the image from the GHCR.
+    
+
+**Verify**: You should see different messages based on environment variables.

@@ -67,12 +67,14 @@
             "id": "d18716922715e2e7",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.11.7"
+                "file": "1-projects/Kubecraft - DevOps OS - Part1/04 - Building Docker Images Dockerfiles.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.11.7"
+              "icon": "lucide-file",
+              "title": "04 - Building Docker Images Dockerfiles"
             }
           }
         ],
