@@ -112,3 +112,12 @@ nslookup registry-1.docker.io
 ;; communications error to 127.0.0.53#53: connection refused
 ;; communications error to 127.0.0.53#53: connection refused
 ```
+
+
+Manually set DNS servers helped:
+
+```bash
+# /etc/resolv.conf
+nameserver 192.168.1.232
+nameserver 8.8.4.4
+```
