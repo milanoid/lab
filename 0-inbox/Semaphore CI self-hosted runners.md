@@ -72,5 +72,100 @@ agent up and connected
 ## Sample repo setup
 
 - [x] connect to GitHub
-- [ ] 
+- [ ] wibe code sample RoR app
 
+
+
+
+# Agent
+
+- running as systemd `semaphore-agent.service`
+
+```bash
+systemctl status semaphore-agent.service
+● semaphore-agent.service - Semaphore agent
+     Loaded: loaded (/etc/systemd/system/semaphore-agent.service; disabled;
+preset: enabled)
+     Active: active (running) since Fri 2026-02-06 20:12:43 UTC; 20h ago
+   Main PID: 1536 (agent)
+      Tasks: 23 (limit: 9367)
+     Memory: 14.1M (peak: 16.4M)
+        CPU: 7.797s
+     CGroup: /system.slice/semaphore-agent.service
+             ├─1536 /opt/semaphore/agent/agent start --config-file /opt/semaphore/agent/config.yaml
+             └─1543 /opt/semaphore/agent/agent start --config-file /opt/semaphore/agent/config.yaml
+
+Feb 07 16:27:48 runner01 agent[1543]: Feb  7 16:27:48.554 6TGOv4i4UTgv9R0IgL-y : Waiting 4.252s for next sync...
+Feb 07 16:27:52 runner01 agent[1543]: Feb  7 16:27:52.811 6TGOv4i4UTgv9R0IgL-y : SYNC request (state: waiting-for-jobs)
+Feb 07 16:27:52 runner01 agent[1543]: Feb  7 16:27:52.921 6TGOv4i4UTgv9R0IgL-y : SYNC response (action: continue)
+Feb 07 16:27:52 runner01 agent[1543]: Feb  7 16:27:52.921 6TGOv4i4UTgv9R0IgL-y : Waiting 4.885s for next sync...
+Feb 07 16:27:57 runner01 agent[1543]: Feb  7 16:27:57.811 6TGOv4i4UTgv9R0IgL-y : SYNC request (state: waiting-for-jobs)
+Feb 07 16:27:57 runner01 agent[1543]: Feb  7 16:27:57.929 6TGOv4i4UTgv9R0IgL-y : SYNC response (action: continue)
+Feb 07 16:27:57 runner01 agent[1543]: Feb  7 16:27:57.930 6TGOv4i4UTgv9R0IgL-y : Waiting 5.201s for next sync...
+Feb 07 16:28:03 runner01 agent[1543]: Feb  7 16:28:03.137 6TGOv4i4UTgv9R0IgL-y : SYNC request (state: waiting-for-jobs)
+Feb 07 16:28:03 runner01 agent[1543]: Feb  7 16:28:03.257 6TGOv4i4UTgv9R0IgL-y : SYNC response (action: continue)
+Feb 07 16:28:03 runner01 agent[1543]: Feb  7 16:28:03.258 6TGOv4i4UTgv9R0IgL-y : Waiting 4.613s for next sync...
+```
+
+
+```bash
+#cat /etc/systemd/system/semaphore-agent.service
+[Unit]
+Description=Semaphore agent
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=60
+User=milan
+WorkingDirectory=/opt/semaphore/agent
+ExecStart=/opt/semaphore/agent/agent start --config-file /opt/semaphore/agent/config.yaml
+Environment=SEMAPHORE_AGENT_LOG_FILE_PATH=/opt/semaphore/agent/agent.log
+
+[Install]
+WantedBy=multi-user.target
+```
+
+## Config file
+
+```bash
+milan@runner01:/opt/semaphore/agent$ cat config.yaml
+endpoint: "milanoid.semaphoreci.com"
+token: "xxxxxxxxx"
+no-https: false
+shutdown-hook-path: ""
+disconnect-after-job: false
+disconnect-after-idle-timeout: 0
+env-vars: []
+files: []
+fail-on-missing-files: false
+```
+
+## Log files
+
+- _/opt/semaphore/agent/agent.log_
+
+### enable debug logging
+
+```bash
+# update systemd service file
+vim /etc/systemd/system/semaphore-agent.service
+
+# add
+Environment=SEMAPHORE_AGENT_LOG_LEVEL=debug
+
+# reload
+sudo systemctl daemon-reload
+sudo systemctl restart semaphore-agent
+```
+
+## `agent` binary
+
+lives in _/opt/semaphore/agent_
+
+```bash
+milan@runner01:/opt/semaphore/agent$ ./agent version
+v2.4.0
+```
