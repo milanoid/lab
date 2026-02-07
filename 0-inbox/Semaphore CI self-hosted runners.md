@@ -67,7 +67,23 @@ Starting semaphore-agent service...
 Done.
 ```
 
-agent up and connected
+
+### fix for errors on installing toolbox
+
+1. missing dep `erl`
+
+```bash
+/home/milan/.toolbox/install-toolbox: line 78: erl: command not found
+```
+
+```bash
+sudo apt-get update  
+sudo apt-get install erlang
+```
+
+https://github.com/semaphoreci/toolbox
+
+https://github.com/semaphoreci/toolbox/releases/download/v1.41.0/self-hosted-linux.tar
 
 ## Sample repo setup
 
