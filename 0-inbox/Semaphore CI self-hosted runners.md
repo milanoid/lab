@@ -132,7 +132,7 @@ WantedBy=multi-user.target
 
 ```bash
 milan@runner01:/opt/semaphore/agent$ cat config.yaml
-endpoint: "milanoid.semaphoreci.com"
+endpoint: "milanoid-gitlab.semaphoreci.com"
 token: "xxxxxxxxx"
 no-https: false
 shutdown-hook-path: ""
@@ -168,4 +168,40 @@ lives in _/opt/semaphore/agent_
 ```bash
 milan@runner01:/opt/semaphore/agent$ ./agent version
 v2.4.0
+```
+
+
+# semaphore-cli
+
+https://docs.semaphore.io/reference/semaphore-cli
+
+
+```bash
+# install
+brew install semaphoreci/tap/sem
+
+# auth (API_TOKEN != agent token)
+sem connect milanoid-gitlab.semaphoreci.com <API_TOKEN>
+connected to milanoid-gitlab.semaphoreci.com
+
+# get agents
+sem get agents
+NAME                   TYPE          STATE             AGE
+OsB7NP0u1idQKXIhflxJ   s1-runner01   waiting_for_job   40m
+```
+
+
+# semaphore container registry
+
+https://docs.semaphore.io/using-semaphore/containers/container-registry
+
+
+## convenience images
+
+```bash
+# base ruby
+docker pull registry.semaphoreci.com/ruby:3.2.0
+
+# with browsers
+docker pull registry.semaphoreci.com/ruby:3.2.0-node-browsers
 ```
