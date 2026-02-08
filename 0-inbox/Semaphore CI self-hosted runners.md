@@ -187,6 +187,14 @@ v2.4.0
 ```
 
 
+## checkout
+
+toolbox checkouts to home folder
+
+```bash
+/home/milan/sample-ror-ap/
+```
+
 # semaphore-cli
 
 https://docs.semaphore.io/reference/semaphore-cli
@@ -270,3 +278,19 @@ rbenv global 3.2.0
 # Verify  
 ruby --version
 ```
+
+
+```bash
+milan@runner01:~/sample-ror-app$ ruby -v
+rbenv: version `ruby-3.2.10` is not installed (set by /home/milan/sample-ror-app/.ruby-version)
+
+# install required version
+rbenv install 3.2.10
+rbenv global 3.2.10
+```
+
+
+## agent groups
+
+Does it support agent groups?
+How it falls back if an agent is not available?
