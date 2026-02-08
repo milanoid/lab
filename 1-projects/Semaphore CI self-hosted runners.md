@@ -1,5 +1,11 @@
-https://milanoid.semaphoreci.com/ 14 days free trial
+~~https://milanoid.semaphoreci.com/ 14 days free trial~~
 
+https://milanoid-gitlab.semaphoreci.com/
+
+- auth via my gitlab account
+
+---
+# Installing self-hosted agent
 
 ### 1. Prepare your machine
 
@@ -13,8 +19,12 @@ Paste the following lines in your console, one by one.
 
 Paste the following lines in your console, one by one.
 
-```
+```bash
+# arm (VirtualBox@MacBook)
 curl -L https://github.com/semaphoreci/agent/releases/download/v2.4.0/agent_Linux_arm64.tar.gz -o agent.tar.gz
+
+# amd64
+
 ```
 
 - `tar -xf agent.tar.gz`
@@ -232,7 +242,11 @@ docker pull registry.semaphoreci.com/ruby:3.2.0-node-browsers
 
 
 
-# running agent directly on VM (no docker)
+# running agent directly on VirtualBox VM on MacBook
+
+- _after testing - not good, it's a different architecture and Semaphore Toolbox does not work 100% - e.g. the `cache` command and maybe more_
+- _also when running a docker container this must be arm-based (Semaphore convenience images are not)_
+
 
 ```bash
 checkout Running 12:06:00
@@ -271,9 +285,10 @@ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc  
 source ~/.bashrc  
   
-# Install Ruby 3.2  
-rbenv install 3.2.0  
-rbenv global 3.2.0  
+
+# Install Ruby 3.4.8 
+rbenv install 3.4.8  
+rbenv global 3.4.8
   
 # Verify  
 ruby --version
@@ -308,3 +323,172 @@ How it falls back if an agent is not available?
 
 
 https://github.com/renderedtext/helm-charts/tree/main/charts/controller
+
+
+
+# Installing agent on Acer notebook
+
+
+OS: `Ubuntu 24.04.3 LTS`
+
+### Prerequisites
+
+#### docker
+
+```bash
+# Add Docker's official GPG key:
+sudo apt update
+sudo apt install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
+sudo apt update
+```
+
+```bash
+# install
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# check
+sudo docker run hello-world
+
+# to run docker without sudo
+sudo groupadd docker
+# repeat with all users which need to run docker commands ('semaphore')
+sudo usermod -aG docker $USER
+
+# activate changes
+newgrp docker
+
+# test
+docker run hello-world
+```
+
+#### erl
+
+```bash
+sudo apt-get update  
+sudo apt-get install erlang # 800 MB!
+```
+
+
+### Create user with sudo permissions to run the agent service
+
+```bash
+# create user (password as username)
+sudo adduser semaphore
+sudo adduser semaphore sudo
+# sudo adduser semaphore sudo
+
+# login as the user
+su - semaphore
+```
+
+
+### Prepare the machine
+
+```bash
+sudo mkdir -p /opt/semaphore/agent
+sudo chown $USER:$USER /opt/semaphore/agent/
+cd /opt/semaphore/agent
+```
+
+
+### Download the agent packages
+
+- find the [latest release](https://github.com/semaphoreci/agent/releases/) for your platform and architecture
+
+```bash
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.4.0/agent_Linux_x86_64.tar.gz -o agent.tar.gz
+tar -xf agent.tar.gz
+```
+
+
+### Install the agent
+
+```bash
+sudo ./install.sh
+Enter organization: milanoid-gitlab
+Enter registration token: <YOUR TOKEN>
+Enter user [milan]: semaphore
+Toolbox was already installed at /home/semaphore/.toolbox. Overriding it...
+Downloading toolbox from https://github.com/semaphoreci/toolbox/releases/latest/download/self-hosted-linux.tar...
+[sudo] password for semaphore:
+Installing the cache CLI
+cache installed
+Installing the artifacts CLI
+artifacts installed
+Installing the test results CLI
+test-results installed
+Installing retry
+retry installed
+Installing the SPC CLI
+spc installed
+Installing the when CLI
+Erlang version: 25
+when installed
+Installing the sem-context CLI
+sem-context installed
+Creating agent config file at /opt/semaphore/agent/config.yaml...
+Creating /etc/systemd/system/semaphore-agent.service...
+systemd service already exists at /etc/systemd/system/semaphore-agent.service. Overriding it...
+Restarting semaphore-agent service...
+Done.
+```
+
+
+### check the agent is running
+
+```bash
+# restart
+sudo systemctl restart semaphore-agent
+
+# check
+sudo systemctl status semaphore-agent
+```
+
+
+#### Configure  Git Providers
+
+```bash
+### 1. Add GitHub SSH fingerprints
+sudo mkdir -p /home/$USER/.ssh
+sudo chown -R $USER:$USER /home/$USER/.ssh
+
+curl -sL https://api.github.com/meta | jq -r ".ssh_keys[]" | sed 's/^/github.com /' | tee -a /home/$USER/.ssh/known_hosts
+
+chmod 700 /home/$USER/.ssh
+chmod 600 /home/$USER/.ssh/known_hosts
+
+# I run just 
+# ssh-keyscan -t ed25519,rsa github.com >> ~/.ssh/known_hosts
+
+
+
+### 2. Add your SSH private keys into the ~/.ssh/folder
+# - not needed for my test public repo, might needed for private ones
+
+
+### 3. Tesh SSH to GitHub
+ssh -T git@github.com
+
+
+### 4. Restart the agent service
+sudo systemctl restart semaphore-agent
+```
+
+
+### Ruby and other deps for GG/RoR app
+
+
+[[Semaphore CI self-hosted runners#ruby]]
