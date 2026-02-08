@@ -290,7 +290,21 @@ rbenv global 3.2.10
 ```
 
 
+### GG ruby version
+
+```bash
+rbenv install 3.4.8
+rbenv global 3.4.8
+```
+
 ## agent groups
 
 Does it support agent groups?
 How it falls back if an agent is not available?
+
+
+
+# Kubernetes controller
+
+
+https://github.com/renderedtext/helm-charts/tree/main/charts/controller
