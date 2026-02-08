@@ -221,3 +221,52 @@ docker pull registry.semaphoreci.com/ruby:3.2.0
 # with browsers
 docker pull registry.semaphoreci.com/ruby:3.2.0-node-browsers
 ```
+
+
+
+# running agent directly on VM (no docker)
+
+```bash
+checkout Running 12:06:00
+
+Performing shallow clone with depth: 5000:00
+
+Cloning into 'sample-ror-app'...00:00
+
+The authenticity of host 'github.com (140.82.121.3)' can't be established.00:01
+
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.00:01
+
+This key is not known by any other names.00:01
+
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+
+fix
+
+```bash
+ssh-keyscan -t ed25519,rsa github.com >> ~/.ssh/known_hosts
+```
+
+### ruby
+
+```bash
+# Install dependencies  
+sudo apt update  
+sudo apt install -y git curl libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev  
+  
+# Install rbenv  
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash  
+  
+# Add rbenv to PATH (add to ~/.bashrc)  
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc  
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc  
+source ~/.bashrc  
+  
+# Install Ruby 3.2  
+rbenv install 3.2.0  
+rbenv global 3.2.0  
+  
+# Verify  
+ruby --version
+```
