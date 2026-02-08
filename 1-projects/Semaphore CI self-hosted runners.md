@@ -524,3 +524,38 @@ export NVM_DIR="$HOME/.nvm"
 # Install stable Node.js:
 sudo -u semaphore bash -c 'source ~/.nvm/nvm.sh && nvm install stable'
 ```
+
+
+##### nvm Issue (shell function not working in non-interactive shell)
+
+- the nvm is a shell function not invoked by non-interactive shell the service uses
+
+
+in interactive shell
+
+```bash
+nvm --version
+0.40.1
+```
+
+in non-interactive (invoked by semaphore-agent )
+
+```bash
+bash: nvm: command not found
+```
+
+fix by updating the service:
+
+```bash
+sudo systemctl edit semaphore-agent
+
+### Editing /etc/systemd/system/semaphore-agent.service.d/override.conf
+### Anything between here and the comment below will become the contents of the drop-in file
+
+[Service]
+Environment="NVM_DIR=/home/semaphore/.nvm"
+ExecStartPre=/bin/bash -c 'source /home/semaphore/.nvm/nvm.sh'
+
+sudo systemctl edit semaphore-agent
+Successfully installed edited file '/etc/systemd/system/semaphore-agent.service.d/override.conf'.
+```
