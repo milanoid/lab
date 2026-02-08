@@ -111,12 +111,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/Semaphore CI self-hosted runners.md",
+                "file": "1-projects/Kubecraft - DevOps OS - Part1/03 - Container Lifecycle Management.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Semaphore CI self-hosted runners"
+              "title": "03 - Container Lifecycle Management"
             }
           }
         ],
@@ -185,7 +185,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 302.5110321044922
+    "width": 404.5110321044922
   },
   "right": {
     "id": "c30d66fb63f83402",
@@ -279,15 +279,21 @@
   },
   "active": "26b3cec573345c32",
   "lastOpenFiles": [
-    "4-archives/K3s additional agent node.md",
-    "0-inbox/Semaphore CI self-hosted runners.md",
-    "4-archives/Arch Linux installation/10 - First Hyprland setup & peripherals & YAY.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/02 - Installation and First Step.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/01 - Introduction to Containers & How They Work.md",
     "1-projects/Kubecraft - DevOps OS - Part1/06 - Docker Compose & Capstone Project.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/06_project/joke-dashboard/docker-compose.yaml",
+    "1-projects/Kubecraft - DevOps OS - Part1/06_project/joke-dashboard/Dockerfile.updater",
+    "1-projects/Kubecraft - DevOps OS - Part1/06_project/joke-dashboard/Dockerfile",
+    "1-projects/Kubecraft - DevOps OS - Part1/06_project/joke-dashboard/updater",
+    "1-projects/Kubecraft - DevOps OS - Part1/06_project/joke-dashboard",
+    "1-projects/Kubecraft - DevOps OS - Part1/06_project",
+    "0-inbox/Semaphore CI self-hosted runners.md",
+    "4-archives/K3s additional agent node.md",
+    "4-archives/Arch Linux installation/10 - First Hyprland setup & peripherals & YAY.md",
     "1-projects/Kubecraft - DevOps OS - Part1/05 - Security & Container Best Practices.md",
     "1-projects/Kubecraft - DevOps OS - Part1/04 - Building Docker Images Dockerfiles.md",
     "1-projects/Kubecraft - DevOps OS - Part1/03 - Container Lifecycle Management.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/02 - Installation and First Step.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/01 - Introduction to Containers & How They Work.md",
     "0-inbox/Jellyfin.md",
     "1-projects/Kubecraft - DevOps OS - Part1",
     "4-archives/qbittorrent hangs.md",
@@ -306,16 +312,9 @@
     "4-archives/CKAD/Section 5 - Observabiity.md",
     "4-archives/CKAD/Section 4 - Multi-Container Pods.md",
     "4-archives/CKAD/Section 3 - Configuration.md",
-    "4-archives/CKAD/Intro.md",
     "Networking.pdf",
     "KodeKloud-Kubernetes-CKAD.pdf",
     "Services+(1).pdf",
-    "4-archives/CKAD/Dockerfile",
-    "1-projects/Downloaders",
-    "0-inbox/Untitled.base",
-    "0-inbox/Untitled 3.base",
-    "0-inbox/Untitled 2.base",
-    "0-inbox/Untitled 1.base",
     "Pasted image 20250629105100.png",
     "Pasted image 20250608183559.png",
     "Pasted image 20250514145051.png",
