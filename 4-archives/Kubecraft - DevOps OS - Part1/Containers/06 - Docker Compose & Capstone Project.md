@@ -439,3 +439,28 @@ Error: executing /usr/local/bin/docker-compose up -d: exit status 1
 # fix install
 brew install docker-credential-helper
 ```
+
+
+- volume rights not set correctly
+
+```bash
+# updater cannot write in
+docker logs joke-dashboard-updater-1
+Starting joke updater...
+/app/./updater: line 14: /html/index.html: Permission denied
+Updated joke: What did the ocean say to the shore? Nothing, it just waved.
+/app/./updater: line 14: /html/index.html: Permission denied
+Updated joke: Why did the kid cross the playground? To get to the other slide.
+/app/./updater: line 14: /html/index.html: Permission denied
+
+
+# /html - 
+docker exec joke-dashboard-updater-1 ls -la /html
+total 8
+drwxr-xr-x    2 appuser  appgroup        40 Feb  8 12:39 .
+dr-xr-xr-x    1 root     root            29 Feb  8 12:39 ..
+-rw-r--r--    1 root     root           497 Feb  4 17:22 50x.html
+-rw-r--r--    1 root     root           615 Feb  4 17:22 index.html
+```
+
+- the volume might have been created before with root permissions?
