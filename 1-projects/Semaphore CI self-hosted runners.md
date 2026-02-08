@@ -488,7 +488,39 @@ sudo systemctl restart semaphore-agent
 ```
 
 
-### Ruby and other deps for GG/RoR app
+### Dependencies specific for GG/RoR app
 
 
-[[Semaphore CI self-hosted runners#ruby]]
+#### Ruby
+
+- [[Semaphore CI self-hosted runners#ruby]]
+
+
+#### nvm
+
+```bash
+# Install NVM for the semaphore user:
+sudo -u semaphore bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash'
+
+# Add to ~/.bashrc for the semaphore user:
+#sudo -u semaphore bash -c 'cat >> ~/.bashrc << EOF  
+#export NVM_DIR="\$HOME/.nvm"  
+#[ -s "\$NVM_DIR/nvm.sh" ] && \. "\$NVM_DIR/nvm.sh"  
+#EOF'
+
+####### - the installer did that, including code completion
+=> Compressing and cleaning up git repository
+
+=> Appending nvm source string to /home/semaphore/.bashrc
+=> Appending bash_completion source string to /home/semaphore/.bashrc
+=> Close and reopen your terminal to start using nvm or run the following to use it now:
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+########
+
+
+# Install stable Node.js:
+sudo -u semaphore bash -c 'source ~/.nvm/nvm.sh && nvm install stable'
+```
