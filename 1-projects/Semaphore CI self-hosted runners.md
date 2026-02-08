@@ -544,7 +544,7 @@ in non-interactive (invoked by semaphore-agent )
 bash: nvm: command not found
 ```
 
-fix by updating the service:
+fix attempt #1 - by updating the service - does not work
 
 ```bash
 sudo systemctl edit semaphore-agent
@@ -558,4 +558,75 @@ ExecStartPre=/bin/bash -c 'source /home/semaphore/.nvm/nvm.sh'
 
 sudo systemctl edit semaphore-agent
 Successfully installed edited file '/etc/systemd/system/semaphore-agent.service.d/override.conf'.
+```
+
+fix attempt #2 by updating the `.semaphore/semaphore.yml` (that works)
+
+- source the `nvm.sh`
+
+instead `nvm use stable`
+
+use `source ~/.nvm/nvm.sh && nvm use stable`
+
+
+
+##### Your bundle only supports platforms ["aarch64-linux"] but your local platform is
+x86_64-linux
+
+- the bundle was run locally on my Mac first (arm)
+- the CI is now x86_64
+
+```bash
+gem install bundler -v 2.7.2
+Fetching bundler-2.7.2.gem
+Successfully installed bundler-2.7.2
+1 gem installed
+bundle config set --local deployment 'true'
+bundle config set --local path 'vendor/bundle'
+bundle install
+Bundler 2.7.2 is running, but your lockfile was generated with 2.4.19. Installing Bundler 2.4.19 and restarting using that version.
+Fetching gem metadata from https://rubygems.org/.
+[32mFetching bundler 2.4.19[0m
+[32mInstalling bundler 2.4.19[0m
+[31mYour bundle only supports platforms ["aarch64-linux"] but your local platform is
+x86_64-linux. Add the current platform to the lockfile with
+`bundle lock --add-platform x86_64-linux` and try again.[0m
+```
+
+fix
+```bash
+bundle lock --add-platform x86_64-linux  
+git add Gemfile.lock  
+git commit -m "Add x86_64-linux platform to Gemfile.lock"  
+git push origin ruby-update
+```
+
+
+##### bundler: command not found: yarn
+
+
+```bash
+[32mBundle complete! 23 Gemfile dependencies, 124 gems now installed.[0m
+[32mBundled gems are installed into `./vendor/bundle`[0m
+[32mPost-install message from solid_queue:[0m
+Upgrading from Solid Queue < 1.0? Check details on breaking changes and upgrade instructions
+--> https://github.com/rails/solid_queue/blob/main/UPGRADING.md
+1 installed gem you directly depend on is looking for funding.
+  Run `bundle fund` for details
+bundle exec yarn install --check-files
+[31mbundler: command not found: yarn[0m
+[33mInstall missing gem executables with `bundle install`[0m
+```
+
+fix 
+
+```bash
+semaphore@acer:~$ npm install -g yarn
+
+added 1 package in 2s
+npm notice
+npm notice New minor version of npm available! 11.8.0 -> 11.9.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.9.0
+npm notice To update run: npm install -g npm@11.9.0
+npm notice
 ```
