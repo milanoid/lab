@@ -4,14 +4,28 @@
 
 ## How a 'normal' person use Dev Containers
 
+```
+# Install VSCode using Homebrew
+brew install --cask visual-studio-code
+
+# Install the VSCode Dev Containers extension
+code --install-extension ms-vscode-remote.remote-containers
+```
+
 VS Code with Dev Containers extension. There are ready to use containers for development, e.g. python. Just to show what a developer would use. 
 
 We will be using a command line approach instead.
 
 - https://code.visualstudio.com/docs/devcontainers/containers
 
+## on VS Code compatibility
 
+- designed for Docker (Desktop)
+- other container runtime not officially supported
 
+https://code.visualstudio.com/remote/advancedcontainers/docker-options#_podman
+
+In VS Code settings set `dev.containers.dockerPath` to `podman`.
 
 
 # Spec & Base Images
@@ -67,5 +81,6 @@ Devcontainers base images https://github.com/devcontainers/images/tree/main/src 
 
 
 
+# Features
 
-
+https://github.com/devcontainers/features
