@@ -47,10 +47,28 @@ I have a dotfile repo https://github.com/milanoid/dotfiles but it uses Stow. Pro
 ```bash
 # run - the `none` is important
 devpod up . --ide none --dotfiles git@github.com:milanoid/dotfiles-demo
+
+# list running devpods
+> devpod ls
+
+# connect to a devpod - shows which to use
+> devpod ssh
+┃ Please select a workspace from the list below
+┃ > module3code
+
+
+# now inside the container
+> devpod ssh
+vscode ➜ /workspaces/module3code $
+
+
+# stop
+devpod stop
 ```
 
 ## issues
 
+### missing default provider
 
 ```bash
 # no provider specified
@@ -59,4 +77,44 @@ devpod up . --ide none --dotfiles git@github.com:milanoid/dotfiles-demo
 08:28:35 fatal prepare workspace client: no default provider found. Please make sure to run 'devpod provider use'
 ```
 
-- I have GUI app - I used it to setup `docker` provider
+#### Fix
+
+Using Podman UI setup (docker) provider. Can be setup via cli too.
+
+### missing `docker` in path (I'm using podman)
+
+- I have the `alias docker=podman` in my `~/.bashrc` but that's not used by Devpod.
+
+#### Fix 
+
+create a symlink
+
+```bash
+# Already having a link (to non-existing docker)
+> ls -la /usr/local/bin/docker
+lrwxr-xr-x  1 root  wheel  54 Jan 18  2025 /usr/local/bin/docker -> /Applications/Docker.app/Contents/Resources/bin/docker
+
+# Remove old Docker link
+sudo rm /usr/local/bin/docker
+
+# Create new link pointing to Podman
+sudo ln -s /opt/podman/bin/podman /usr/local/bin/docker
+```
+
+
+### in `ghostty` in devpod I can't delete
+
+```bash
+vscode ➜ /workspaces/module3code $ clear
+'xterm-ghostty': unknown terminal type.
+```
+
+#### fix
+
+- [ ] todo
+
+```bash
+# this doesn't work, the devpod updates config and puts its config first?
+Host *.devpod
+  SetEnv TERM=xterm-256color
+```
