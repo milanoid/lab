@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4-archives/GNU Stow.md",
+                "file": "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 - DevPod  Introduction.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GNU Stow"
+              "title": "03 - Module 3 - DevPod  Introduction"
             }
           }
         ],
@@ -209,8 +209,11 @@
   },
   "active": "4d21879ebfbd6c38",
   "lastOpenFiles": [
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 - DevPod  Introduction.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/02 - Module 2 - Dev Containers.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 - DevPod  Introduction.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/main.py",
+    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code",
+    "4-archives/GNU Stow.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/00 - Intro.md",
     "1-projects/Semaphore CI self-hosted runners.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers",
@@ -229,13 +232,11 @@
     "1-projects/Kubecraft - DevOps OS - Part1/06_project/joke-dashboard/Dockerfile",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard/updater",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard",
-    "1-projects/Kubecraft - DevOps OS - Part1/Containers/06_project",
     "4-archives/K3s additional agent node.md",
     "4-archives/Arch Linux installation/10 - First Hyprland setup & peripherals & YAY.md",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/05 - Security & Container Best Practices.md",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/04 - Building Docker Images Dockerfiles.md",
     "0-inbox/Jellyfin.md",
-    "1-projects/Kubecraft - DevOps OS - Part1",
     "4-archives/qbittorrent hangs.md",
     "0-inbox/sample-inbox-note.md",
     "4-archives/PiHole.md",
@@ -244,8 +245,6 @@
     "0-inbox/Final tips.md",
     "Untitled.canvas",
     "4-archives/CKAD/Section 15 - Mock Exams.md",
-    "4-archives/CKAD/Exam.md",
-    "4-archives/Downloaders.md",
     "Pasted image 20250629105100.png",
     "Pasted image 20250608183559.png",
     "Pasted image 20250514145051.png",
