@@ -6,6 +6,7 @@
 
 ```
 # Install VSCode using Homebrew
+## this does not work, had to download from VS Code page and install manually
 brew install --cask visual-studio-code
 
 # Install the VSCode Dev Containers extension
@@ -18,7 +19,10 @@ We will be using a command line approach instead.
 
 - https://code.visualstudio.com/docs/devcontainers/containers
 
-## on VS Code compatibility
+## on VS Code compatibility with Podman
+
+
+! with Podman it doesn't work for me, it fails to start the container :(
 
 - designed for Docker (Desktop)
 - other container runtime not officially supported
