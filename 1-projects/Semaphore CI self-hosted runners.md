@@ -98,7 +98,7 @@ https://github.com/semaphoreci/toolbox/releases/download/v1.41.0/self-hosted-lin
 ## Sample repo setup
 
 - [x] connect to GitHub
-- [ ] wibe code sample RoR app
+- [x] wibe code sample RoR app
 
 
 
@@ -630,3 +630,8 @@ npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.9.0
 npm notice To update run: npm install -g npm@11.9.0
 npm notice
 ```
+
+
+
+# Run in a docker container
+
