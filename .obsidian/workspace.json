@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Semaphore CI self-hosted runners.md",
+                "file": "1-projects/Kubecraft - DevOps OS - Part1/Containers/04 - Building Docker Images Dockerfiles.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Semaphore CI self-hosted runners"
+              "title": "04 - Building Docker Images Dockerfiles"
             }
           }
         ],
@@ -209,20 +209,22 @@
   },
   "active": "4d21879ebfbd6c38",
   "lastOpenFiles": [
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 - DevPod  Introduction.md",
+    "1-projects/Semaphore CI self-hosted runners.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/02 - Module 2 - Dev Containers.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/Containers/04 - Building Docker Images Dockerfiles.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/Containers/06 - Docker Compose & Capstone Project.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/Containers/05 - Security & Container Best Practices.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 - DevPod  Introduction.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/main.py",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code",
     "4-archives/GNU Stow.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/00 - Intro.md",
-    "1-projects/Semaphore CI self-hosted runners.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers",
     "0-inbox/GitHub self hosted runners.md",
     "4-archives/kubecraft/kubernetes-fundamentals/Part 2 - Deployments/Kubernetes Fundamentels - Part 2 - Deployments.md",
     "4-archives/kubecraft/kubernetes-fundamentals/Part 1 - Kubernetes?/Kubernetes Fundamentels - Part 1.md",
     "1-projects/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 1.1 - What is Kubernetes?.md",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/01 - Introduction to Containers & How They Work.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/Containers/06 - Docker Compose & Capstone Project.md",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers",
     "Containers",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/03 - Container Lifecycle Management.md",
@@ -234,8 +236,6 @@
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard",
     "4-archives/K3s additional agent node.md",
     "4-archives/Arch Linux installation/10 - First Hyprland setup & peripherals & YAY.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/Containers/05 - Security & Container Best Practices.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/Containers/04 - Building Docker Images Dockerfiles.md",
     "0-inbox/Jellyfin.md",
     "4-archives/qbittorrent hangs.md",
     "0-inbox/sample-inbox-note.md",

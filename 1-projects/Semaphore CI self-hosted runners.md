@@ -202,7 +202,8 @@ v2.4.0
 toolbox checkouts to home folder
 
 ```bash
-/home/milan/sample-ror-ap/
+#/home/milan/sample-ror-app/
+/home/semahphore/sample-ror-app/
 ```
 
 # semaphore-cli
