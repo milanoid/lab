@@ -636,3 +636,18 @@ npm notice
 
 # Run in a docker container
 
+## build & push image
+
+```bash
+# Do it on Amd64 PC (not Macbook) - different architecture
+docker build -f Dockerfile.ci -t ghcr.io/milanoid/semaphore-agent:1.0.1 .
+
+# Auth (PAT in Lastpass)
+export CR_PAT=ghp_xxxxxxxxxxxxxxxxxxxxxx
+
+# login
+echo $CR_PAT | docker login ghcr.io -u milanoid --password-stdin
+
+# Push
+docker push ghcr.io/milanoid/semaphore-agent:1.0.1
+```
