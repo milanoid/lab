@@ -106,4 +106,8 @@ docker image prune
 
 # nuclear option
 docker system prune -a
+
+
+# oneliner to delete all images and containers
+docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -aq)
 ```

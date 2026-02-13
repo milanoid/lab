@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubecraft - DevOps OS - Part1/Containers/04 - Building Docker Images Dockerfiles.md",
+                "file": "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "04 - Building Docker Images Dockerfiles"
+              "title": "03 - Module 3 Devpod  Introduction"
             }
           },
           {
@@ -41,16 +41,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Semaphore CI self-hosted runners.md",
+                "file": "1-projects/Kubecraft - DevOps OS - Part1/Containers/02 - Installation and First Step.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Semaphore CI self-hosted runners"
+              "title": "02 - Installation and First Step"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -207,14 +207,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4d21879ebfbd6c38",
+  "active": "23b7f6709692822f",
   "lastOpenFiles": [
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/04 - Building Docker Images Dockerfiles.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/02 - Module 2 - Dev Containers.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/Containers/02 - Installation and First Step.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
     "1-projects/Semaphore CI self-hosted runners.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/02 - Module 2 - Dev Containers.md",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/06 - Docker Compose & Capstone Project.md",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/05 - Security & Container Best Practices.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 - DevPod  Introduction.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/main.py",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code",
     "4-archives/GNU Stow.md",
@@ -228,7 +229,6 @@
     "1-projects/Kubecraft - DevOps OS - Part1/Containers",
     "Containers",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/03 - Container Lifecycle Management.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/Containers/02 - Installation and First Step.md",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard/docker-compose.yaml",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard/Dockerfile.updater",
     "1-projects/Kubecraft - DevOps OS - Part1/06_project/joke-dashboard/Dockerfile",

@@ -111,10 +111,61 @@ vscode ➜ /workspaces/module3code $ clear
 
 #### fix
 
-- [ ] todo
 
 ```bash
-# this doesn't work, the devpod updates config and puts its config first?
-Host *.devpod
-  SetEnv TERM=xterm-256color
+# ~/Library/Application\ Support/com.mitchellh.ghostty/config
+term = xterm-256color
 ```
+
+
+
+
+# Using the Setup Script
+
+
+- Devpod started with `--dotfiles` switch:
+- `devpod up . --ide none --dotfiles git@github.com:milanoid/dotfiles-demo`
+- the imported dotfiles are in home dir (in Devpod)
+- note the dir name is `dotfiles` although the git repo is `dotfiles-demo`
+
+```bash
+# /home/vscode/dotfiles (it's a git repo)
+vscode ➜ ~/dotfiles (main) $
+```
+
+
+## Experiment - configuration example
+
+within the Devpod
+
+### create a setup script
+
+```bash
+#!/bin/bash
+echo "Hello World" > /tmp/hello
+# enable vi mode in shell
+echo "set -o vi" >> ~/.bashrc
+# set vi as default editor
+echo 'export VISUAL=vi' >> ~/.bashrc
+echo 'export EDITOR="$VISUAL"' >> ~/.bashrc
+```
+
+### push it to my dotfiles-demo repo
+
+
+still within the pod
+
+```bash
+git add .
+git commit -m "Initial commit - setup script"
+git push
+```
+
+### recreate the Devpod container
+
+```bash
+# note the flag --recreate
+devpod up . --ide none --dotfiles git@github.com:milanoid/dotfiles-demo --recreate
+```
+
+done, the setup script has been applied
