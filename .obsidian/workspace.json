@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
+                "file": "4-archives/kubernetes-masterclass/Helm.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "03 - Module 3 Devpod  Introduction"
+              "title": "Helm"
             }
           },
           {
@@ -62,7 +62,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 21.69197396963124,
+        "dimension": 51.66858457997699,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -70,7 +70,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "stub",
+                "query": "helm",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -86,7 +86,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 78.30802603036877,
+        "dimension": 48.33141542002301,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -209,9 +209,14 @@
   },
   "active": "23b7f6709692822f",
   "lastOpenFiles": [
+    "0-inbox/GitHub self hosted runners.md",
+    "4-archives/Kubernetes HomeLab/10 - HomeLab - Ingress with Traefik.md",
+    "4-archives/Kubernetes HomeLab/09 - HomeLab - Monitoring & Helm.md",
+    "4-archives/Kubernetes HomeLab/03 - HomeLab - Flux install.md",
+    "4-archives/Downloaders.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/04 - Building Docker Images Dockerfiles.md",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/02 - Installation and First Step.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
     "1-projects/Semaphore CI self-hosted runners.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/02 - Module 2 - Dev Containers.md",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/06 - Docker Compose & Capstone Project.md",
@@ -221,7 +226,6 @@
     "4-archives/GNU Stow.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/00 - Intro.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers",
-    "0-inbox/GitHub self hosted runners.md",
     "4-archives/kubecraft/kubernetes-fundamentals/Part 2 - Deployments/Kubernetes Fundamentels - Part 2 - Deployments.md",
     "4-archives/kubecraft/kubernetes-fundamentals/Part 1 - Kubernetes?/Kubernetes Fundamentels - Part 1.md",
     "1-projects/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 1.1 - What is Kubernetes?.md",
@@ -241,10 +245,7 @@
     "0-inbox/sample-inbox-note.md",
     "4-archives/PiHole.md",
     "0-inbox/devcontainers/DevContainers.md",
-    "0-inbox/incident.md",
-    "0-inbox/Final tips.md",
     "Untitled.canvas",
-    "4-archives/CKAD/Section 15 - Mock Exams.md",
     "Pasted image 20250629105100.png",
     "Pasted image 20250608183559.png",
     "Pasted image 20250514145051.png",
