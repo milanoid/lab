@@ -52,4 +52,31 @@ kubectl get nodes
 kubectl get pods -A | grep -v Running | grep -v Completed
 flux get kustomizations
 ```
+
+# Action Runner Controller restart after changing repo url
+
+
+## Background 
+
+The way I vibe coded the ACR with Claude is there is a hardcoded url to a github repo which only can submit jobs to runners.
+
+After a repo change e.g. [here](https://github.com/milanoid/homelab-cluster/commit/3cbe7e9ae3b83164a1d5350b8360c5b1aa1a93e8) the ACR needs to be "restarted" (otherwise the listener keeps in restart loop with 404 error).
+
+```bash
+Application returned an error: createSession failed: failed to create session: actions error: StatusCode 404, AcivityId "":
+  GitHub.Actions.Runtime.WebApi.RunnerScaleSetNotFoundException, GitHub.Actions.Runtime.WebApi: No runner scale set found with identifier 1.
+```
+
+## Solution
+
+After changing `githubConfigUrl` in the release YAML and pushing:
+
+  1. Delete the HelmRelease to force a fresh install (upgrade preserves the stale scale set ID):
   
+  `kubectl delete helmrelease homelab-runners -n arc-runners`
+  
+  2. Trigger Flux reconciliation (or wait ~1 minute for the next cycle):
+  
+  `flux reconcile kustomization infrastructure-controllers --with-source`
+
+  Flux recreates the HelmRelease, Helm does a fresh install (not upgrade), and the ARC controller registers a new scale set with the new repo.
