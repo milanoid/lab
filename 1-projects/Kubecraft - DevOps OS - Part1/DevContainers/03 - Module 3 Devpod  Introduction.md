@@ -169,3 +169,82 @@ devpod up . --ide none --dotfiles git@github.com:milanoid/dotfiles-demo --recrea
 ```
 
 done, the setup script has been applied
+
+
+# System Defaults
+
+supported editors
+
+- VS Code
+- `openvscode` - in browser Open VS Code Server
+
+
+```bash
+> devpod up . --ide openvscode --dotfiles git@github.com:milanoid/dotfiles-demo --recreate
+
+07:54:28 info Done setting up dotfiles into the devcontainer
+07:54:28 info Starting vscode in browser mode at http://localhost:10800/?folder=/workspaces/module3code
+07:54:28 info Setting up backhaul SSH connection
+07:54:33 done Successfully opened http://localhost:10800/?folder=/workspaces/module3code
+```
+
+
+Setting default editor
+
+```bash
+# so I don't have to run --ide none when starting the devpod
+devpod ide use none
+
+# list all supported ides
+> devpod ide list
+
+         NAME       | DEFAULT
+  ------------------+----------
+    clion           | false
+    codium          | false
+    cursor          | false
+    dataspell       | false
+    fleet           | false
+    goland          | false
+    intellij        | false
+    jupyternotebook | false
+    none            | true
+    openvscode      | false
+    phpstorm        | false
+    positron        | false
+    pycharm         | false
+    rider           | false
+    rstudio         | false
+    rubymine        | false
+    rustrover       | false
+    vscode          | false
+    vscode-insiders | false
+    webstorm        | false
+    zed             | false
+```
+
+set default dotfiles repo
+
+```bash
+devpod context set-options -o DOTFILES_URL=git@github.com:milanoid/dotfiles-demo
+```
+
+# On macOS with Apple Silicon
+
+Unlike Linux, Apple and Windows can't containers natively. They need an extra layer - a VM running a Linux. 
+
+- `Amd64` - PC Intel/Amd architecture
+- `Arm` - Apple Silicon
+
+There are problems if one is using `brew` to install packages within the Devpod setup scripts.
+It works on Linux but the same container setup fails on Mac (different architecture).
+
+That's the reason Mischa use `Mise` package manager.
+
+### workaround
+
+- Devpod providers (VM in Azure), not free
+- or GitHub Codespaces
+
+
+

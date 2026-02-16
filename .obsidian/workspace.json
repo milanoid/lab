@@ -27,12 +27,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4-archives/kubernetes-masterclass/Helm.md",
+                "file": "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Helm"
+              "title": "03 - Module 3 Devpod  Introduction"
+            }
+          },
+          {
+            "id": "eeeb564aee6b766c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "0-inbox/04 - Module 4 Chezmoi.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "04 - Module 4 Chezmoi"
             }
           },
           {
@@ -50,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -62,7 +76,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 51.66858457997699,
+        "dimension": 25.20029133284778,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -70,7 +84,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "helm",
+                "query": "age",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -86,7 +100,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 48.33141542002301,
+        "dimension": 74.79970866715222,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -207,14 +221,18 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "23b7f6709692822f",
+  "active": "eeeb564aee6b766c",
   "lastOpenFiles": [
+    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
+    "0-inbox/04 - Module 4 Chezmoi.md",
+    "4-archives/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
+    "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
+    "4-archives/kubernetes-masterclass/Helm.md",
     "0-inbox/GitHub self hosted runners.md",
     "4-archives/Kubernetes HomeLab/10 - HomeLab - Ingress with Traefik.md",
     "4-archives/Kubernetes HomeLab/09 - HomeLab - Monitoring & Helm.md",
     "4-archives/Kubernetes HomeLab/03 - HomeLab - Flux install.md",
     "4-archives/Downloaders.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/04 - Building Docker Images Dockerfiles.md",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/02 - Installation and First Step.md",
     "1-projects/Semaphore CI self-hosted runners.md",
@@ -241,10 +259,6 @@
     "4-archives/K3s additional agent node.md",
     "4-archives/Arch Linux installation/10 - First Hyprland setup & peripherals & YAY.md",
     "0-inbox/Jellyfin.md",
-    "4-archives/qbittorrent hangs.md",
-    "0-inbox/sample-inbox-note.md",
-    "4-archives/PiHole.md",
-    "0-inbox/devcontainers/DevContainers.md",
     "Untitled.canvas",
     "Pasted image 20250629105100.png",
     "Pasted image 20250608183559.png",
