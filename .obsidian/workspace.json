@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
+                "file": "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/04 - Module 4 Chezmoi.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "03 - Module 3 Devpod  Introduction"
+              "title": "04 - Module 4 Chezmoi"
             }
           },
           {
@@ -78,7 +78,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -235,12 +235,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9955ac16de90ccfe",
+  "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
-    "4-archives/K3s additional agent node.md",
-    "0-inbox/HomeLab Maintenance.md",
-    "0-inbox/04 - Module 4 Chezmoi.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
+    "0-inbox/HomeLab Maintenance.md",
+    "4-archives/K3s additional agent node.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/04 - Module 4 Chezmoi.md",
     "4-archives/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
     "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
     "4-archives/kubernetes-masterclass/Helm.md",
