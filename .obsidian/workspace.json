@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/04 - Module 4 Chezmoi.md",
+                "file": "4-archives/LPIC-1 exam prep/107.2 Automate system administration tasks by scheduling jobs.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "04 - Module 4 Chezmoi"
+              "title": "107.2 Automate system administration tasks by scheduling jobs"
             }
           },
           {
@@ -98,7 +98,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "age",
+                "query": "timer",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -235,12 +235,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e6e596ef8a2b8255",
+  "active": "9f5491a4de1aa2c3",
   "lastOpenFiles": [
+    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/04 - Module 4 Chezmoi.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
     "0-inbox/HomeLab Maintenance.md",
     "4-archives/K3s additional agent node.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/04 - Module 4 Chezmoi.md",
     "4-archives/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
     "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
     "4-archives/kubernetes-masterclass/Helm.md",
