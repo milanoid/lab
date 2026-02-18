@@ -13,72 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/00 - Intro.md",
+                "file": "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/04 - Module 4 Chezmoi.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "00 - Intro"
-            }
-          },
-          {
-            "id": "23b7f6709692822f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "4-archives/LPIC-1 exam prep/107.2 Automate system administration tasks by scheduling jobs.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "107.2 Automate system administration tasks by scheduling jobs"
-            }
-          },
-          {
-            "id": "eeeb564aee6b766c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "4-archives/K3s additional agent node.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "K3s additional agent node"
-            }
-          },
-          {
-            "id": "9955ac16de90ccfe",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "0-inbox/HomeLab Maintenance.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "HomeLab Maintenance"
-            }
-          },
-          {
-            "id": "4d21879ebfbd6c38",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-projects/Kubecraft - DevOps OS - Part1/Containers/02 - Installation and First Step.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "02 - Installation and First Step"
+              "title": "04 - Module 4 Chezmoi"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -235,10 +178,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9f5491a4de1aa2c3",
+  "active": "370f3d23dd7c12e8",
   "lastOpenFiles": [
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/04 - Module 4 Chezmoi.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
+    "CLAUDE.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/04 - Module 4 Chezmoi.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/00 - Intro.md",
+    "4-archives/LPIC-1 exam prep/107.2 Automate system administration tasks by scheduling jobs.md",
     "0-inbox/HomeLab Maintenance.md",
     "4-archives/K3s additional agent node.md",
     "4-archives/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
@@ -258,7 +204,6 @@
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/main.py",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code",
     "4-archives/GNU Stow.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/00 - Intro.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers",
     "4-archives/kubecraft/kubernetes-fundamentals/Part 2 - Deployments/Kubernetes Fundamentels - Part 2 - Deployments.md",
     "4-archives/kubecraft/kubernetes-fundamentals/Part 1 - Kubernetes?/Kubernetes Fundamentels - Part 1.md",
@@ -266,13 +211,11 @@
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/01 - Introduction to Containers & How They Work.md",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers",
     "Containers",
-    "1-projects/Kubecraft - DevOps OS - Part1/Containers/03 - Container Lifecycle Management.md",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard/docker-compose.yaml",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard/Dockerfile.updater",
     "1-projects/Kubecraft - DevOps OS - Part1/06_project/joke-dashboard/Dockerfile",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard/updater",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard",
-    "4-archives/Arch Linux installation/10 - First Hyprland setup & peripherals & YAY.md",
     "Untitled.canvas",
     "Pasted image 20250629105100.png",
     "Pasted image 20250608183559.png",

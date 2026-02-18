@@ -246,5 +246,3 @@ That's the reason Mischa use `Mise` package manager.
 - Devpod providers (VM in Azure), not free
 - or GitHub Codespaces
 
-
-

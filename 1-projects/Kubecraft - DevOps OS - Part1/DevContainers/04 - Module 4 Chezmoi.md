@@ -112,3 +112,7 @@ git add .
 git commit -m "chezmoi - add bashrc"
 git push
 ```
+
+
+# Automatically Setting Up Dotfiles with Chezmoi
+
