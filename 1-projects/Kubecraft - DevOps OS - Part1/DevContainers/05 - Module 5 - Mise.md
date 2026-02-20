@@ -107,3 +107,115 @@ mise ERROR Permission denied (os error 13)
 mise ERROR Run with --verbose or MISE_VERBOSE=1 for more information
 
 ```
+
+
+### fix permission issue
+
+There is a UID mismatch between the macOS host and the container.
+
+- The Dockerfile is built on my Mac under user `milan`:
+
+```bash
+id -u
+501
+```
+
+- The workspace directory `/workspaces/module3code` is mounted from the host and owned by UID 501 (the macOS user's UID)
+
+
+After fix
+
+```bash
+vscode ➜ /workspaces/module3code $ mise use chezmoi
+chezmoi@2.69.4  extract chezmoi_2.69.4_linux_arm64.tar.gz                                                                                                     ✔
+mise /workspaces/module3code/mise.toml tools: chezmoi@2.69.4
+
+
+vscode ➜ /workspaces/module3code $ cat mise.toml
+[tools]
+chezmoi = "latest"
+```
+
+
+```bash
+# activate mise
+eval "$(mise activate bash)"
+
+# check
+mise doctor
+
+No problems found
+
+# now I can use chezmoi
+chezmoi cd
+
+# and edit the dot_bashrc file
+vscode ➜ ~/.local/share/chezmoi (main) $ vi dot_bashrc
+
+# add the activate command (taken from examples of mise help activate)
+# eval "$(mise activate bash)" 
+
+vscode ➜ ~/.local/share/chezmoi (main) $ chezmoi diff
+diff --git a/.bashrc b/.bashrc
+index ae1c34c2e7a8b2aa800f0301d6407685e4cc05ab..fcbc74e4f1d105922f90d84fc0fe3d2c324de860 100664
+--- a/.bashrc
++++ b/.bashrc
+@@ -161,3 +161,4 @@ export EDITOR="$VISUAL"
+ set -o vi
+ export VISUAL=vi
+ export EDITOR="$VISUAL"
++eval "$(mise activate bash)"
+
+# apply (writes the change to tracked ~/.bashrc)
+vscode ➜ ~/.local/share/chezmoi (main) $ chezmoi apply
+
+
+# commit the change manually
+# this can be done automatically too - see https://www.chezmoi.io/user-guide/daily-operations/#automatically-commit-and-push-changes-to-your-repo
+vscode ➜ ~/.local/share/chezmoi (main) $ git add .
+vscode ➜ ~/.local/share/chezmoi (main) $ git commit -m "add mise activation"
+vscode ➜ ~/.local/share/chezmoi (main) $ git push
+
+```
+
+### Install another tool (kubectl)
+
+```bash
+# see rgistry
+mise registry | grep kubectl
+
+# install kubect
+mise use kubectl
+```
+
+- [ ] another issue (or my fault)? 
+
+There are 2 `mise.toml` file now:
+
+```bash
+vscode ➜ ~/.local/share/chezmoi (main) $ cat mise.toml
+[tools]
+kubectl = "latest"
+
+
+vscode ➜ /workspaces/module3code $ cat mise.toml
+[tools]
+chezmoi = "latest"
+
+# running mise use again from:
+vscode ➜ /workspaces/module3code $ mise use kubectl
+
+# now
+vscode ➜ /workspaces/module3code $ cat mise.toml
+[tools]
+chezmoi = "latest"
+kubectl = "latest"
+
+# the other is
+vscode ➜ /workspaces/module3code $ cat ~/.local/share/chezmoi/mise.toml
+[tools]
+kubectl = "latest"
+```
+
+# Learning about Mise Trust
+

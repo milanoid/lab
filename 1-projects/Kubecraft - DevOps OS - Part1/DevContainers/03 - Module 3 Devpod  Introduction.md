@@ -2,7 +2,7 @@
 Instead of using VS Code we can interact with devcontainers using
 
 
-1. DevPod https://devpod.sh
+1. DevPod https://devpod.sh -> seems not alive, but forked https://github.com/skevetter/devpod
 2. Dev Container CLI https://github.com/devcontainers/cli 
 
 
