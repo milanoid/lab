@@ -34,9 +34,21 @@
               "icon": "lucide-file",
               "title": "HomeLab Maintenance"
             }
+          },
+          {
+            "id": "fcc53f71d3f67783",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.12.4"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.12.4"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -194,7 +206,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "2fd2f48ccc571d45",
+  "active": "fcc53f71d3f67783",
   "lastOpenFiles": [
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/mise.toml",
