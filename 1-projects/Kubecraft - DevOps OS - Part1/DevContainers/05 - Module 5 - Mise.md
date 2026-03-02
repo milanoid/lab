@@ -219,3 +219,96 @@ kubectl = "latest"
 
 # Learning about Mise Trust
 
+- `mise trust --help` - mark a config file as trusted
+
+A directory with `mise.toml` must be set as trusted, otherwise it errors with:
+
+```bash
+vscode ➜ /workspaces/module3code $ mkdir -p /tmp/mischa
+vscode ➜ /workspaces/module3code $ ls
+main.py  mise.toml
+vscode ➜ /workspaces/module3code $ cp mise.toml /tmp/mischa/
+vscode ➜ /workspaces/module3code $ cd /tmp/mischa/
+\mise ERROR error parsing config file: /tmp/mischa/mise.toml
+mise ERROR Config files in /tmp/mischa/mise.toml are not trusted.
+Trust them with `mise trust`. See https://mise.jdx.dev/cli/trust.html for more information.
+mise ERROR Run with --verbose or MISE_VERBOSE=1 for more information
+```
+
+On build time it can create issues. We need to make sure it is trusted:
+
+```bash
+vscode ➜ /workspaces/module3code $ cat .devcontainer/devcontainer.json
+{
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile"
+  },
+  # see syntax https://containers.dev/implementors/json_reference/#formatting-string-vs-array-properties
+  "postCreateCommand": {
+    "fixOwnerShip": "sudo chown -R vscode:vscode /workspaces",
+    "fixMiseTrust": "scripts/setup"
+  }
+}
+
+```
+
+```bash
+#!/bin/bash
+/usr/local/bin/mise trust /workspaces/$DEVPOD_WORKSPACE_ID/mise.toml && /usr/local/bin/mise install
+```
+
+
+```bash
+# check it works
+chmod +x scripts/setup
+bash scripts/setup
+mise trusted /workspaces/module3code
+mise all tools are installed
+
+```
+
+vim trick:
+
+- run command and paste the output in
+
+`:r! which mise`
+
+
+
+Now let's rebuild the container
+
+```bash
+devpod up . --recreate
+
+...
+08:08:16 info Run command fixMiseTrust: scripts/setup...
+08:08:16 warn mise trusted /workspaces/module3code
+08:08:17 warn mise kubectl@1.35.2  [1/2] install
+08:08:17 warn mise chezmoi@2.69.4  [1/3] install
+08:08:17 warn mise kubectl@1.35.2  [1/2] download kubectl
+08:08:18 warn mise chezmoi@2.69.4  [1/3] download chezmoi_2.69.4_linux_arm64.tar.gz
+08:08:20 warn mise chezmoi@2.69.4  [2/3] checksum chezmoi_2.69.4_linux_arm64.tar.gz
+08:08:20 warn mise chezmoi@2.69.4  [3/3] extract chezmoi_2.69.4_linux_arm64.tar.gz
+08:08:20 warn mise chezmoi@2.69.4 ✓ installed
+08:08:54 warn mise kubectl@1.35.2  [2/2] checksum kubectl
+08:08:54 warn mise kubectl@1.35.2  [2/2] extract kubectl
+08:08:54 warn mise kubectl@1.35.2 ✓ installed
+08:08:54 done Successfully ran command fixMiseTrust: scripts/setup
+08:08:54 info Run command fixOwnerShip: sudo chown -R vscode:vscode /workspaces...
+08:08:54 done Successfully ran command fixOwnerShip: sudo chown -R vscode:vscode /workspaces
+...
+
+```
+
+
+```bash
+# in devpod
+
+vscode ➜ /workspaces/module3code $ mise trust --show
+/workspaces/module3code: trusted
+```
+
+
+# Installing Mise with Chezmoiexternals
+

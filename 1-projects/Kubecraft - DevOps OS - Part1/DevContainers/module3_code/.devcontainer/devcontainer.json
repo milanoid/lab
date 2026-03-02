@@ -3,5 +3,8 @@
     "context": "..",
     "dockerfile": "Dockerfile"
   },
-  "postCreateCommand": "sudo chown -R vscode:vscode /workspaces"
+  "postCreateCommand": {
+    "fixOwnerShip": "sudo chown -R vscode:vscode /workspaces",
+    "fixMiseTrust": "scripts/setup"
+  }
 }
