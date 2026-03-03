@@ -84,3 +84,10 @@ Error
     isRetryable: false,
     data: { type: 'error', error: [Object] }
 ```
+
+! The "Pro plan" on claude.ai (the chat interface) and "Evaluation access" on platform.anthropic.com (the API platform) are different things — they're separate services with separate subscriptions.
+
+- [ ] I bought $5 credit and recreated API key, but still the error
+
+I had to buy $5 credit on platform.claude.com. 
+
