@@ -129,5 +129,40 @@ Thinking (Depth)
 
 Both modes can be used together (expensive).
 
+# Controlling context
+
+## Interrupting Claude with Escape
+
+Sometimes Claude starts heading in the wrong direction or tries to tackle too much at once. You can press the Escape key to stop Claude mid-response, allowing you to redirect the conversation.
+
+This is particularly useful when you want Claude to focus on one specific task instead of trying to handle multiple things simultaneously. For example, if you ask Claude to write tests for multiple functions and it starts creating a comprehensive plan for all of them, you can interrupt and ask it to focus on just one function at a time.
+
+Combine it with `#` if stumble upon an issue which is resolved, so we won't have to solve it again. 
+
+## Rewinding Conversations
+
+`Escape` + `Escape` - rewind to get rid off mess.
+
+During long conversations, you might accumulate context that becomes irrelevant or distracting. For instance, if Claude encounters an error and spends time debugging it, that back-and-forth discussion might not be useful for the next task.
 
 
+## Context Management Commands
+
+## `/compact`
+
+The `/compact` command summarizes your entire conversation history while preserving the key information Claude has learned. This is ideal when:
+
+- Claude has gained valuable knowledge about your project
+- You want to continue with related tasks
+- The conversation has become long but contains important context
+
+Use compact when Claude has learned a lot about the current task and you want to maintain that knowledge as it moves to the next related task.
+
+## `/clear`
+
+
+The `/clear` command completely removes the conversation history, giving you a fresh start. This is most useful when:
+
+- You're switching to a completely different, unrelated task
+- The current conversation context might confuse Claude for the new task
+- You want to start over without any previous context
