@@ -87,7 +87,47 @@ Error
 
 ! The "Pro plan" on claude.ai (the chat interface) and "Evaluation access" on platform.anthropic.com (the API platform) are different things — they're separate services with separate subscriptions.
 
-- [ ] I bought $5 credit and recreated API key, but still the error
+- [x] I bought $5 credit and recreated API key, but still the error
 
 I had to buy $5 credit on platform.claude.com. 
+
+
+## Planning
+
+For a more complex prompts e.g. 
+
+"Replace the 'str_replace_editor' text with a more user friendly message of what this toool call is doing. For example, maybe state that a file is being
+  created or edited, along with the name of the file being modified. Also, put this into a new component adn write tests for it."
+
+switch to Planning mode:
+
+`Shift` + `Tab` - twice!
+
+
+- it makes the Claude to "thing" more
+- it prepares a plan first
+
+## Thinking
+
+- allows Claude to reason about more challenging problems
+
+Think -> Think more -> Think a lot -> Think longer -> Ultrathink
+
+
+## Thinking vs Planning
+
+Breadth vs Depth
+
+Planning (Breadth)
+- for wide understanding the codebase
+- looking in different areas
+- for tasks requiring several steps to complete
+
+Thinking (Depth)
+- focus on a narrow but tricky part (e.g. a bug)
+
+
+Both modes can be used together (expensive).
+
+
 
