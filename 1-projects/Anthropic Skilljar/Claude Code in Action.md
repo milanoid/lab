@@ -54,3 +54,33 @@ Three common CLAUDE.md files locations:
 
 - `@` - refer to a file 
 - add to context
+
+
+# Making changes (in the sample project)
+
+
+## screenhots
+
+I can paste a screenshot and ask it to do changes in that UI area.
+
+CLI Claude accepts screenshots from clipboard - `CTRL+V` for pasting in. Then I can ask to change the UI I made screenshot of:
+
+```prompt
+> center this content vertically
+```
+
+## Prompting from the sample UIGEN app
+
+The app can connect to Claude using the API key I stored in `.env` earlier.
+
+```prompt
+Create a card with a title and description
+```
+
+Error
+
+```bash
+    responseBody: '{"type":"error","error":{"type":"invalid_request_error","message":"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits."},"request_id":"req_011CYfxSZGYHo9XYZCwnu2j6"}',
+    isRetryable: false,
+    data: { type: 'error', error: [Object] }
+```
