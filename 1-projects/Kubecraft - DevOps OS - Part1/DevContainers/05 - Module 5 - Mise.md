@@ -312,3 +312,173 @@ vscode ➜ /workspaces/module3code $ mise trust --show
 
 # Installing Mise with Chezmoiexternals
 
+We have Mise installed in the devpod container. Now we want to have that on my main machine (Mac) as well.
+
+We want to install Mise from within my dotfiles (repo).
+
+Enter https://www.chezmoi.io/reference/special-files/chezmoiexternal-format/
+
+```bash
+# enter dotfiles repo dir
+vscode ➜ /workspaces/module3code $ chezmoi cd
+vscode ➜ ~/.local/share/chezmoi (main) $
+
+# 
+vscode ➜ ~/.local/share/chezmoi (main) $ mkdir .chezmoiexternals
+vi .chezmoiexternals/mise.toml
+
+```
+
+```bash
+# .chezmoiexternals/mise.toml
+[".local/bin/mise"]
+type = "file"
+executable = true
+url = "https://mise.jdx.dev/mise-latest-{{.chezmoi.os}}-{{.chezmoi.arch}}"
+```
+
+
+```bash
+vscode ➜ ~/.local/share/chezmoi (main) $ cd /workspaces/module3code/
+vscode ➜ /workspaces/module3code $ chezmoi apply
+```
+
+
+The mise is installed only for this project and available only if I am in the project.
+
+```bash
+vscode ➜ /workspaces/module3code $ cat mise.toml
+[tools]
+chezmoi = "latest"
+kubectl = "latest"
+```
+
+Now we want to install it global.
+
+# NOTE WHEN USING MACOS
+
+When using this setup for setting up the dotfiles on your Mac natively, you'll have to install mise using brew and turn this mise.toml into a mise.toml.tmpl file, with the following template:
+
+```
+❯ cat .chezmoiexternals/mise.toml.tmpl 
+───────┬─────────────────────────────────────────────────────────────────────────
+       │ File: .chezmoiexternals/mise.toml.tmpl
+───────┼────────────────────────────────────────────────────────────────────────
+   1   │ {{ if ne .chezmoi.hostname "mac-beast" }}
+   2   │ [".local/bin/mise"]
+   3   │ type = "file"
+   4   │ executable = true
+   5   │ url = "https://mise.jdx.dev/mise-latest-{{.chezmoi.os}}-{{.chezmoi.arch}}"
+   6   │ {{ end }}
+   7   │ 
+───────┴─────────────────────────────────────────────────────────────────────────
+```
+
+As you see, I'm using my hostname to prevent this from running if I'm on MacOS.
+
+
+# Installing Mise Globally
+
+```bash
+vscode ➜ /workspaces/module3code $ chezmoi cd
+vscode ➜ ~/.local/share/chezmoi (main) $
+```
+
+## XDG_CONFIG_HOME
+
+A convention of `$XDG_CONFIG_HOME`. Spec [here](https://specifications.freedesktop.org/basedir/latest/).
+
+`XDG_CONFIG_HOME` is ==an environment variable defining the base directory for user-specific configuration files==, defaulting to `~/.config` if unset.
+
+
+Likewise we want to have it in Chezmoi.
+
+```bash
+# while in vscode ➜ ~/.local/share/chezmoi (main) $
+mkdir -p dot_config/mise
+
+vi dot_config/mise/config.toml
+
+[tools]
+bat = "latest"
+chezmoi = "latest"
+
+# https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/
+mkdir .chezmoiscripts
+vi  .chezmoiscripts/run_onchange_after_install_packages.sh.tmpl
+
+
+#!/bin/bash
+# packages hash: {{ include "dot_config/mise/config.toml" | sha256sum }}
+$HOME/.local/bin/mise trust $HOME/.config/mise/config.toml && $HOME/.local/bin/mise install
+
+
+# git push changes to my dot files repo
+# on Mac I also edited a file mise.toml which causes this issue:
+```
+
+- [x] after editing mise.toml file on Mac the recreate fails
+      
+      fix: chmod 755 mise.toml
+
+```bash
+# exit the devpod and recreate
+milan@SPM-LN4K9M0GG7 ~/repos/lab/1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code (main)
+> devpod up . --recreate
+08:47:35 info Workspace module3code already exists
+08:47:35 info Creating devcontainer...
+08:47:35 info Found existing local image vsc-module3_code-dc033:devpod-eacfd2f463485cace78e0f48ed82032e
+08:47:35 info Deleting devcontainer...
+08:47:36 info Inspecting image vsc-module3_code-dc033:devpod-eacfd2f463485cace78e0f48ed82032e
+08:47:36 info 27e4d9b4d4d5b56d9ac1f99e68dca34e1ea435771250349c7092df67769f5707
+08:47:38 info Setup container...
+08:47:39 info Chown workspace...
+08:47:40 info Run command fixMiseTrust: scripts/setup...
+08:47:40 error Error loading settings file: failed read_to_string: /workspaces/module3code/mise.toml
+08:47:40 error Error loading settings file: failed read_to_string: /workspaces/module3code/mise.toml
+08:47:40 warn mise trusted /workspaces/module3code
+08:47:40 error Error loading settings file: failed read_to_string: /workspaces/module3code/mise.toml
+08:47:40 error Error loading settings file: failed read_to_string: /workspaces/module3code/mise.toml
+08:47:40 error mise ERROR error parsing config file: /workspaces/module3code/mise.toml
+08:47:40 error mise ERROR failed read_to_string: /workspaces/module3code/mise.toml
+08:47:40 error mise ERROR Permission denied (os error 13)
+08:47:40 error mise ERROR Run with --verbose or MISE_VERBOSE=1 for more information
+08:47:40 info lifecycle hooks: failed to run: scripts/setup, error: exit status 1
+08:47:40 info devcontainer up: run agent command: Process exited with status 1
+08:47:40 error Try using the --debug flag to see a more verbose output
+08:47:40 fatal run agent command: Process exited with status 1
+
+```
+
+```bash
+# profit - chezmoi avaliable everywhere - even in /tmp
+vscode ➜ /tmp $ chezmoi --version
+chezmoi version v2.69.4, commit c4c669c9f2f329233a85802014d26fba3c58a4a4, built at 2026-02-11T08:59:37Z, built by goreleaser
+```
+
+Note:
+
+```bash
+# kubectl is available in the project
+vscode ➜ /workspaces/module3code $ which kubectl
+/home/vscode/.local/share/mise/installs/kubectl/1.35.2/kubectl
+
+# but not outside
+vscode ➜ /workspaces/module3code $ cd /tmp/
+vscode ➜ /tmp $ which kubectl
+vscode ➜ /tmp $
+```
+
+`kubectl` is available in the project dir because it's set in:
+
+```bash
+vscode ➜ /workspaces/module3code $ cat mise.toml
+[tools]
+kubectl = "latest"
+```
+
+But `chezmoi` we have installed globally and is available everywhere (in th devpod).
+
+
+# .chezmoiignore
+

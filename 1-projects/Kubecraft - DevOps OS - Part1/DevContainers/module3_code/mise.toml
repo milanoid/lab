@@ -1,3 +1,2 @@
 [tools]
-chezmoi = "latest"
 kubectl = "latest"
