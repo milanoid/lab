@@ -482,3 +482,32 @@ But `chezmoi` we have installed globally and is available everywhere (in th devp
 
 # .chezmoiignore
 
+In your dotfiles repo, add a .chezmoiignore file, containing the word "setup"
+
+```
+echo "setup" > .chezmoiignore
+```
+
+This prevents chezmoi from copying the "setup" file to your home directory.
+
+
+# A summary of the moving parts
+
+With the setup in place there are:
+
+- 3 ways how to install packages (mise global, ...)
+- 3 ways of running (install) scripts (Devpod - Setupscript, dotfiles setup, chezmoi setup)
+
+# Suggestion for Study
+
+At this point I recommend to take some time to really understand how Mise injects itself to your shell. Or, in other words, "mise activation methods" like they use in the documentation.
+
+Study this page:
+
+[https://mise.jdx.dev/dev-tools/shims.html#shims](https://mise.jdx.dev/dev-tools/shims.html#shims "https://mise.jdx.dev/dev-tools/shims.html#shims")
+
+We won't be using shims in this course, but this page will help you understand what's going on under the hood.
+
+Also, play around a bit with the directories like I showed you in the last video.
+
+Make sure you really understand which .toml file you need to edit to achieve your goal.

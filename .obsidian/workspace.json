@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4-archives/LPIC-1 exam prep/104.3 Control mounting and unmounting of filesystems.md",
+                "file": "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "104.3 Control mounting and unmounting of filesystems"
+              "title": "05 - Module 5 - Mise"
+            }
+          },
+          {
+            "id": "09b35cd2dd76fd00",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/06 - Module 6 - Vim & Cutoff Point.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "06 - Module 6 - Vim & Cutoff Point"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -178,10 +193,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9d8d699042d39eb8",
+  "active": "09b35cd2dd76fd00",
   "lastOpenFiles": [
-    "4-archives/LPIC-1 exam prep/107.2 Automate system administration tasks by scheduling jobs.md",
+    "0-inbox/dotfiles-demo-readme-draft.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/06 - Module 6 - Vim & Cutoff Point.md",
+    "4-archives/LPIC-1 exam prep/104.3 Control mounting and unmounting of filesystems.md",
+    "4-archives/LPIC-1 exam prep/107.2 Automate system administration tasks by scheduling jobs.md",
     "1-projects/Anthropic Skilljar/Claude Code in Action.md",
     "1-projects/Anthropic Skilljar",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/scripts/setup",
@@ -210,10 +228,7 @@
     "1-projects/Kubecraft - DevOps OS - Part1/Containers/05 - Security & Container Best Practices.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/main.py",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code",
-    "4-archives/GNU Stow.md",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers",
-    "4-archives/kubecraft/kubernetes-fundamentals/Part 2 - Deployments/Kubernetes Fundamentels - Part 2 - Deployments.md",
-    "4-archives/kubecraft/kubernetes-fundamentals/Part 1 - Kubernetes?/Kubernetes Fundamentels - Part 1.md",
     "1-projects/Kubecraft - DevOps OS - Part1/Containers",
     "Containers",
     "Untitled.canvas",
