@@ -4,39 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "38869904fd8ca6c6",
+        "id": "3fc6560ba2cc6d7d",
         "type": "tabs",
         "children": [
           {
-            "id": "9d8d699042d39eb8",
+            "id": "9180f2707f925965",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
+                "file": "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "05 - Module 5 - Mise"
-            }
-          },
-          {
-            "id": "09b35cd2dd76fd00",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/06 - Module 6 - Vim & Cutoff Point.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "06 - Module 6 - Vim & Cutoff Point"
+              "title": "01 - Intro, Settings repo and Azure"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -101,7 +86,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 499.5110321044922
+    "width": 375.5
   },
   "right": {
     "id": "c30d66fb63f83402",
@@ -193,25 +178,31 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "09b35cd2dd76fd00",
+  "active": "9180f2707f925965",
   "lastOpenFiles": [
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/00 - Intro.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/00 - DevContainers.md",
+    "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers.md",
+    "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/02 - Terraform Modules.md",
+    "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud",
+    "1-projects/Kubeccraft - DevOps OS - Part2",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/06 - Module 6 - Vim & Cutoff Point.md",
     "0-inbox/dotfiles-demo-readme-draft.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/06 - Module 6 - Vim & Cutoff Point.md",
     "4-archives/LPIC-1 exam prep/104.3 Control mounting and unmounting of filesystems.md",
     "4-archives/LPIC-1 exam prep/107.2 Automate system administration tasks by scheduling jobs.md",
     "1-projects/Anthropic Skilljar/Claude Code in Action.md",
     "1-projects/Anthropic Skilljar",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/scripts/setup",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/scripts",
-    "1-projects/Kubecraft - DevOps OS - Part1/Containers/06 - Docker Compose & Capstone Project.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/scripts/setup",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/scripts",
+    "4-archives/Kubecraft - DevOps OS - Part1/Containers/06 - Docker Compose & Capstone Project.md",
     "0-inbox/HomeLab Maintenance.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/mise.toml",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/mise.toml",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/mise",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/04 - Module 4 Chezmoi.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/04 - Module 4 Chezmoi.md",
     "CLAUDE.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/00 - Intro.md",
     "4-archives/K3s additional agent node.md",
     "4-archives/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
     "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
@@ -221,16 +212,10 @@
     "4-archives/Kubernetes HomeLab/09 - HomeLab - Monitoring & Helm.md",
     "4-archives/Kubernetes HomeLab/03 - HomeLab - Flux install.md",
     "4-archives/Downloaders.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/Containers/04 - Building Docker Images Dockerfiles.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/Containers/02 - Installation and First Step.md",
-    "1-projects/Semaphore CI self-hosted runners.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/02 - Module 2 - Dev Containers.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/Containers/05 - Security & Container Best Practices.md",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/main.py",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers",
-    "1-projects/Kubecraft - DevOps OS - Part1/Containers",
-    "Containers",
+    "4-archives/Kubecraft - DevOps OS - Part1/Containers/04 - Building Docker Images Dockerfiles.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/main.py",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers",
     "Untitled.canvas",
     "Pasted image 20250629105100.png",
     "Pasted image 20250608183559.png",
