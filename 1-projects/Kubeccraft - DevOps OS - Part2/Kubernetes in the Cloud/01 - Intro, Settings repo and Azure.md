@@ -60,6 +60,6 @@ To add an exception for this directory, call:
 ## MS Azure Free Account
 
 
-- [ ] create a `@outlook.com` email account first (e.g. `milan.cloudcourse@outlook`)
+- [x] create a `@outlook.com` email account first (e.g. `milan.cloudcourse@outlook`)
 - [ ] create a Free Tier Azure account (Personal), credit card required
 - [ ] 

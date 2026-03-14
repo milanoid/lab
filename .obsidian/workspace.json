@@ -33,7 +33,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 18.20830298616169,
+        "dimension": 54.28211586901764,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -41,7 +41,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "scan",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -57,7 +57,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 81.7916970138383,
+        "dimension": 45.71788413098236,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -180,11 +180,11 @@
   },
   "active": "9180f2707f925965",
   "lastOpenFiles": [
+    "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/02 - Terraform Modules.md",
+    "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/00 - Intro.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/00 - DevContainers.md",
-    "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers.md",
-    "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/02 - Terraform Modules.md",
     "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud",
     "1-projects/Kubeccraft - DevOps OS - Part2",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
