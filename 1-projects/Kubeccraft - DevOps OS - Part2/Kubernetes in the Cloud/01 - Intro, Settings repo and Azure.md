@@ -347,3 +347,25 @@ Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 
 - creates `terraform.tfstate` - this MUST NOT be in GIT (can contain credentials etc.)
 - in real world the state file will be in cloud backend (e.g. S3 bucket in SP)
+
+
+On `apply` issue
+
+
+```bash
+rosoft.Network/networkInterfaces/nic-demo|/subscriptions/ab577f05-79c6-4633-b730-0293419a9171/resourceGroups/rg-terraform-demo/providers/Microsoft.Network/networkSecurityGroups/nsg-demo]
+╷
+│ Error: creating Linux Virtual Machine (Subscription: "ab577f05-79c6-4633-b730-0293419a9171"
+│ Resource Group Name: "rg-terraform-demo"
+│ Virtual Machine Name: "vm-demo"): performing CreateOrUpdate: unexpected status 409 (409 Conflict) with error: SkuNotAvailable: The requested VM size for resource 'Following SKUs have failed for Capacity Restrictions: Standard_B2s' is currently not available in location 'westeurope'. Please try another size or deploy to a different location or different zone. See https://aka.ms/azureskunotavailable for details.
+│
+│   with azurerm_linux_virtual_machine.main,
+│   on vm.tf line 91, in resource "azurerm_linux_virtual_machine" "main":
+│   91: resource "azurerm_linux_virtual_machine" "main" {
+│
+╵
+```
+
+List all available VMs
+
+`az vm list-skus --location centralus --size Standard_B --all --output table`
