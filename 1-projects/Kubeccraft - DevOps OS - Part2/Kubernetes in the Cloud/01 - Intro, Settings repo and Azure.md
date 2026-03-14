@@ -369,3 +369,6 @@ rosoft.Network/networkInterfaces/nic-demo|/subscriptions/ab577f05-79c6-4633-b730
 List all available VMs
 
 `az vm list-skus --location centralus --size Standard_B --all --output table`
+
+
+Tear down: `terraform desroy`
