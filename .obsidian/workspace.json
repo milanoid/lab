@@ -33,7 +33,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 54.28211586901764,
+        "dimension": 16.038492381716118,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -41,7 +41,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "scan",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -57,7 +57,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 45.71788413098236,
+        "dimension": 83.96150761828387,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -180,10 +180,16 @@
   },
   "active": "9180f2707f925965",
   "lastOpenFiles": [
-    "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/02 - Terraform Modules.md",
-    "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/02 - Module 2 - Dev Containers.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/00 - Intro.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/00 - DevContainers.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
+    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code",
+    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers",
+    "1-projects/Kubecraft - DevOps OS - Part1",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/04 - Module 4 Chezmoi.md",
+    "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
+    "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/02 - Terraform Modules.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers.md",
     "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud",
     "1-projects/Kubeccraft - DevOps OS - Part2",
@@ -200,8 +206,6 @@
     "0-inbox/HomeLab Maintenance.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/mise.toml",
     "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/mise",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/04 - Module 4 Chezmoi.md",
     "CLAUDE.md",
     "4-archives/K3s additional agent node.md",
     "4-archives/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
@@ -211,11 +215,6 @@
     "4-archives/Kubernetes HomeLab/10 - HomeLab - Ingress with Traefik.md",
     "4-archives/Kubernetes HomeLab/09 - HomeLab - Monitoring & Helm.md",
     "4-archives/Kubernetes HomeLab/03 - HomeLab - Flux install.md",
-    "4-archives/Downloaders.md",
-    "4-archives/Kubecraft - DevOps OS - Part1/Containers/04 - Building Docker Images Dockerfiles.md",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/main.py",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers",
     "Untitled.canvas",
     "Pasted image 20250629105100.png",
     "Pasted image 20250608183559.png",

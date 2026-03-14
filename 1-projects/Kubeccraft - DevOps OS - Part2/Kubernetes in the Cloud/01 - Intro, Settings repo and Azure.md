@@ -45,6 +45,7 @@ _Approach_
 
 
 - [ ] git files ownership issue
+- [ ] not just git cannot create a file (user `vscode` on mac it's `milan`)
 
 - maybe something I've resolved in [[02 - Module 2 - Dev Containers]] ?
 
@@ -60,6 +61,12 @@ To add an exception for this directory, call:
 ## MS Azure Free Account
 
 
-- [x] create a `@outlook.com` email account first (e.g. `milan.cloudcourse@outlook`)
-- [ ] create a Free Tier Azure account (Personal), credit card required
-- [ ] 
+- [x] create a `@outlook.com` email account first (e.g. `milan.kubecraft@outlook`)
+- [x] Azure account
+
+
+# Clouds are APIs
+
+- Organization has 1 or more Subscriptions
+- Subscription contains Resource Groups
+- 
