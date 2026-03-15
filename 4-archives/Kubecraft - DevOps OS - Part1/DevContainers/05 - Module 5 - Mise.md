@@ -122,6 +122,8 @@ id -u
 
 - The workspace directory `/workspaces/module3code` is mounted from the host and owned by UID 501 (the macOS user's UID)
 
+- [ ] proper fix https://buildsoftwaresystems.com/post/sync-linux-devcontainer-user-with-host/
+
 
 After fix
 

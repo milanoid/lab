@@ -47,7 +47,7 @@ _Approach_
 - [ ] git files ownership issue
 - [ ] not just git cannot create a file (user `vscode` on mac it's `milan`)
 
-- maybe something I've resolved in [[02 - Module 2 - Dev Containers]] ?
+- maybe something I've resolved in [[05 - Module 5 - Mise#fix permission issue]]
 
 ```bash
 vscode ➜ /workspaces/mercury-workflows $ git status
