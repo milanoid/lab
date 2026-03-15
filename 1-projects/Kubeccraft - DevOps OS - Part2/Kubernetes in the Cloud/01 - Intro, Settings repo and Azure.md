@@ -9,6 +9,7 @@ At the end we will act as company providing managed N8N (low code tool) service.
 
 - `~/repos/mercury-workflows` (mercury - the company name)
 - uses _devcontainers - [[00 - Intro]]
+- My repo  https://github.com/milanoid/mercury-workflows/
 
 
 
@@ -44,8 +45,8 @@ _Approach_
 ```
 
 
-- [ ] git files ownership issue
-- [ ] not just git cannot create a file (user `vscode` on mac it's `milan`)
+- [x] git files ownership issue
+- [x] not just git cannot create a file (user `vscode` on mac it's `milan`)
 
 - maybe something I've resolved in [[05 - Module 5 - Mise#fix permission issue]]
 
@@ -226,7 +227,7 @@ E.g. RouterOS - a provider for Microtik routers https://github.com/terraform-rou
 
 Mischa installs terraform in devpod (`mise use terraform`). Meanwhile I'll use `terraform` on my Mac.
 
-- [ ] todo fix devpod
+- [x] todo fix devpod
 
 ```bash
 mise use terraform
@@ -372,3 +373,6 @@ List all available VMs
 
 
 Tear down: `terraform desroy`
+
+
+- [ ] fix the ssh pub key (do not use the Mac's anymore, use one in devcontainer)

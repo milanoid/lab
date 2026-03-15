@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
+                "file": "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "05 - Module 5 - Mise"
+              "title": "01 - Intro, Settings repo and Azure"
             }
           }
         ]
@@ -180,9 +180,9 @@
   },
   "active": "9180f2707f925965",
   "lastOpenFiles": [
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
     "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
     "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/02 - Terraform Modules.md",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/04 - Module 4 Chezmoi.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/02 - Module 2 - Dev Containers.md",
