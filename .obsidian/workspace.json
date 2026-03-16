@@ -41,7 +41,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "NFS",
+                "query": "iSC",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -178,7 +178,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9180f2707f925965",
+  "active": "9f5491a4de1aa2c3",
   "lastOpenFiles": [
     "4-archives/K3s additional agent node.md",
     "4-archives/Downloaders.md",
