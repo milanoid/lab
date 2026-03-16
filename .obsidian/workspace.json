@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
+                "file": "4-archives/Downloaders.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01 - Intro, Settings repo and Azure"
+              "title": "Downloaders"
             }
           }
         ]
@@ -33,7 +33,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 16.038492381716118,
+        "dimension": 59.40752602081665,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -41,7 +41,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "NFS",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -57,7 +57,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 83.96150761828387,
+        "dimension": 40.592473979183346,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -180,8 +180,10 @@
   },
   "active": "9180f2707f925965",
   "lastOpenFiles": [
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
+    "4-archives/K3s additional agent node.md",
+    "4-archives/Downloaders.md",
     "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
     "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/02 - Terraform Modules.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/04 - Module 4 Chezmoi.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
@@ -207,7 +209,6 @@
     "0-inbox/HomeLab Maintenance.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/mise.toml",
     "CLAUDE.md",
-    "4-archives/K3s additional agent node.md",
     "4-archives/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
     "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
     "4-archives/kubernetes-masterclass/Helm.md",
