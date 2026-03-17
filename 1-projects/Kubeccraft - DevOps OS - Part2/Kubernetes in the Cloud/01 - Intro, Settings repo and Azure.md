@@ -372,7 +372,7 @@ List all available VMs
 `az vm list-skus --location centralus --size Standard_B --all --output table`
 
 
-Tear down: `terraform desroy`
+Tear down: `terraform destroy`
 
 
 - [ ] fix the ssh pub key (do not use the Mac's anymore, use one in devcontainer)
