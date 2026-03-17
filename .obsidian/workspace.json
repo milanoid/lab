@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4-archives/Downloaders.md",
+                "file": "4-archives/PiHole.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Downloaders"
+              "title": "PiHole"
             }
           }
         ]
@@ -41,7 +41,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "iSC",
+                "query": "iSCSI",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -178,10 +178,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9f5491a4de1aa2c3",
+  "active": "9180f2707f925965",
   "lastOpenFiles": [
-    "4-archives/K3s additional agent node.md",
+    "4-archives/iSCSI as Persistant Volume.md",
     "4-archives/Downloaders.md",
+    "4-archives/K3s additional agent node.md",
     "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
     "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/02 - Terraform Modules.md",
@@ -215,7 +216,6 @@
     "0-inbox/GitHub self hosted runners.md",
     "4-archives/Kubernetes HomeLab/10 - HomeLab - Ingress with Traefik.md",
     "4-archives/Kubernetes HomeLab/09 - HomeLab - Monitoring & Helm.md",
-    "4-archives/Kubernetes HomeLab/03 - HomeLab - Flux install.md",
     "Untitled.canvas",
     "Pasted image 20250629105100.png",
     "Pasted image 20250608183559.png",
