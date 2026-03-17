@@ -4,25 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "3fc6560ba2cc6d7d",
+        "id": "fcb2602931d5f55c",
         "type": "tabs",
         "children": [
           {
-            "id": "9180f2707f925965",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/02 - Terraform Modules.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "02 - Terraform Modules"
-            }
-          },
-          {
-            "id": "6bde73ce9134dd48",
+            "id": "146116978b2434ad",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -35,8 +21,7 @@
               "title": "03 - Azure Kubernetes Service (AKS)"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -48,7 +33,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 25.204081632653065,
+        "dimension": 34.42340791738382,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -72,7 +57,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 74.79591836734694,
+        "dimension": 65.57659208261619,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -101,7 +86,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 375.5
+    "width": 409.5
   },
   "right": {
     "id": "c30d66fb63f83402",
@@ -193,49 +178,51 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "6bde73ce9134dd48",
+  "active": "146116978b2434ad",
   "lastOpenFiles": [
-    "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/02 - Terraform Modules.md",
-    "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/03 - Azure Kubernetes Service (AKS).md",
-    "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
-    "4-archives/PiHole.md",
-    "4-archives/iSCSI as Persistant Volume.md",
-    "4-archives/Downloaders.md",
-    "4-archives/K3s additional agent node.md",
+    "4-archives/LPIC-1 exam prep/101.1 Determine and configure hw settings.md",
+    "conflict-files-obsidian-git.md",
+    "4-archives/Semaphore CI self-hosted runners.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/scripts/setup",
+    "4-archives/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard/updater",
+    "4-archives/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard/docker-compose.yaml",
+    "4-archives/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard/Dockerfile.updater",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/scripts",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/mise.toml",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/main.py",
+    "4-archives/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard",
+    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/setup.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 7 - Monitoring.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 6 - Helm.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 5 - K9s.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 4.2 - Persistent Storage.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 4.1 - Storage - Ephemeral Storage.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 3.3 - Ingress.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 3.2 - Services.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 3.1 - Networking.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 2.3 - Deployments - Mealie.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 2.2 - Deployment - Namespaces.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 2.1 - Deployments.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 1.4 - Interacting with pods.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 1.3 - Pods as Code - YAML.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 1.2  - Pods.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 1.1 - What is Kubernetes?.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/06 - Module 6 - Vim & Cutoff Point.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/04 - Module 4 Chezmoi.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/02 - Module 2 - Dev Containers.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/00 - Intro.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/00 - DevContainers.md",
-    "0-inbox/Untitled.base",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers/module3_code",
-    "1-projects/Kubecraft - DevOps OS - Part1/DevContainers",
-    "1-projects/Kubecraft - DevOps OS - Part1",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers.md",
-    "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud",
-    "1-projects/Kubeccraft - DevOps OS - Part2",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/06 - Module 6 - Vim & Cutoff Point.md",
-    "0-inbox/dotfiles-demo-readme-draft.md",
-    "4-archives/LPIC-1 exam prep/104.3 Control mounting and unmounting of filesystems.md",
-    "4-archives/LPIC-1 exam prep/107.2 Automate system administration tasks by scheduling jobs.md",
-    "1-projects/Anthropic Skilljar/Claude Code in Action.md",
-    "1-projects/Anthropic Skilljar",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/scripts/setup",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/scripts",
-    "4-archives/Kubecraft - DevOps OS - Part1/Containers/06 - Docker Compose & Capstone Project.md",
-    "0-inbox/HomeLab Maintenance.md",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/mise.toml",
-    "CLAUDE.md",
-    "4-archives/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
-    "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
-    "4-archives/kubernetes-masterclass/Helm.md",
-    "0-inbox/GitHub self hosted runners.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/Containers/06_project",
     "Untitled.canvas",
+    "4-archives/Arch Linux/Screenshot 2025-04-26 at 18.27.36.png",
+    "4-archives/Arch Linux/Pasted image 20250407140038.png",
     "Pasted image 20250629105100.png",
     "Pasted image 20250608183559.png",
     "Pasted image 20250514145051.png",
-    "4-archives/Arch Linux/Pasted image 20250407140038.png",
+    "1-projects/Arch Linux/Pasted image 20250407140038.png",
     "1-projects/Linux/Screenshot 2025-04-26 at 18.27.36.png",
     "1-projects/Linux/Pasted image 20250407140038.png",
     "Screenshot 2025-04-26 at 18.27.36.png",
