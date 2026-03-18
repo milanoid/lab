@@ -94,6 +94,10 @@ kubectl kustomize
 
 # apply kustomization file (from current dir)
 kubectl apply -f .
+
+
+# delete
+kubectl delete -k .
 ```
 ### Storage classes in EKS
 
