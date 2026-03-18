@@ -83,8 +83,36 @@ Deploy n8n to your Kubernetes cluster using the following documentation:
 3. apply manually
 
 
+---
+# Deploying n8n
+
 ```bash
 # outputs manifest to be applied
 # to verify it's working
 kubectl kustomize
+
+
+# apply kustomization file (from current dir)
+kubectl apply -f .
 ```
+### Storage classes in EKS
+
+```bash
+kubectl get sc
+...
+```
+
+azurefile (Samba share)
+azurefile-csi
+azurefile-csi-premium
+default
+managed
+managed-csi
+managed-csi-premium
+managed-premium
+
+
+https://learn.microsoft.com/en-us/azure/architecture/aws-professional/eks-to-aks/storage#storage-classes
+
+To see it in Azure Portal go to Subscriptions - Resource groups. There is one (autocreated) in my case its `MC_rg-cloud-course-aks_mercury-cluster_northeurope`. In there is the underlying infrastructure running the cluster. Including storage/disk.
+
