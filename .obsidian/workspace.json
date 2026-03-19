@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/03 - Azure Kubernetes Service (AKS).md",
+                "file": "1-projects/Proxmox/00 - Installation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "03 - Azure Kubernetes Service (AKS)"
+              "title": "00 - Installation"
             }
           }
         ]
@@ -180,6 +180,13 @@
   },
   "active": "146116978b2434ad",
   "lastOpenFiles": [
+    "4-archives/VPN server with dynamic IP.md",
+    "1-projects/Proxmox/00 - Installation.md",
+    "1-projects/Proxmox",
+    "4-archives/iSCSI as Persistant Volume.md",
+    "4-archives/K3s additional agent node.md",
+    "4-archives/qbittorrent hangs.md",
+    "1-projects/Kubeccraft - DevOps OS - Part2/Kubernetes in the Cloud/03 - Azure Kubernetes Service (AKS).md",
     "4-archives/LPIC-1 exam prep/101.1 Determine and configure hw settings.md",
     "conflict-files-obsidian-git.md",
     "4-archives/Semaphore CI self-hosted runners.md",
@@ -209,13 +216,6 @@
     "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 1.1 - What is Kubernetes?.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/06 - Module 6 - Vim & Cutoff Point.md",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/04 - Module 4 Chezmoi.md",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/03 - Module 3 Devpod  Introduction.md",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/02 - Module 2 - Dev Containers.md",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/00 - Intro.md",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/00 - DevContainers.md",
-    "4-archives/Kubecraft - DevOps OS - Part1/Containers/06_project",
     "Untitled.canvas",
     "4-archives/Arch Linux/Screenshot 2025-04-26 at 18.27.36.png",
     "4-archives/Arch Linux/Pasted image 20250407140038.png",
