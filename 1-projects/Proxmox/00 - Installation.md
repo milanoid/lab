@@ -22,3 +22,14 @@ https://pve.proxmox.com/pve-docs/chapter-sysadmin.html
 - GW: 192.168.1.1
 - DNS: 192.168.1.232 (Pihole)
 
+### post-install steps
+
+https://192.168.1.200:8006
+
+Dismiss the "No valid subscription" popup
+
+```bash
+echo "deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription" > /etc/apt/sources.list.d/pve-no-subscription.list
+
+apt update && apt dist-upgrade -y
+```
