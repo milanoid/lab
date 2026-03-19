@@ -33,3 +33,16 @@ echo "deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription" >
 
 apt update && apt dist-upgrade -y
 ```
+
+
+
+```bash
+# Disable enterprise Ceph repo
+echo "# disabled" > /etc/apt/sources.list.d/ceph.sources
+
+# Fix the PVE no-subscription repo to use correct Debian version
+echo "deb http://download.proxmox.com/debian/pve trixie pve-no-subscription" > /etc/apt/sources.list.d/pve-no-subscription.list
+
+# Also disable pve-enterprise.sources (the .sources format file, separate from the .list you edited)
+echo "# disabled" > /etc/apt/sources.list.d/pve-enterprise.sources
+```
