@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/01 - enlarge LVM with 2nd disk.md",
+                "file": "1-projects/Proxmox/01 - enlarge LVM with 2nd disk.md",
                 "mode": "source",
                 "source": false
               },
@@ -193,10 +193,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a0fcd7f55e3f6c48",
+  "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
     "1-projects/Proxmox/00 - Installation.md",
-    "0-inbox/01 - enlarge LVM with 2nd disk.md",
+    "1-projects/Proxmox/01 - enlarge LVM with 2nd disk.md",
     "4-archives/LPIC-1 exam prep/102.1 Design hard disk layout.md",
     "4-archives/LPIC-1 exam prep/102.2 Install a boot manager.md",
     "4-archives/LVM resize.md",
