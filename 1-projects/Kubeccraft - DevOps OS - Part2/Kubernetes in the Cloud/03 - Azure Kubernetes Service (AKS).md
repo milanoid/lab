@@ -223,3 +223,39 @@ now running at http://localhost:3008/setup
 - email: milan@test.com
 - pass: Lastpass (N8N)
 
+
+#### Test workflow 
+
+query Extinct Animals API and shuffle the output to N8n logs using Linux file descriptor.
+
+```bash
+curl -s https://extinct-api.herokuapp.com/api/v1/animal/ | jq
+{
+  "status": "success",
+  "data": [
+    {
+      "binomialName": "Ursus arctos crowtheri",
+      "commonName": "Atlas bear",
+      "location": "Northern Maghreb",
+      "wikiLink": "https://en.wikipedia.org/wiki/Atlas_bear",
+      "lastRecord": "1834",
+      "imageSrc": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Atlasbear.jpg/220px-Atlasbear.jpg",
+      "shortDesc": "The Atlas bear and African bear (Ursus arctos crowtheri) is an extinct population or populations of brown bear native to North Africa that went extinct in historical times."
+    }
+  ]
+}
+```
+
+
+1. HTTP GET https://extinct-api.herokuapp.com/api/v1/animal/
+2. N8n Execute Command
+
+`echo "We just looked up ${{.json.data[0].commonName}}" > /proc/1/fd/1`
+
+
+#### hickups
+
+Execute Command is disabled by default for security reasons https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.executecommand/
+
+To enable:
+
