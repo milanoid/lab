@@ -46,3 +46,22 @@ echo "deb http://download.proxmox.com/debian/pve trixie pve-no-subscription" > /
 # Also disable pve-enterprise.sources (the .sources format file, separate from the .list you edited)
 echo "# disabled" > /etc/apt/sources.list.d/pve-enterprise.sources
 ```
+
+
+### setup 2nd disk - sda
+
+```bash
+root@pve:~# lsblk
+NAME               MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda                  8:0    0 447.1G  0 disk
+nvme0n1            259:0    0 447.1G  0 disk
+├─nvme0n1p1        259:1    0  1007K  0 part
+├─nvme0n1p2        259:2    0     1G  0 part /boot/efi
+└─nvme0n1p3        259:3    0   446G  0 part
+  ├─pve-swap       252:0    0     8G  0 lvm  [SWAP]
+  ├─pve-root       252:1    0    96G  0 lvm  /
+  ├─pve-data_tmeta 252:2    0   3.3G  0 lvm
+  │ └─pve-data     252:4    0 319.5G  0 lvm
+  └─pve-data_tdata 252:3    0 319.5G  0 lvm
+    └─pve-data     252:4    0 319.5G  0 lvm
+```

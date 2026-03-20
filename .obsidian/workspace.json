@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Proxmox/00 - Installation.md",
+                "file": "4-archives/LPIC-1 exam prep/102.1 Design hard disk layout.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "00 - Installation"
+              "title": "102.1 Design hard disk layout"
             }
           }
         ]
@@ -86,7 +86,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 409.5
+    "width": 418.5
   },
   "right": {
     "id": "c30d66fb63f83402",
@@ -180,8 +180,11 @@
   },
   "active": "146116978b2434ad",
   "lastOpenFiles": [
-    "4-archives/VPN server with dynamic IP.md",
+    "4-archives/LPIC-1 exam prep/102.2 Install a boot manager.md",
+    "4-archives/LVM resize.md",
+    "4-archives/Arch Linux installation/01 - Disk partitioning & Encryption.md",
     "1-projects/Proxmox/00 - Installation.md",
+    "4-archives/VPN server with dynamic IP.md",
     "1-projects/Proxmox",
     "4-archives/iSCSI as Persistant Volume.md",
     "4-archives/K3s additional agent node.md",
@@ -212,10 +215,7 @@
     "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 2.1 - Deployments.md",
     "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 1.4 - Interacting with pods.md",
     "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 1.3 - Pods as Code - YAML.md",
-    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 1.2  - Pods.md",
-    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 1.1 - What is Kubernetes?.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/06 - Module 6 - Vim & Cutoff Point.md",
     "Untitled.canvas",
     "4-archives/Arch Linux/Screenshot 2025-04-26 at 18.27.36.png",
     "4-archives/Arch Linux/Pasted image 20250407140038.png",
