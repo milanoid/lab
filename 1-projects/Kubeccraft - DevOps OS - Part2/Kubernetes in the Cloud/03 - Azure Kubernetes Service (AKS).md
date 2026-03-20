@@ -250,12 +250,72 @@ curl -s https://extinct-api.herokuapp.com/api/v1/animal/ | jq
 1. HTTP GET https://extinct-api.herokuapp.com/api/v1/animal/
 2. N8n Execute Command
 
-`echo "We just looked up ${{.json.data[0].commonName}}" > /proc/1/fd/1`
+`echo "We just looked up {{$json.data[0].commonName}}" > /proc/1/fd/1`
 
 
 #### hickups
 
-Execute Command is disabled by default for security reasons https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.executecommand/
+_Execute Command_ Node is disabled by default for security reasons https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.executecommand/
 
-To enable:
+To enable, set `NODES_EXCLUDE="[]"` in _configmap.yaml_
+
+```yaml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: n8n-configmap
+  namespace: n8n
+data:
+  GENERIC_TIMEZONE: "Europe/Prague" 
+  TZ: "Europe/Prague"
+  N8N_RUNNERS_ENABLED: "true"
+  N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: "true"
+  NODES_EXCLUDE: "[]" # to enable `Execute Command` 
+```
+
+
+-> after apply the Pod must be restarted (it reads the env vars on startup)
+
+```bash
+kubectl rollout restart deployment/n8n -n n8n
+```
+
+
+! Claude:
+
+ Contrast: If the ConfigMap were mounted as a volume (a file), Kubernetes does sync changes to the file automatically (with a delay of ~1 minute), and apps that re-read the file can pick it up without a restart. But that's not the case here.
+
+![[Pasted image 20260320161450.png]]
+
+Why the filedescriptor "trick" works:
+
+- in the container there is only one process - with PID1
+- each process is represented as a file in `/proc/{PID}`
+- in there is `fd` (stands for [File Descriptor](https://en.wikipedia.org/wiki/File_descriptor)) dir with 3 types - `stdin`, `stdout`, `stderr`
+
+```bash
+~ $ ps
+PID   USER     TIME  COMMAND
+    1 node      0:00 tini -- /docker-entrypoint.sh
+    6 node      0:28 {MainThread} node /usr/local/bin/n8n
+   18 node      0:04 {MainThread} node --disallow-code-generation-from-strings --disable-proto=delete /usr/local/lib/node_mo
+   46 node      0:00 sh
+   55 node      0:00 ps
+~ $ ls -la /proc/1/fd
+total 0
+dr-x------    2 node     node             0 Mar 20 16:12 .
+dr-xr-xr-x    9 node     node             0 Mar 20 16:06 ..
+lrwx------    1 node     node            64 Mar 20 16:17 0 -> /dev/null
+l-wx------    1 node     node            64 Mar 20 16:12 1 -> pipe:[385613]
+l-wx------    1 node     node            64 Mar 20 16:17 2 -> pipe:[385614]
+```
+
+
+- [ ] run N8n on my homeLab
+
+
+---
+
+# Expose n8n to the public internet
 
