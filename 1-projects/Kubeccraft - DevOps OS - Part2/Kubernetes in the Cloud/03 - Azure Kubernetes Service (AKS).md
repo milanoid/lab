@@ -158,6 +158,8 @@ resources:
 
 -> the deployment.yaml was missing `namespace: n8n` !
 
+? the pod originally created in `default` is still pending even after `kubectl delete -k .`
+
 #### git permission denied in Devpod container
 
 
@@ -195,3 +197,29 @@ devpod up . --recreate
 #(or with cli switch without devcontainer.json modification)
 devpod up . --ssh-agent-forwarding
 ```
+
+
+#### port-forward from Devpod
+
+When running on host I can do `SHIFT+F` in K9s. 
+
+Container Port: n8n::5678
+Local Port:     3008
+Address:        localhost
+
+While running in Devpod container I need to forward it once more in devcontainer.json:
+
+```bash
+  "forwardPorts": [
+    3008
+  ]
+```
+
+## N8N app setup
+
+now running at http://localhost:3008/setup
+
+- create an account
+- email: milan@test.com
+- pass: Lastpass (N8N)
+
