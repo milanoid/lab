@@ -156,8 +156,42 @@ resources:
   - deployment.yaml
 ```
 
-the deployment.yaml was missing `namespace: n8n` !
+-> the deployment.yaml was missing `namespace: n8n` !
 
-```yaml
+#### git permission denied in Devpod container
 
+
+```bash
+vscode ➜ /workspaces/mercury-workflows/phase-3-aks/manifests-v3-my (main) $ git push
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+```
+
+
+-> use ssh-agent
+
+```bash
+# check the agent is running on host system (Arch)
+eval $(ssh-agent -s)
+Agent pid 20429
+
+# add the private identity to the agent
+ssh-add ~/.ssh/id_ed25519
+Identity added: /home/milan/.ssh/id_ed25519 (milan.vojnovic@gmail.com)
+
+# Make Devpod to forward the agent into the container (update devcontainer.json)
+  {
+    "remoteEnv": {
+      "SSH_AUTH_SOCK": "${localEnv:SSH_AUTH_SOCK}"
+    }
+  }
+  
+# recreate
+devpod up . --recreate
+  
+#(or with cli switch without devcontainer.json modification)
+devpod up . --ssh-agent-forwarding
 ```
