@@ -140,3 +140,24 @@ error: error validating ".": error validating data: failed to download openapi: 
 az account set --subscription ab577f05-79c6-4633-b730-0293419a9171
 az aks get-credentials --resource-group rg-cloud-course-aks --name mercury-cluster --overwrite-existing
 ```
+
+#### pod with n8n created in `default` namespace
+
+the kustomizatioan.yaml
+
+```
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - namespace.yaml
+  - storage.yaml
+  - configmap.yaml
+  - deployment.yaml
+```
+
+the deployment.yaml was missing `namespace: n8n` !
+
+```yaml
+
+```
