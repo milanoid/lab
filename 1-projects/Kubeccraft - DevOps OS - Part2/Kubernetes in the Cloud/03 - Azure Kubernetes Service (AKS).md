@@ -383,3 +383,26 @@ in `phase-3-aks/manifests-v0`
 https://docs.n8n.io/hosting/configuration/supported-databases-settings/#postgresdb
 
 my changes in branch `0306_excercise_postgres`
+
+
+### hickups
+
+1. added postgresql to deployment alongside n8n - the postgres was in the same Pod
+2. the PVC `n8n-postgres-data` could not bind due to ReadWriteMany:
+
+-> In AKS, the default storage class uses Azure Disk, which only supports ReadWriteOnce. ReadWriteMany requires Azure Files or NFS — that's why the PVC can't bind.
+
+  PostgreSQL doesn't need RWX anyway — it's a single-replica deployment with one writer. Change it to ReadWriteOnce.
+
+
+3. CrahsLoopBackOff
+
+
+```bash
+chmod: changing permissions of '/var/lib/postgresql/data': Operation not permitted
+chmod: changing permissions of '/var/run/postgresql': Operation not permitted
+
+initdb: error: directory "/var/lib/postgresql/data" exists but is not empty
+```
+
+![[Pasted image 20260321164530.png]]
