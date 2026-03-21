@@ -388,6 +388,8 @@ my changes in branch `0306_excercise_postgres` https://github.com/milanoid/mercu
 
 ! I did it the "Kubernetes way" - by creating manifest files (deployment, service etc.). That's good but as the course is about AKS I should have use the `main.tf` and use the previously commented code "resource azurerm_postgresql_flexible_server". That way I would utilize the managed services (postgres) by Azure instead creating "my own".
 
+The managed postgres usage is in `/phase3-aks/manifests-v1`! - only change is the ConfigMap https://github.com/milanoid/mercury-workflows/blob/0306_excercise_postgres/phase-3-aks/manifests-v1/configmap.yaml
+
 
 ### hickups
 
