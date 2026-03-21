@@ -348,6 +348,7 @@ vscode ➜ /workspaces/mercury-workflows/phase-3-aks/manifests-v0 (main) $ kubec
 - the service.yaml creates LoadBalancer
 - note the EXTERNAL-IP is assigned automacally (Azure feature)
 - on homelab it would need a lot of work (MetalLB)
+- under the hood it creates also firewall rules and other technicalities 
 
 ```bash
 kubectl get service -n n8n
@@ -359,4 +360,23 @@ Now world visible at http://52.142.82.171:3008/
 
 ![[Pasted image 20260321151549.png]]
 
-Backend pool - 
+Backend pool?
+
+
+Now we have n8n running in AKS with a public IP. However, the system still uses SQLite:
+
+```bash
+~/.n8n $ pwd
+/home/node/.n8n
+~/.n8n $ ls -la | grep data
+-rw-r--r--    1 node     node        573440 Mar 21 14:10 database.sqlit
+```
+
+The next task is to use a regular database, Postgres.
+
+---
+
+# 03.06 Exercise - Postgres database
+
+in `phase-3-aks/manifests-v0`
+
