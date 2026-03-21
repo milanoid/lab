@@ -406,3 +406,28 @@ initdb: error: directory "/var/lib/postgresql/data" exists but is not empty
 ```
 
 ![[Pasted image 20260321164530.png]]
+
+-> Claude
+
+The official postgres Docker image ships with some files already inside /var/lib/postgresql/data (specifically a lost+found directory or other metadata placed there
+  during image build). When Kubernetes mounts the PVC to that path, the mount point is technically "not empty" from the OS perspective — even if the PVC itself is
+  brand new and empty.
+
+  PostgreSQL's initdb is strict: it refuses to initialize a data directory that isn't completely empty, because it can't distinguish between "harmless leftover files"
+  and "a corrupted or foreign database".
+
+  Why does this happen specifically with Kubernetes PVCs and not plain Docker?
+
+  In plain Docker with a named volume, Docker mounts the volume after the image layers are applied, and it copies the contents of the image's directory into the volume
+   on first use. So the volume ends up containing only what the image put there — which is nothing for /var/lib/postgresql/data.
+
+  In Kubernetes, a PVC mount works differently: it's a raw block/filesystem mount that overlays the container's filesystem at that path. Any files the image had at
+  that path are hidden by the mount. The mounted filesystem is empty, but the image's own base OS still has /var/lib/postgresql/data as a directory that exists in the
+  image layer — and some image builds leave files there (like lost+found from ext4 formatting).
+
+  Why does PGDATA=/var/lib/postgresql/data/pgdata fix it?
+
+  By pointing PGDATA to a subdirectory, initdb initializes /var/lib/postgresql/data/pgdata instead. That subdirectory doesn't exist yet on the mounted PVC, so it's
+  genuinely empty when postgres creates it. The parent directory /var/lib/postgresql/data may have stray files, but postgres never looks at those.
+
+  This is actually https://hub.docker.com/_/postgres as the recommended workaround when mounting a volume to the default data path
