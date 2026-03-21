@@ -319,3 +319,44 @@ l-wx------    1 node     node            64 Mar 20 16:17 2 -> pipe:[385614]
 
 # Expose n8n to the public internet
 
+After each teardown I need to do again:
+
+```bash
+# login to Azure
+az login --use-device-code
+
+# create the cluster in AKS defined in main.tf
+(/phase-3-aks) terraform apply
+
+# Set the cluster subscription
+az account set --subscription ab577f05-79c6-4633-b730-0293419a9171
+
+# Download cluster credentials
+az aks get-credentials --resource-group rg-cloud-course-aks --name mercury-cluster --overwrite-existing
+
+# only now I can use kubectl to manage the cluster
+```
+
+
+
+### deploy the n8n with service exposing it to world
+
+```bash
+vscode ➜ /workspaces/mercury-workflows/phase-3-aks/manifests-v0 (main) $ kubectl apply -k .
+```
+
+- the service.yaml creates LoadBalancer
+- note the EXTERNAL-IP is assigned automacally (Azure feature)
+- on homelab it would need a lot of work (MetalLB)
+
+```bash
+kubectl get service -n n8n
+NAME   TYPE           CLUSTER-IP   EXTERNAL-IP     PORT(S)          AGE
+n8n    LoadBalancer   10.0.39.45   52.142.82.171   3008:31163/TCP   113s
+```
+
+Now world visible at http://52.142.82.171:3008/
+
+![[Pasted image 20260321151549.png]]
+
+Backend pool - 
