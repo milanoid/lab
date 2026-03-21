@@ -382,7 +382,11 @@ in `phase-3-aks/manifests-v0`
 
 https://docs.n8n.io/hosting/configuration/supported-databases-settings/#postgresdb
 
-my changes in branch `0306_excercise_postgres`
+my changes in branch `0306_excercise_postgres` https://github.com/milanoid/mercury-workflows/tree/0306_excercise_postgres/phase-3-aks/manifests-v0
+
+### AKS vs Kubernetes way
+
+! I did it the "Kubernetes way" - by creating manifest files (deployment, service etc.). That's good but as the course is about AKS I should have use the `main.tf` and use the previously commented code "resource azurerm_postgresql_flexible_server". That way I would utilize the managed services (postgres) by Azure instead creating "my own".
 
 
 ### hickups
