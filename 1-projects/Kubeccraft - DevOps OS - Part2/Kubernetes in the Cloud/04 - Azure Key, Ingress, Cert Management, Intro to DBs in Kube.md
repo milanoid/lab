@@ -32,5 +32,6 @@ db_user = "n8nadmin" key_vault_name = "kv-n8n-mercury" key_vault_uri = "https://
 - replace values of keys `userAssignedIdentity` (get value from `terraform output`)
 - and `tenantId` (from `az account list` -> it's the `homeTenantId`)
 
+! the SecretProvider will sync the secrets from KV to cluster ONLY if the secrets are being mounted by at least on Pod.
 
 https://docs.azure.cn/en-us/aks/csi-secrets-store-configuration-options
