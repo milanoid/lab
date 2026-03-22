@@ -29,4 +29,8 @@ db_user = "n8nadmin" key_vault_name = "kv-n8n-mercury" key_vault_uri = "https://
 
 `secrets.yaml`- SecretProviderClass, provider azure, generates Kubernetes secrets
 
+- replace values of keys `userAssignedIdentity` (get value from `terraform output`)
+- and `tenantId` (from `az account list` -> it's the `homeTenantId`)
+
+
 https://docs.azure.cn/en-us/aks/csi-secrets-store-configuration-options
