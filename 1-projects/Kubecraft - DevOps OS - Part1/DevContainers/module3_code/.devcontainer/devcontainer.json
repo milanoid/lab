@@ -1,1 +1,0 @@
-{"postCreateCommand":{"fixMiseTrust":["scripts/setup"],"fixOwnerShip":["sudo chown -R vscode:vscode /workspaces"]},"build":{"dockerfile":"Dockerfile","context":".."}}
