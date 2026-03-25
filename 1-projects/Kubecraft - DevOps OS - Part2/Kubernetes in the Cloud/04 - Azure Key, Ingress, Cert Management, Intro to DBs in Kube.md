@@ -41,3 +41,9 @@ https://docs.azure.cn/en-us/aks/csi-secrets-store-configuration-options
 # restart entire deployement (e.g. in case of a change in configMap)
 kubectl -n n8n rollout restart deployment/n8n
 ```
+
+
+---
+
+# Configuring Ingress & Cert Management
+
