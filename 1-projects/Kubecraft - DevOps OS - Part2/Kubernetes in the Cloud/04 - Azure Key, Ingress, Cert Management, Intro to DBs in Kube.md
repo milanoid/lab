@@ -47,3 +47,29 @@ kubectl -n n8n rollout restart deployment/n8n
 
 # Configuring Ingress & Cert Management
 
+### install Traefik via Helm to the Azure cluster
+
+The Azure AKS must run first -> `terraform plan` @ `/phase4-k8s-infra
+
+(on Mac in devpod)
+
+https://doc.traefik.io/traefik/getting-started/install-traefik/#use-the-helm-chart
+
+```bash
+vscode ➜ /workspaces/mercury-workflows (main) $ helm version
+
+version.BuildInfo{Version:"v4.1.3", GitCommit:"c94d381b03be117e7e57908edbf642104e00eb8f", GitTreeState:"clean", GoVersion:"go1.25.8", KubeClientVersion:"v1.35"}
+```
+
+```bash
+vscode ➜ /workspaces/mercury-workflows (main) $ helm repo add traefik https://traefik.github.io/charts
+"traefik" has been added to your repositories
+
+helm repo update
+
+# install to default namespace
+# helm install traefik traefik/traefik
+
+# install to n8n namespace
+helm install --namespace n8n traefik traefik/traefik
+```
