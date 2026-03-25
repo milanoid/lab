@@ -4,4 +4,4 @@ Nice to have
 
 - [ ] Proper Dot file repo (so far just https://github.com/milanoid/dotfiles-demo)
 - [ ] consider to move to `zsh` from `bash`
-- [ ] 
+- [ ] Neovim
