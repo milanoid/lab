@@ -177,4 +177,55 @@ There are default commands available with `/`. But I can write my own custom com
 
 put the command files in the project `.claude/commands/`
 
+e.g. `audit.md`
+
+
+```md
+Your goal is to update any vulnerable dependencies.
+
+Do the following:
+
+1. run `npm audit` to find vulnerable installed packages in this project
+2. run `npm audit fix` to apply updates
+3. Run tests and verify updates didn't break anything
+
+```
+
+https://github.com/milanoid/anthropic.skilljar.com.uigen/blob/main/.claude/commands/audit.md
+
+- can be then invoked by `/audit`
+
+
+### Command parameters
+
+- a command can get a parameter - note `$ARGUMENTS`
+
+```md
+Write comprehensive tests for: $ARGUMENTS 
+
+Testing conventions:
+* Use Vitests with React Testing Library 
+* Place test files in a __tests__ directory in the same folder as the source file 
+* Name test files as [filename].test.ts(x) 
+* Use @/ prefix for imports 
+  
+Coverage: 
+* Test happy paths * Test edge cases 
+* Test error states
+```
+
+https://github.com/milanoid/anthropic.skilljar.com.uigen/blob/main/.claude/commands/write_tests.md
+
+use:
+
+`/write-tests for the use-auth.ts file in the hooks dir`
+
+- the argument does not have to be a file path, but any string
+
+
+---
+
+# MCP servers with Claude Code
+
+https://anthropic.skilljar.com/claude-code-in-action/303239
 
