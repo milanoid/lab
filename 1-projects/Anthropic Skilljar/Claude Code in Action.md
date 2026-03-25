@@ -19,7 +19,7 @@ npm run dev
 
 
 
-## Adding context
+# Adding context
 
 Three common CLAUDE.md files locations:
 
@@ -97,7 +97,7 @@ I had to buy $5 credit on platform.claude.com.
 
 For a more complex prompts e.g. 
 
-"Replace the 'str_replace_editor' text with a more user friendly message of what this toool call is doing. For example, maybe state that a file is being
+"Replace the `str_replace_editor` text with a more user friendly message of what this toool call is doing. For example, maybe state that a file is being
   created or edited, along with the name of the file being modified. Also, put this into a new component adn write tests for it."
 
 switch to Planning mode:
@@ -128,8 +128,9 @@ Thinking (Depth)
 - focus on a narrow but tricky part (e.g. a bug)
 
 
-Both modes can be used together (expensive).
+Both modes (planning and thinking) can be used together (expensive).
 
+---
 # Controlling context
 
 ## Interrupting Claude with Escape
@@ -167,3 +168,13 @@ The `/clear` command completely removes the conversation history, giving you a
 - You're switching to a completely different, unrelated task
 - The current conversation context might confuse Claude for the new task
 - You want to start over without any previous context
+
+---
+
+# Custom commands
+
+There are default commands available with `/`. But I can write my own custom command to deal with repetitive tasks I run into frequently.
+
+put the command files in the project `.claude/commands/`
+
+
