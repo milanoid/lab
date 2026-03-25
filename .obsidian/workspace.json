@@ -4,53 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "fcb2602931d5f55c",
+        "id": "0b75de4d7cafefa4",
         "type": "tabs",
         "children": [
           {
-            "id": "146116978b2434ad",
+            "id": "4e1797cd6621630e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-projects/Proxmox/00 - Installation.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "00 - Installation"
-            }
-          },
-          {
-            "id": "a0fcd7f55e3f6c48",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/06 - Module 6 - Vim & Cutoff Point.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "06 - Module 6 - Vim & Cutoff Point"
-            }
-          },
-          {
-            "id": "2038fcc4eb081491",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/07 - Zsh, Neovim and  The rest.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "07 - Zsh, Neovim and  The rest"
+              "title": "New tab"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -207,8 +174,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "2038fcc4eb081491",
+  "active": "4e1797cd6621630e",
   "lastOpenFiles": [
+    "1-projects/Proxmox/00 - Installation.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/06 - Module 6 - Vim & Cutoff Point.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/07 - Zsh, Neovim and  The rest.md",
     "1-projects/Anthropic Skilljar/Claude Code in Action.md",
@@ -219,7 +187,6 @@
     "Pasted image 20260321164530.png",
     "Pasted image 20260321151549.png",
     "Pasted image 20260320161450.png",
-    "1-projects/Proxmox/00 - Installation.md",
     "4-archives/LPIC-1 exam prep/102.1 Design hard disk layout.md",
     "4-archives/LPIC-1 exam prep/102.2 Install a boot manager.md",
     "4-archives/LVM resize.md",
