@@ -2,6 +2,7 @@ At this point it stopped. I have devpod installed. I can start a container in a 
 
 Nice to have
 
+- [ ] tmux
 - [ ] Proper Dot file repo (so far just https://github.com/milanoid/dotfiles-demo)
 - [ ] consider to move to `zsh` from `bash`
-- [ ] Neovim
+- [ ] neovim
