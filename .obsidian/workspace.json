@@ -4,24 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "0b75de4d7cafefa4",
+        "id": "4837deb3e69d965b",
         "type": "tabs",
         "children": [
           {
-            "id": "4e1797cd6621630e",
+            "id": "1341a481b4c8afa3",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "pdf",
               "state": {
-                "file": "Untitled 1.canvas",
-                "viewState": {
-                  "x": 0,
-                  "y": -7.8111145019532096,
-                  "zoom": 0
-                }
+                "file": "Services+(1).pdf"
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "Untitled 1"
+              "icon": "lucide-file-text",
+              "title": "Services+(1)"
             }
           }
         ]
@@ -36,7 +31,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 20.181634712411707,
+        "dimension": 20.181634712411704,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -60,7 +55,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 79.8183652875883,
+        "dimension": 79.81836528758829,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -181,10 +176,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4e1797cd6621630e",
+  "active": "1341a481b4c8afa3",
   "lastOpenFiles": [
-    "0-inbox/Untitled.md",
+    "Untitled.canvas",
     "Untitled 1.canvas",
+    "0-inbox/Untitled.md",
     "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/04 - Azure Key, Ingress, Cert Management, Intro to DBs in Kube.md",
     "1-projects/Proxmox/00 - Installation.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/06 - Module 6 - Vim & Cutoff Point.md",
@@ -222,7 +218,6 @@
     "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 5 - K9s.md",
     "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 4.2 - Persistent Storage.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code",
-    "Untitled.canvas",
     "4-archives/Arch Linux/Screenshot 2025-04-26 at 18.27.36.png",
     "4-archives/Arch Linux/Pasted image 20250407140038.png",
     "Pasted image 20250629105100.png",
