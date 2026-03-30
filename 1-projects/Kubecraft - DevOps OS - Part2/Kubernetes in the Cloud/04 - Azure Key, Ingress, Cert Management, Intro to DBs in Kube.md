@@ -248,3 +248,45 @@ Events:
 - the hostname `customer1.mercury.mischavandenburg.net` must resolve to our cluster
 - this is not happening (yet)
 
+```bash
+# on systemd machines
+resolvectl query customer1.mercury.mischavandenburg.net
+
+# already resolves to an IP (20.105.96.204) (Mischa's Cloudflare homelab)
+```
+
+
+
+- we need to point the address `customer1.mercury.mischavandenburg.net` to our cluster in Cloudflare
+- I might need to use a different hostname - probably `customer1.mercury.milanoid.net`
+
+1. get my public IP address (IP of LoadBalancer)
+
+```bash
+kubectl get services
+NAME         TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE
+kubernetes   ClusterIP      10.0.0.1      <none>          443/TCP                      39m
+traefik      LoadBalancer   10.0.171.35   20.105.119.90   80:31856/TCP,443:31561/TCP   33m
+```
+
+2. set that IP `20.105.119.90` to my Cloudflare
+
+- Type: `A`
+- Name: `*.mercury`
+- IPv4: `20.105.119.90`
+
+Once done the cert manager should retry and succeeded. Might take some time (DNS propagate)
+
+```bash
+kubectl describe challenges -A
+```
+
+Now the address `customer1.mercury.mischavandenburg.net` (resp. ``customer1.mercury.milanoid.net`) should have valid TLS/SSL cert.
+
+https://customer1.mercury.milanoid.net
+
+-> getting a bit messy, later it will be all GitOps way, but now set up Database Operator
+
+---
+
+# 04.03 Intro to Databases in Kubernetes
