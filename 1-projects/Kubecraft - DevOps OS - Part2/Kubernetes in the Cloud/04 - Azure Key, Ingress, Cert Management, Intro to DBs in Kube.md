@@ -29,7 +29,7 @@ db_user = "n8nadmin" key_vault_name = "kv-n8n-mercury" key_vault_uri = "https://
 
 `secrets.yaml`- SecretProviderClass, provider azure, generates Kubernetes secrets
 
-- replace values of keys `userAssignedIdentity` (get value from `terraform output`)
+- replace values of keys `userAssignedIdentityID` (get value from `terraform output`)
 - and `tenantId` (from `az account list` -> it's the `homeTenantId`)
 
 ! the SecretProvider will sync the secrets from KV to cluster ONLY if the secrets are being mounted by at least on Pod.
