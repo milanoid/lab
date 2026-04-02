@@ -398,4 +398,72 @@ k cnpg status
 ```
 
 
-Added to the scripts/setup devcontainer
+Added to the scripts/setup devcontainer.
+
+
+#### issues with installer checksum
+
+```bash
+curl -sSfL   https://github.com/cloudnative-pg/cloudnative-pg/raw/main/hack/install-cnpg-plugin.sh |   sudo sh -s -- -b /usr/local/bin
+cloudnative-pg/cloudnative-pg info checking GitHub for latest tag
+cloudnative-pg/cloudnative-pg info found version: 1.29.0 for v1.29.0/linux/arm64
+cloudnative-pg/cloudnative-pg err hash_sha256_verify checksum for '/tmp/tmp.VzWveEvwCq/kubectl-cnpg_1.29.0_linux_arm64.tar.gz' did not verify 86bf9f01673190a26970cff4b2405e5fc0f45bc4311602371c945285f685b7c0
+f7698594fd89fadba047336ac2765ef75b5683c2d1fa5caab1829afe3d15127b vs 86bf9f01673190a26970cff4b2405e5fc0f45bc4311602371c945285f685b7c0
+```
+
+GH Issue https://github.com/cloudnative-pg/cloudnative-pg/issues/10402
+
+Workaround
+
+```bash
+curl -L https://github.com/cloudnative-pg/cloudnative-pg/releases/download/v1.29.0/kubectl-cnpg_1.29.0_linux_x86_64.tar.gz -o kubectl-cnpg.tar.gz
+tar xzf kubectl-cnpg.tar.gz
+sudo mv kubectl-cnpg /usr/local/bin/
+```
+
+
+```bash
+vscode ➜ /workspaces/mercury-workflows $ kubectl cnpg version 
+Build: {Version:1.29.0 Commit:23eae00cd Date:2026-04-01}
+```
+
+
+PROFIT!
+
+```bash
+vscode ➜ /workspaces/mercury-workflows $ k cnpg status cluster-example
+Cluster Summary
+Name                     default/cluster-example
+System ID:               7624055896381489171
+PostgreSQL Image:        ghcr.io/cloudnative-pg/postgresql:18.3-system-trixie
+Primary instance:        cluster-example-1
+Primary promotion time:  2026-04-02 07:11:22 +0000 UTC (14m57s)
+Status:                  Cluster in healthy state
+Instances:               3
+Ready instances:         3
+Size:                    144M
+Current Write LSN:       0/8000000 (Timeline: 1 - WAL File: 000000010000000000000008)
+
+Continuous Backup not configured
+
+Streaming Replication status
+Replication Slots Enabled
+Name               Sent LSN   Write LSN  Flush LSN  Replay LSN  Write Lag  Flush Lag  Replay Lag  State      Sync State  Sync Priority  Replication Slot
+----               --------   ---------  ---------  ----------  ---------  ---------  ----------  -----      ----------  -------------  ----------------
+cluster-example-2  0/8000000  0/8000000  0/8000000  0/8000000   00:00:00   00:00:00   00:00:00    streaming  async       0              active
+cluster-example-3  0/8000000  0/8000000  0/8000000  0/8000000   00:00:00   00:00:00   00:00:00    streaming  async       0              active
+
+Instances status
+Name               Current LSN  Replication role  Status  QoS         Manager Version  Node
+----               -----------  ----------------  ------  ---         ---------------  ----
+cluster-example-1  0/8000000    Primary           OK      BestEffort  1.29.0           aks-default-15231464-vmss000000
+cluster-example-2  0/8000000    Standby (async)   OK      BestEffort  1.29.0           aks-default-15231464-vmss000000
+cluster-example-3  0/8000000    Standby (async)   OK      BestEffort  1.29.0           aks-default-15231464-vmss000000
+```
+
+Operator can auto backup the database too.
+
+We have a mess though - some components installe by Helm, others manually applied a manifest ...
+
+Next - we will boostrap the k cluster from scratch the proper way.
+

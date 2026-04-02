@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "04 - Azure Key, Ingress, Cert Management, Intro to DBs in Kube"
             }
+          },
+          {
+            "id": "d9be80cd4fa943c1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/05 - GitOps.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "05 - GitOps"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -178,15 +193,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "0ce83a85dfa0aae2",
+  "active": "e6e596ef8a2b8255",
   "lastOpenFiles": [
+    "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/04 - Azure Key, Ingress, Cert Management, Intro to DBs in Kube.md",
+    "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/05 - GitOps.md",
     "0-inbox/ARC issue after changing GitHub token.md",
     "4-archives/K3s additional agent node.md",
     "Services+(1).pdf",
     "Untitled.canvas",
     "Untitled 1.canvas",
     "0-inbox/Untitled.md",
-    "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/04 - Azure Key, Ingress, Cert Management, Intro to DBs in Kube.md",
     "1-projects/Proxmox/00 - Installation.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/06 - Module 6 - Vim & Cutoff Point.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/07 - Zsh, Neovim and  The rest.md",
@@ -220,7 +236,6 @@
     "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 7 - Monitoring.md",
     "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 6 - Helm.md",
     "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 5 - K9s.md",
-    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 4.2 - Persistent Storage.md",
     "4-archives/Arch Linux/Screenshot 2025-04-26 at 18.27.36.png",
     "4-archives/Arch Linux/Pasted image 20250407140038.png",
     "Pasted image 20250629105100.png",
