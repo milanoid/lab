@@ -336,3 +336,66 @@ Now the operator is deployed.
 
 Operators - control loops to allow custom resources to be deployed to my cluster
 
+Now we also have `cluster` custom resource:
+
+```bash
+k explain clusters
+GROUP:      postgresql.cnpg.io
+KIND:       Cluster
+VERSION:    v1
+
+DESCRIPTION:
+    Cluster defines the API schema for a highly available PostgreSQL database
+    cluster
+    managed by CloudNativePG.
+```
+
+
+## Now let's create the Postgres cluster
+
+https://cloudnative-pg.io/docs/1.29/quickstart#part-3-deploy-a-postgresql-cluster
+
+
+
+```yaml
+# /workspaces/mercury-workflows/phase-4-k8s-infra/manifests-v2/cluster-example.yaml
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: cluster-example
+spec:
+  instances: 3
+
+  storage:
+    size: 1Gi
+```
+
+In operator logs we can see it registers the cluster.
+
+```bash
+k get clusters
+NAME              AGE    INSTANCES   READY   STATUS                     PRIMARY
+cluster-example   3m5s   3           3       Cluster in healthy state   cluster-example-1
+```
+
+
+### cnpg plugin
+
+CloudNativePG provides a plugin for `kubectl` to manage a cluster in Kubernetes.
+
+https://cloudnative-pg.io/docs/1.29/kubectl-plugin
+
+
+```bash
+# install
+curl -sSfL \
+  https://github.com/cloudnative-pg/cloudnative-pg/raw/main/hack/install-cnpg-plugin.sh | \
+  sudo sh -s -- -b /usr/local/bin
+  
+# check
+k cnpg status
+
+```
+
+
+Added to the scripts/setup devcontainer
