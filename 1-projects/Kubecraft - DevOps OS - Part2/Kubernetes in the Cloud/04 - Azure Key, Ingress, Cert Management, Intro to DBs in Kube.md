@@ -290,3 +290,28 @@ https://customer1.mercury.milanoid.net
 ---
 
 # 04.03 Intro to Databases in Kubernetes
+
+Postgres - almost everywhere, solid choice
+
+
+### cloudnative-pg
+- https://cloudnative-pg.io/ 
+- Run Postgres the Kubernetes way
+- Open source / community version operator
+
+### EDB Postgres AI
+
+- https://www.enterprisedb.com/docs/postgres_for_kubernetes/latest/
+- Enterprise paid version based on cloudnative-pg
+
+
+Always start with Quickstart instead of going deep down to docs.
+
+## Quick start
+
+https://cloudnative-pg.io/docs/1.29/installation_upgrade
+
+```bash
+kubectl apply --server-side -f \
+  https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.29/releases/cnpg-1.29.0.yaml
+```
