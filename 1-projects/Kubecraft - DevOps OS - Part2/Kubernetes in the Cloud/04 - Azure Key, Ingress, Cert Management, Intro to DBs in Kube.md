@@ -315,3 +315,24 @@ https://cloudnative-pg.io/docs/1.29/installation_upgrade
 kubectl apply --server-side -f \
   https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.29/releases/cnpg-1.29.0.yaml
 ```
+
+```bash
+kubectl get all
+NAME                                           READY   STATUS    RESTARTS   AGE
+pod/cnpg-controller-manager-7cb7b548b8-zbqh8   1/1     Running   0          4m40s
+
+NAME                           TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+service/cnpg-webhook-service   ClusterIP   10.0.131.222   <none>        443/TCP   4m41s
+
+NAME                                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/cnpg-controller-manager   1/1     1            1           4m41s
+
+NAME                                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/cnpg-controller-manager-7cb7b548b8   1         1         1       4m40s
+```
+
+Now the operator is deployed.
+
+
+Operators - control loops to allow custom resources to be deployed to my cluster
+
