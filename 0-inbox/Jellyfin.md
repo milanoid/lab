@@ -138,7 +138,58 @@ pct exec 200 -- systemctl restart jellyfin
 pct exec 200 -- su -s /bin/bash -c "vainfo --display drm --device /dev/dri/renderD128" jellyfin
 ```
 
+## 8. Cloudflare Tunnel (remote access via jf.milanoid.net)
+
+```bash
+# Install cloudflared from official Cloudflare apt repo
+curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg -o /usr/share/keyrings/cloudflare-main.gpg
+echo "deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared any main" > /etc/apt/sources.list.d/cloudflared.list
+apt-get update && apt-get install -y cloudflared
+```
+
+```bash
+# Authenticate with Cloudflare — opens a URL, select milanoid.net zone
+cloudflared tunnel login
+```
+
+```bash
+# Create a named tunnel (generates UUID + credentials JSON)
+cloudflared tunnel create jellyfin
+```
+
+```bash
+# Write tunnel config: route jf.milanoid.net → Jellyfin on localhost:8096
+# Replace <UUID> with the tunnel ID from the previous command
+cat > /root/.cloudflared/config.yml <<'EOF'
+tunnel: <UUID>
+credentials-file: /root/.cloudflared/<UUID>.json
+
+ingress:
+  - hostname: jf.milanoid.net
+    service: http://localhost:8096
+  - service: http_status:404
+EOF
+```
+
+```bash
+# Create DNS CNAME record pointing jf.milanoid.net to the tunnel
+cloudflared tunnel route dns jellyfin jf.milanoid.net
+```
+
+```bash
+# Install cloudflared as a systemd service so it starts on boot
+cloudflared service install
+systemctl enable --now cloudflared
+```
+
+```bash
+# Verify tunnel is running and reachable
+systemctl status cloudflared
+curl -s -o /dev/null -w "%{http_code}" https://jf.milanoid.net
+```
+
 ## TODO
 
 - [x] Complete Jellyfin setup wizard in browser
 - [x] Enable VAAPI hardware transcoding in Dashboard > Playback > Transcoding
+- [ ] Replace `<UUID>` in config.yml with actual tunnel ID after `cloudflared tunnel create`
