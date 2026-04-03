@@ -114,6 +114,30 @@ pct exec 200 -- bash -c '
 '
 ```
 
+## 7. Fix GPU permissions (renderD128 GID mismatch)
+
+The host's `render` group GID (993) differs from the container's (104).
+Bind-mounted `/dev/dri/renderD128` keeps the host GID, so the jellyfin user can't access it.
+
+```bash
+# Fix ownership now
+pct exec 200 -- chgrp render /dev/dri/renderD128
+
+# Make it persistent across reboots via udev rule
+pct exec 200 -- bash -c '
+cat > /etc/udev/rules.d/99-gpu.rules <<EOF
+KERNEL=="renderD128", GROUP="render", MODE="0660"
+KERNEL=="card0", GROUP="video", MODE="0660"
+EOF
+'
+
+# Restart Jellyfin to pick up the fix
+pct exec 200 -- systemctl restart jellyfin
+
+# Verify VAAPI works as jellyfin user
+pct exec 200 -- su -s /bin/bash -c "vainfo --display drm --device /dev/dri/renderD128" jellyfin
+```
+
 ## TODO
 
 - [x] Complete Jellyfin setup wizard in browser
