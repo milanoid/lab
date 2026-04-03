@@ -180,8 +180,12 @@ cloudflared tunnel route dns jellyfin jf.milanoid.net
 ```
 
 ```bash
+# Copy config + credentials to /etc/cloudflared/ where the systemd service expects them
+cp /root/.cloudflared/config.yml /etc/cloudflared/config.yml
+cp /root/.cloudflared/98d4f567-4e8a-4a7d-a415-4a75e0b4889f.json /etc/cloudflared/
+
 # Install cloudflared as a systemd service so it starts on boot
-cloudflared service install
+cloudflared --config /etc/cloudflared/config.yml service install
 systemctl enable --now cloudflared
 ```
 
