@@ -155,14 +155,17 @@ cloudflared tunnel login
 ```bash
 # Create a named tunnel (generates UUID + credentials JSON)
 cloudflared tunnel create jellyfin
+
+Tunnel credentials written to /root/.cloudflared/98d4f567-4e8a-4a7d-a415-4a75e0b4889f.json. cloudflared chose this file based on where your origin certificate was found. Keep this file secret. To revoke these credentials, delete the tunnel. 
+
+Created tunnel jellyfin with id 98d4f567-4e8a-4a7d-a415-4a75e0b4889f
 ```
 
 ```bash
 # Write tunnel config: route jf.milanoid.net → Jellyfin on localhost:8096
-# Replace <UUID> with the tunnel ID from the previous command
 cat > /root/.cloudflared/config.yml <<'EOF'
-tunnel: <UUID>
-credentials-file: /root/.cloudflared/<UUID>.json
+tunnel: 98d4f567-4e8a-4a7d-a415-4a75e0b4889f
+credentials-file: /root/.cloudflared/98d4f567-4e8a-4a7d-a415-4a75e0b4889f.json
 
 ingress:
   - hostname: jf.milanoid.net
