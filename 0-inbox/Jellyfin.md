@@ -199,4 +199,4 @@ curl -s -o /dev/null -w "%{http_code}" https://jf.milanoid.net
 
 - [x] Complete Jellyfin setup wizard in browser
 - [x] Enable VAAPI hardware transcoding in Dashboard > Playback > Transcoding
-- [ ] Replace `<UUID>` in config.yml with actual tunnel ID after `cloudflared tunnel create`
+
