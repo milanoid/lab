@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
+                "file": "0-inbox/Jellyfin.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01 - Intro, Settings repo and Azure"
+              "title": "Jellyfin"
             }
           }
         ],
@@ -56,7 +56,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "dubious",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -195,6 +195,7 @@
   },
   "active": "d9be80cd4fa943c1",
   "lastOpenFiles": [
+    "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
     "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/05 - GitOps.md",
     "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/04 - Azure Key, Ingress, Cert Management, Intro to DBs in Kube.md",
     "0-inbox/ARC issue after changing GitHub token.md",
@@ -235,7 +236,6 @@
     "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/setup.md",
     "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 7 - Monitoring.md",
     "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 6 - Helm.md",
-    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 5 - K9s.md",
     "4-archives/Arch Linux/Screenshot 2025-04-26 at 18.27.36.png",
     "4-archives/Arch Linux/Pasted image 20250407140038.png",
     "Pasted image 20250629105100.png",
