@@ -84,8 +84,37 @@ Web UI: http://192.168.1.201:8096
 SSH: `ssh root@192.168.1.201` (password: `jellyfin`)
 Console: `pct enter 200` from Proxmox host
 
+## 6. Mount NAS media storage
+
+```bash
+# Install NFS client
+pct exec 200 -- apt-get install -y nfs-common
+
+# Check available NFS exports from NAS
+pct exec 200 -- showmount -e nas.milanoid.net
+
+# Create mount point and mount the video share
+pct exec 200 -- bash -c '
+  mkdir -p /media/movies && \
+  mount -t nfs nas.milanoid.net:/volume1/video /media/movies
+'
+
+# Make mount persistent across reboots (soft mount with 15s timeout)
+pct exec 200 -- bash -c '
+  echo "nas.milanoid.net:/volume1/video /media/movies nfs defaults,soft,timeo=150 0 0" >> /etc/fstab
+'
+
+# Mount second movie collection from /volume1/k8s/movies
+pct exec 200 -- bash -c '
+  mkdir -p /media/k8s-movies && \
+  mount -t nfs nas.milanoid.net:/volume1/k8s/movies /media/k8s-movies
+'
+pct exec 200 -- bash -c '
+  echo "nas.milanoid.net:/volume1/k8s/movies /media/k8s-movies nfs defaults,soft,timeo=150 0 0" >> /etc/fstab
+'
+```
+
 ## TODO
 
-- [ ] Complete Jellyfin setup wizard in browser
-- [ ] Enable VAAPI hardware transcoding in Dashboard > Playback > Transcoding
-- [ ] Mount media storage (Synology NAS NFS share) into the container
+- [x] Complete Jellyfin setup wizard in browser
+- [x] Enable VAAPI hardware transcoding in Dashboard > Playback > Transcoding
