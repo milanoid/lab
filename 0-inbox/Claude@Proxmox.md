@@ -15,6 +15,7 @@
 | RAM | 2 GB + 512 MB swap |
 | Disk | 64 GB (local-lvm, thin provisioned) |
 | NAS mount | `192.168.1.36:/volume1/homes/milan` → `/mnt/nas-documents` (read-only) |
+| Google Drive | rclone FUSE → `/mnt/gdrive-shared` → `~/gdrive` (read-only, shared folders) |
 | Auth | Claude Pro (OAuth) |
 | Access | SSH + tmux, Telegram (Channels) |
 
@@ -155,6 +156,136 @@ pct start 201
 ```
 
 > **Why `ro=1`:** Read-only access — Claude can read but not modify your files.
+
+---
+
+## Step 3c: Mount Google Drive Shared Folders (DONE)
+
+Read-only access to Google Drive shared folders via rclone + FUSE. Available at `~/gdrive/` inside the container.
+
+### 1. Enable FUSE in the unprivileged LXC
+
+On the **Proxmox host** (not inside the container):
+
+```bash
+pct stop 201
+cat >> /etc/pve/lxc/201.conf << 'EOF'
+lxc.cgroup2.devices.allow: c 10:229 rwm
+lxc.mount.entry: /dev/fuse dev/fuse none bind,create=file 0 0
+EOF
+pct start 201
+```
+
+> **Why:** Unprivileged LXC containers don't have `/dev/fuse` by default. These lines allow the FUSE device (major 10, minor 229) and bind-mount it from the host.
+
+### 2. Install rclone + fuse3
+
+```bash
+pct exec 201 -- apt install -y rclone fuse3
+```
+
+### 3. Enable `user_allow_other` in fuse.conf
+
+```bash
+pct exec 201 -- bash -c "echo 'user_allow_other' >> /etc/fuse.conf"
+```
+
+> **Why:** Required for the `--allow-other` rclone flag, which lets the systemd service (running as `claude`) serve the mount to other users.
+
+### 4. Configure rclone with Google Drive (headless OAuth)
+
+**On your Mac first** (to get the OAuth token):
+
+```bash
+brew install rclone
+rclone authorize "drive"
+```
+
+This opens a browser for Google OAuth. After authorizing, rclone prints a token JSON blob. Copy it.
+
+**Then in the container**, create the config directly:
+
+```bash
+pct exec 201 -- su - claude -c 'mkdir -p ~/.config/rclone'
+```
+
+Write `~/.config/rclone/rclone.conf`:
+
+```ini
+[gdrive]
+type = drive
+scope = drive.readonly
+token = {"access_token":"...","token_type":"Bearer","refresh_token":"...","expiry":"..."}
+```
+
+> **Why `drive.readonly`:** Prevents any writes to Google Drive — defense in depth alongside the `--read-only` mount flag.
+
+### 5. Create mount point
+
+```bash
+pct exec 201 -- mkdir -p /mnt/gdrive-shared
+pct exec 201 -- chown claude:claude /mnt/gdrive-shared
+```
+
+### 6. Create systemd service
+
+Create `/etc/systemd/system/rclone-gdrive.service` in the container:
+
+```ini
+[Unit]
+Description=rclone Google Drive mount
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+User=claude
+ExecStart=/usr/bin/rclone mount gdrive: /mnt/gdrive-shared \
+  --drive-shared-with-me \
+  --read-only \
+  --allow-other \
+  --vfs-cache-mode full \
+  --vfs-cache-max-size 1G \
+  --vfs-read-chunk-size 32M
+ExecStop=/bin/fusermount -u /mnt/gdrive-shared
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+> **Why each flag:**
+> - `--drive-shared-with-me` — only show folders shared with you, not your entire Drive
+> - `--read-only` — prevent writes at the FUSE level
+> - `--allow-other` — let root/other users access the mount (requires `user_allow_other` in fuse.conf)
+> - `--vfs-cache-mode full` — cache files locally for read performance
+> - `--vfs-cache-max-size 1G` — cap cache at 1 GB (container has 64 GB disk)
+> - `--vfs-read-chunk-size 32M` — read in 32 MB chunks for better throughput
+> - `Type=notify` — rclone supports the systemd notify protocol; no `--daemon` flag needed
+
+```bash
+pct exec 201 -- bash -c "systemctl daemon-reload && systemctl enable --now rclone-gdrive"
+```
+
+### 7. Create convenience symlink
+
+```bash
+pct exec 201 -- su - claude -c "ln -s /mnt/gdrive-shared ~/gdrive"
+```
+
+### Verification
+
+```bash
+ssh claude-code
+ls ~/gdrive/                    # shared folders listed
+cat ~/gdrive/Finance/somefile   # content readable
+touch ~/gdrive/test             # "Read-only file system" error
+systemctl status rclone-gdrive  # active (running)
+# After container restart: mount auto-recovers
+```
+
+> **Privacy note:** File contents Claude reads from Google Drive are sent to Anthropic's API. The `--drive-shared-with-me` scope limits exposure to shared folders only, not your entire Drive.
 
 ---
 
