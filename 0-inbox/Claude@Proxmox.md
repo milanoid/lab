@@ -14,7 +14,7 @@
 | CPU | 2 cores |
 | RAM | 2 GB + 512 MB swap |
 | Disk | 64 GB (local-lvm, thin provisioned) |
-| NAS mount | `192.168.1.36:/volume1/homes/milan` → `/mnt/nas-documents` (read-only) — **NOT YET DONE** (NFS export not enabled on NAS) |
+| NAS mount | `192.168.1.36:/volume1/homes/milan` → `/mnt/nas-documents` (read-only) |
 | Auth | Claude Pro (OAuth) |
 | Access | SSH + tmux, Telegram (Channels) |
 
@@ -128,29 +128,33 @@ npm install -g @anthropic-ai/claude-code
 
 ---
 
-## Step 3b: Mount NAS Documents — NOT YET DONE
-
-> **Blocked:** `/volume1/homes/milan` is not currently exported via NFS on the Synology NAS. Only `/volume1/video`, `/volume1/k8s`, and `/volume1/images` are exported.
->
-> **To enable:** In Synology DSM → Control Panel → Shared Folders → select the homes share → Edit → NFS Permissions → add a rule for `192.168.1.202` (or `192.168.1.0/24`).
->
-> **Note:** Unprivileged LXC containers cannot mount NFS directly. The NFS share must be mounted on the **Proxmox host** first, then bind-mounted into the container:
+## Step 3b: Mount NAS Documents (DONE)
 
 On the **Proxmox host** (not inside the container):
+
+### 1. Enable NFS export on Synology NAS
+
+In Synology DSM → Control Panel → Shared Folders → select the `homes` share → Edit → NFS Permissions → add a rule for `192.168.1.0/24`.
+
+### 2. Mount NFS on the host and persist in fstab
+
 ```bash
-# 1. Mount NFS on the host
 mkdir -p /mnt/nas-milan
 echo "192.168.1.36:/volume1/homes/milan /mnt/nas-milan nfs nfsvers=4.1,ro,noatime,hard 0 0" >> /etc/fstab
 mount /mnt/nas-milan
+```
 
-# 2. Stop the container, add bind mount, start it
+> **Why mount on host:** Unprivileged LXC containers lack `CAP_SYS_ADMIN` needed for NFS mounts. Mount on the Proxmox host first, then bind-mount into the container.
+
+### 3. Bind-mount into the container
+
+```bash
 pct stop 201
 pct set 201 --mp0 /mnt/nas-milan,mp=/mnt/nas-documents,ro=1
 pct start 201
 ```
 
-> **Why bind mount:** Unprivileged LXC lacks the `CAP_SYS_ADMIN` capability needed for NFS mounts. Mounting on the host and bind-mounting in is the standard workaround.
-> The `ro=1` flag ensures read-only access — Claude can read but not modify files.
+> **Why `ro=1`:** Read-only access — Claude can read but not modify your files.
 
 ---
 
