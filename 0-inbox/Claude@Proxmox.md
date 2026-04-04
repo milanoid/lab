@@ -14,7 +14,7 @@
 | CPU | 2 cores |
 | RAM | 2 GB + 512 MB swap |
 | Disk | 64 GB (local-lvm, thin provisioned) |
-| NAS mount | `192.168.1.36:/volume1/homes/milan` → `/mnt/nas-documents` (read-only) |
+| NAS mount | `192.168.1.36:/volume1/homes/milan` → `/mnt/nas-documents` (read-only) — **NOT YET DONE** (NFS export not enabled on NAS) |
 | Auth | Claude Pro (OAuth) |
 | Access | SSH + tmux, Telegram (Channels) |
 
@@ -83,7 +83,7 @@ pct enter 201
 
 ```bash
 apt update && apt upgrade -y
-apt install -y curl git tmux build-essential python3 openssh-server nfs-common
+apt install -y curl git tmux build-essential python3 openssh-server nfs-common unzip locales
 ```
 
 > **Why each package:**
@@ -94,6 +94,16 @@ apt install -y curl git tmux build-essential python3 openssh-server nfs-common
 > - `python3` — used by some build tools (node-gyp)
 > - `openssh-server` — allows SSH access into the container
 > - `nfs-common` — NFS client tools, needed to mount Synology NAS shares
+> - `unzip` — required by Bun installer
+> - `locales` — fixes `setlocale` warnings in the container
+
+### Fix locale
+
+```bash
+sed -i 's/# en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen && locale-gen
+```
+
+> **Why:** Debian minimal image doesn't generate locales, causing `setlocale` warnings on every command.
 
 ### Node.js 22 LTS
 
@@ -106,11 +116,7 @@ apt install -y nodejs
 
 ### Bun
 
-```bash
-curl -fsSL https://bun.sh/install | bash
-```
-
-> **Why:** The official Claude Code Telegram Channels plugin requires Bun as its runtime.
+> **Important:** Bun must be installed per-user, not as root. Install it in Step 4 after creating the `claude` user. If installed as root, the `claude` user won't have access to it.
 
 ### Claude Code CLI
 
@@ -122,20 +128,29 @@ npm install -g @anthropic-ai/claude-code
 
 ---
 
-## Step 3b: Mount NAS Documents
+## Step 3b: Mount NAS Documents — NOT YET DONE
 
+> **Blocked:** `/volume1/homes/milan` is not currently exported via NFS on the Synology NAS. Only `/volume1/video`, `/volume1/k8s`, and `/volume1/images` are exported.
+>
+> **To enable:** In Synology DSM → Control Panel → Shared Folders → select the homes share → Edit → NFS Permissions → add a rule for `192.168.1.202` (or `192.168.1.0/24`).
+>
+> **Note:** Unprivileged LXC containers cannot mount NFS directly. The NFS share must be mounted on the **Proxmox host** first, then bind-mounted into the container:
+
+On the **Proxmox host** (not inside the container):
 ```bash
-mkdir -p /mnt/nas-documents
-echo "192.168.1.36:/volume1/homes/milan /mnt/nas-documents nfs nfsvers=4.1,ro,noatime,hard 0 0" >> /etc/fstab
-mount /mnt/nas-documents
+# 1. Mount NFS on the host
+mkdir -p /mnt/nas-milan
+echo "192.168.1.36:/volume1/homes/milan /mnt/nas-milan nfs nfsvers=4.1,ro,noatime,hard 0 0" >> /etc/fstab
+mount /mnt/nas-milan
+
+# 2. Stop the container, add bind mount, start it
+pct stop 201
+pct set 201 --mp0 /mnt/nas-milan,mp=/mnt/nas-documents,ro=1
+pct start 201
 ```
 
-> **Why:** Mounts your Synology NAS home directory into the container so Claude can read your documents. Key mount options:
-> - `ro` — read-only: Claude can read but not modify or delete files on the NAS
-> - `nfsvers=4.1` — NFSv4.1 for better performance and security
-> - `noatime` — don't update access timestamps (reduces NFS traffic)
-> - `hard` — retry indefinitely if NAS is temporarily unreachable
-> - Added to `/etc/fstab` so it auto-mounts on container boot
+> **Why bind mount:** Unprivileged LXC lacks the `CAP_SYS_ADMIN` capability needed for NFS mounts. Mounting on the host and bind-mounting in is the standard workaround.
+> The `ro=1` flag ensures read-only access — Claude can read but not modify files.
 
 ---
 
@@ -145,10 +160,20 @@ mount /mnt/nas-documents
 useradd -m -s /bin/bash claude
 su - claude
 mkdir -p ~/workspace
-ln -s /mnt/nas-documents ~/documents
 ```
 
-> **Why:** Run Claude Code as a dedicated non-root user for security. `~/workspace` is where Claude Code will create and edit files. The symlink `~/documents` gives Claude easy access to your NAS files (e.g., "read ~/documents/notes/...").
+### Install Bun (as the claude user)
+
+```bash
+curl -fsSL https://bun.sh/install | bash
+echo 'export PATH=$HOME/.bun/bin:$PATH' >> ~/.profile
+echo 'export PATH=$HOME/.bun/bin:$PATH' >> ~/.bash_profile
+source ~/.bashrc
+```
+
+> **Why:** Bun is installed per-user (to `~/.bun/bin/`). Adding to `~/.profile` and `~/.bash_profile` ensures it's in PATH for both interactive and non-interactive shells. The Telegram Channels plugin requires Bun as its runtime.
+
+> **Why run as `claude` user:** Dedicated non-root user for security. `~/workspace` is where Claude Code will create and edit files.
 
 ---
 
@@ -186,12 +211,11 @@ Add to `~/.ssh/config`:
 
 ```
 Host claude-code
-    HostName 192.168.1.202
-    User claude
-    ProxyJump proxmox
+  User claude
+  Hostname 192.168.1.202
 ```
 
-> **Why:** `ProxyJump proxmox` means SSH first connects to the Proxmox host, then hops into the container. No need to expose the container's SSH port directly.
+> **Why:** Container has its own IP on the LAN (192.168.1.202), so direct SSH works — no ProxyJump needed.
 
 ### Usage
 
@@ -233,25 +257,43 @@ claude                 # start Claude Code TUI
 
 As the `claude` user on the container:
 
-### Install the official plugin
+### Install the plugin (inside a Claude Code session)
 
-```bash
-cd ~
-git clone https://github.com/anthropics/claude-plugins-official.git
-cd claude-plugins-official/external_plugins/telegram
-bun install
+Start Claude Code first, then use these slash commands:
+
+```
+/plugin install telegram@claude-plugins-official
+/reload-plugins
 ```
 
-> **Why:** Anthropic's official Telegram plugin for Claude Code Channels. Bridges Telegram messages into a Claude Code session with full agentic capabilities (file editing, bash, git). No custom bot code needed.
+> **Why:** Installs Anthropic's official Telegram plugin via Claude Code's plugin system. The plugin is cached at `~/.claude/plugins/cache/claude-plugins-official/telegram/`.
 
-### Start Claude Code with Telegram
+### Save the bot token
 
 ```bash
-export TELEGRAM_BOT_TOKEN="<your-bot-token>"
-claude --channel telegram
+mkdir -p ~/.claude/channels/telegram
+echo 'TELEGRAM_BOT_TOKEN=<your-bot-token>' > ~/.claude/channels/telegram/.env
+chmod 600 ~/.claude/channels/telegram/.env
 ```
 
-> **Why:** The `--channel telegram` flag activates the Channels feature. Uses long-polling (outbound connections only — no incoming ports needed on your network).
+> **Why:** The plugin reads the token from this `.env` file at startup. `chmod 600` protects the token — it's a credential.
+
+### Start Claude Code with the Telegram channel
+
+```bash
+export PATH=$HOME/.bun/bin:$PATH
+claude --channels plugin:telegram@claude-plugins-official
+```
+
+> **Why:** The `--channels` flag activates the Channels feature and loads the Telegram plugin. The plugin uses long-polling (outbound connections only — no incoming ports needed on your network). Bun must be in PATH as the plugin runs on Bun.
+
+### Pair with your Telegram account
+
+1. DM your bot on Telegram — it replies with a 6-character pairing code
+2. In the Claude Code session: `/telegram:access pair <code>`
+3. Lock it down: `/telegram:access policy allowlist`
+
+> **Why:** Pairing captures your Telegram user ID. Switching to `allowlist` policy ensures only you can use the bot — strangers won't even get a pairing code reply.
 
 ---
 
@@ -261,8 +303,8 @@ claude --channel telegram
 
 ```bash
 tmux new -s claude
-export TELEGRAM_BOT_TOKEN="<token>"
-claude --channel telegram
+export PATH=$HOME/.bun/bin:$PATH
+claude --channels plugin:telegram@claude-plugins-official
 # Ctrl+B, D to detach
 ```
 
@@ -281,8 +323,8 @@ After=network.target
 Type=simple
 User=claude
 WorkingDirectory=/home/claude/workspace
-Environment=TELEGRAM_BOT_TOKEN=<your-bot-token>
-ExecStart=/usr/local/bin/claude --channel telegram
+Environment=PATH=/home/claude/.bun/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/usr/local/bin/claude --channels plugin:telegram@claude-plugins-official
 Restart=always
 RestartSec=10
 
@@ -295,7 +337,7 @@ systemctl daemon-reload
 systemctl enable --now claude-code
 ```
 
-> **Why:** systemd ensures Claude Code starts automatically on boot and restarts if it crashes. `RestartSec=10` avoids rapid failure loops.
+> **Why:** systemd ensures Claude Code starts automatically on boot and restarts if it crashes. `RestartSec=10` avoids rapid failure loops. The `PATH` includes Bun's location since systemd doesn't source shell profiles.
 
 ---
 
@@ -304,8 +346,8 @@ systemctl enable --now claude-code
 - **Unprivileged LXC** — container processes can't escalate to Proxmox host
 - **SSH key-only** — no password authentication
 - **OAuth** — no API keys stored in plaintext files
-- **Telegram restricted** — bot only responds to your user ID
-- **No open ports** — Telegram uses outbound long-polling, SSH goes through ProxyJump
+- **Telegram allowlist** — bot only responds to your user ID (110919235), pairing disabled
+- **No open ports** — Telegram uses outbound long-polling, SSH is direct on LAN
 
 ---
 
