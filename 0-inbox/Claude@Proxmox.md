@@ -13,7 +13,8 @@
 | OS | Debian 12 |
 | CPU | 2 cores |
 | RAM | 2 GB + 512 MB swap |
-| Disk | 16 GB (local-lvm) |
+| Disk | 64 GB (local-lvm, thin provisioned) |
+| NAS mount | `192.168.1.36:/volume1/homes/milan` → `/mnt/nas-documents` (read-only) |
 | Auth | Claude Pro (OAuth) |
 | Access | SSH + tmux, Telegram (Channels) |
 
@@ -49,7 +50,7 @@ pct create 201 local:vztmpl/debian-12-standard_12.12-1_amd64.tar.zst \
   --memory 2048 \
   --swap 512 \
   --storage local-lvm \
-  --rootfs local-lvm:16 \
+  --rootfs local-lvm:64 \
   --net0 name=eth0,bridge=vmbr0,ip=dhcp,hwaddr=02:CC:CC:00:02:01 \
   --unprivileged 1 \
   --features nesting=1 \
@@ -61,7 +62,7 @@ pct create 201 local:vztmpl/debian-12-standard_12.12-1_amd64.tar.zst \
 > - `201` — VMID, next after jellyfin (200)
 > - `--hostname claude-code` — container hostname
 > - `--cores 2 --memory 2048 --swap 512` — lightweight: Claude Code is mostly network I/O (API calls to Anthropic), not CPU/RAM heavy
-> - `--storage local-lvm --rootfs local-lvm:16` — 16 GB root disk on the LVM thin pool
+> - `--storage local-lvm --rootfs local-lvm:64` — 64 GB root disk on the LVM thin pool (thin provisioned — only uses actual written space)
 > - `--net0 ...,ip=dhcp,hwaddr=02:CC:CC:00:02:01` — bridge networking with DHCP; MAC matches our reservation for IP 192.168.1.202
 > - `--unprivileged 1` — security: container runs without root privileges on the host
 > - `--features nesting=1` — allows running systemd inside the container
@@ -82,7 +83,7 @@ pct enter 201
 
 ```bash
 apt update && apt upgrade -y
-apt install -y curl git tmux build-essential python3 openssh-server
+apt install -y curl git tmux build-essential python3 openssh-server nfs-common
 ```
 
 > **Why each package:**
@@ -92,6 +93,7 @@ apt install -y curl git tmux build-essential python3 openssh-server
 > - `build-essential` — C compiler toolchain, needed by some npm packages with native addons
 > - `python3` — used by some build tools (node-gyp)
 > - `openssh-server` — allows SSH access into the container
+> - `nfs-common` — NFS client tools, needed to mount Synology NAS shares
 
 ### Node.js 22 LTS
 
@@ -120,15 +122,33 @@ npm install -g @anthropic-ai/claude-code
 
 ---
 
+## Step 3b: Mount NAS Documents
+
+```bash
+mkdir -p /mnt/nas-documents
+echo "192.168.1.36:/volume1/homes/milan /mnt/nas-documents nfs nfsvers=4.1,ro,noatime,hard 0 0" >> /etc/fstab
+mount /mnt/nas-documents
+```
+
+> **Why:** Mounts your Synology NAS home directory into the container so Claude can read your documents. Key mount options:
+> - `ro` — read-only: Claude can read but not modify or delete files on the NAS
+> - `nfsvers=4.1` — NFSv4.1 for better performance and security
+> - `noatime` — don't update access timestamps (reduces NFS traffic)
+> - `hard` — retry indefinitely if NAS is temporarily unreachable
+> - Added to `/etc/fstab` so it auto-mounts on container boot
+
+---
+
 ## Step 4: Create User & Workspace
 
 ```bash
 useradd -m -s /bin/bash claude
 su - claude
 mkdir -p ~/workspace
+ln -s /mnt/nas-documents ~/documents
 ```
 
-> **Why:** Run Claude Code as a dedicated non-root user for security. `~/workspace` is where Claude Code will create and edit files.
+> **Why:** Run Claude Code as a dedicated non-root user for security. `~/workspace` is where Claude Code will create and edit files. The symlink `~/documents` gives Claude easy access to your NAS files (e.g., "read ~/documents/notes/...").
 
 ---
 
