@@ -297,20 +297,9 @@ claude --channels plugin:telegram@claude-plugins-official
 
 ---
 
-## Step 9: Make It Persistent
+## Step 9: Make It Persistent (DONE)
 
-### Option A: tmux (simple, manual restart after reboot)
-
-```bash
-tmux new -s claude
-export PATH=$HOME/.bun/bin:$PATH
-claude --channels plugin:telegram@claude-plugins-official
-# Ctrl+B, D to detach
-```
-
-> **Why:** tmux keeps the session alive when you disconnect SSH. Simple but needs manual restart after a Proxmox reboot.
-
-### Option B: systemd service (auto-start on boot)
+### systemd service (auto-start on boot)
 
 Create `/etc/systemd/system/claude-code.service` as root:
 
@@ -320,17 +309,22 @@ Description=Claude Code with Telegram Channel
 After=network.target
 
 [Service]
-Type=simple
+Type=forking
 User=claude
 WorkingDirectory=/home/claude/workspace
 Environment=PATH=/home/claude/.bun/bin:/usr/local/bin:/usr/bin:/bin
-ExecStart=/usr/local/bin/claude --channels plugin:telegram@claude-plugins-official
-Restart=always
+ExecStart=/usr/bin/tmux new-session -d -s claude -e PATH=/home/claude/.bun/bin:/usr/local/bin:/usr/bin:/bin /bin/claude --channels plugin:telegram@claude-plugins-official
+ExecStop=/usr/bin/tmux kill-session -t claude
+Restart=on-failure
 RestartSec=10
 
 [Install]
 WantedBy=multi-user.target
 ```
+
+> **Why `Type=forking` + tmux:** Claude Code needs a TTY to run in interactive/channels mode. Without one, it falls into `--print` mode which exits immediately. Wrapping in `tmux new-session -d` provides a pseudo-TTY. `Type=forking` tells systemd the process forks (tmux server detaches). `ExecStop` cleanly kills the tmux session.
+
+> **Why `/bin/claude` not `/usr/local/bin/claude`:** On this Debian 12 container, `npm install -g` puts the binary at `/bin/claude`. Always verify with `which claude`.
 
 ```bash
 systemctl daemon-reload
@@ -338,6 +332,23 @@ systemctl enable --now claude-code
 ```
 
 > **Why:** systemd ensures Claude Code starts automatically on boot and restarts if it crashes. `RestartSec=10` avoids rapid failure loops. The `PATH` includes Bun's location since systemd doesn't source shell profiles.
+
+### Mark workspace as trusted (skip prompt on restart)
+
+```bash
+mkdir -p ~/.claude/projects/-home-claude-workspace
+echo true > ~/.claude/projects/-home-claude-workspace/.trust
+```
+
+> **Why:** On first launch, Claude Code asks "Do you trust this folder?" which blocks the automated start. Writing a `.trust` file skips this prompt. The directory name is the working directory path with `/` replaced by `-`.
+
+### Attach to the running session
+
+```bash
+ssh claude-code
+tmux attach -t claude
+# Ctrl+B, D to detach without stopping
+```
 
 ---
 
