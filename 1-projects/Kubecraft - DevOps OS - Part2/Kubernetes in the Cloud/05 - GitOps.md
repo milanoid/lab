@@ -66,3 +66,12 @@ terraform plan
 terraform apply
 
 ```
+
+Now the AKS is deployed, let's switch to `mercury-workflows/phase-5-gitops/mercury-gitops` to deploy resources to the cluster.
+
+```bash
+# update apps/staging/customer1/kustomization.yaml with terraform apply output alues -> patch /spec/parameters/userAssignedIdentityID
+
+# read `homeTenantId` from -> paste the value to patch path /spec/parameters/tenantId
+az account list 
+```
