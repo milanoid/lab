@@ -5,7 +5,9 @@ Starting from fresh. The AKS cluster used in previous steps destroyed.
 `mercury-workflows/phase-5-gitops`
 
 
-### Issue with devpod (skipping for now)
+### Issue with devpod (resolved)
+
+-> fix https://github.com/milanoid/mercury-workflows/pull/1
 
 ```bash
 vscode ➜ /workspaces/mercury-workflows/phase-5-gitops $ git status 

@@ -48,7 +48,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 20.181634712411704,
+        "dimension": 64.3879173290938,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -56,7 +56,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "\"git config --global --add safe.directory\" ",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -72,7 +72,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 79.81836528758829,
+        "dimension": 35.6120826709062,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -195,11 +195,12 @@
   },
   "active": "d9be80cd4fa943c1",
   "lastOpenFiles": [
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
+    "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
+    "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/05 - GitOps.md",
     "4-archives/Kubecraft - DevOps OS - Part1/Containers/06 - Docker Compose & Capstone Project.md",
     "0-inbox/Claude@Proxmox.md",
     "0-inbox/Jellyfin.md",
-    "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
-    "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/05 - GitOps.md",
     "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/04 - Azure Key, Ingress, Cert Management, Intro to DBs in Kube.md",
     "0-inbox/ARC issue after changing GitHub token.md",
     "4-archives/K3s additional agent node.md",
@@ -235,7 +236,6 @@
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/mise.toml",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/main.py",
     "4-archives/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard",
-    "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/setup.md",
     "4-archives/Arch Linux/Screenshot 2025-04-26 at 18.27.36.png",
     "4-archives/Arch Linux/Pasted image 20250407140038.png",
     "Pasted image 20250629105100.png",
