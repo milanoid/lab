@@ -72,6 +72,11 @@ Now the AKS is deployed, let's switch to `mercury-workflows/phase-5-gitops/mercu
 ```bash
 # update apps/staging/customer1/kustomization.yaml with terraform apply output alues -> patch /spec/parameters/userAssignedIdentityID
 
+# example output
+aks_keyvault_secrets_provider_client_id = "231f23e9-18a8-4481-9354-1ae00376496b" 
+key_vault_name = "kv-mercury-staging" 
+key_vault_uri = "https://kv-mercury-staging.vault.azure.net/"
+
 # read `homeTenantId` from -> paste the value to patch path /spec/parameters/tenantId
 az account list 
 ```
