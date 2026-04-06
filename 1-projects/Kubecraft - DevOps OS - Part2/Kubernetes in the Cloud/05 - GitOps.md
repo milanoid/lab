@@ -23,3 +23,41 @@ To add an exception for this directory, call:
 
         git config --global --add safe.directory /workspaces/mercury-workflows
 ```
+
+
+---
+
+as usual start in devpod by logging in to Azure, then follow /phase-5-gitops/README.md
+
+```bash
+devpod up .
+```
+
+```bash
+az login --use-device-code
+```
+
+
+```bash
+# register (enable) a provider (takes time)
+az provider register --namespace Microsoft.KubernetesConfiguration
+Registering is still on-going. You can monitor using 'az provider show -n Microsoft.KubernetesConfiguration'
+
+
+# generate ssh key
+ssh-keygen -t ed25519 -f ~/.ssh/mercury -N "" -C "mercury-gitops-deploy-key"
+
+# push the deploy key to my repo
+gh repo deploy-key add ~/.ssh/mercury.pub \
+	--repo milanoid/mercury-workflows \
+	--title "flux-deploy-key" \
+	--allow-write
+✓ Deploy key added to milanoid/mercury-workflows
+
+
+# update the subscription id in main.tf and run plan/appy
+terraform init
+terraform plan
+terraform apply
+
+```
