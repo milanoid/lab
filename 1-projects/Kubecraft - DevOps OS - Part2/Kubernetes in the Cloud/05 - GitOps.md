@@ -55,7 +55,12 @@ gh repo deploy-key add ~/.ssh/mercury.pub \
 ✓ Deploy key added to milanoid/mercury-workflows
 
 
-# update the subscription id in main.tf and run plan/appy
+# update the main.tf
+# 1. subscription id
+# 2. gitops ulr to my repo
+
+
+# then run
 terraform init
 terraform plan
 terraform apply
