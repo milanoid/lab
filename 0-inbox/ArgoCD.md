@@ -52,7 +52,8 @@ argocd login argocd.milanoid.net
 # invoke sync of app guestbook
 argocd app sync guestbook
 
-# 
+# get health status
+argocd app wait guestbook --health --timeout 60
 ```
 
 http://argocd.milanoid.net
