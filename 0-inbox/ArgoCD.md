@@ -42,4 +42,10 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 
 
+# argocd-cli
+
+```bash
+argocd login argocd.milanoid.net
+```
+
 http://argocd.milanoid.net
