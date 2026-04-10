@@ -37,6 +37,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 - [#170 feat: deploy ArgoCD via Flux HelmRelease](https://github.com/milanoid-labs/homelab-cluster/pull/170) — initial deployment (2026-04-10)
 - [#171 fix: disable ArgoCD server TLS for Traefik compatibility](https://github.com/milanoid-labs/homelab-cluster/pull/171) — ArgoCD serves HTTPS by default; Traefik can't verify the self-signed cert → set `server.insecure: true` (2026-04-10)
 - [#173 feat: add guestbook demo app with app-of-apps pattern](https://github.com/milanoid-labs/homelab-cluster/pull/173) — app-of-apps root + guestbook demo (2026-04-10)
+- [#174 refactor: move guestbook manifests into this repo](https://github.com/milanoid-labs/homelab-cluster/pull/174) — local source so we can edit and watch ArgoCD sync (2026-04-10)
 
 
 
