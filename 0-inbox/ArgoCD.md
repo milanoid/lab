@@ -35,3 +35,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ## PRs
 
 - [#170 feat: deploy ArgoCD via Flux HelmRelease](https://github.com/milanoid-labs/homelab-cluster/pull/170) — initial deployment (2026-04-10)
+
+
+
+http://argocd.milanoid.net
