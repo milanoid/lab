@@ -39,13 +39,20 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 - [#173 feat: add guestbook demo app with app-of-apps pattern](https://github.com/milanoid-labs/homelab-cluster/pull/173) — app-of-apps root + guestbook demo (2026-04-10)
 - [#174 refactor: move guestbook manifests into this repo](https://github.com/milanoid-labs/homelab-cluster/pull/174) — local source so we can edit and watch ArgoCD sync (2026-04-10)
 - [#175 test: scale guestbook to 3 replicas](https://github.com/milanoid-labs/homelab-cluster/pull/175) — test ArgoCD sync by changing replica count (2026-04-10)
+- [#176 test: use non-existent image tag to trigger sync failure](https://github.com/milanoid-labs/homelab-cluster/pull/176) — test ArgoCD error reporting on bad image (2026-04-10)
 
 
 
 # argocd-cli
 
 ```bash
+# login
 argocd login argocd.milanoid.net
+
+# invoke sync of app guestbook
+argocd app sync guestbook
+
+# 
 ```
 
 http://argocd.milanoid.net
