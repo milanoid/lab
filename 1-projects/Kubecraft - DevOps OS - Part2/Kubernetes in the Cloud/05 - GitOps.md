@@ -112,10 +112,18 @@ Tha path in `main.tf` was missing the `mercury-gitops` subdir
 
 ![[Pasted image 20260413081842.png]]
 
--> replanned and applied again
+-> replanned and applied again, didn't help
 
 ```bash
 # in /mercury-workflows/phase-5-gitops
 terraform plan
 terraform apply
+```
+
+```bash
+milan@a11be00dcdf6:/workspaces/mercury-workflows/phase-5-gitops$ flux get kustomizations
+NAME                                    REVISION        SUSPENDED       READY   MESSAGE
+mercury-system-apps                                     False           False   dependency 'flux-system/mercury-system-infra-configs' is not ready
+mercury-system-infra-configs                            False           False   dependency 'flux-system/mercury-system-infra-controllers' is not ready
+mercury-system-infra-controllers                        False           False   kustomization path not found: stat /tmp/kustomization-1714616243/mercury-gitops/infrastructure/controllers/staging: no such file or directory
 ```
