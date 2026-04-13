@@ -107,3 +107,15 @@ mercury-system-apps                                     False           False   
 mercury-system-infra-configs                            False           False   dependency 'flux-system/mercury-system-infra-controllers' is not ready
 mercury-system-infra-controllers                        False           False   kustomization path not found: stat /tmp/kustomization-1989834238/infrastructure/controllers/staging: no such file or directory
 ```
+
+Tha path in `main.tf` was missing the `mercury-gitops` subdir
+
+![[Pasted image 20260413081842.png]]
+
+-> replanned and applied again
+
+```bash
+# in /mercury-workflows/phase-5-gitops
+terraform plan
+terraform apply
+```
