@@ -67,7 +67,10 @@ terraform apply
 
 ```
 
+
+
 Now the AKS is deployed, let's switch to `mercury-workflows/phase-5-gitops/mercury-gitops` to deploy resources to the cluster.
+
 
 ```bash
 # update apps/staging/customer1/kustomization.yaml with terraform apply output alues -> patch /spec/parameters/userAssignedIdentityID
@@ -79,4 +82,28 @@ key_vault_uri = "https://kv-mercury-staging.vault.azure.net/"
 
 # read `homeTenantId` from -> paste the value to patch path /spec/parameters/tenantId
 az account list 
+```
+
+now with updated `/spec/parameters/userAssignedIdentityID` and `/spec/parameters/tenantId` in `mercury-workflows/phase-5-gitops/mercury-gitops/apps/staging/customer1/kustomization.yaml` :
+
+connect to AKS cluster
+
+```bash
+# set subs
+az account set --subscription ab577f05-79c6-4633-b730-0293419a9171
+
+# setup .kube confit
+az aks get-credentials --resource-group rg-cloud-course-aks --name mercury-staging --overwrite-existing
+```
+
+### issue - GitOps flux configuration non-compliant
+
+![[Pasted image 20260413080420.png]]
+
+```bash
+milan@a11be00dcdf6:/workspaces/mercury-workflows/phase-5-gitops/mercury-gitops$ flux get kustomizations
+NAME                                    REVISION        SUSPENDED       READY   MESSAGE
+mercury-system-apps                                     False           False   dependency 'flux-system/mercury-system-infra-configs' is not ready
+mercury-system-infra-configs                            False           False   dependency 'flux-system/mercury-system-infra-controllers' is not ready
+mercury-system-infra-controllers                        False           False   kustomization path not found: stat /tmp/kustomization-1989834238/infrastructure/controllers/staging: no such file or directory
 ```
