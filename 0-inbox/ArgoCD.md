@@ -57,3 +57,11 @@ argocd app wait guestbook --health --timeout 60
 ```
 
 http://argocd.milanoid.net
+
+
+---
+
+TODO
+
+- [ ] monitoring - grafana
+- [ ] monitoring - telegram

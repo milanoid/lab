@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/ArgoCD.md",
+                "file": "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/05 - GitOps.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ArgoCD"
+              "title": "05 - GitOps"
             }
           }
         ],
@@ -209,8 +209,8 @@
   },
   "active": "c694283eab8d03aa",
   "lastOpenFiles": [
-    "0-inbox/ARC issue after changing GitHub token.md",
     "0-inbox/ArgoCD.md",
+    "0-inbox/ARC issue after changing GitHub token.md",
     "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/05 - GitOps.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
     "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
