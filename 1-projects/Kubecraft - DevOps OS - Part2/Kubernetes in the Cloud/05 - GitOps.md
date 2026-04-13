@@ -127,3 +127,18 @@ mercury-system-apps                                     False           False   
 mercury-system-infra-configs                            False           False   dependency 'flux-system/mercury-system-infra-controllers' is not ready
 mercury-system-infra-controllers                        False           False   kustomization path not found: stat /tmp/kustomization-1714616243/mercury-gitops/infrastructure/controllers/staging: no such file or directory
 ```
+
+
+
+fix - it has to have full path from the repo root! 
+
+https://github.com/milanoid/mercury-workflows/commit/0f0592c7a089be802c58ee5b6974cd08874d996b
+
+
+```bash
+milan@a11be00dcdf6:/workspaces/mercury-workflows/phase-5-gitops$ flux get kustomizations
+NAME                                    REVISION                SUSPENDED       READY   MESSAGE
+mercury-system-apps                     main@sha1:446beeda      False           True    Applied revision: main@sha1:446beeda
+mercury-system-infra-configs            main@sha1:446beeda      False           True    Applied revision: main@sha1:446beeda
+mercury-system-infra-controllers        main@sha1:446beeda      False           True    Applied revision: main@sha1:446beeda
+```
