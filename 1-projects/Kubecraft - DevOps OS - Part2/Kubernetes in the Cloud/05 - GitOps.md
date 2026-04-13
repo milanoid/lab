@@ -142,3 +142,17 @@ mercury-system-apps                     main@sha1:446beeda      False           
 mercury-system-infra-configs            main@sha1:446beeda      False           True    Applied revision: main@sha1:446beeda
 mercury-system-infra-controllers        main@sha1:446beeda      False           True    Applied revision: main@sha1:446beeda
 ```
+
+
+
+```bash
+# force sync the repo's latest change, use --with-source
+flux reconcile kustomization mercury-system-apps --with-source
+```
+
+After updating the Cloudflare DNS A record of `*.mercury` I can again access https://customer1.mercury.milanoid.net/.
+
+
+
+
+
