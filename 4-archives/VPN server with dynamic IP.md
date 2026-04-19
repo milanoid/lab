@@ -122,3 +122,20 @@ I can connect to my VPN server from:
 
 - MacBook Pro 2017 with WIreGuard client while connected to internet via cellular network (Vodafone)
 - TODO: configure WireGuard client on Lenovo/Arch Linux
+
+
+# Changelog
+
+19/4/2026 - changed the update IP period from 5 minutes to 1h
+
+```bash
+# the standard way to create a drop-in override
+sudo systemctl edit ddclient.service
+```
+
+```bash
+# creates the override file while keeping the rest config untouched
+milan@hpmini01:~$ cat /etc/systemd/system/ddclient.service.d/override.conf
+[Service]
+Environment=daemon_interval=1h
+```
