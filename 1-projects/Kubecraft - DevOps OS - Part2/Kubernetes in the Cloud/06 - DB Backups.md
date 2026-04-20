@@ -14,3 +14,7 @@ psql data we store in [Azure Blob Storage](https://azure.microsoft.com/en-us/pro
 
 SAS token -> Shared Access Signature
 
+----
+
+Intentionally skipping the DB part. Will get to it later.
+
