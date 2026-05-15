@@ -188,3 +188,13 @@ pct exec <VMID> -- ip addr show eth0 | grep 'inet '
 - The `community-branch-plugin` **requires** the `-javaagent` JVM flags (`SONAR_WEB_JAVAADDITIONALOPTS` + `SONAR_CE_JAVAADDITIONALOPTS`) — dropping the JAR alone is not enough
 - Take a Proxmox snapshot before upgrading SonarQube versions: `pct snapshot <VMID> pre-upgrade`
 - Plugins are bind-mounted from `./plugins/` so they survive container recreation without rebuilding an image
+
+
+Extras
+
+Assign a static IP in my Asus router for the LXC Sonar:
+
+```bash
+# get MAC
+pct exec <VMID> -- ip link show eth0
+```
