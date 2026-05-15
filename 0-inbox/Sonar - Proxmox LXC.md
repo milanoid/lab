@@ -192,6 +192,7 @@ pct exec <VMID> -- ip addr show eth0 | grep 'inet '
 
 ### Extras
 
+
 Assign a static IP in my Asus router for the LXC Sonar:
 
 ```bash
@@ -202,3 +203,8 @@ pct exec <VMID> -- ip link show eth0
 Cloudflare DNS
 
 http://sonar.milanoid.net:9000/
+
+I'might have accidentally override torrent.milanoid.net pass on Lastpass :(
+
+- [ ] setup Sonar GitHub Integration (GitHub App)
+
