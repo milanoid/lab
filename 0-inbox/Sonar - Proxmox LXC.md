@@ -173,6 +173,11 @@ SonarQube is ready when you see `SonarQube is operational` in the logs (takes ~1
 
 Open `http://<lxc-ip>:9000` in a browser.
 
+```bash
+# get IP
+pct exec <VMID> -- ip addr show eth0 | grep 'inet '
+```
+
 - Default credentials: `admin` / `admin`
 - Change password on first login when prompted
 
