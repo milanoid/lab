@@ -190,7 +190,7 @@ pct exec <VMID> -- ip addr show eth0 | grep 'inet '
 - Plugins are bind-mounted from `./plugins/` so they survive container recreation without rebuilding an image
 
 
-Extras
+### Extras
 
 Assign a static IP in my Asus router for the LXC Sonar:
 
@@ -198,3 +198,7 @@ Assign a static IP in my Asus router for the LXC Sonar:
 # get MAC
 pct exec <VMID> -- ip link show eth0
 ```
+
+Cloudflare DNS
+
+http://sonar.milanoid.net:9000/
