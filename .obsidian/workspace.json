@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4-archives/LPIC-1 exam prep/104.2 Maintain the integrity of filesystems.md",
+                "file": "0-inbox/Sonar - Proxmox LXC.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "104.2 Maintain the integrity of filesystems"
+              "title": "Sonar - Proxmox LXC"
             }
           }
         ],
@@ -62,7 +62,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 65.77608142493638,
+        "dimension": 24.339471577261808,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -70,7 +70,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "\"du\"",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -86,7 +86,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 34.223918575063614,
+        "dimension": 75.6605284227382,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -209,6 +209,7 @@
   },
   "active": "7f0c46dd87ba0f4c",
   "lastOpenFiles": [
+    "4-archives/LPIC-1 exam prep/104.2 Maintain the integrity of filesystems.md",
     "0-inbox/Sonar - Proxmox LXC.md",
     "4-archives/VPN server with dynamic IP.md",
     "0-inbox/09 - Production Grade Monitoring.md",
@@ -243,7 +244,6 @@
     "4-archives/LVM resize.md",
     "4-archives/Arch Linux installation/01 - Disk partitioning & Encryption.md",
     "1-projects/Proxmox",
-    "4-archives/iSCSI as Persistant Volume.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/scripts/setup",
     "4-archives/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard/updater",
     "4-archives/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard/docker-compose.yaml",

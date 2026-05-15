@@ -22,6 +22,13 @@ In the Proxmox UI:
 Or via CLI on the Proxmox host:
 
 ```bash
+# fetch
+pveam update
+pveam available | grep ubuntu-24
+pveam download local ubuntu-24.04-standard_24.04-2_amd64.tar.zst
+```
+
+```bash
 pct create <VMID> local:vztmpl/ubuntu-24.04-standard_24.04-2_amd64.tar.zst \
   --hostname sonarqube \
   --memory 4096 \
