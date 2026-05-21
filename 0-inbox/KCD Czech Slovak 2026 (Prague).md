@@ -21,6 +21,7 @@ Sessions I have attended
 
 - https://opentelemetry.io/
 - https://www.dash0.com/lp/opentelemetry-for-dummies 
+- [ ] read _openTelemetry-for-Dummies-Dash0-Special-Edition_
 
 smb://NAS2._smb._tcp.local/home/eBooks/OpenTelemetry For Dummies®, Dash0 Special Edition - openTelemetry-for-Dummies-Dash0-Special-Edition.pdf
 
