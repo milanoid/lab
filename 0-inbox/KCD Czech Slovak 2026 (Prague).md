@@ -1,5 +1,9 @@
 - program https://kcd-czech-slovak-2026.sessionize.com/schedule/day/20260521
+- photos https://drive.google.com/drive/folders/1LlerjuZM2seNunaG6vmRd_-i-PSyYppX
 
+
+
+# Day 1
 
 Sessions I have attended
 
@@ -13,7 +17,7 @@ Sessions I have attended
 
 
 
-# 1. Keynote: Rethinking Observability as a Platform Product
+## 1. Keynote: Rethinking Observability as a Platform Product
 
 - https://opentelemetry.io/
 - https://www.dash0.com/lp/opentelemetry-for-dummies 
@@ -21,27 +25,27 @@ Sessions I have attended
 smb://NAS2._smb._tcp.local/home/eBooks/OpenTelemetry For Dummies®, Dash0 Special Edition - openTelemetry-for-Dummies-Dash0-Special-Edition.pdf
 
 
-# 2. We Built an AI Incident Responder. Here's What We Got Wrong.
+## 2. We Built an AI Incident Responder. Here's What We Got Wrong.
 
 - https://github.com/depeche-io/kcd-2026/tree/main/sre-agent/slides
 
-## Argo Workflows
+### Argo Workflows
 
 - https://argoproj.github.io/workflows/
 
 
-# 4. The OS Layer Your Platform Ignores
+## 4. The OS Layer Your Platform Ignores
 
 - immutable OS
 - Flatcar https://www.flatcar.org/ (Talos https://www.talos.dev/)
 - [Kubernetes “Shift Down” Security Paper](https://github.com/kubernetes/sig-security/blob/main/sig-security-docs/papers/shift-down/shift-down-security.md)
 
 
-# 7. Craft you home AI lab with Ollama + Open WebUI
+## 7. Craft you home AI lab with Ollama + Open WebUI
 
 - https://github.com/petrhanakcz/ollama-lab
 - https://github.com/petrhanakcz/ollama-lab/blob/main/materials/Craft_home_LAB_with_Ollama.md
-
+- https://www.youtube.com/@kcdczechslovak5840/videos
 
 ```bash
 # install
@@ -102,3 +106,9 @@ llama3.2:latest    a80c4f17acd5    2.5 GB    100% GPU     4096       4 minutes f
 ```bash
 brew install llmfit
 ```
+
+
+
+### runpod AI infrastructure for rent
+
+https://www.runpod.io/
