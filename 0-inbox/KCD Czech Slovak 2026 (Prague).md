@@ -156,4 +156,6 @@ add to GH webhook `https://argocd.kcd.sikademo.com/api/webhook`
 
 Promotional pipeline (promotionTemplate) - it could have been a GHA too (but this works everywhere)
 
+? what are the conditions on when to promote
+
 
