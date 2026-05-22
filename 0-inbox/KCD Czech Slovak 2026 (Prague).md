@@ -140,3 +140,16 @@ https://www.runpod.io/
 - Seamlessly orchestrate stage-to-stage deployments, without custom scripts or CI pipelines
 
 
+
+
+https://argocd.kcd.sikademo.com/ (admin, admin)
+https://kargo.kcd.sikademo.com/ (admin)
+
+add to GH webhook `https://argocd.kcd.sikademo.com/api/webhook`
+
+
+- https://ttl.sh/ 
+	- The ephemeral container registry that just works. (No auth)
+	- Available worldwide for 1 hour. Then it vanishes. ✨
+
+- [ ] build docker image via remote
