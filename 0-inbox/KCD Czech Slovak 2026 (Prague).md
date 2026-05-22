@@ -404,4 +404,4 @@ SPRIN-D(German DARPA) https://www.sprind.org/en
 - everything is declarative
 - GPUs are sliced
 
-
+diloco - https://deepmind.google/blog/decoupled-diloco/
