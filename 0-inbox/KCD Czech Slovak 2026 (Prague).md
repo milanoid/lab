@@ -283,7 +283,9 @@ brew install qemu
 
 
 # downloads iso
-curl -O http://10.0.0.32:8080/files/isos/<arm64-iso-name>.iso # ?
+curl -O http://10.0.0.32:8080/files/isos/<arm64-iso-name>.iso
+
+curl -O http://10.0.0.42:8080/files/isos/custom-debian-arm64-20260522091752.iso
 
 
 # qemu
