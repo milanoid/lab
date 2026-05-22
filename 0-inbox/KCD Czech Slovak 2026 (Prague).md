@@ -365,8 +365,15 @@ Vendor ID:                   Apple
 ## inside the vm
 curl -H "X-OS: $(uname -a)" http://10.0.0.42:9999
 
+
+# I am cp-02 (control plane 02)
+
 ### conect to the cluster
 curl -o ~/.kube/cp-primary http://10.0.0.42:8080/files/cp-primary
 export KUBECONFIG=~/.kube/cp-primary 
 kubectl get nodes 
 ```
+
+
+https://karpenter.sh/ - Just-in-time Nodes for Any Kubernetes Cluster
+
