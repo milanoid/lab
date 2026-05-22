@@ -140,6 +140,7 @@ https://www.runpod.io/
 - https://kargo.io/
 - Seamlessly orchestrate stage-to-stage deployments, without custom scripts or CI pipelines
 - [ArgoCD Image Updater ](https://argocd-image-updater.readthedocs.io/en/stable/)vs Kargo?
+- Kargo can be used with FluxCD too
 
 
 ```bash
