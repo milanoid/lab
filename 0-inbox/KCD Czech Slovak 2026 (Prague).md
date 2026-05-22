@@ -261,3 +261,26 @@ mitigations
 ### Best practices
 
 
+## 4. System Design in Your Hands: The Art of Putting Things Together
+
+https://www.linkedin.com/in/emrahsifoglu/
+
+
+```bash
+brew install lynx
+
+curl -s https://10.0.0.42:8080
+
+
+# ### Network info
+ipconfig getifaddr en0        # IP address (Wi-Fi)
+ifconfig | grep "inet " # all interfaces
+networksetup -listallhardwareports # adapter names
+
+
+# from VirtualBox, native linux and qemu I choosed
+brew install qemu
+
+
+# do
+```
