@@ -265,6 +265,8 @@ mitigations
 
 https://www.linkedin.com/in/emrahsifoglu/
 
+building a cluster, each participant become a node (worker, control plane)
+
 
 ```bash
 brew install lynx
