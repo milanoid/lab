@@ -397,6 +397,11 @@ https://kcd-czech-slovak-2026.sessionize.com/session/1196748
 In this session, we present a reference architecture using the open-source ecosystem of [k0s](https://k0sproject.io/), [k0smotron](https://k0smotron.io/), and [k0rdent](https://k0rdent.io/) to demonstrate how we turned distributed GPU resources into a cohesive, ephemeral fabric. The session offers a blueprint for moving AI operations from a single-DC mindset to a geo-distributed, heterogeneous operation platform.
 
 
+SPRIN-D(German DARPA) https://www.sprind.org/en
 
+
+- clusters become CRDs
+- everything is declarative
+- GPUs are sliced
 
 
