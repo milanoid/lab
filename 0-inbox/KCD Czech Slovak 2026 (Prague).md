@@ -132,14 +132,14 @@ https://www.runpod.io/
 - create promotional pipeline (dev, stage, prod)
 - after updating image easily promote through the envs
 - https://github.com/ondrejsika/kcd2026-kargo-example https://github.com/milanoid/kcd2026-kargo-example
+- [ ] deploy the homeLab
 
 
 ### Kargo
 
 - https://kargo.io/
 - Seamlessly orchestrate stage-to-stage deployments, without custom scripts or CI pipelines
-
-
+- [ArgoCD Image Updater ](https://argocd-image-updater.readthedocs.io/en/stable/)vs Kargo?
 
 
 https://argocd.kcd.sikademo.com/ (admin, admin)
@@ -153,3 +153,7 @@ add to GH webhook `https://argocd.kcd.sikademo.com/api/webhook`
 	- Available worldwide for 1 hour. Then it vanishes. ✨
 
 - [ ] build docker image via remote
+
+Promotional pipeline (promotionTemplate) - it could have been a GHA too (but this works everywhere)
+
+
