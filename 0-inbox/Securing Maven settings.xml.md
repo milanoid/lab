@@ -1,4 +1,23 @@
 
+
+### before
+```bash
+# prints settings.xml with password in clear text
+mvn help:effective-settings -DshowPasswords=true
+```
+
+```xml
+  <servers>
+    <server>
+      <username>username</username>
+      <password>clear-text-password/password>
+      <id>nexus</id>
+    </server>
+  </servers>
+```
+
+## encrypting using master password
+
 The encrypted version of the master password is encrypted with a [hardcoded key](https://github.com/apache/maven/blob/fe25a2627c1dafeb44188dad9f45dfd5fe965a98/maven-embedder/src/main/java/org/apache/maven/cli/MavenCli.java#L856), so please treat it as if the password is stored in the file in plain text.
 
 ```bash
@@ -39,4 +58,23 @@ Add the encrypted values to `settings.xml`
   </servers>
 ...
 </settings>
+```
+
+
+### after
+
+
+```bash
+# no password leaked
+mvn help:effective-settings -DshowPasswords=true
+```
+
+```xml
+  <servers>
+    <server>
+      <username>clear-text-password</username>
+      <password>{28qm3ri3Q84sRTdU4PyssOkRzpo8TKF7IC4huscnsXDjMkLFK1I7yLfr/XvUvr3O0I4MPzTjpy4CBEfkZMykXA==}</password>
+      <id>nexus</id>
+    </server>
+  </servers>
 ```
