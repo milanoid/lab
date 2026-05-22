@@ -265,14 +265,21 @@ mitigations
 
 https://www.linkedin.com/in/emrahsifoglu/
 
-building a cluster, each participant become a node (worker, control plane)
+### qemu
+
+- https://www.qemu.org/
+- A generic and open source machine emulator and virtualizer
+
+### workshop
+
+- building a cluster, each participant become a node (worker, control plane)
 
 
 ```bash
 brew install lynx
 
 # curl -s https://10.0.0.42:8080
-curl -s http://10.0.0.42:8080/ | lynx --stdin 
+curl -s http://10.0.0.42:8080/ | lynx --stdin # show HOWTO
 
 
 # ### Network info
@@ -327,7 +334,36 @@ To shut down gracefully: SSH into VM and run: sudo poweroff
 
 # in screen follow the install wizard
 ...
+root/root
 
+ █╗  █╗ ██████╗██████╗
+ █║ █╔╝█╔════╝█╔══██╗
+ ████╔╝ █║     █║  █║
+ █╔═██╗ █║     █║  █║
+ █║  ██╗╚██████╗██████╔╝
+ ╚═╝  ╚═╝ ╚═════╝╚═════╝
+
+ Czech & Slovak · Prague 2026
+ GROWING CLOUD NATIVE TOGETHER
+ -----------------------------------------
+ May 21-22, 2026 · FIT CTU Prague
+ -----------------------------------------
+
+=== THIS IS MY IP ===
+10.0.0.40
+===================
+root@k8s-cluster:~# lscpu
+Architecture:                aarch64
+  CPU op-mode(s):            64-bit
+  Byte Order:                Little Endian
+CPU(s):                      2
+  On-line CPU(s) list:       0,1
+Vendor ID:                   Apple
+
+
+
+## inside the vm
+curl -H "X-OS: $(uname -a)" http://10.0.0.42:9999
 
 ### conect to the cluster
 curl -o ~/.kube/cp-primary http://10.0.0.42:8080/files/cp-primary
