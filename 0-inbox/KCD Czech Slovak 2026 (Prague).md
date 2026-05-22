@@ -234,6 +234,10 @@ Docker layers never forget!
 - in an old layer I can find the removed file/secret
 - any file can be downloaded as a .tar file from a layer
 
+```bash
+brew install dive
+```
+
 
 Fixes
 
