@@ -142,6 +142,15 @@ https://www.runpod.io/
 - [ArgoCD Image Updater ](https://argocd-image-updater.readthedocs.io/en/stable/)vs Kargo?
 
 
+```bash
+# kargo cli
+brew install kargo
+
+> kargo version
+Client Version: 1.10.4
+```
+
+
 https://argocd.kcd.sikademo.com/ (admin, admin)
 https://kargo.kcd.sikademo.com/ (admin)
 
