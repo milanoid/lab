@@ -281,6 +281,13 @@ ifconfig | grep "inet " # all interfaces
 networksetup -listallhardwareports # adapter names
 
 
+networksetup -listallhardwareports  # adapter names
+
+Hardware Port: Wi-Fi
+Device: en0
+Ethernet Address: ac:07:75:04:50:f7
+
+
 # from VirtualBox, native linux and qemu I choosed
 brew install qemu
 
@@ -291,15 +298,29 @@ curl -O http://10.0.0.42:8080/files/isos/custom-debian-arm64-20260522091752.iso
 
 
 # qemu
-curl -O http://10.0.0.32:8080/files/scripts/qemu-run.sh 
+#curl -O http://10.0.0.32:8080/files/scripts/qemu-run.sh 
+curl -O http://10.0.0.42:8080/files/scripts/qemu-run.sh 
 chmod +x qemu-run.sh
 cp /opt/homebrew/share/qemu/edk2-arm-vars.fd ./ovmf_vars.fd 
 
 # create disk
-qemu-img create -f qcow2 node.qcow2 20G
+qemu-img create -f qcow2 node.qcow2 20G # done
 
 # **Install from ISO**
 ./qemu-run.sh install custom-debian-arm64-20260522091752.iso --adapter <ADAPTER>              # output in terminal
 ./qemu-run.sh install custom-debian-arm64-20260522091752.iso --adapter <ADAPTER> --window     # separate display window
 ./qemu-run.sh install custom-debian-arm64-20260522091752.iso --adapter <ADAPTER> --detach     # background, safe to close terminal
+
+
+###
+./qemu-run.sh install custom-debian-arm64-20260522091752.iso --adapter en0 --detach
+Starting VM...
+  Command: install
+  Disk:    node.qcow2
+  OS:      Darwin arm64
+  CPUs:    2
+  Mode:    --detach
+
+Running detached. To reattach: screen -r qemu
+To shut down gracefully: SSH into VM and run: sudo poweroff
 ```
