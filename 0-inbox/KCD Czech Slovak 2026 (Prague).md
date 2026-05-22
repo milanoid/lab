@@ -179,5 +179,9 @@ https://www.linkedin.com/in/kimsondrup/
 - data residency, procurement, strategic autonomy
 - [Hetzner](https://www.hetzner.com/), [UpCloud](https://upcloud.com/), [OVHcloud](https://www.ovhcloud.com/), [T Cloud Public](https://www.t-cloud-public.com/), [Scaleway](https://www.scaleway.com/en/)
 
-CAPI - Cluster API
+- CAPI - Cluster API
+- [OIDC](https://openid.net/developers/how-connect-works/) - OpenID Connect
+- OIDC Federation
+
+
 
