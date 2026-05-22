@@ -297,4 +297,9 @@ cp /opt/homebrew/share/qemu/edk2-arm-vars.fd ./ovmf_vars.fd
 
 # create disk
 qemu-img create -f qcow2 node.qcow2 20G
+
+# **Install from ISO**
+./qemu-run.sh install custom-debian-arm64-20260522091752.iso --adapter <ADAPTER>              # output in terminal
+./qemu-run.sh install custom-debian-arm64-20260522091752.iso --adapter <ADAPTER> --window     # separate display window
+./qemu-run.sh install custom-debian-arm64-20260522091752.iso --adapter <ADAPTER> --detach     # background, safe to close terminal
 ```
