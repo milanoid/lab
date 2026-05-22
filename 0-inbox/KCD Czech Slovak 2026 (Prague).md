@@ -323,4 +323,14 @@ Starting VM...
 
 Running detached. To reattach: screen -r qemu
 To shut down gracefully: SSH into VM and run: sudo poweroff
+
+
+# in screen follow the install wizard
+...
+
+
+### conect to the cluster
+curl -o ~/.kube/cp-primary http://10.0.0.42:8080/files/cp-primary
+export KUBECONFIG=~/.kube/cp-primary 
+kubectl get nodes 
 ```
