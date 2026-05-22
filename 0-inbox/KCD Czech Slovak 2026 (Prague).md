@@ -23,6 +23,7 @@ Sessions I have attended
 - https://www.dash0.com/lp/opentelemetry-for-dummies 
 - [ ] read _openTelemetry-for-Dummies-Dash0-Special-Edition_
 - [ ] open telemetry demo application https://github.com/open-telemetry/opentelemetry-demo
+- [OpenTelemetry Certified Associate (OTCA)](https://training.linuxfoundation.org/certification/opentelemetry-certified-associate-otca/)
 
 smb://NAS2._smb._tcp.local/home/eBooks/OpenTelemetry For Dummies®, Dash0 Special Edition - openTelemetry-for-Dummies-Dash0-Special-Edition.pdf
 
@@ -115,3 +116,27 @@ brew install llmfit
 ### runpod AI infrastructure for rent
 
 https://www.runpod.io/
+
+
+
+
+---
+
+# Day 2
+
+## 1. GitOps using ArgoCD and Kargo (workshop)
+
+- https://kcd-czech-slovak-2026.sessionize.com/session/1228884
+- https://github.com/ondrejsika/kcd2026-kargo-workshop https://github.com/milanoid/kcd2026-kargo-workshop
+- intro to Kargo and ArgoCD
+- create promotional pipeline (dev, stage, prod)
+- after updating image easily promote through the envs
+- https://github.com/ondrejsika/kcd2026-kargo-example https://github.com/milanoid/kcd2026-kargo-example
+
+
+### Kargo
+
+- https://kargo.io/
+- Seamlessly orchestrate stage-to-stage deployments, without custom scripts or CI pipelines
+
+
