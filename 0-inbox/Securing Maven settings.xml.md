@@ -23,6 +23,8 @@ mvn --encrypt-password
 
 Add the encrypted values to `settings.xml`
 
+- DO NOT encrypt the username, it won't work
+
 ```xml
 <settings>
 ...

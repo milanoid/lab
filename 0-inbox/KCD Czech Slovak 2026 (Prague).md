@@ -213,7 +213,6 @@ mvn help:effective-settings -DshowPasswords=true
 
 Maven fix
 
--
 
 ```bash
 mvn --encrypt-master-password KCD_Secr3t_2026
