@@ -194,4 +194,70 @@ FinOps - OpenCost coverage - https://opencost.io/
 
 https://www.linkedin.com/in/martin-ladeck%C3%BD-9366ba5/
 
+### Maven `settings.xml`
+
+- org artifactory (Nexus) - need password
+- can leak to a collegue or in logs in in pipeline
+
+WIth Nexus access I can upload anything I want, let you deploy it to production.
+
+```bash
+# how to get the creds
+
+# in oplder maven version only
+mvn clean deploy -X
+
+# everywhere - reveal creds
+mvn help:effective-settings -DshowPasswords=true
+```
+
+Maven fix
+
+-
+
+```bash
+mvn --encrypt-master-password KCD_Secr3t_2026
+mvn --encrypt-password KCD_Secr3t_2026
+```
+
+
+
+### Git
+
+- if pushed to remote, only way to mitigate is to change the password
+
+
+### Docker Images
+
+Docker layers never forget!
+
+- dive tool - https://github.com/wagoodman/dive
+- in an old layer I can find the removed file/secret
+- any file can be downloaded as a .tar file from a layer
+
+
+Fixes
+
+1. 2-step build
+2. `--mount=type=secret`
+
+### CD/CD
+
+- logs leak secrets
+
+Demo - GHA
+
+https://github.com/martin-ladecky/kcd-cz-sk-2026
+
+https://github.com/martin-ladecky/kcd-cz-sk-2026/actions/runs/26116550782/job/77258683271
+
+mitigations
+
+- no-echo policy
+- OIDC, do not use long lived secrets
+- ENV vars protection rules
+- log scanning - integrate Gitleaks
+
+### Best practices
+
 
