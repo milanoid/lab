@@ -183,5 +183,15 @@ https://www.linkedin.com/in/kimsondrup/
 - [OIDC](https://openid.net/developers/how-connect-works/) - OpenID Connect
 - OIDC Federation
 
+- https://openbao.org/ - OpenBao is an open source, community-driven secrets manager and fork of Vault managed by the Linux Foundation's OpenSSF.
+
+
+FinOps - OpenCost coverage - https://opencost.io/
+
+
+
+## 3. The Complete Guide to Secret Hygiene for Java and Cloud-Native Engineers
+
+https://www.linkedin.com/in/martin-ladeck%C3%BD-9366ba5/
 
 
