@@ -233,11 +233,14 @@ Docker layers never forget!
 - dive tool - https://github.com/wagoodman/dive
 - in an old layer I can find the removed file/secret
 - any file can be downloaded as a .tar file from a layer
+- can be run in CI
 
 ```bash
 brew install dive
 ```
 
+- [ ] try it on SP images (sdapi, pe)
+- [ ] implement it in my [Build Runner Image](https://github.com/milanoid-labs/homelab-cluster/blob/main/.github/workflows/build-runner-image.yml)
 
 Fixes
 
