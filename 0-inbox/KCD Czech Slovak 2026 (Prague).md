@@ -282,5 +282,14 @@ networksetup -listallhardwareports # adapter names
 brew install qemu
 
 
-# do
+# downloads iso
+curl -O http://10.0.0.32:8080/files/isos/<arm64-iso-name>.iso # ?
+
+
+# qemu
+curl -O http://10.0.0.32:8080/files/scripts/qemu-run.sh chmod +x qemu-run.sh
+cp /opt/homebrew/share/qemu/edk2-arm-vars.fd ./ovmf_vars.fd 
+
+# create disk
+qemu-img create -f qcow2 node.qcow2 20G
 ```
