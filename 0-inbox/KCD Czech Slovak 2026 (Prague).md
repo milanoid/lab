@@ -271,7 +271,8 @@ building a cluster, each participant become a node (worker, control plane)
 ```bash
 brew install lynx
 
-curl -s https://10.0.0.42:8080
+# curl -s https://10.0.0.42:8080
+curl -s http://10.0.0.42:8080/ | lynx --stdin 
 
 
 # ### Network info
@@ -284,9 +285,8 @@ networksetup -listallhardwareports # adapter names
 brew install qemu
 
 
-# downloads iso
-curl -O http://10.0.0.32:8080/files/isos/<arm64-iso-name>.iso
-
+# downloads iso (custom builds)
+#curl -O http://10.0.0.32:8080/files/isos/<arm64-iso-name>.iso
 curl -O http://10.0.0.42:8080/files/isos/custom-debian-arm64-20260522091752.iso
 
 
