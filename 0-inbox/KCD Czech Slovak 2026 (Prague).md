@@ -169,3 +169,15 @@ Promotional pipeline (promotionTemplate) - it could have been a GHA too (but thi
 ? what are the conditions on when to promote
 
 
+
+
+## 2. State of Kubernetes on European Sovereign Clouds: Integrations, Control, and Portability
+
+
+https://www.linkedin.com/in/kimsondrup/
+
+- data residency, procurement, strategic autonomy
+- [Hetzner](https://www.hetzner.com/), [UpCloud](https://upcloud.com/), [OVHcloud](https://www.ovhcloud.com/), [T Cloud Public](https://www.t-cloud-public.com/), [Scaleway](https://www.scaleway.com/en/)
+
+CAPI - Cluster API
+
