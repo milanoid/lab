@@ -369,9 +369,21 @@ curl -H "X-OS: $(uname -a)" http://10.0.0.42:9999
 # I am cp-02 (control plane 02)
 
 ### conect to the cluster
-curl -o ~/.kube/cp-primary http://10.0.0.42:8080/files/cp-primary
+#curl -o ~/.kube/cp-primary http://10.0.0.42:8080/files/cp-primary
+curl -o ~/.kube/cp-primary http://10.0.0.10:8000/config
 export KUBECONFIG=~/.kube/cp-primary 
-kubectl get nodes 
+
+> kubectl get nodes
+NAME         STATUS   ROLES           AGE   VERSION
+cp-02        Ready    control-plane   19m   v1.32.13
+cp-03        Ready    control-plane   19m   v1.32.13
+cp-primary   Ready    control-plane   22m   v1.32.13
+worker-01    Ready    <none>          11m   v1.32.13
+worker-03    Ready    <none>          11m   v1.32.13
+worker-04    Ready    <none>          11m   v1.32.13
+worker-05    Ready    <none>          11m   v1.32.13
+worker-06    Ready    <none>          11m   v1.32.13
+
 ```
 
 
