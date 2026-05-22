@@ -291,7 +291,8 @@ curl -O http://10.0.0.42:8080/files/isos/custom-debian-arm64-20260522091752.iso
 
 
 # qemu
-curl -O http://10.0.0.32:8080/files/scripts/qemu-run.sh chmod +x qemu-run.sh
+curl -O http://10.0.0.32:8080/files/scripts/qemu-run.sh 
+chmod +x qemu-run.sh
 cp /opt/homebrew/share/qemu/edk2-arm-vars.fd ./ovmf_vars.fd 
 
 # create disk
