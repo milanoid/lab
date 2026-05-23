@@ -42,7 +42,7 @@ smb://NAS2._smb._tcp.local/home/eBooks/OpenTelemetry For Dummies®, Dash0 Specia
 - immutable OS
 - Flatcar https://www.flatcar.org/ (Talos https://www.talos.dev/)
 - [ ] read [Kubernetes “Shift Down” Security Paper](https://github.com/kubernetes/sig-security/blob/main/sig-security-docs/papers/shift-down/shift-down-security.md)
-- [ ] install Flatcar on Proxmox
+- [ ] install Flatcar on Proxmox?
 
 
 ## 7. Craft you home AI lab with Ollama + Open WebUI

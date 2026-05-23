@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/Securing Maven settings.xml.md",
+                "file": "0-inbox/KCD Czech Slovak 2026 (Prague).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Securing Maven settings.xml"
+              "title": "KCD Czech Slovak 2026 (Prague)"
             }
           }
         ],
@@ -251,8 +251,8 @@
   },
   "active": "45ec79a3565aadd7",
   "lastOpenFiles": [
-    "0-inbox/KCD Czech Slovak 2026 (Prague).md",
     "0-inbox/Securing Maven settings.xml.md",
+    "0-inbox/KCD Czech Slovak 2026 (Prague).md",
     "4-archives/Jellyfin.md",
     "0-inbox/dotfiles-demo-readme-draft.md",
     "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/09 - Production Grade Monitoring.md",
