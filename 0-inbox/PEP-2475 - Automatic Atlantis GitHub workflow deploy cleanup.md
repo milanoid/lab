@@ -15,5 +15,5 @@ https://statsinc.atlassian.net/browse/PEP-2475
 ## testing
 
 1. python code change / image `0.14.0-test` https://github.com/statsperform/devops-automatic-atlantis-deploys/pull/54
-2. GHA action referencing new image `0.14.0-test`  
+2. GHA action referencing new image `0.14.0-test` https://github.com/statsperform/pe-gha-workflows/pull/294 
 
