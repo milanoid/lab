@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/KCD Czech Slovak 2026 - blog post draft.md",
+                "file": "0-inbox/KCD Czech Slovak 2026 (Prague).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "KCD Czech Slovak 2026 - blog post draft"
+              "title": "KCD Czech Slovak 2026 (Prague)"
             }
           }
         ],
@@ -251,8 +251,8 @@
   },
   "active": "45ec79a3565aadd7",
   "lastOpenFiles": [
-    "0-inbox/KCD Czech Slovak 2026 (Prague).md",
     "0-inbox/KCD Czech Slovak 2026 - blog post draft.md",
+    "0-inbox/KCD Czech Slovak 2026 (Prague).md",
     "0-inbox/dotfiles-demo-readme-draft.md",
     "0-inbox/Securing Maven settings.xml.md",
     "4-archives/Jellyfin.md",
