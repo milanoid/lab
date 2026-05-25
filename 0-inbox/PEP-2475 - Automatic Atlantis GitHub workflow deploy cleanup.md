@@ -8,5 +8,6 @@ https://statsinc.atlassian.net/browse/PEP-2475
 
 ### housekeeping
 
-- Jenkins build WARNings fixes https://github.com/statsperform/devops-automatic-atlantis-deploys/pull/52
+- Jenkins build WARNings fixes https://github.com/statsperform/devops-automatic-atlantis-deploys/pull/52 + version bump https://github.com/statsperform/devops-automatic-atlantis-deploys/pull/5
+- release done via pushing a tag
 
