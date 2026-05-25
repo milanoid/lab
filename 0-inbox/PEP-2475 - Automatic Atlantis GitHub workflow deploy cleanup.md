@@ -8,5 +8,5 @@ https://statsinc.atlassian.net/browse/PEP-2475
 
 ### housekeeping
 
-- Jenkins build WARNings fixes
+- Jenkins build WARNings fixes https://github.com/statsperform/devops-automatic-atlantis-deploys/pull/52
 
