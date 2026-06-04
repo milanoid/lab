@@ -118,7 +118,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 24.339471577261808,
+        "dimension": 64.79591836734694,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -126,7 +126,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "dns",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -142,7 +142,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 75.6605284227382,
+        "dimension": 35.204081632653065,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -171,7 +171,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 444.5
   },
   "right": {
     "id": "c30d66fb63f83402",
@@ -263,7 +263,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "afc045baa950d46d",
+  "active": "9f5491a4de1aa2c3",
   "lastOpenFiles": [
     "0-inbox/PEP-2475 - Automatic Atlantis GitHub workflow deploy cleanup.md",
     "4-archives/KCD Czech Slovak 2026 (Prague).md",
