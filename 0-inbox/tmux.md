@@ -1,5 +1,11 @@
 `tmux` - starts a session with one _window_ and a single _panel_
 
+Why tmux?
+
+- platform independence
+- customizable
+- detaching won't kill running process (e.g. migration or other long running process)
+
 
 - all commands are triggered by a _prefix key_ followed by a _command key_
 - default _prefix key_ is `C-b` (emacs notation) ~ `CTRL-B` (press `CTRL` and `b`) 
@@ -8,6 +14,7 @@
 
 - `C-b %` - splits single pane into a left and right pane (vertical split)
 - `C-b "` - splits single pane into up and down pane (horizontal split)
+
 
 
 ### Navigating Panes
@@ -64,3 +71,11 @@ milan@SPM-LN4K9M0GG7 ~
 
 - `tmux new -s homelab` - creates a new session with name instead of just number
 - `tmux rename-session -t 0 homelab` - rename existing session
+
+---
+
+### Help and other useful commands
+
+- `C-b ?` - get help
+- `C-b z` - make pane go full screen, the same to shrink it back
+- `C-b ,` - rename the current window
