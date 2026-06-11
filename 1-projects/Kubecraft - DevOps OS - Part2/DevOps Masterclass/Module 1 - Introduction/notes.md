@@ -12,4 +12,7 @@
 - mischa's app from materials in `devops-study-app-main` https://github.com/milanoid-labs/devops-study-app-main
 
 
-
+```bash
+# auto creates branch on remote?
+git config --global push.autoSetupRemote true
+```
