@@ -9,7 +9,7 @@
 
 - repo name: `devops-study-app` in milanoid-labs org
 - w/o Mischa's ultimate dev container setup
-- mischa's materials 
+- mischa's app from materials in `devops-study-app-main`
 
 
 
