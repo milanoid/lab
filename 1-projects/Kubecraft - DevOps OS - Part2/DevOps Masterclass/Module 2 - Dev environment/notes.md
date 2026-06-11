@@ -78,3 +78,11 @@ Using `cz` to walk me through a correct commit message
    build: Changes that affect the build system or external dependencies (example scopes: pip, docker, npm)
    ci: Changes to CI configuration files and scripts (example scopes: GitLabCI)
 ```
+
+
+- for commit message use imperative summary:
+```
+'adds idea (ide) settings'  # wrong - in 3rd person
+
+'add idea (ide) settings' # right - in base form
+```
