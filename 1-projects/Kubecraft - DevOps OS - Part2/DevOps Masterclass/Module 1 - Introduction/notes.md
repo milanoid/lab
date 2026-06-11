@@ -7,9 +7,9 @@
 
 ### Scaffolding
 
-- repo name: `devops-study-app` in milanoid-labs org
+- repo name: `devops-study-app` in milanoid-labs org https://github.com/milanoid-labs/devops-study-app
 - w/o Mischa's ultimate dev container setup
-- mischa's app from materials in `devops-study-app-main`
+- mischa's app from materials in `devops-study-app-main` https://github.com/milanoid-labs/devops-study-app-main
 
 
 

@@ -140,7 +140,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tmux",
+                "query": "devpod",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -280,6 +280,7 @@
   "active": "c585f4f50040593f",
   "lastOpenFiles": [
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 2 - Dev environment/notes.md",
+    "4-archives/Arch Linux installation/17 - Docker & DevPod.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 1 - Introduction/notes.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 2 - Dev environment",
     "0-inbox/tmux.md",
@@ -308,7 +309,6 @@
     "0-inbox/GitHub self hosted runners.md",
     "4-archives/LPIC-1 exam prep/104.2 Maintain the integrity of filesystems.md",
     "4-archives/VPN server with dynamic IP.md",
-    "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/06 - DB Backups.md",
     "Pasted image 20260413081842.png",
     "Pasted image 20260413080420.png",
     "Services+(1).pdf",
