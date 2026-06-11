@@ -111,12 +111,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
+                "file": "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "12 - HomeLab - Audiobookshelf (capstone project)"
+              "title": "05 - Module 5 - Mise"
             }
           }
         ],
@@ -132,7 +132,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 57.13012477718359,
+        "dimension": 27.95869737887212,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -140,7 +140,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "SOPS env",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -156,7 +156,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 42.86987522281641,
+        "dimension": 72.04130262112788,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -279,6 +279,14 @@
   },
   "active": "c585f4f50040593f",
   "lastOpenFiles": [
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/06 - Module 6 - Vim & Cutoff Point.md",
+    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/07 - Zsh, Neovim and  The rest.md",
+    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 1 - Introduction/notes.md",
+    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 3 - Python - Pre-requisites/my notes on Python packaging.md",
+    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 1 - Introduction",
+    "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
+    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 3 - Python - Pre-requisites",
+    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass",
     "4-archives/CKAD/Section 3 - Configuration.md",
     "4-archives/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",
     "4-archives/Kubernetes HomeLab/07 - HomeLab - Expose Linkding to the Internet.md",
@@ -302,14 +310,9 @@
     "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/05 - GitOps.md",
     "Pasted image 20260413081842.png",
     "Pasted image 20260413080420.png",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
-    "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
-    "4-archives/Kubecraft - DevOps OS - Part1/Containers/06 - Docker Compose & Capstone Project.md",
-    "4-archives/K3s additional agent node.md",
     "Services+(1).pdf",
     "Untitled.canvas",
     "Untitled 1.canvas",
-    "1-projects/Proxmox/00 - Installation.md",
     "Pasted image 20260321164530.png",
     "Pasted image 20260321151549.png",
     "Pasted image 20260320161450.png",
@@ -319,9 +322,6 @@
     "4-archives/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard/docker-compose.yaml",
     "4-archives/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard/Dockerfile.updater",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/scripts",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/mise.toml",
-    "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/main.py",
-    "4-archives/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard",
     "4-archives/Arch Linux/Screenshot 2025-04-26 at 18.27.36.png",
     "4-archives/Arch Linux/Pasted image 20250407140038.png",
     "Pasted image 20250629105100.png",
