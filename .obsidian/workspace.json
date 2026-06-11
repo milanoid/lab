@@ -111,12 +111,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 2 - Dev environment/notes.md",
+                "file": "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 3 - Python - Pre-requisites/my notes on Python packaging.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "notes"
+              "title": "my notes on Python packaging"
             }
           }
         ],
@@ -279,9 +279,9 @@
   },
   "active": "c585f4f50040593f",
   "lastOpenFiles": [
+    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 2 - Dev environment/notes.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 3 - Python - Pre-requisites/my notes on Python packaging.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 1 - Introduction/notes.md",
-    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 2 - Dev environment/notes.md",
     "4-archives/Arch Linux installation/17 - Docker & DevPod.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 2 - Dev environment",
     "0-inbox/tmux.md",

@@ -132,3 +132,7 @@ milan@SPM-LN4K9M0GG7 /tmp/my-uv-packaged-app/src
 4 directories, 3 files
 
 ```
+
+TODO
+
+- [ ] init uv project in https://github.com/milanoid-labs/devops-study-app

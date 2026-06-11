@@ -86,3 +86,17 @@ Using `cz` to walk me through a correct commit message
 
 'add idea (ide) settings' # right - in base form
 ```
+
+
+list commit messages on git cli - `git reflog`:
+
+```bash
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app (main)
+> git reflog
+4836a38 (HEAD -> main, origin/main) HEAD@{0}: commit: docs(tooling): fix typo (commitizen)
+ed8660c HEAD@{1}: commit: docs(tooling): pre-requisites (git, pre-commit, commitizer)
+2e28763 HEAD@{2}: commit: build(idea): adds idea (ide) settings
+7e9513e HEAD@{3}: commit: build(commitizen): added .cz.toml commitizen config (cz init)
+6dfab84 HEAD@{4}: commit: added pre-commit hook
+2138fab HEAD@{5}: commit (initial): first commit
+```
