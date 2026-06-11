@@ -8,7 +8,8 @@
 ### Scaffolding
 
 - repo name: `devops-study-app` in milanoid-labs org
-- no
+- w/o Mischa's ultimate dev container setup
+- mischa's materials 
 
 
 
