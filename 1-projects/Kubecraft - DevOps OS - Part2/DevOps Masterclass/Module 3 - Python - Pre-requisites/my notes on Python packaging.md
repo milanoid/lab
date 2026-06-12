@@ -387,3 +387,31 @@ milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app (JIRA-001-frontend)
 
 10 directories, 16 files
 ```
+
+- [x] python files and templates added
+- [x] deps `flask`, `requests`
+- [x] run `uv run study-tracker-frontend`
+
+```bash
+milan@SPM-LN4K9M0GG7
+
+~/repos/devops-study-app/src/frontend
+
+(JIRA-001-frontend)
+
+> uv run study-tracker-frontend 2026-06-12 10:58:30,217 - frontend.main - INFO - Starting DevOps Study Timer Frontend * Serving Flask app 'frontend.main' * Debug mode: off 2026-06-12 10:58:32,998 - werkzeug - INFO -
+
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+
+* Running on all addresses (0.0.0.0) * Running on http://127.0.0.1:22111 * Running on http://192.168.1.158:22111 2026-06-12 10:58:32,999 - werkzeug - INFO -
+
+Press CTRL+C to quit
+```
+
+Create a new study session record
+
+```bash
+curl -X POST http://localhost:22112/sessions \
+    -H "Content-Type: application/json" \
+    -d '{"minutes": 30, "tag": "Python packaging 01"}'
+```
