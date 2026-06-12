@@ -27,5 +27,6 @@ Tools for CI/CD we are going to use - GitHub Actions
       Require status check to pass
 - https://github.com/milanoid-labs/milanoid-labs-terraform/pull/6
 
-- [ ] add `CODEOWNERS`
+- [ ] add `CODEOWNERS` (to all managed repos)
+- https://github.com/milanoid-labs/milanoid-labs-terraform/pull/7
 
