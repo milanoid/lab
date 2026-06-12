@@ -317,3 +317,22 @@ Note: See 'pyenv help global' for tips on allowing multiple
 ```bash
 uv run study-tracker-api
 ```
+
+
+```bash
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app/src/backend (main)
+> uv run study-tracker-api
+2026-06-12 09:29:54,323 - backend.main - INFO - Starting DevOps Study Tracker API
+INFO:     Will watch for changes in these directories: ['/Users/milan/repos/devops-study-app/src/backend']
+INFO:     Uvicorn running on http://0.0.0.0:22112 (Press CTRL+C to quit)
+INFO:     Started reloader process [19189] using StatReload
+INFO:     Started server process [19249]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+```
+
+
+```bash
+> curl localhost:22112/health
+{"status":"healthy"}
+```
