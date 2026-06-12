@@ -523,3 +523,9 @@ Now let's run it
 ```bash
 docker run -it backend:04
 ```
+
+- still runs as _root_
+
+
+# Securing the image
+
