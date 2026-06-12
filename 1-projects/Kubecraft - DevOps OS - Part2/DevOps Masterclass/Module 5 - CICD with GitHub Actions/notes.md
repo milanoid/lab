@@ -96,3 +96,36 @@ ERROR: Failed to build 'file:///Users/milan/.cache/pre-commit/repovfdvuwn_' when
 
 Check the log at /Users/milan/.cache/pre-commit/pre-commit.log
 ```
+
+turned out not a python version issue but VPN not being connected
+
+- `~/.pip/pip.conf` sets SP Nexus as only source
+- enabling VPN helped but other issue
+
+Issue 2 with pre-commit hook - it doesn't run:
+
+```bash
+ci(ruff): ruff pre-commit hook should catch this
+
+commitizen check.........................................................Passed ruff.................................................(no files to check)Skipped ruff-format..........................................(no files to check)Skipped [ci/add-ruff-linting c5eafff] ci(ruff): ruff pre-commit hook should catch this 
+1 file changed, 1 insertion(+), 1 deletion(-)
+```
+
+Claude updated the `.pre-commit-config.yaml` with
+
+```yaml
+default_install_hook_types: [pre-commit, commit-msg]
+```
+
+and then run `pre-commit install --overwrite`
+
+```bash
+> pre-commit install --overwrite 
+pre-commit installed at .git/hooks/pre-commit 
+pre-commit installed at .git/hooks/commit-msg
+```
+
+
+
+# Code linting with ruff - GHA
+
