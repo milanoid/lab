@@ -513,6 +513,11 @@ TAG=04 && docker build -t backend:$TAG -f Dockerfile.podman .
 
 Now down to 69.1 MB!
 
+- there is nothing but `.venv` directory
+- that contains the environment and binary `/app/.venv/bin/study-tracker-api`
+- we don't run the application using `uv` (which is not even installed in the final image)
+- but rather run it as a regular executable
+
 Now let's run it
 
 ```bash
