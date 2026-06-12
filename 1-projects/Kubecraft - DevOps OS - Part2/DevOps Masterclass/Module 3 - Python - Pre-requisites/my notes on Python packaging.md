@@ -145,3 +145,37 @@ we are creating a _monorepo_ (python, kube files, scripts)
 
 - python code in `src`
 
+
+
+## Initializing a package
+
+```bash
+# create src/ dir and in it run uv init
+mkdir src/ && cd src/ && uv init --package backend
+
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app (main)
+> tree
+.
+└── src
+    └── backend
+        ├── pyproject.toml
+        ├── README.md
+        └── src
+            └── backend
+                └── __init__.py
+
+5 directories, 3 files
+```
+
+- `uv init` created the scaffolding for python `3.11` (changed to `3.13` to match Mischa's repo)
+- build system changed from `uv` to [hatchling](https://pypi.org/project/hatchling/)
+
+
+## Backend code walkthrough
+
+dir is `devops-study-app/src/backend/src/backend`
+
+- Mischa's backend directory with all the files in Kubecraft (Backend code)
+- Mischa's stress importance the intro to FastAPI (path params, request body etc.)
+
+
