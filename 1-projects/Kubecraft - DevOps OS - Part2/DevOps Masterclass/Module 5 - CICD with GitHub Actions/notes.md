@@ -20,11 +20,12 @@ Tools for CI/CD we are going to use - GitHub Actions
 
 # Repository Settings
 
-- [ ] delete branch after merging PR
-- [ ] ruleset _main_ 
+- [x] delete branch after merging PR
+- [x] ruleset _main_ 
       Restrict deletions
       Require PR before merging
       Require status check to pass
+- https://github.com/milanoid-labs/milanoid-labs-terraform/pull/6
 
-- [ ] add CODEOWNERS
+- [ ] add `CODEOWNERS`
 
