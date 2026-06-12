@@ -344,3 +344,15 @@ INFO:     Application startup complete.
 - use python code Frontend code (in Kubecraft)
 - similar to what we did for backend, `pythonproject.toml` tweaks might be needed
 
+https://github.com/milanoid-labs/devops-study-app/issues/1
+
+- once done using `cz` close the issue
+
+
+```bash
+# init
+mkdir src/frontend && cd src/frontend
+mkdir src && cd src/
+uv init --package frontend
+```
+
