@@ -72,6 +72,8 @@ repos:
 
 An issue with running ruff as pre-commit hook on my Macbook:
 
+- maybe this is the reason why to use devcontainers :)
+
 ```bash
 pre-commit version: 4.6.0
 git --version: git version 2.54.0
