@@ -70,6 +70,27 @@ repos:
 - introduce python code syntax error, e.g. `import` -> `immport`
 - try to commit
 
-```bash
+An issue with running ruff as pre-commit hook on my Macbook:
 
+```bash
+pre-commit version: 4.6.0
+git --version: git version 2.54.0
+sys.version:
+    3.14.5 (main, May 10 2026, 10:21:34) [Clang 21.0.0 (clang-2100.0.123.102)]
+sys.executable: /opt/homebrew/Cellar/pre-commit/4.6.0/libexec/bin/python3.14
+os.name: posix
+sys.platform: darwin
+
+------
+ERROR: Could not find a version that satisfies the requirement setuptools>=40.8.0 (from versions: none)
+
+ERROR: No matching distribution found for setuptools>=40.8.0
+
+[end of output]
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
+
+ERROR: Failed to build 'file:///Users/milan/.cache/pre-commit/repovfdvuwn_' when installing build dependencies
+
+Check the log at /Users/milan/.cache/pre-commit/pre-commit.log
 ```
