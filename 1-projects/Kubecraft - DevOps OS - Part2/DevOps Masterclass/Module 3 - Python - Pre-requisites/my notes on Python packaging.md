@@ -336,3 +336,11 @@ INFO:     Application startup complete.
 > curl localhost:22112/health
 {"status":"healthy"}
 ```
+
+
+
+## Exercise - Set up the frontend
+
+- use python code Frontend code (in Kubecraft)
+- similar to what we did for backend, `pythonproject.toml` tweaks might be needed
+
