@@ -379,3 +379,8 @@ COPY --from=builder --chown=app:app /app/.venv /app/.venv
 # Run the application
 CMD ["/app/.venv/bin/study-tracker-api"]
 ```
+
+
+```bash
+TAG=03 && docker build -t backend:$TAG
+```
