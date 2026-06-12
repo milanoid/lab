@@ -175,7 +175,145 @@ milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app (main)
 
 dir is `devops-study-app/src/backend/src/backend`
 
+
+- added _config.py_, _main.py_, _models.py_, _storage.py_
+
+```bash
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app/src/backend/src (main)
+> tree
+.
+└── backend
+    ├── __init__.py
+    ├── config.py
+    ├── main.py
+    ├── models.py
+    └── storage.py
+
+2 directories, 5 files
+```
+
+
 - Mischa's backend directory with all the files in Kubecraft (Backend code)
 - Mischa's stress importance the intro to FastAPI (path params, request body etc.)
 
+The python code follows [12 Factor app](https://12factor.net/) recommendations.
 
+
+## Adding dependencies
+
+in `devops-study-app/src/backend`
+
+deps to add: `fastapi`, `uvcorn`, `httpx`
+
+- [x] `uv add fastapi`
+
+errors
+
+```bash
+      ValueError: Unable to determine which files to ship inside the wheel using the following heuristics:
+      https://hatch.pypa.io/latest/plugins/builder/wheel/#default-file-selection
+
+      The most likely cause of this is that there is no directory that matches the name of your project (study_tracker_backend).
+
+      At least one file selection option must be defined in the `tool.hatch.build.targets.wheel` table, see: https://hatch.pypa.io/latest/config/build/
+
+      As an example, if you intend to ship a directory named `foo` that resides within a `src` directory located at the root of your project, you can define the following:
+
+      [tool.hatch.build.targets.wheel]
+      packages = ["src/foo"]
+```
+
+fix
+
+- update the `pyproject.toml`:
+
+```toml
+[tool.hatch.build.targets.wheel]
+packages = ["src/backend"]
+```
+
+
+Success
+
+```bash
+> uv add fastapi
+Resolved 11 packages in 14ms
+      Built study-tracker-backend @ file:///Users/milan/repos/devops-study-app/src/backend
+Prepared 1 package in 176ms
+Installed 11 packages in 20ms
+ + annotated-doc==0.0.4
+ + annotated-types==0.7.0
+ + anyio==4.13.0
+ + fastapi==0.136.3
+ + idna==3.18
+ + pydantic==2.13.4
+ + pydantic-core==2.46.4
+ + starlette==1.3.0
+ + study-tracker-backend==0.0.0 (from file:///Users/milan/repos/devops-study-app/src/backend)
+ + typing-extensions==4.15.0
+ + typing-inspection==0.4.2
+```
+
+
+- [x] `uv add uvcorn`
+
+- [x] `uv add httpx`
+
+After running `uv add` the lib is added to `pyproject.toml`:
+
+```toml
+dependencies = [
+    "fastapi>=0.136.3",
+    "httpx>=0.28.1",
+    "uvicorn>=0.49.0",
+]
+```
+
+
+## Running our backend using uv run
+
+
+### step is 1 - install it
+
+`uv sync --locked --no-editable`
+
+- install deps from lock file
+- `--no-editable` - package
+- uses the `.venv` virtual python interpreter (created when running `uv add`?)
+
+```bash
+> uv sync --locked --no-editable
+Resolved 18 packages in 17ms
+      Built study-tracker-backend @ file:///Users/milan/repos/devops-study-app/src/backend
+Prepared 1 package in 300ms
+Uninstalled 1 package in 0.76ms
+Installed 1 package in 1ms
+ ~ study-tracker-backend==0.0.0 (from file:///Users/milan/repos/devops-study-app/src/backend)
+```
+
+
+! I don' have th venv activated?
+
+- either activate it
+- or run via uv (below)
+
+```bash
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app/src/backend (main)
+> python --version
+pyenv: version `3.13' is not installed (set by /Users/milan/repos/devops-study-app/src/backend/.python-version)
+pyenv: python: command not found
+
+The `python' command exists in these Python versions:
+  3.9.23
+
+Note: See 'pyenv help global' for tips on allowing multiple
+      Python versions to be found at the same time.
+```
+
+
+
+### step 2 run
+
+```bash
+uv run study-tracker-api
+```
