@@ -426,6 +426,6 @@ curl -X POST http://localhost:22112/sessions \
 
 TODO
 
-- [ ] import repos `devops-study-app` and `devops-study-app-main` to TF/tofu
+- [x] import repos `devops-study-app` and `devops-study-app-main` to TF/tofu
 
-- 
+- https://github.com/milanoid-labs/milanoid-labs-terraform/pull/4
