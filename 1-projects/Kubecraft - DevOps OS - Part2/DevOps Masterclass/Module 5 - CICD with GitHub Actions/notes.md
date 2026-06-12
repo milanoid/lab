@@ -48,3 +48,28 @@ All checks passed!
 1. via pre-commit hook
 2. via github workflow
 
+
+with pre-commit hook
+
+```yaml
+repos:
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v1.17.0
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.7
+    hooks:
+      # Run the linter.
+      - id: ruff
+      # Run the formatter.
+      - id: ruff-format
+```
+
+- introduce python code syntax error, e.g. `import` -> `immport`
+- try to commit
+
+```bash
+
+```
