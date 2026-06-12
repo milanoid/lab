@@ -390,6 +390,7 @@ milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app (JIRA-001-frontend)
 
 - [x] python files and templates added
 - [x] deps `flask`, `requests`
+- [ ] `uv sync --locked --no-editable`
 - [x] run `uv run study-tracker-frontend`
 
 ```bash
@@ -410,6 +411,11 @@ Press CTRL+C to quit
 
 Create a new study session record
 
+via fronted
+
+or 
+
+via backend
 ```bash
 curl -X POST http://localhost:22112/sessions \
     -H "Content-Type: application/json" \
