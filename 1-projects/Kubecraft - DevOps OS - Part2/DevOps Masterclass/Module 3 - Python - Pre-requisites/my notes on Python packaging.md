@@ -137,3 +137,11 @@ TODO
 
 - [ ] init uv project in https://github.com/milanoid-labs/devops-study-app
 
+## Repository structure
+
+Discussion [To src or not, how do you structure your Python repos?](https://www.skool.com/kubecraft/to-src-or-not-how-do-you-structure-your-python-repos?p=5cf3b24c)
+
+we are creating a _monorepo_ (python, kube files, scripts) 
+
+- python code in `src`
+
