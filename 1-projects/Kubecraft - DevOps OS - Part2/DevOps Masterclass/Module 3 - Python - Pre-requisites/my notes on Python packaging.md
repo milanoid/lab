@@ -421,3 +421,10 @@ curl -X POST http://localhost:22112/sessions \
     -H "Content-Type: application/json" \
     -d '{"minutes": 30, "tag": "Python packaging 01"}'
 ```
+
+
+
+TODO
+
+- [ ] import repos `devops-study-app` and `devops-study-app-main` to TF/tofu
+- [ ] 
