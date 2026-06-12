@@ -350,9 +350,40 @@ https://github.com/milanoid-labs/devops-study-app/issues/1
 
 
 ```bash
-# init
-mkdir src/frontend && cd src/frontend
-mkdir src && cd src/
-uv init --package frontend
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app/src (JIRA-001-frontend)
+> uv init --package frontend
+Initialized project `frontend` at `/Users/milan/repos/devops-study-app/src/frontend`
 ```
 
+```bash
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app (JIRA-001-frontend)
+> tree
+.
+└── src
+    ├── backend
+    │   ├── pyproject.toml
+    │   ├── README.md
+    │   ├── src
+    │   │   ├── backend
+    │   │   │   ├── __init__.py
+    │   │   │   ├── __pycache__
+    │   │   │   │   ├── __init__.cpython-313.pyc
+    │   │   │   │   ├── config.cpython-313.pyc
+    │   │   │   │   ├── main.cpython-313.pyc
+    │   │   │   │   ├── models.cpython-313.pyc
+    │   │   │   │   └── storage.cpython-313.pyc
+    │   │   │   ├── config.py
+    │   │   │   ├── main.py
+    │   │   │   ├── models.py
+    │   │   │   └── storage.py
+    │   │   └── data
+    │   └── uv.lock
+    └── frontend
+        ├── pyproject.toml
+        ├── README.md
+        └── src
+            └── frontend
+                └── __init__.py
+
+10 directories, 16 files
+```
