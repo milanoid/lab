@@ -125,7 +125,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 4 - Containerization/notes.md",
+                "file": "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions/notes.md",
                 "mode": "source",
                 "source": false
               },
@@ -294,6 +294,8 @@
   "active": "82a6eb58513bd300",
   "lastOpenFiles": [
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 4 - Containerization/notes.md",
+    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions/notes.md",
+    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 3 - Python - Pre-requisites/my notes on Python packaging.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 4 - Containerization",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 2 - Dev environment/notes.md",
@@ -323,7 +325,6 @@
     "4-archives/Claude@Proxmox.md",
     "4-archives/Sonar - Proxmox LXC.md",
     "0-inbox/GitHub self hosted runners.md",
-    "4-archives/LPIC-1 exam prep/104.2 Maintain the integrity of filesystems.md",
     "Pasted image 20260413081842.png",
     "Pasted image 20260413080420.png",
     "Services+(1).pdf",
@@ -335,7 +336,6 @@
     "1-projects/Proxmox",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/module3_code/scripts/setup",
     "4-archives/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard/updater",
-    "4-archives/Kubecraft - DevOps OS - Part1/Containers/06_project/joke-dashboard/docker-compose.yaml",
     "4-archives/Arch Linux/Screenshot 2025-04-26 at 18.27.36.png",
     "4-archives/Arch Linux/Pasted image 20250407140038.png",
     "Pasted image 20250629105100.png",

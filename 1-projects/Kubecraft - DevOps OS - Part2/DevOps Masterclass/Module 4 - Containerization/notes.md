@@ -529,3 +529,81 @@ docker run -it backend:04
 
 # Securing the image
 
+```bash
+├── Dockerfile
+├── Dockerfile.podman
+├── Dockerfile.podman.secured
+├── Dockerfile.secured
+```
+
+- `Dockerfile.podman.secured` -> for Podman on my Mac
+- `Dockerfile.secured` -> for Docker on a Linux
+
+```bash
+TAG=05 && docker build -t backend:$TAG -f Dockerfile.podman.secured .
+```
+
+```bash
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app/src/backend (main)
+> docker run -it backend:05 whoami
+app
+```
+
+- running as user app (id 1000) not a root
+
+
+Another tool - Slim https://github.com/slimtoolkit/slim
+
+
+
+# Exercise - build the frontend image
+
+Walk through the same processes for the frontend image.
+
+CMD to start the application is the same.
+
+- Build it python:latest
+- Inspect the size
+- Inspect the layers: observe that more layers are added
+- Reduce the size with slim images
+- Alpine
+- Multi stage builds
+- Implement cache mounts
+- As you are doing this, scan each image with Trivy
+
+
+```bash
+# python:latest
+TAG=00 && docker build -t frontend:$TAG -f Dockerfile .
+# 1.16 GB
+
+TAG=00 && trivy image --format table --severity CRITICAL,HIGH frontend:$TAG
+# Total: 152 (HIGH: 132, CRITICAL: 20)
+```
+
+
+```bash
+# python:3.13-alpine
+TAG=01 && docker build -t frontend:$TAG -f Dockerfile .
+# 65.4 MB
+
+TAG=01 && trivy image --format table --severity CRITICAL,HIGH frontend:$TAG
+# Total: 0
+```
+
+
+```bash
+# with multistage
+TAG=02 && docker build -t frontend:$TAG -f Dockerfile .
+# 62.1 MB
+
+TAG=02 && trivy image --format table --severity CRITICAL,HIGH frontend:$TAG
+# Total: 0
+```
+
+```bash
+# secured
+TAG=03 && docker build -t frontend:$TAG -f Dockerfile.podman.secured .
+# 62.1 MB
+```
+
