@@ -132,5 +132,250 @@ b4d76f273457  6 minutes ago   /bin/sh -c #(nop) WORKDIR /app                 0B 
 
 # Containerizing our backend package with uv
 
-- [ ] add .gitignore + housekeeping
-- [ ] add .dockerignore
+- [x] add .gitignore + housekeeping https://github.com/github/gitignore
+- [x] add .dockerignore
+
+Details on using `uv` in docker https://docs.astral.sh/uv/guides/integration/docker/
+
+```bash
+# run it once more using uv
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app/src/backend (main)
+> uv sync --locked --no-editable
+Resolved 18 packages in 21ms
+Uninstalled 1 package in 2ms
+Installed 1 package in 5ms
+ ~ study-tracker-backend==0.0.0 (from file:///Users/milan/repos/devops-study-app/src/backend)
+ 
+ 
+# run
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app/src/backend (main)
+> uv run study-tracker-api
+Uninstalled 1 package in 1ms
+Installed 1 package in 6ms
+2026-06-12 15:39:17,280 - backend.main - INFO - Starting DevOps Study Tracker API
+INFO:     Will watch for changes in these directories: ['/Users/milan/repos/devops-study-app/src/backend']
+INFO:     Uvicorn running on http://0.0.0.0:22112 (Press CTRL+C to quit)
+INFO:     Started reloader process [36470] using StatReload
+INFO:     Started server process [36693]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+```
+
+- [x] still works after cleanup
+
+
+```Dockerfile
+FROM python:latest
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+WORKDIR /app
+
+COPY . /app
+
+RUN uv sync --locked --no-editable
+
+CMD ["uv", "run", "study-tracker-api"]
+```
+
+```bash
+# build & run
+TAG=00 && docker build -t backend:$TAG .
+
+docker run backend:$TAG
+```
+
+
+```bash
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app/src/backend (main)
+> docker run backend:$TAG
+   Building study-tracker-backend @ file:///app
+      Built study-tracker-backend @ file:///app
+Uninstalled 1 package in 0.77ms
+Installed 1 package in 1ms
+2026-06-12 13:48:40,852 - backend.main - INFO - Starting DevOps Study Tracker API
+INFO:     Will watch for changes in these directories: ['/app']
+INFO:     Uvicorn running on http://0.0.0.0:22112 (Press CTRL+C to quit)
+INFO:     Started reloader process [18] using StatReload
+INFO:     Started server process [20]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+```
+
+```bash
+> docker images
+REPOSITORY                                                                                TAG                                      IMAGE ID      CREATED             SIZE
+localhost/backend                                                                         00                                       5b06d9501fa5  About a minute ago  1.24 GB
+```
+
+- image too large
+- needs to be slimmed down
+
+
+
+# Scanning image with Trivy
+
+https://trivy.dev/
+
+- vulnerability scanner
+- also can detect misconfigurations (IaC), Kubernetes clusters !
+
+
+TODO
+
+- [ ] use it for my homelab (Kubernetes, IaC scan)
+
+
+```bash
+# install trivy
+# (could work by running a container too)
+brew install trivy
+
+# scan my image
+TAG=00 && trivy image --format table --severity CRITICAL,HIGH backend:$TAG
+
+
+# truncated
+backend:00 (debian 13.5)
+
+Total: 152 (HIGH: 132, CRITICAL: 20)
+
+```
+
+
+
+# Reducing image size with base image
+
+let's reduce the size and attack surface
+
+
+```Dockerfile
+#FROM python:latest
+FROM python:3.13-slim
+
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+WORKDIR /app
+
+COPY . /app
+
+RUN uv sync --locked --no-editable
+
+CMD ["uv", "run", "study-tracker-api"]
+```
+
+
+```bash
+TAG=01 && docker build -t backend:$TAG .
+```
+
+
+- down from 1.24 GB to 237 MB
+```bash
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app/src/backend (main)
+> docker images
+REPOSITORY                                                                                TAG                                      IMAGE ID      CREATED            SIZE
+localhost/backend                                                                         01                                       8dd29e59f4fb  6 seconds ago      237 MB
+localhost/backend                                                                         00                                       5b06d9501fa5  20 minutes ago     1.24 GB
+```
+
+- trivy: down from _Total: 152_ to _Total: 10_
+
+```bash
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app/src/backend (main)                                                                                               > TAG=01 && trivy image --format table --severity CRITICAL,HIGH backend:$TAG
+
+backend:01 (debian 13.5)
+
+Total: 10 (HIGH: 8, CRITICAL: 2)
+```
+
+- `--ignore-unfixed` -> Total 0
+
+```bash
+TAG=01 && trivy image --format table --severity CRITICAL,HIGH backend:$TAG --ignore-unfixed
+```
+
+
+Another tweak
+
+- [Alpine linux](https://www.alpinelinux.org/)
+- [Chainguard images](https://edu.chainguard.dev/) (Free from CVEs, obviously not for free but have free-tier)
+
+
+
+```Dockerfile
+#FROM python:latest
+#FROM python:3.13-slim
+FROM python:3.13-alpine
+
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+WORKDIR /app
+
+COPY . /app
+
+RUN uv sync --locked --no-editable
+
+CMD ["uv", "run", "study-tracker-api"]
+```
+
+
+```bash
+TAG=02 && docker build -t backend:$TAG .
+```
+
+with Alpine it went down even further - from 237MB to 150 MB
+
+```bash
+> docker images
+REPOSITORY                                                                                TAG                                      IMAGE ID      CREATED            SIZE
+localhost/backend                                                                         02                                       0d126496d191  29 seconds ago     150 MB
+localhost/backend                                                                         01                                       8dd29e59f4fb  9 minutes ago      237 MB
+localhost/backend                                                                         00                                       5b06d9501fa5  29 minutes ago     1.24 GB
+```
+
+
+0 CVEs in current `python:3.13-alpine` !
+
+```bash
+TAG=02 && trivy image --format table --severity CRITICAL,HIGH backend:$TAG
+```
+
+
+
+# Optimizing the backend Docker image
+
+Implement caching & multi stage builds
+
+- https://docs.docker.com/build/cache/optimize/#use-cache-mounts
+
+```Dockerfile
+FROM python:3.13-alpine AS builder
+
+
+# Install uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+# Change the working directory to the `app` directory
+WORKDIR /app
+
+# Install dependencies in a cache layer. This speeds up build time
+RUN --mount=type=cache,target=/root/.cache/uv \
+  --mount=type=bind,source=uv.lock,target=uv.lock \
+  --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+  uv sync --locked --no-install-project --no-editable
+
+# Copy the project into the intermediate image
+COPY . /app
+
+# Sync the project and install it, now that we have access to the source code
+RUN --mount=type=cache,target=/root/.cache/uv \
+  uv sync --locked --no-editable
+
+FROM python:3.13-alpine
+
+# Copy the environment, but not the source code
+COPY --from=builder --chown=app:app /app/.venv /app/.venv
+
+# Run the application
+CMD ["/app/.venv/bin/study-tracker-api"]
+```
