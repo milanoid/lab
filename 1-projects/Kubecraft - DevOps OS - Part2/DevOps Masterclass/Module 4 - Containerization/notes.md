@@ -128,3 +128,9 @@ b4d76f273457  6 minutes ago   /bin/sh -c #(nop) WORKDIR /app                 0B 
 <missing>     2 days ago      # debian.sh --arch 'arm64' out/ 'trixie' '...  146MB                debuerreotype 0.17
 ```
 
+
+
+# Containerizing our backend package with uv
+
+- [ ] add .gitignore + housekeeping
+- [ ] add .dockerignore
