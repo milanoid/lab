@@ -384,3 +384,137 @@ CMD ["/app/.venv/bin/study-tracker-api"]
 ```bash
 TAG=03 && docker build -t backend:$TAG
 ```
+
+
+docker vs podman issue on build
+
+```bash
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app/src/backend (main)
+> TAG=03 && docker build -t backend:$TAG .
+[1/2] STEP 1/6: FROM python:3.13-alpine AS builder
+[1/2] STEP 2/6: COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+--> Using cache ef97d8fae04fa560f5fa2eccf36c0677dc9924edeeb5aafeb83d6d16cb2e210b
+--> ef97d8fae04f
+[1/2] STEP 3/6: WORKDIR /app
+--> Using cache ab100d6d333c78ce1180858121405fc24fc991897ada3949b767dda610723918
+--> ab100d6d333c
+[1/2] STEP 4/6: RUN --mount=type=cache,target=/root/.cache/uv   --mount=type=bind,source=uv.lock,target=uv.lock   --mount=type=bind,source=pyproject.toml,target=pyproject.toml   uv sync --locked --no-install-project
+error: failed to open file `/app/pyproject.toml`: Permission denied (os error 13)
+Error: building at STEP "RUN --mount=type=cache,target=/root/.cache/uv --mount=type=bind,source=uv.lock,target=uv.lock --mount=type=bind,source=pyproject.toml,target=pyproject.toml uv sync --locked --no-install-project": while running runtime: exit status 2
+```
+
+Claude Dockerfile fix 01
+
+```bash
+ 10  # Install dependencies in a cache layer. This speeds up build time
+ 11  RUN --mount=type=cache,target=/root/.cache/uv \
+ 12 -  --mount=type=bind,source=uv.lock,target=uv.lock \
+ 13 -  --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+ 12 +  --mount=type=bind,source=uv.lock,target=uv.lock,Z \
+ 13 +  --mount=type=bind,source=pyproject.toml,target=pyproject.toml,Z \
+ 14    uv sync --locked --no-install-project
+ 15
+ 16  # Copy the project into the intermediate image
+```
+
+still fails but on another issue with user
+
+```bash
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app/src/backend (main)
+> TAG=03 && docker build -t backend:$TAG .
+[1/2] STEP 1/6: FROM python:3.13-alpine AS builder
+[1/2] STEP 2/6: COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+--> Using cache ef97d8fae04fa560f5fa2eccf36c0677dc9924edeeb5aafeb83d6d16cb2e210b
+--> ef97d8fae04f
+[1/2] STEP 3/6: WORKDIR /app
+--> Using cache ab100d6d333c78ce1180858121405fc24fc991897ada3949b767dda610723918
+--> ab100d6d333c
+[1/2] STEP 4/6: RUN --mount=type=cache,target=/root/.cache/uv   --mount=type=bind,source=uv.lock,target=uv.lock,Z   --mount=type=bind,source=pyproject.toml,target=pyproject.toml,Z   uv sync --locked --no-install-project
+--> Using cache ead06474b26df947b5344e9e790054f50e96365869bd36fd7c9787c30006d1ed
+--> ead06474b26d
+[1/2] STEP 5/6: COPY . /app
+--> Using cache 949e6894270779bf9303654c9d231286f3fa555b54895e94105b240d449beb10
+--> 949e68942707
+[1/2] STEP 6/6: RUN --mount=type=cache,target=/root/.cache/uv   uv sync --locked --no-editable
+--> Using cache d041d9921719acb1e3e8684c380f0db69342247bad9c1dd1fbdd1e45565f47ee
+--> d041d9921719
+[2/2] STEP 1/3: FROM python:3.13-alpine
+[2/2] STEP 2/3: COPY --from=builder --chown=app:app /app/.venv /app/.venv
+Error: building at STEP "COPY --from=builder --chown=app:app /app/.venv /app/.venv": looking up UID/GID for "app:app": determining run uid: user: unknown user error looking up user "app"
+```
+
+Claude Dockerfile fix 02
+
+```bash
+ 22
+ 23  FROM python:3.13-alpine
+ 24
+ 25 +# Create a non-root user to run the application
+ 26 +RUN addgroup -S app && adduser -S app -G app
+ 27 +
+ 28 +WORKDIR /app
+ 29 +
+ 30  # Copy the environment, but not the source code
+ 31  COPY --from=builder --chown=app:app /app/.venv /app/.venv
+ 32
+ 33 +USER app
+ 34 +
+ 35  # Run the application
+ 36  CMD ["/app/.venv/bin/study-tracker-api"]
+```
+
+
+Dockerfile passing on build on my Mac with Podman
+
+```Dockerfile
+# Dockerfile.podman
+FROM python:3.13-alpine AS builder
+
+
+# Install uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+# Change the working directory to the `app` directory
+WORKDIR /app
+
+# Install dependencies in a cache layer. This speeds up build time
+RUN --mount=type=cache,target=/root/.cache/uv \
+  --mount=type=bind,source=uv.lock,target=uv.lock,Z \
+  --mount=type=bind,source=pyproject.toml,target=pyproject.toml,Z \
+  uv sync --locked --no-install-project
+
+# Copy the project into the intermediate image
+COPY . /app
+
+# Sync the project and install it, now that we have access to the source code
+RUN --mount=type=cache,target=/root/.cache/uv \
+  uv sync --locked --no-editable
+
+FROM python:3.13-alpine
+
+# Create a non-root user to run the application
+RUN addgroup -S app && adduser -S app -G app
+
+WORKDIR /app
+
+# Copy the environment, but not the source code
+COPY --from=builder --chown=app:app /app/.venv /app/.venv
+
+USER app
+
+# Run the application
+CMD ["/app/.venv/bin/study-tracker-api"]
+```
+
+
+```bash
+TAG=04 && docker build -t backend:$TAG -f Dockerfile.podman .
+```
+
+Now down to 69.1 MB!
+
+Now let's run it
+
+```bash
+docker run -it backend:04
+```
