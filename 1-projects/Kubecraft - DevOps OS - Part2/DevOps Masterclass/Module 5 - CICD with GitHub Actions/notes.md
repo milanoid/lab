@@ -310,4 +310,4 @@ Error: Resource not accessible by integration - [https://docs.github.com/rest/is
 ```
 
 - workflow is trying to write a comment which is not allowed
-- we need to enable it in Actions -> General - Workflow permissions - Read and write permissions
+- we need to enable it in Actions -> General - Workflow permissions - Read and write permissions -> https://github.com/milanoid-labs/milanoid-labs-terraform/pull/8
