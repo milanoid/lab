@@ -131,3 +131,20 @@ pre-commit installed at .git/hooks/commit-msg
 
 `.github\workflows\backend-tests.yaml`
 
+The workflow was failing on Lint with Ruff:
+
+```bash
+```
+
+Needs install the dependency:
+
+```bash
+> uv add ruff
+Resolved 19 packages in 327ms
+      Built study-tracker-backend @ file:///Users/milan/repos/devops-study-app/src/backend
+Prepared 2 packages in 645ms
+Uninstalled 1 package in 2ms
+Installed 2 packages in 2ms
+ + ruff==0.15.17
+ ~ study-tracker-backend==0.0.0 (from file:///Users/milan/repos/devops-study-app/src/backend)
+```
