@@ -313,4 +313,4 @@ Error: Resource not accessible by integration - [https://docs.github.com/rest/is
 - we need to enable it in Actions -> General - Workflow permissions - Read and write permissions -> https://github.com/milanoid-labs/milanoid-labs-terraform/pull/8
 
 
-- [ ] https://github.com/milanoid-labs/devops-study-app/pull/4
+- [x] https://github.com/milanoid-labs/devops-study-app/pull/4
