@@ -314,3 +314,77 @@ Error: Resource not accessible by integration - [https://docs.github.com/rest/is
 
 
 - [x] https://github.com/milanoid-labs/devops-study-app/pull/4
+
+
+
+# Development dependencies
+
+```bash
+TAG=05 && docker build -t backend:$TAG .
+```
+
+- after we added tests the image size grown from 69.1 MB (tag 04) to 101 MB (tag 05)
+
+```bash
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app/src/backend (main)
+> docker images | grep backend
+localhost/backend                                                                         05                                       8a1f23af7e92  8 seconds ago   101 MB
+localhost/backend                                                                         04                           a80925cc67ba  26 hours ago    69.1 MB
+```
+
+- we were adding dependencies (pytest etc) but into `dependencies` not `dev dependencies`
+- these are not needed in runtime
+
+```toml
+dependencies = [
+    "fastapi>=0.136.3",
+    "httpx>=0.28.1",
+    "pytest>=9.0.3",
+    "pytest-asyncio>=1.4.0",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.15.17",
+    "uvicorn>=0.49.0",
+]
+```
+
+Fix: remove pytest, pytest-asyncio, pytest-cov, ruff and add them again by:
+
+```bash
+uv add pytest pytest-asyncio pytest-cov ruff --dev
+```
+
+```toml
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+    "pytest-asyncio>=1.4.0",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.15.17",
+]
+```
+
+- these won't be in runtime
+
+We also need to update Dockerfile - add `--no-dev`:
+
+```Dockerfile
+# Sync the project and install it, now that we have access to the source code
+RUN --mount=type=cache,target=/root/.cache/uv \
+  uv sync --locked --no-editable --no-dev
+```
+
+
+```bash
+TAG=06 && docker build -t backend:$TAG -f Dockerfile.podman.secured
+
+-> back to 69.1 MB
+```
+
+- [x] https://github.com/milanoid-labs/devops-study-app/pull/5
+
+# Exercise - Scanning with Trivy
+
+- build the (backend) Docker image in CI and run Trivy on it
+
+https://github.com/aquasecurity/trivy-action
+
