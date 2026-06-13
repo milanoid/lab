@@ -268,3 +268,8 @@ uv add pytest_asyncio
 
 # Running tests in the pipeline
 
+```yaml
+      - name: Run Backend Tests
+        run: |
+          uv run pytest
+```
