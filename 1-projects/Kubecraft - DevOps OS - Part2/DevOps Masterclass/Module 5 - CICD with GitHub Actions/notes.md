@@ -273,3 +273,30 @@ uv add pytest_asyncio
         run: |
           uv run pytest
 ```
+
+- [x] https://github.com/milanoid-labs/devops-study-app/pull/3
+
+# Test coverage
+
+```bash
+# old people do this
+git checkout -b ci/add-coverage-testing
+
+# new kids do (switch can change to remote branch too)
+git switch -c ci/add-coverage-testing
+```
+
+```bash
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app/src/backend (ci/add-coverage-testing)
+> uv run pytest tests/ -v --cov=src/backend --cov-report=xml --cov-fail-under=80
+      Built study-tracker-backend @ file:///Users/milan/repos/devops-study-app/src/backend
+Uninstalled 1 package in 1ms
+Installed 1 package in 1ms
+ERROR: usage: pytest [options] [file_or_dir] [file_or_dir] [...]
+pytest: error: unrecognized arguments: --cov=src/backend --cov-report=xml --cov-fail-under=80
+  inifile: /Users/milan/repos/devops-study-app/src/backend/pyproject.toml
+  rootdir: /Users/milan/repos/devops-study-app/src/backend
+```
+
+- we are missing another dependency
+- `uv add pytest-cov`
