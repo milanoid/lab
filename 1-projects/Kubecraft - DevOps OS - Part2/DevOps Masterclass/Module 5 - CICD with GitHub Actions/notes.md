@@ -148,3 +148,123 @@ Installed 2 packages in 2ms
  + ruff==0.15.17
  ~ study-tracker-backend==0.0.0 (from file:///Users/milan/repos/devops-study-app/src/backend)
 ```
+
+Issue - local ruff linter pass but the ruff in CI fails:
+
+```bash
+uv run ruff check --output-format=github --target-version=py313 src tests
+uv run ruff format --diff --check --target-version=py313 src tests
+shell: /usr/bin/bash -e {0}
+env:
+	UV_CACHE_DIR: /home/runner/_work/_temp/setup-uv-cache
+  
+3 files would be reformatted, 2 files already formatted
+--- src/backend/config.py
++++ src/backend/config.py
+@@ -29,4 +29,3 @@
+ CORS_ALLOW_METHODS = parse_list_env("CORS_ALLOW_METHODS")
+ CORS_ALLOW_HEADERS = parse_list_env("CORS_ALLOW_HEADERS")
+ CORS_ALLOW_CREDENTIALS = os.getenv("CORS_ALLOW_CREDENTIALS", "True").lower() == "true"
+-
+--- src/backend/models.py
++++ src/backend/models.py
+@@ -32,4 +32,3 @@
+     sessions_by_tag: Dict[str, int] = Field(
+         ..., description="Number of sessions grouped by tag"
+     )
+-
+--- src/backend/storage.py
++++ src/backend/storage.py
+@@ -120,4 +120,3 @@
+         f"Calculated statistics: {total_minutes} minutes across {len(sessions)} sessions"
+     )
+     return stats
+-
+Error: Process completed with exit code 1.
+
+```
+
+
+# Adding tests to backend code
+
+Tests files in Kubecraft
+
+```toml
+# Add to pyproject.toml
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
+```
+- Seems the above is not needed
+```bash
+milan@SPM-LN4K9M0GG7 ~/repos/devops-study-app/src/backend (ci/add-ruff-linting)
+> tree tests/
+tests/
+├── __init__.py
+├── test_config.py
+├── test_main.py
+└── test_storage.py
+
+1 directory, 4 files
+```
+
+We need to add dependencies
+
+```bash
+uv add pytest
+```
+
+```bash
+# run tests
+> uv run pytest
+
+===================================================================== test session starts =====================================================================
+
+platform darwin -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 rootdir: /Users/milan/repos/devops-study-app/src/backend configfile: pyproject.toml plugins: anyio-4.13.0
+
+collected 11 items / 1 error
+
+=========================================================================== ERRORS ============================================================================
+
+_____________________________________________________________ ERROR collecting tests/test_main.py _____________________________________________________________
+
+ImportError while importing test module '/Users/milan/repos/devops-study-app/src/backend/tests/test_main.py'.
+
+Hint: make sure your test modules/packages have valid Python names.
+
+Traceback:
+
+/opt/homebrew/Cellar/python@3.13/3.13.13_1/Frameworks/Python.framework/Versions/3.13/lib/python3.13/importlib/__init__.py:88: in import_module
+
+return _bootstrap._gcd_import(name[level:], package, level)
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_main.py:2: in <module>
+
+import pytest_asyncio
+
+E ModuleNotFoundError: No module named 'pytest_asyncio'
+
+=================================================================== short test summary info ===================================================================
+
+ERROR
+
+tests/test_main.py !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+======================================================================
+
+1 error
+
+in 0.13s =======================================================================
+```
+
+still missing more depedencies
+
+
+```bash
+uv add pytest_asyncio
+```
+
+
+# Running tests in the pipeline
+
