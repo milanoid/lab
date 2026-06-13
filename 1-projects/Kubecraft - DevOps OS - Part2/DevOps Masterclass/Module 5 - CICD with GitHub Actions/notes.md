@@ -388,3 +388,30 @@ TAG=06 && docker build -t backend:$TAG -f Dockerfile.podman.secured
 
 https://github.com/aquasecurity/trivy-action
 
+issue on my homelab-runner:
+
+```bash
+Run docker build -t docker.io/milanoid-labs/backend:4eaa96b2c14d118a2f301f541ae17bfa763cd805 -f Dockerfile.secured
+ERROR: docker: 'docker buildx build' requires 1 argument
+
+Usage:  docker buildx build [OPTIONS] PATH | URL | -
+
+Run 'docker buildx build --help' for more information
+
+```
+
+the same with GH hosted runner? It is.
+
+```bash
+ERROR: docker: 'docker buildx build' requires 1 argument
+Usage:  docker buildx build [OPTIONS] PATH | URL | -
+Run 'docker buildx build --help' for more information
+Error: Process completed with exit code 1.
+Run docker build -t docker.io/milanoid-labs/backend:4e75dc53e914d0938b427d2ed4c95c8911f85a6a -f Dockerfile.secured
+  docker build -t docker.io/milanoid-labs/backend:4e75dc53e914d0938b427d2ed4c95c8911f85a6a -f Dockerfile.secured
+  shell: /usr/bin/bash -e {0}
+
+```
+
+
+- [ ] https://github.com/milanoid-labs/devops-study-app/pull/6
