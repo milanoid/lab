@@ -301,7 +301,7 @@ pytest: error: unrecognized arguments: --cov=src/backend --cov-report=xml --cov-
 - we are missing another dependency
 - `uv add pytest-cov`
 
-- [ ] https://github.com/milanoid-labs/devops-study-app/pull/4
+
 
 Issue with step _Add Coverage PR Comment_
 
@@ -311,3 +311,6 @@ Error: Resource not accessible by integration - [https://docs.github.com/rest/is
 
 - workflow is trying to write a comment which is not allowed
 - we need to enable it in Actions -> General - Workflow permissions - Read and write permissions -> https://github.com/milanoid-labs/milanoid-labs-terraform/pull/8
+
+
+- [ ] https://github.com/milanoid-labs/devops-study-app/pull/4
