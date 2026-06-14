@@ -440,3 +440,42 @@ TAG=05 && docker build -t fronted:$TAG .
 ```
 
 Add workflow
+
+- [x] https://github.com/milanoid-labs/devops-study-app/pull/10
+
+
+# DRY in pipelines
+
+
+- do not over engineer
+- sometimes it's OK to repeat yourself
+- more value in having it readable
+- applies to one repo, small team etc.
+- in large org templates and resuable workflows makes sens
+
+
+
+# Automatic versioning
+
+
+- we want to release frontend and backed app, using tag
+- as we have 2 components we could
+	  - version them both the same
+	  - version them independently (advanced)
+
+
+We go the advanced way:
+
+- a change in frontend -> release frontend only
+- artifact is Docker image in GH Packages
+
+
+
+# Automated release creation
+
+
+- using release-please action https://github.com/googleapis/release-please-action
+
+
+
+
