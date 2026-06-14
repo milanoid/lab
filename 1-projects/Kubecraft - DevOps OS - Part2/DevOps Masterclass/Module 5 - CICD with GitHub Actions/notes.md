@@ -415,3 +415,9 @@ Run docker build -t docker.io/milanoid-labs/backend:4e75dc53e914d0938b427d2ed4c9
 
 
 - [x] https://github.com/milanoid-labs/devops-study-app/pull/6
+
+
+# Exercise solution - implementing the frontend
+
+- I skipped that exercise and head over to solution
+
