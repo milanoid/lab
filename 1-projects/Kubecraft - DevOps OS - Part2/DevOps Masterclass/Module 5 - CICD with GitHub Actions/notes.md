@@ -502,10 +502,14 @@ In a corporate environment we should avoid using PAT, prefer other methods.
 
 ### PAT DEVOPS_STUDY_APP
 
+1. create PAT (classic) `DEVOPS_STUDY_APP` (saved to Lastpass)
+2. make it available in the _devops-study-app_ repo
+   - [ ] https://github.com/milanoid-labs/milanoid-labs-terraform/pull/9
 
 Rights
 
 - scope: repo
+- expire: 90 days
 
 
 
