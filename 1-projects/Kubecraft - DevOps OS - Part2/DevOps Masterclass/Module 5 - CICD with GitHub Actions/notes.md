@@ -477,5 +477,35 @@ We go the advanced way:
 - using release-please action https://github.com/googleapis/release-please-action
 
 
+Why `secrets.GITHUB_TOKEN` (default identity) is not enough for release-please?
+
+- the release please triggers other actions - for that we need custom PAT with correct rights
+- see https://github.com/googleapis/release-please-action#github-credentials
+
+```yaml
+# release-please.yaml
+# Will not trigger other workflows when using GITHUB_TOKEN
+# token: ${{ secrets.GITHUB_TOKEN }}
+token: "${{ secrets.DEVOPS_STUDY_APP }}"
+```
+
+There are multiple ways how Authenticate in GH:
+
+- PAT - `Personal Access Token` - tight to my account
+- Deploy Keys - ssh keys added to my GH repo (then e.g. Flux can use to authenticate)
+- GitHub Apps - oauth app (advanced)
+
+- we will use both PAT and Deploy Keys in this course
+
+In a corporate environment we should avoid using PAT, prefer other methods.
+
+
+### PAT DEVOPS_STUDY_APP
+
+
+Rights
+
+- scope: repo
+
 
 
