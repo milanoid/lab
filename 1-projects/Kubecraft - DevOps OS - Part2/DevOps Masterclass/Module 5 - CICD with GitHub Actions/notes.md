@@ -585,3 +585,9 @@ Error: Process completed with exit code 1.
 
 fixed by running `uv sync` and push the `uv.lock` file to the release-please PR.
 
+
+
+# Building and pushing images
+
+## Building and pushing the images to the ghcr
+
