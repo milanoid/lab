@@ -562,4 +562,23 @@ Pre-commit hook issue workaround - `--no-verify`
 - `git commit -m "ci(gha): Add release-please Action" --no-verify`
 - the pre-commit hook has hanged
 
-- [ ] https://github.com/milanoid-labs/devops-study-app/pull/12
+- [x] https://github.com/milanoid-labs/devops-study-app/pull/12
+- [ ] first release https://github.com/milanoid-labs/devops-study-app/pull/13
+
+Issue:
+
+
+- https://github.com/milanoid-labs/devops-study-app/actions/runs/27492187635/job/81259371476?pr=13
+```bash
+Run uv sync --locked --dev
+
+Using CPython 3.13.14
+
+Creating virtual environment at: .venv
+
+Resolved 27 packages in 766ms
+
+The lockfile at `uv.lock` needs to be updated, but `--locked` was provided. To update the lockfile, run `uv lock`.
+
+Error: Process completed with exit code 1.
+```
