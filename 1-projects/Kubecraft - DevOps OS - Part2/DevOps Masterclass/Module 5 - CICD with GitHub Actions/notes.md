@@ -563,7 +563,7 @@ Pre-commit hook issue workaround - `--no-verify`
 - the pre-commit hook has hanged
 
 - [x] https://github.com/milanoid-labs/devops-study-app/pull/12
-- [ ] first release https://github.com/milanoid-labs/devops-study-app/pull/13
+- [x] first release https://github.com/milanoid-labs/devops-study-app/pull/13
 
 Issue:
 
@@ -582,3 +582,6 @@ The lockfile at `uv.lock` needs to be updated, but `--locked` was provided. To u
 
 Error: Process completed with exit code 1.
 ```
+
+fixed by running `uv sync` and push the `uv.lock` file to the release-please PR.
+
