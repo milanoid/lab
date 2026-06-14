@@ -593,3 +593,14 @@ fixed by running `uv sync` and push the `uv.lock` file to the release-please PR.
 
 https://github.com/docker/build-push-action
 
+- [x] https://github.com/milanoid-labs/devops-study-app/pull/16
+- [x] release-please https://github.com/milanoid-labs/devops-study-app/pull/17
+
+
+Issue
+
+- any new release-please PR is failing on Backend Tests
+- maybe it fails right after merging in the app code change PR to main, e.g. https://github.com/milanoid-labs/devops-study-app/pull/16
+- I need to locally run `uv sync` and push the updated `uv.lock` manually
+
+- [ ] fix
