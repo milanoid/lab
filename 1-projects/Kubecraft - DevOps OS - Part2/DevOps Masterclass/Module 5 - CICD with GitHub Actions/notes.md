@@ -513,3 +513,53 @@ Rights
 
 
 
+### release please
+
+1. _.github/workflows/release-please.yaml_ - Action
+2. _.release-please-config.json_
+3. _.release-please-manifest.json_
+
+```json
+// release-please-config.json_
+{
+  "packages": {
+    "src/backend": {
+      "release-type": "python",
+      "package-name": "study-tracker-backend",
+      "component": "backend",
+      "include-component-in-tag": true,
+      "changelog-path": "CHANGELOG.md",
+      "extra-files": [
+        {
+          "type": "toml",
+          "path": "uv.lock",
+          "jsonpath": "$.package[?(@.name.value=='study-tracker-backend')].version"
+        }
+      ]
+    }
+  }
+}
+```
+
+- the extra-files are important here
+- w/o the `uv sync` would be out-of-sync (?)
+- updates the version in `pyproject.yaml` and also in `uv.lock`
+
+
+```json
+// ./.release-please-manifest.json
+{
+  "src/backend": "0.0.0"
+}
+```
+
+- starting point
+- first run won't read it from `pyproject` - we need to specify it here
+
+
+Pre-commit hook issue workaround - `--no-verify`
+
+- `git commit -m "ci(gha): Add release-please Action" --no-verify`
+- the pre-commit hook has hanged
+
+- [ ] https://github.com/milanoid-labs/devops-study-app/pull/12
