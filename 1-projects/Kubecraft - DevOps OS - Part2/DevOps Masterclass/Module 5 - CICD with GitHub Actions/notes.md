@@ -421,3 +421,22 @@ Run docker build -t docker.io/milanoid-labs/backend:4e75dc53e914d0938b427d2ed4c9
 
 - I skipped that exercise and head over to solution
 
+
+Install dev deps
+```bash
+uv add --dev pytest pytest-cov responses
+```
+
+Run tests
+`uv run pytest tests/ -v --cov=src/frontend --cov-report=xml --cov-fail-under=80`
+
+Update Dockerfile
+
+- add `--no-dev` switch to not add dev deps to runtime
+
+Build image
+```bash
+TAG=05 && docker build -t fronted:$TAG .
+```
+
+Add workflow
