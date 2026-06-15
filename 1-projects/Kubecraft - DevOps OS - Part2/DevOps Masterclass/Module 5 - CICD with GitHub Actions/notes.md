@@ -617,4 +617,6 @@ Claude:
   uv sync --locked reject the lockfile as stale.
 ---
 
-- [ ] fix
+A bug intruduced while following Copilot PR review comments :)
+
+- [ ] fix https://github.com/milanoid-labs/devops-study-app/pull/21
