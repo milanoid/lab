@@ -602,5 +602,6 @@ Issue
 - any new release-please PR is failing on Backend Tests
 - maybe it fails right after merging in the app code change PR to main, e.g. https://github.com/milanoid-labs/devops-study-app/pull/16
 - I need to locally run `uv sync` and push the updated `uv.lock` manually
+- e.g. https://github.com/milanoid-labs/devops-study-app/pull/20
 
 - [ ] fix
