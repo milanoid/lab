@@ -604,4 +604,17 @@ Issue
 - I need to locally run `uv sync` and push the updated `uv.lock` manually
 - e.g. https://github.com/milanoid-labs/devops-study-app/pull/20
 
+
+Claude:
+
+---
+⏺ Root cause found
+
+  The "Backend Tests" job fails at uv sync --locked --dev with:
+  The lockfile at `uv.lock` needs to be updated, but `--locked` was provided.
+
+  Why: Release-please bumped src/backend/pyproject.toml version from 0.2.0 → 0.2.1, but src/backend/uv.lock still records the local package's version as 0.2.0. That mismatch makes
+  uv sync --locked reject the lockfile as stale.
+---
+
 - [ ] fix
