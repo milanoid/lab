@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions/notes.md",
+                "file": "4-archives/Sonar - Proxmox LXC.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "notes"
+              "title": "Sonar - Proxmox LXC"
             }
           },
           {
@@ -146,7 +146,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 27.95869737887212,
+        "dimension": 68.10207336523126,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -154,7 +154,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "devpod",
+                "query": "sonar",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -170,7 +170,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 72.04130262112788,
+        "dimension": 31.89792663476874,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -293,9 +293,9 @@
   },
   "active": "742ceec6f78c5236",
   "lastOpenFiles": [
+    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions/notes.md",
     "4-archives/VPN server with dynamic IP.md",
     "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/06 - DB Backups.md",
-    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions/notes.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 4 - Containerization/notes.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 3 - Python - Pre-requisites/my notes on Python packaging.md",
