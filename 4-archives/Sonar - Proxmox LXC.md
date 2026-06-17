@@ -9,6 +9,8 @@ SonarQube Community Edition `24.12.0.100206-community` with plugins matching the
 
 ## 1. Create LXC in Proxmox
 
+- vmid = 202
+
 In the Proxmox UI:
 
 | Setting | Value |

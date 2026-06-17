@@ -6,6 +6,8 @@ Sonatype Nexus Repository Manager 3 (OSS) running via Docker Compose in an unpri
 
 ## 1. Create LXC in Proxmox
 
+vmid = 203
+
 ```bash
 pct create <VMID> local:vztmpl/ubuntu-24.04-standard_24.04-2_amd64.tar.zst \
   --hostname nexus \
