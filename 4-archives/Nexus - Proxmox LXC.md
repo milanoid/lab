@@ -93,7 +93,6 @@ docker exec nexus cat /nexus-data/admin.password
 Login at `http://<lxc-ip>:8081` as `admin` with the retrieved password, then set a new one.
 
 
-http://192.168.1.204:8081
 
 ---
 
@@ -106,3 +105,6 @@ pct exec <VMID> -- ip link show eth0
 
 - Bind MAC to static IP in Asus router
 - Cloudflare DNS: `nexus.milanoid.net` → static IP (port 8081)
+
+
+http://nexus.milanoid.net:8081/#/login
