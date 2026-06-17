@@ -153,3 +153,5 @@ url = "http://github-actions@nexus.milanoid.net:8081/repository/pypi-group/simpl
 index-url = "http://github-actions:<password>@nexus.milanoid.net:8081/repository/pypi-group/simple/"
 allow-insecure-host = ["nexus.milanoid.net"]
 ```
+
+- [ ] todo - `uv add ruff` via my Nexus
