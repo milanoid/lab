@@ -108,3 +108,36 @@ pct exec <VMID> -- ip link show eth0
 
 
 http://nexus.milanoid.net:8081/#/login
+
+
+
+## Post-install setup
+
+### user/role
+
+- created Nexus Role `ci-deployer` with the following privileges
+- created user `github-actions` assigned the role
+
+```
+nx-apikey-all
+nx-repository-view-*-*-add
+nx-repository-view-*-*-browse
+nx-repository-view-*-*-edit
+nx-repository-view-*-*-read
+```
+
+### pypi repository
+
+```
+  You need three repositories (same pattern as your NuGet setup):
+
+  ┌─────────────┬────────┬───────────────────────────────────────────┐
+  │    Name     │  Type  │                  Purpose                  │
+  ├─────────────┼────────┼───────────────────────────────────────────┤
+  │ pypi-proxy  │ proxy  │ mirrors PyPI.org, caches packages locally │
+  ├─────────────┼────────┼───────────────────────────────────────────┤
+  │ pypi-hosted │ hosted │ stores your own private Python packages   │
+  ├─────────────┼────────┼───────────────────────────────────────────┤
+  │ pypi-group  │ group  │ single URL combining both above           │
+  └─────────────┴────────┴───────────────────────────────────────────┘
+```
