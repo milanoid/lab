@@ -154,4 +154,16 @@ index-url = "http://github-actions:<password>@nexus.milanoid.net:8081/repository
 allow-insecure-host = ["nexus.milanoid.net"]
 ```
 
-- [ ] todo - `uv add ruff` via my Nexus
+
+env vars
+
+The env var pattern is `UV_INDEX_<NAME_UPPERCASED>_USERNAME/PASSWORD`:
+
+```bash
+UV_INDEX_NEXUS_MILANOID_USERNAME='github-actions'
+UV_INDEX_NEXUS_MILANOID_PASSWORD='yourpassword'
+```
+
+- my password has `%` character - breaks the login using credentials in url !
+
+- [x] todo - `uv add ruff` via my Nexus
