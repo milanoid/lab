@@ -141,3 +141,17 @@ nx-repository-view-*-*-read
   │ pypi-group  │ group  │ single URL combining both above           │
   └─────────────┴────────┴───────────────────────────────────────────┘
 ```
+
+
+```toml
+# ~/.config/uv/uv.toml
+[[index]]
+name = "nexus-milanoid"
+url = "http://github-actions@nexus.milanoid.net:8081/repository/pypi-group/simple/"
+```
+
+```bash
+# stored the credentials in OS secure store
+uv auth login http://nexus.milanoid.net:8081/repository/pypi-group/simple/ \
+   --username github-actions --password -
+```
