@@ -157,11 +157,11 @@ allow-insecure-host = ["nexus.milanoid.net"]
 
 env vars
 
-The env var pattern is `UV_INDEX_<NAME_UPPERCASED>_USERNAME/PASSWORD`:
+The env var pattern is `UV_INDEX_<NAME_UPPERCASED>_USERNAME/PASSWORD`!
 
 ```bash
-UV_INDEX_NEXUS_MILANOID_USERNAME='github-actions'
-UV_INDEX_NEXUS_MILANOID_PASSWORD='yourpassword'
+export UV_INDEX_NEXUS_MILANOID_USERNAME='github-actions'
+export UV_INDEX_NEXUS_MILANOID_PASSWORD='yourpassword'
 ```
 
 - my password has `%` character - breaks the login using credentials in url !
