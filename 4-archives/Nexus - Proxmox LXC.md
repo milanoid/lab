@@ -6,7 +6,8 @@ Sonatype Nexus Repository Manager 3 (OSS) running via Docker Compose in an unpri
 
 ## 1. Create LXC in Proxmox
 
-vmid = 203
+- vmid = 203
+- IP assigned on router to 192.168.1.204 (f#%#%#!!!)
 
 ```bash
 pct create <VMID> local:vztmpl/ubuntu-24.04-standard_24.04-2_amd64.tar.zst \
@@ -90,6 +91,9 @@ docker exec nexus cat /nexus-data/admin.password
 ```
 
 Login at `http://<lxc-ip>:8081` as `admin` with the retrieved password, then set a new one.
+
+
+http://192.168.1.204:8081
 
 ---
 
