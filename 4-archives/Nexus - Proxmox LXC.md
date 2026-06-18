@@ -145,24 +145,21 @@ nx-repository-view-*-*-read
 
 ```toml
 # ~/.config/uv/uv.toml
+# this is user-level configuration - can be overriden in project level
 [[index]]
 name = "nexus-milanoid"
-url = "http://github-actions@nexus.milanoid.net:8081/repository/pypi-group/simple/"
+url = "http://nexus.milanoid.net:8081/repository/pypi-group/simple/"
 ```
 
 ```bash
-
-```
-
-env vars
-
-The env var pattern is `UV_INDEX_<NAME_UPPERCASED>_USERNAME/PASSWORD`!
-
-```bash
+# ~/.bashrc
+# keeps credentails in envs
 export UV_INDEX_NEXUS_MILANOID_USERNAME='github-actions'
 export UV_INDEX_NEXUS_MILANOID_PASSWORD='yourpassword'
 ```
 
-- my password has `%` character - breaks the login using credentials in url !
+The env var pattern is `UV_INDEX_<NAME_UPPERCASED>_USERNAME/PASSWORD`!
+
+- my password has `%` character - breaks the login using credentials in url ! - use `'password'` to enclose it in `'`
 
 - [x] todo - `uv add ruff` via my Nexus
