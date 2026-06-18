@@ -163,6 +163,7 @@ The env var pattern is `UV_INDEX_<NAME_UPPERCASED>_USERNAME/PASSWORD`!
 - my password has `%` character - breaks the login using credentials in url ! - use `'password'` to enclose it in `'`
 
 - [x] todo - `uv add ruff` via my Nexus
+- [ ] add NEXUS_USERNAME and NEXUS_PASSWORD as org-wide secret
 
 
 
