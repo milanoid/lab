@@ -148,12 +148,11 @@ nx-repository-view-*-*-read
 [[index]]
 name = "nexus-milanoid"
 url = "http://github-actions@nexus.milanoid.net:8081/repository/pypi-group/simple/"
-
-[uv]
-index-url = "http://github-actions:<password>@nexus.milanoid.net:8081/repository/pypi-group/simple/"
-allow-insecure-host = ["nexus.milanoid.net"]
 ```
 
+```bash
+
+```
 
 env vars
 
