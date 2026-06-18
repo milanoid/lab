@@ -209,4 +209,5 @@ http://sonar.milanoid.net:9000/
 I'might have accidentally override torrent.milanoid.net pass on Lastpass :(
 
 - [ ] setup Sonar GitHub Integration (GitHub App)
+- [ ] create user/role `github-actions`, use its token in GHA (now in fizz-buzz repo only)
 

@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4-archives/Nexus - Proxmox LXC.md",
+                "file": "4-archives/Sonar - Proxmox LXC.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Nexus - Proxmox LXC"
+              "title": "Sonar - Proxmox LXC"
             }
           },
           {
@@ -293,8 +293,8 @@
   },
   "active": "742ceec6f78c5236",
   "lastOpenFiles": [
-    "4-archives/Sonar - Proxmox LXC.md",
     "4-archives/Nexus - Proxmox LXC.md",
+    "4-archives/Sonar - Proxmox LXC.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions/notes.md",
     "4-archives/VPN server with dynamic IP.md",
     "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/06 - DB Backups.md",
