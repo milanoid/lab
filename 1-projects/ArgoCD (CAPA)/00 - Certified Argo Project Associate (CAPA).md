@@ -43,8 +43,11 @@ argocd/guestbook    https://kubernetes.default.svc  guestbook  default  Synced  
 ### My Argo Workflows installation
 
 - [ ] installed and ready to use
-      -  https://github.com/milanoid-labs/homelab-cluster/pull/339
+      - https://github.com/milanoid-labs/homelab-cluster/pull/339
+      - https://github.com/milanoid-labs/homelab-cluster/pull/341
 
+
+Running at http://argo.milanoid.net/
 
 
 - GitHub: https://github.com/argoproj/argo-workflows
@@ -58,6 +61,6 @@ brew install argo
 ```
 
 
-- [ ] with help of Claude declaratively setup Argo Workflows on my homeLab
+- [x] with help of Claude declaratively setup Argo Workflows on my homeLab
 
 
