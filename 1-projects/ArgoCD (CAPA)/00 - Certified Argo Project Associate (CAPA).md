@@ -50,6 +50,12 @@ argocd/guestbook    https://kubernetes.default.svc  guestbook  default  Synced  
 
 Running at http://argo.milanoid.net/
 
+Token
+
+```bash
+echo "Bearer: $(kubectl -n argo get secret argo-ui-token -o jsonpath='{.data.token}' | base64 -d)"
+```
+
 
 - GitHub: https://github.com/argoproj/argo-workflows
 - Docs: https://argo-workflows.readthedocs.io/en/latest/quick-start/
