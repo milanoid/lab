@@ -50,7 +50,7 @@ argocd/guestbook    https://kubernetes.default.svc  guestbook  default  Synced  
 
 Running at http://argo.milanoid.net/
 
-Token
+Token for both UI and CLI - mind the `Bearer` prefix.
 
 ```bash
 echo "Bearer $(kubectl -n argo get secret argo-ui-token -o jsonpath='{.data.token}' | base64 -d)"
@@ -65,6 +65,20 @@ cli
 ```bash
 # install on Mac
 brew install argo
+
+# auth method 1 - env vars
+export ARGO_SERVER='argo.milanoid.net:80' 
+export ARGO_HTTP1=true 
+export ARGO_SECURE=false 
+export ARGO_BASE_HREF= 
+export ARGO_TOKEN='[REDACTED]' 
+export ARGO_NAMESPACE=argo ;# or whatever your namespace is 
+export KUBECONFIG=/dev/null ;# recommended
+
+
+# auth method 2 - kubeconfig
+argo --context homelab -n argo list
+No workflows found
 ```
 
 
