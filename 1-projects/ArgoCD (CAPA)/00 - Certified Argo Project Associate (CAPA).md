@@ -42,7 +42,7 @@ argocd/guestbook    https://kubernetes.default.svc  guestbook  default  Synced  
 
 ### My Argo Workflows installation
 
-- [ ] installed and ready to use
+- [x] installed and ready to use
       - https://github.com/milanoid-labs/homelab-cluster/pull/339
       - https://github.com/milanoid-labs/homelab-cluster/pull/341
       - https://github.com/milanoid-labs/homelab-cluster/pull/342
@@ -53,7 +53,7 @@ Running at http://argo.milanoid.net/
 Token
 
 ```bash
-echo "Bearer: $(kubectl -n argo get secret argo-ui-token -o jsonpath='{.data.token}' | base64 -d)"
+echo "Bearer $(kubectl -n argo get secret argo-ui-token -o jsonpath='{.data.token}' | base64 -d)"
 ```
 
 
