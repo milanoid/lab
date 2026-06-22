@@ -197,3 +197,52 @@ Static IP: `192.168.1.205`. Internal DNS (LAN-only, no public tunnel needed for 
 - [x] Configure GitHub plugin (webhook/credentials)
 - [ ] Take initial "post-setup" snapshot before first experimental pipeline run
 - [x] If still laggy after the RAM/swap bump, consider capping the JVM heap explicitly (e.g. `JAVA_OPTS: -Xmx1536m` in `docker-compose.yml`) instead of growing the container further
+
+---
+
+## Debugging: webhook rejections aren't logged by default
+
+
+```bash
+# test curl
+> curl -si -X POST http://jenkins.milanoid.net:8080/github-webhook/    -H "Content-Type: application/json"    -H "X-GitHub-Event: push"    -H "X-GitHub-Delivery: test-$(date +%s)"    -H "X-Hub-Signature-256: sha256=invalidsignature"    -d '{"ref":"refs/heads/main","repository":{"id":1,"name":"test","full_name":"milanoid/test","private":false}}'
+HTTP/1.1 400 Bad Request
+X-Content-Type-Options: nosniff
+Cache-Control: must-revalidate,no-cache,no-store
+Content-Type: text/html;charset=iso-8859-1
+Content-Length: 549
+Server: Jetty(10.0.13)
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"/>
+<title>Error 400 Signature was expected, but not provided</title>
+</head>
+<body><h2>HTTP ERROR 400 Signature was expected, but not provided</h2>
+<table>
+<tr><th>URI:</th><td>/github-webhook/</td></tr>
+<tr><th>STATUS:</th><td>400</td></tr>
+<tr><th>MESSAGE:</th><td>Signature was expected, but not provided</td></tr>
+<tr><th>SERVLET:</th><td>Stapler</td></tr>
+</table>
+<hr/><a href="https://eclipse.org/jetty">Powered by Jetty:// 10.0.13</a><hr/>
+
+</body>
+</html>
+```
+
+
+Requests rejected by the GitHub plugin's signature check (e.g. `400 Signature was expected, but not provided`) don't show up anywhere — not in "All Jenkins Logs", not in `docker logs jenkins`. The check happens in `RequirePostWithGHHookPayload$Processor` *before* `GitHubWebHook.doIndex()` runs, and on failure it throws straight to Stapler's error page without ever calling a logger. Confirmed by sending a test request and watching `docker logs -f jenkins` live — nothing printed for the rejection.
+
+To surface these, add a Log Recorder for the plugin's package:
+
+1. **Manage Jenkins** → **System Log** → **Add new Log Recorder**
+2. Name: `github-webhook` (or anything descriptive)
+3. Add logger: `org.jenkinsci.plugins.github` with log level **ALL**
+4. Save, then re-trigger the webhook and check the new recorder's log page (it'll have its own URL under **System Log**)
+
+This is an in-memory recorder (same ring-buffer caveat as "All Jenkins Logs") — it resets on JVM restart and isn't written to a file unless you separately check "Save to log file" type config (not available as a checkbox in this older 2.387.3 UI; would require a Groovy script or `java.util.logging` config file mounted into the container).
+
+**Caveat confirmed by reading the plugin source ([`RequirePostWithGHHookPayload.java` @ v1.37.1](https://github.com/jenkinsci/github-plugin/blob/v1.37.1/src/main/java/org/jenkinsci/plugins/github/webhook/RequirePostWithGHHookPayload.java)):** the signature-rejection path (`isTrue()` → `"Signature was expected, but not provided"` / `"Provided signature [...] did not match"`) throws straight to `InvocationTargetException(errorWithoutStack(...))` with **zero logger calls**. No Log Recorder at any level/package will ever surface this specific rejection — it's not a config gap, the code just doesn't log it. The recorder above *does* still work for everything upstream of that check (header/payload parsing), as confirmed live: `GHEventHeader$PayloadHandler` and `GHEventPayload$PayloadHandler` showed up at FINE/FINEST.
+
+**Also from the source**: this plugin version validates the **`X-Hub-Signature`** header (SHA1), not `X-Hub-Signature-256` (SHA256) — that's a separate, newer GitHub header this old plugin version doesn't know about. If testing with curl, send `X-Hub-Signature: sha1=<hex>` instead, computed as `HMAC-SHA1(secret, raw_body)`.
