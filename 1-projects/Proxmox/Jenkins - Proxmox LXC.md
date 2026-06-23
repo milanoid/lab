@@ -195,9 +195,9 @@ pct exec <VMID> -- ip link show eth0
 Static IP: `192.168.1.205`. Internal DNS (LAN-only, no public tunnel needed for a personal sandbox): `http://jenkins.milanoid.net:8080/`
 
 - [x] Configure GitHub plugin (webhook/credentials)
-- [ ] Take initial "post-setup" snapshot before first experimental pipeline run
+- [x] Take initial "post-setup" snapshot before first experimental pipeline run
 - [x] If still laggy after the RAM/swap bump, consider capping the JVM heap explicitly (e.g. `JAVA_OPTS: -Xmx1536m` in `docker-compose.yml`) instead of growing the container further
-
+- [x] cloudflared
 ---
 
 ## Debugging: webhook rejections aren't logged by default

@@ -164,7 +164,8 @@ The env var pattern is `UV_INDEX_<NAME_UPPERCASED>_USERNAME/PASSWORD`!
 
 - [x] todo - `uv add ruff` via my Nexus
 - [x] add NEXUS_USERNAME and NEXUS_PASSWORD (scoped for repo devops-study-repo)
-- [ ] use my nexus for push/pull deps
+- [x] use my nexus for push/pull deps
+- [ ] cloudflared
 
 
 
