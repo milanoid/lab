@@ -8,7 +8,7 @@ At the end we will act as company providing managed N8N (low code tool) service.
 ## Resources - Course repo
 
 - `~/repos/mercury-workflows` (mercury - the company name)
-- uses _devcontainers - [[00 - Intro]]
+- uses _devcontainers - [[4-archives/Kubecraft - DevOps OS - Part1/DevContainers/00 - Intro]]
 - My repo  https://github.com/milanoid/mercury-workflows/
 
 
