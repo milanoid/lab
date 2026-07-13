@@ -90,5 +90,75 @@ I'll use Rancher Desktop
 
 fixes for company Macbook
 ```bash
+# symlink
 ln -sf "/Applications/Rancher Desktop.app/Contents/Resources/resources/darwin/docker-cli-plugins/docker-compose" ~/.rd/bin/docker-compose
+
+
+# ~/.bashrc
+# commented the docker=podman alias
 ```
+
+```bash
+milan@SPM-LN4K9M0GG7 ~
+> docker version
+Client:
+ Version:           29.5.3-rd
+ API version:       1.54
+ Go version:        go1.26.4
+ Git commit:        5d9ffe3
+ Built:             Thu Jun  4 07:33:36 2026
+ OS/Arch:           darwin/arm64
+ Context:           rancher-desktop
+
+Server:
+ Engine:
+  Version:          29.5.2
+  API version:      1.54 (minimum version 1.41)
+  Go version:       go1.25.10
+  Git commit:       568f755ebeb1ac9c6a8febbda6cd371ea0a9630b
+  Built:            Sun May 31 13:53:18 2026
+  OS/Arch:          linux/arm64
+  Experimental:     false
+ containerd:
+  Version:          v2.3.2
+  GitCommit:        fff62f14765df376e5fc36f5a8f8e795b5670f61
+ runc:
+  Version:          1.4.0
+  GitCommit:        8bd78a9977e604c4d5f67a7415d7b8b8c109cdc4
+ docker-init:
+  Version:          0.19.0
+  GitCommit:
+```
+
+```bash
+# k8s context
+milan@SPM-LN4K9M0GG7 ~
+> kubectx rancher-desktop
+✔ Switched to context "rancher-desktop".
+
+
+
+# version
+milan@SPM-LN4K9M0GG7 ~
+> kubectl version
+Client Version: v1.31.5
+Kustomize Version: v5.4.2
+Server Version: v1.31.5+k3s1
+```
+
+The course suggest to install docker, k8s and [kind](https://kind.sigs.k8s.io/). Not gonna do that. I'm running Rancher Desktop:
+
+```bash
+milan@SPM-LN4K9M0GG7 ~
+> kubectl get nodes.
+NAME                   STATUS   ROLES                  AGE    VERSION
+lima-rancher-desktop   Ready    control-plane,master   412d   v1.31.5+k3s1
+```
+
+
+
+### switching between Rancher Desktop and Podman Desktop
+
+
+
+
