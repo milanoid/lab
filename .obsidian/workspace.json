@@ -153,12 +153,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/ArgoCD (CAPA)/CAPA course/00 - Intro.md",
+                "file": "1-projects/ArgoCD (CAPA)/CAPA course/01 - ArgoCD.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "00 - Intro"
+              "title": "01 - ArgoCD"
             }
           },
           {
@@ -419,18 +419,18 @@
   },
   "active": "cb742a2495e10a46",
   "lastOpenFiles": [
+    "1-projects/ArgoCD (CAPA)/04 - Argo Events.md",
+    "1-projects/ArgoCD (CAPA)/03 - Argo Rollouts.md",
+    "1-projects/ArgoCD (CAPA)/02 - Argo CD.md",
+    "1-projects/ArgoCD (CAPA)/01 - Argo Workflows.md",
+    "1-projects/ArgoCD (CAPA)/00 - Certified Argo Project Associate (CAPA).md",
     "1-projects/ArgoCD (CAPA)/CAPA course/01 - ArgoCD.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/00 - Intro.md",
     "4-archives/LPIC-1 exam prep/104.6 Create and change hard and symbolic links.md",
     "4-archives/kubernetes-masterclass/Setup.md",
     "4-archives/Arch Linux installation/17 - Docker & DevPod.md",
-    "1-projects/ArgoCD (CAPA)/01 - Argo Workflows.md",
-    "1-projects/ArgoCD (CAPA)/00 - Certified Argo Project Associate (CAPA).md",
     "4-archives/ArgoCD.md",
-    "1-projects/ArgoCD (CAPA)/02 - Argo CD.md",
-    "1-projects/ArgoCD (CAPA)/03 - Argo Rollouts.md",
     "1-projects/ArgoCD (CAPA)/CAPA course",
-    "1-projects/ArgoCD (CAPA)/04 - Argo Events.md",
     "1-projects/Proxmox/01 - enlarge LVM with 2nd disk.md",
     "1-projects/Proxmox/00 - Installation.md",
     "1-projects/Proxmox/Sonar - Proxmox LXC.md",
