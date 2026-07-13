@@ -159,6 +159,13 @@ lima-rancher-desktop   Ready    control-plane,master   412d   v1.31.5+k3s1
 
 ### switching between Rancher Desktop and Podman Desktop
 
+to Rancher: `kubectx rancher-desktop`
+
+to Podman:
+
+- quit Rancher Desktop
+- switch to a non-rancher-desktop kubectx contex
+- run `podman` commands (`docker` alias commented out in `~/.bashrc`)
 
 
 
