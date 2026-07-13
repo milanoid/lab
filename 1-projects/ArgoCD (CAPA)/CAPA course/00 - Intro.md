@@ -90,5 +90,5 @@ I'll use Rancher Desktop
 
 fixes for company Macbook
 ```bash
-
+ln -sf "/Applications/Rancher Desktop.app/Contents/Resources/resources/darwin/docker-cli-plugins/docker-compose" ~/.rd/bin/docker-compose
 ```
