@@ -139,12 +139,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/ArgoCD (CAPA)/CAPA course/00 - Intro.md",
+                "file": "4-archives/kubernetes-masterclass/Setup.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "00 - Intro"
+              "title": "Setup"
             }
           },
           {
@@ -266,7 +266,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Argo Workflow",
+                "query": "\"ln -\"",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -405,8 +405,10 @@
   },
   "active": "9ffe05f04ed04950",
   "lastOpenFiles": [
-    "1-projects/ArgoCD (CAPA)/01 - Argo Workflows.md",
+    "4-archives/LPIC-1 exam prep/104.6 Create and change hard and symbolic links.md",
+    "4-archives/Arch Linux installation/17 - Docker & DevPod.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/00 - Intro.md",
+    "1-projects/ArgoCD (CAPA)/01 - Argo Workflows.md",
     "1-projects/ArgoCD (CAPA)/00 - Certified Argo Project Associate (CAPA).md",
     "4-archives/ArgoCD.md",
     "1-projects/ArgoCD (CAPA)/02 - Argo CD.md",
@@ -429,14 +431,12 @@
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 4 - Containerization",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 2 - Dev environment/notes.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 1 - Introduction/notes.md",
-    "4-archives/Arch Linux installation/17 - Docker & DevPod.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 2 - Dev environment",
     "0-inbox/tmux.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/05 - Module 5 - Mise.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/06 - Module 6 - Vim & Cutoff Point.md",
     "4-archives/Kubecraft - DevOps OS - Part1/DevContainers/07 - Zsh, Neovim and  The rest.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 1 - Introduction",
-    "4-archives/Kubernetes HomeLab/12 - HomeLab - Audiobookshelf (capstone project).md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 3 - Python - Pre-requisites",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass",
     "Pasted image 20260413081842.png",

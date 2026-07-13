@@ -84,3 +84,11 @@ also covered in [[03 - Argo Rollouts]]
 - automates promotion, rollback
 - to safely deploy new app features into Production without manual analysis, testing etc.
 
+# Installing Kubernetes locally
+
+I'll use Rancher Desktop
+
+fixes for company Macbook
+```bash
+
+```
