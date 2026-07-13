@@ -139,12 +139,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/ArgoCD (CAPA)/CAPA course/00 - Intro.md",
+                "file": "1-projects/ArgoCD (CAPA)/00 - Certified Argo Project Associate (CAPA).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "00 - Intro"
+              "title": "00 - Certified Argo Project Associate (CAPA)"
             }
           },
           {
@@ -266,7 +266,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "jellyfin",
+                "query": "Argo Workflow",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -405,20 +405,20 @@
   },
   "active": "9ffe05f04ed04950",
   "lastOpenFiles": [
-    "1-projects/ArgoCD (CAPA)/03 - Argo Rollouts.md",
+    "4-archives/ArgoCD.md",
+    "1-projects/ArgoCD (CAPA)/01 - Argo Workflows.md",
+    "1-projects/ArgoCD (CAPA)/02 - Argo CD.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/00 - Intro.md",
+    "1-projects/ArgoCD (CAPA)/03 - Argo Rollouts.md",
     "1-projects/ArgoCD (CAPA)/CAPA course",
     "1-projects/ArgoCD (CAPA)/04 - Argo Events.md",
     "1-projects/ArgoCD (CAPA)/00 - Certified Argo Project Associate (CAPA).md",
-    "1-projects/ArgoCD (CAPA)/01 - Argo Workflows.md",
-    "1-projects/ArgoCD (CAPA)/02 - Argo CD.md",
     "1-projects/Proxmox/01 - enlarge LVM with 2nd disk.md",
     "1-projects/Proxmox/00 - Installation.md",
     "1-projects/Proxmox/Sonar - Proxmox LXC.md",
     "1-projects/Proxmox/Nexus - Proxmox LXC.md",
     "1-projects/Proxmox/Jenkins - Proxmox LXC.md",
     "4-archives/Jellyfin.md",
-    "4-archives/ArgoCD.md",
     "1-projects/ArgoCD (CAPA)",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions/notes.md",
     "4-archives/VPN server with dynamic IP.md",
