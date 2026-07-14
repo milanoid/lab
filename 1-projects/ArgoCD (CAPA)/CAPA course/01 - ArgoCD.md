@@ -321,3 +321,5 @@ http://localhost:9090/
 
 #### image update
 
+# Lab 3.3. Argo CD Security and RBAC
+
