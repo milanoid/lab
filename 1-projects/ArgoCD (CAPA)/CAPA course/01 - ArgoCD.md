@@ -310,3 +310,14 @@ argocd login capa-argocd.milanoid.net --username admin --password <password>
 1. Fork the GitHub repository https://github.com/lftraining/LFS256-code
 
 - [x] https://github.com/milanoid-labs/LFS256-code
+
+deploy a new application via UI (NEW APP button), then synchronize.
+
+PF to access it via browser 
+
+`kubectl -n example port-forward svc/argocd-example-app-service 9090:3000 --address 0.0.0.0`
+
+http://localhost:9090/
+
+#### image update
+
