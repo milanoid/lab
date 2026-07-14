@@ -339,3 +339,19 @@ argocd account update-password --account developer --new-password Developer123
 ```bash
 kubectl edit cm -n argocd argocd-rbac-cm
 ```
+
+
+```yaml
+data:
+  policy.csv: |
+    p, role:synconly, applications, sync, */*, allow
+    g, developer, role:synconly
+  policy.default: role:readonly
+```
+
+Now login as user `developer` and verify RBAC is working - e.g. user cannot delete the app:
+
+
+```
+Unable to delete application: permission denied: applications, delete, default/example-app, sub: developer, iat: 2026-07-14T16:03:58Z
+```
