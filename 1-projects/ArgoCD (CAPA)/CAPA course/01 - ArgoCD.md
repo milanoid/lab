@@ -293,3 +293,17 @@ now rolling restart
 ```bash
 kubectl -n argocd rollout restart deploy argocd-server
 ```
+
+
+
+Verify CLI access
+
+```bash
+argocd login capa-argocd.milanoid.net --username admin --password <password>
+```
+
+
+
+
+# Lab 3.2. Managing Applications with Argo CD
+
