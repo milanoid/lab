@@ -133,4 +133,32 @@ Key elements
 
 
 
+### Plugins
 
+E.g. Notification plugin
+
+- plugins are configured via _ConfigMap_
+
+
+```yaml
+apiVersion: v1  
+kind: ConfigMap  
+metadata:  
+  name: argocd-notifications-cm  
+data:  
+  context: |  
+    region: east  
+    environmentName: staging
+
+  template.a-slack-template-with-context: |  
+    message: "Something happened in {{ .context.environmentName }} in the {{ .context.region }} data center!"
+```
+
+Plugins have a lifecycle (registration, init, execution)
+
+
+Other plugins example
+
+- [Image Updater Plugin](https://argocd-image-updater.readthedocs.io/en/stable/) (no need for Renovate to do that?)
+- [ArgoCD Autopilot](https://github.com/argoproj-labs/argocd-autopilot) - management of Helm releases
+- [ArgoCD Interlace](https://github.com/argoproj-labs/argocd-interlace) - extras for UI
