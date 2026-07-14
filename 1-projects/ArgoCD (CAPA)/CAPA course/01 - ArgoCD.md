@@ -187,7 +187,7 @@ Kustomize - adds customization layer to deployments w/o changing base manifest
 
 - [x] done on Homelab
 - [x] Rancher Desktop
-- [ ] service in RD ArgoCD so I don't have to do port-forward all the time
+- [ ] Ingress in RD ArgoCD so I don't have to do port-forward all the time
 
 
 ```bash
@@ -242,3 +242,31 @@ https://kubernetes.default.svc  in-cluster  1.31.5   Unknown  Cluster has no app
 ```
 
 cli access config in `~/.config/argocd/config`
+
+
+
+##### extra - ingress
+
+- set default ns `kubectl config set-context --current --namespace argocd`
+
+```yaml
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd
+spec:
+  ingressClassName: traefik
+  rules:
+    # to be accessed from LAN/VPN only
+    - host: capa-argocd.milanoid.net  # subdomain of my cloudflare domain
+      http:
+        paths:
+          - backend:
+              service:
+                name: argocd-server
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+```
