@@ -162,3 +162,8 @@ Other plugins example
 - [Image Updater Plugin](https://argocd-image-updater.readthedocs.io/en/stable/) (no need for Renovate to do that?)
 - [ArgoCD Autopilot](https://github.com/argoproj-labs/argocd-autopilot) - management of Helm releases
 - [ArgoCD Interlace](https://github.com/argoproj-labs/argocd-interlace) - extras for UI
+
+
+
+### Securing Argo CD
+
