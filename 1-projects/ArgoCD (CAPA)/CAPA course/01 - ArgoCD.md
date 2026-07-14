@@ -307,3 +307,6 @@ argocd login capa-argocd.milanoid.net --username admin --password <password>
 
 # Lab 3.2. Managing Applications with Argo CD
 
+1. Fork the GitHub repository https://github.com/lftraining/LFS256-code
+
+- [x] https://github.com/milanoid-labs/LFS256-code
