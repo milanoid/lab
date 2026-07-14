@@ -323,3 +323,19 @@ http://localhost:9090/
 
 # Lab 3.3. Argo CD Security and RBAC
 
+1. create a new user
+
+`kubectl edit cm argocd-cm -n argocd`
+
+- add `accounts.developer: login` to `data` section
+- update a password
+```bash
+argocd account update-password --account developer --new-password Developer123
+```
+
+
+2. Define RBAC rules
+
+```bash
+kubectl edit cm -n argocd argocd-rbac-cm
+```
