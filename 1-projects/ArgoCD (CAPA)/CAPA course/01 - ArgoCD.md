@@ -270,3 +270,26 @@ spec:
             path: /
             pathType: Prefix
 ```
+
+- allowing insecure access needed
+
+```yaml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/name: argocd-cmd-params-cm
+    app.kubernetes.io/part-of: argocd
+  name: argocd-cmd-params-cm
+  namespace: argocd
+data:
+  server.insecure: "true"
+```
+
+now rolling restart
+
+
+```bash
+kubectl -n argocd rollout restart deploy argocd-server
+```
