@@ -514,3 +514,7 @@ dag-diamondxhzxw-echo-2334612023: time="2026-07-15T08:36:55.154Z" level=info msg
 A run first, then B, C in parallel, then D
 
 ![[Pasted image 20260715104029.png]]
+
+
+# Lab 4.3 CI/CD Using Argo Workflows
+
