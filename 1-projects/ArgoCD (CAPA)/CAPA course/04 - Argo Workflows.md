@@ -294,5 +294,24 @@ kubectl patch deployment -n argo argo-server --type='json' -p='[{"op": "replace"
 
 Ingress (so no port-forward is necessary)
 
-```
+```yaml
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argo
+spec:
+  ingressClassName: traefik
+  rules:
+    # to be accessed from LAN/VPN only
+    - host: capa-argo.milanoid.net  # subdomain of my cloudflare domain
+      http:
+        paths:
+          - backend:
+              service:
+                name: argo-server
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
 ```
