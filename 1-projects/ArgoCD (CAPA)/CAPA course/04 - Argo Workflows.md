@@ -230,3 +230,69 @@ templates:
             name: sample-template
             template: hello-world
 ```
+
+
+### Defining Argo Workflows and Its Components
+
+#### Building Blocks
+
+Argo Server
+- central component
+- exposes REST API for workflow submissions, monitoring, and management
+
+Workflow Controller
+- manages lifecycle of workflows
+- interacts with Kubernetes API server
+
+Argo UI
+
+Argo Server and Workflow Controller runs in `argo` namespace.
+
+
+### Argo Workflow Overview
+
+each step and DAG generates a Pod with 3 containers
+
+1. `init` 
+2. `main`
+3. `wait`
+
+
+
+### Examples
+
+- orchestrate end-to-end data processing pipeline
+- machine learning projects
+- foundation for CI/CD pipelines
+- batch processing
+
+---
+
+# Lab 4.1. Installing Argo Workflows
+
+
+Install (on my Rancher Desktop)
+
+```bash
+# ns
+kubectl create namespace argo
+
+# quick start manifest
+kubectl apply -n argo -f https://github.com/argoproj/argo-workflows/releases/download/v3.7.3/install.yaml
+```
+
+
+Accessing UI
+
+Patch argo-server authentication 
+
+(by default is uses a client authentication, which requires clients to provide their Kubernetes bearer token, we switch the authentication mode to the server so that we can bypass UI login for now)
+
+```bash
+kubectl patch deployment -n argo argo-server --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/args", "value": [ "server", "--auth-mode=server" ]}]'
+```
+
+Ingress (so no port-forward is necessary)
+
+```
+```
