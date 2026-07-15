@@ -330,8 +330,42 @@ kubectl -n argo patch deployment argo-server --type='json' \
   -p='[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--secure=false"}]'
 ```
 
+```bash
+# fix probe schema too
+kubectl -n argo patch deployment argo-server --type='json' \
+  -p='[{"op":"replace","path":"/spec/template/spec/containers/0/readinessProbe/httpGet/scheme","value":"HTTP"}]'
+```
+
 and then rolling restart
 
 ```bash
 kubectl -n argo rollout status deployment argo-server
 ```
+
+
+https://capa-argo.milanoid.net/
+
+
+#### cli
+
+```bash
+> argo version
+argo: v4.0.7+9aeb47c.dirty
+  BuildDate: 2026-07-07T11:53:02Z
+  GitCommit: 9aeb47ce10339f4a14819335c6a00027353ba0df
+  GitTreeState: dirty
+  GitTag: v4.0.7
+  GoVersion: go1.26.4
+  Compiler: gc
+  Platform: darwin/arm64
+```
+
+enable autocompletion
+
+`source <(argo completion bash)`
+
+https://argoproj.github.io/argo-rollouts/generated/kubectl-argo-rollouts/kubectl-argo-rollouts_completion/
+
+
+# Lab 4.2. A Simple DAG Workflows
+
