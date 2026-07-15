@@ -311,7 +311,27 @@ spec:
               service:
                 name: argo-server
                 port:
-                  number: 80
+                  number: 2746
             path: /
             pathType: Prefix
+```
+
+
+
+```bash
+curl -k -H "Host: capa-argo.milanoid.net" https://127.0.0.1
+Client sent an HTTP request to an HTTPS server.
+```
+
+-> patch argo-server deployment to fix that
+
+```bash
+kubectl -n argo patch deployment argo-server --type='json' \
+  -p='[{"op":"add","path":"/spec/template/spec/containers/0/args/-","value":"--secure=false"}]'
+```
+
+and then rolling restart
+
+```bash
+kubectl -n argo rollout status deployment argo-server
 ```
