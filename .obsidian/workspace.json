@@ -433,15 +433,17 @@
   },
   "active": "300166014a8ee67c",
   "lastOpenFiles": [
-    "1-projects/ArgoCD (CAPA)/CAPA course/04 - Argo Workflows.md",
+    "1-projects/ArgoCD (CAPA)/03 - Argo Rollouts.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/05 - Argo Rollouts.md",
+    "Pasted image 20260716154002.png",
+    "Pasted image 20260716153517.png",
+    "1-projects/ArgoCD (CAPA)/CAPA course/04 - Argo Workflows.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/03 - ArgoCD.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/02 - Introduction to Argo.md",
     "Pasted image 20260715104029.png",
     "Pasted image 20260714083634.png",
     "Pasted image 20260714083448.png",
     "1-projects/ArgoCD (CAPA)/04 - Argo Events.md",
-    "1-projects/ArgoCD (CAPA)/03 - Argo Rollouts.md",
     "1-projects/ArgoCD (CAPA)/02 - Argo CD.md",
     "1-projects/ArgoCD (CAPA)/01 - Argo Workflows.md",
     "1-projects/ArgoCD (CAPA)/00 - Certified Argo Project Associate (CAPA).md",
@@ -465,7 +467,6 @@
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 3 - Python - Pre-requisites/my notes on Python packaging.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 4 - Containerization",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 2 - Dev environment/notes.md",
-    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 1 - Introduction/notes.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 2 - Dev environment",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 1 - Introduction",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 3 - Python - Pre-requisites",
@@ -478,8 +479,6 @@
     "Pasted image 20260321164530.png",
     "Pasted image 20260321151549.png",
     "Pasted image 20260320161450.png",
-    "1-projects/Proxmox",
-    "4-archives/Arch Linux/Screenshot 2025-04-26 at 18.27.36.png",
-    "4-archives/Arch Linux/Pasted image 20250407140038.png"
+    "1-projects/Proxmox"
   ]
 }
