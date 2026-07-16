@@ -518,3 +518,10 @@ A run first, then B, C in parallel, then D
 
 # Lab 4.3 CI/CD Using Argo Workflows
 
+## 1. Create Argo Workflow
+
+Workflow steps:
+
+- Build: The build step builds the image with the latest changes, using a Python 3 image for this scenario.
+- Tests: The test step mounts a volume with test files and runs unit tests with the Python unittest library.
+- Deployment: The deploy step runs the Python container and prints deploy. Normally, this step would involve pushing the tested code to a container registry, like AWS ECR or Harbor, and then deploying it to the production environment.

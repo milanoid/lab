@@ -286,7 +286,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 47.34848484848485,
+        "dimension": 33.95585738539898,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -310,7 +310,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 52.65151515151515,
+        "dimension": 66.04414261460101,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -433,10 +433,10 @@
   },
   "active": "300166014a8ee67c",
   "lastOpenFiles": [
+    "1-projects/ArgoCD (CAPA)/CAPA course/02 - Introduction to Argo.md",
+    "1-projects/ArgoCD (CAPA)/CAPA course/04 - Argo Workflows.md",
     "Pasted image 20260715104029.png",
     "1-projects/ArgoCD (CAPA)/CAPA course/03 - ArgoCD.md",
-    "1-projects/ArgoCD (CAPA)/CAPA course/04 - Argo Workflows.md",
-    "1-projects/ArgoCD (CAPA)/CAPA course/02 - Introduction to Argo.md",
     "Pasted image 20260714083634.png",
     "Pasted image 20260714083448.png",
     "1-projects/ArgoCD (CAPA)/04 - Argo Events.md",
@@ -479,7 +479,6 @@
     "Pasted image 20260320161450.png",
     "1-projects/Proxmox",
     "4-archives/Arch Linux/Screenshot 2025-04-26 at 18.27.36.png",
-    "4-archives/Arch Linux/Pasted image 20250407140038.png",
-    "Pasted image 20250629105100.png"
+    "4-archives/Arch Linux/Pasted image 20250407140038.png"
   ]
 }
