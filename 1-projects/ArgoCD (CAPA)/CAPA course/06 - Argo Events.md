@@ -176,48 +176,95 @@ kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj/argo-
 Set up a Sensor to trigger workflows based on webhook events by creating this Sensor configuration in a file called webhook.yaml. Run the following command:
 
 ```yaml
+# sensor.yaml
 ---
-apiVersion: argoproj.io/v1alpha1 
+apiVersion: argoproj.io/v1alpha1
 kind: Sensor
 metadata:
-name: webhook
+  name: webhook
 spec:
-template:
-serviceAccountName: operate-workflow-sa
-dependencies:
-- name: test-dep
-eventSourceName: webhook
-eventName: example
-triggers:
-- template:
-name: webhook-workflow-trigger
-k8s:
-operation: create
-source:
-resource:
-apiVersion: argoproj.io/v1alpha1
-kind: Workflow
-metadata:
-generateName: webhookspec:
-entrypoint: cowsay
-arguments:
-parameters:
-- name: message
-# the value will get overridden by event payload
-from test-dep
-value: hello world
-templates:
-- name: cowsay
-inputs:
-parameters:
-- name: message
-container:
-image: rancher/cowsay:latest
-command: [cowsay]
-args: ["{{inputs.parameters.message}}"]
-parameters:
-- src:
-dependencyName: test-dep
-dataKey: body
-dest: spec.arguments.parameters.0.value
+  template:
+    serviceAccountName: operate-workflow-sa
+  dependencies:
+    - name: test-dep
+      eventSourceName: webhook
+      eventName: example
+  triggers:
+    - template:
+        name: webhook-workflow-trigger
+        k8s:
+          operation: create
+          source:
+            resource:
+              apiVersion: argoproj.io/v1alpha1
+              kind: Workflow
+              metadata:
+                generateName: webhook
+              spec:
+                entrypoint: cowsay
+                arguments:
+                  parameters:
+                    - name: message
+                      # the value will get overridden
+                      #  by event payload from test-dep
+                      value: hello world
+                templates:
+                  - name: cowsay
+                    inputs:
+                      parameters:
+                        - name: message
+                    container:
+                      image: rancher/cowsay:latest
+                      command: [cowsay]
+                      args: ["{{inputs.parameters.message}}"]
+          parameters:
+            - src:
+                dependencyName: test-dep
+                dataKey: body
+              dest: spec.arguments.parameters.0.value
+```
+
+
+```bash
+kubectl -n argo-events apply -f sensor.yaml
+```
+
+
+```bash
+# Expose the event-source pod via port forwarding to consume requests over HTTP:
+kubectl -n argo-events port-forward $(kubectl -n argo-events get pod -l eventsource-name=webhook -o name) 12000:12000 &
+```
+
+Finally, simulate an external event that triggers the workflow. Send a test webhook event to the Event Source with this curl command:
+
+```bash
+curl -d '{"message":"this is my first webhook"}' -H "Content-Type: application/json" -X POST http://localhost:12000/example
+```
+
+Then in Argo Workflows UI running at http://capa-argo.milanoid.net/workflows/argo
+
+![[Screenshot 2026-07-17 at 11.48.05.png]]
+
+
+We have setup integration of Argo Workflows and Argo Events:
+
+A webhook Event initiate an Argo Workflow showcasting the system's capability to response to events.
+
+
+# Lab 6.2 Integrating Argo Events with External Systems
+
+Integration with https://pulsar.apache.org/ (Cloud-native, Distributed Messaging and Streaming)
+
+1. Triggering a Workflow with Pulsar
+
+```bash
+# Deploy Apache Pulsar in your cluster
+kubectl -n argo-events apply -f https://raw.githubusercontent.com/lftraining/LFS256-code/main/argoevents/pulsar.yaml
+```
+
+
+Next, we need to port forward the Pulsar pod to enable direct communication between your local machine and the Pulsar service running in the Kubernetes cluster. This step is crucial for Argo Events to interact with Pulsar for triggering workflows
+```bash
+# Port forward
+
 ```
