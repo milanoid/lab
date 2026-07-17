@@ -167,12 +167,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/ArgoCD (CAPA)/CAPA course/05 - Argo Rollouts.md",
+                "file": "1-projects/ArgoCD (CAPA)/CAPA course/06 - Argo Events.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "05 - Argo Rollouts"
+              "title": "06 - Argo Events"
             }
           },
           {
@@ -433,8 +433,9 @@
   },
   "active": "300166014a8ee67c",
   "lastOpenFiles": [
-    "1-projects/ArgoCD (CAPA)/03 - Argo Rollouts.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/05 - Argo Rollouts.md",
+    "1-projects/ArgoCD (CAPA)/CAPA course/06 - Argo Events.md",
+    "1-projects/ArgoCD (CAPA)/03 - Argo Rollouts.md",
     "Pasted image 20260716154002.png",
     "Pasted image 20260716153517.png",
     "1-projects/ArgoCD (CAPA)/CAPA course/04 - Argo Workflows.md",
