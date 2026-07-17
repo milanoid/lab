@@ -253,6 +253,8 @@ A webhook Event initiate an Argo Workflow showcasting the system's capability to
 
 # Lab 6.2 Integrating Argo Events with External Systems
 
+Note - theres is an issue running the Pulsar (with all other resources) on Rancher Desktop - it hangs - maybe adding extra memory to VM would help?
+
 Integration with https://pulsar.apache.org/ (Cloud-native, Distributed Messaging and Streaming)
 
 1. Triggering a Workflow with Pulsar
@@ -277,3 +279,30 @@ Set up the event source for Argo Events to listen to Pulsar messages. This confi
 ```bash
 kubectl -n argo-events apply -f https://raw.githubusercontent.com/argoproj/argo-events/stable/examples/event-sources/pulsar.yaml
 ```
+
+Deploy the sensor for reacting to Pulsar events
+
+```bash
+kubectl -n argo-events apply -f sensor.yaml
+```
+
+
+
+Now, everything is set up to trigger the event. To interact with the Pulsar pod, use the following commands:
+
+
+```bash
+# get into Pulsar container
+kubectl -n argo-events exec -it $(kubectl get pods -n argo-events -l app=pulsar -o name) -- /bin/bash
+
+# send test message
+./bin/pulsar-client produce test --messages "Test"
+```
+
+
+2. Inspecting the Triggered Workflow
+
+After sending the "Test" message via Pulsar, it triggers an Argo workflow. In the Argo UI, you can see the message in the workflow the same as in the first lab.
+
+
+http://capa-argo.milanoid.net/workflows
