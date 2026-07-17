@@ -169,6 +169,33 @@ spec:
 
 ## Ingress and Service Resources
 
+### Relevant Resources for Traffic Routing
+
+- Kubernetes Ingress - K8s native, manages external access to services in cluster
+- Kubernetes Service - way how to expose application running on a set of Pods
+- Pod Template Hash - uniq identifier of a Pod/ReplicaSet - to distinguish "old" from "new"
+- Stable/Canary ReplicaSets - stable (old), canary (new)
+
+
+
+## Rollout Analysis & Experiments
+
+
+### Analysis
+
+- answers question whether the _canary_ workload is performing well
+
+_AnalysisTemplate_ - defines the metrics
+_AnalysisRun_ - instance of the template
+
+Supports various providers like _Prometheus_, K8s Job, [Web provider](https://argo-rollouts.readthedocs.io/en/stable/analysis/web/).
+
+- https://argo-rollouts.readthedocs.io/en/stable/features/analysis/
+
+### Experiments
+
+- designed to test and evaluate changes in two or more versions of an application in a controlled, **temporary** environment
+- https://argoproj.github.io/argo-rollouts/features/experiment/
 
 
 ---
@@ -219,3 +246,86 @@ INFO[0000] Argo Rollouts Dashboard is now available at http://localhost:3100/rol
 ```
 
 http://localhost:3100/rollouts
+
+
+# Lab 5.2 Argo Rollouts Blue-Green
+
+
+1. Install Resources
+
+```bash
+# check existing rollouts
+> kubectl get rollout
+> No resources found in default namespace.
+```
+
+
+```bash
+# create the Rollout resource
+> kubectl apply -f rollout.yaml
+rollout.argoproj.io/rollout-bluegreen created
+
+# get the rollout
+> kubectl get rollout
+NAME                DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+rollout-bluegreen   2
+```
+
+- not ready yet
+
+
+```bash
+> kubectl describe rollouts.argoproj.io rollout-bluegreen
+...
+Status:
+  Conditions:
+    Last Transition Time:  2026-07-17T05:27:32Z
+    Last Update Time:      2026-07-17T05:27:32Z
+    Message:               The Rollout "rollout-bluegreen" is invalid: spec.strategy.blueGreen.activeService: Invalid value: "rollout-bluegreen-active": service "rollout-bluegreen-active" not found
+    Reason:                InvalidSpec
+    Status:                True
+    Type:                  InvalidSpec
+  Message:                 InvalidSpec: The Rollout "rollout-bluegreen" is invalid: spec.strategy.blueGreen.activeService: Invalid value: "rollout-bluegreen-active": service "rollout-bluegreen-active" not found
+  Observed Generation:     1
+  Phase:                   Degraded
+Events:
+  Type    Reason                  Age   From                 Message
+  ----    ------                  ----  ----                 -------
+  Normal  RolloutAddedToInformer  116s  rollouts-controller  Rollout resource added to informer: default/rollout-bluegreen
+...
+```
+
+- we need to create the services the rollout refers to
+
+```bash
+kubectl apply -f service-blue-green-active.yaml -f service-blue-green-preview.yaml
+```
+
+
+Now the rollout is ready:
+
+```bash
+> kubectl argo rollouts get ro rollout-bluegreen
+Name:            rollout-bluegreen
+Namespace:       default
+Status:          ✔ Healthy
+Strategy:        BlueGreen
+Images:          argoproj/rollouts-demo:blue (stable, active)
+Replicas:
+  Desired:       2
+  Current:       2
+  Updated:       2
+  Ready:         2
+  Available:     2
+
+NAME                                           KIND        STATUS     AGE  INFO
+⟳ rollout-bluegreen                            Rollout     ✔ Healthy  11m
+└──# revision:1
+   └──⧉ rollout-bluegreen-5ffd47b8d4           ReplicaSet  ✔ Healthy  25s  stable,active
+      ├──□ rollout-bluegreen-5ffd47b8d4-cww4z  Pod         ✔ Running  15s  ready:1/1
+      └──□ rollout-bluegreen-5ffd47b8d4-dtrm9  Pod         ✔ Running  15s  ready:1/1
+```
+
+
+2. Perform an Upgrade
+
