@@ -264,7 +264,16 @@ kubectl -n argo-events apply -f https://raw.githubusercontent.com/lftraining/LFS
 
 
 Next, we need to port forward the Pulsar pod to enable direct communication between your local machine and the Pulsar service running in the Kubernetes cluster. This step is crucial for Argo Events to interact with Pulsar for triggering workflows
+
 ```bash
 # Port forward
+kubectl -n argo-events port-forward $(kubectl get pods -n argo-events -l app=pulsar -o name) 6650:6650
+```
 
+
+
+Set up the event source for Argo Events to listen to Pulsar messages. This configures Argo Events to connect and listen to Pulsar.
+
+```bash
+kubectl -n argo-events apply -f https://raw.githubusercontent.com/argoproj/argo-events/stable/examples/event-sources/pulsar.yaml
 ```
