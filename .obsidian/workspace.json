@@ -294,7 +294,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "\"ln -\"",
+                "query": "Nexus",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -433,8 +433,9 @@
   },
   "active": "300166014a8ee67c",
   "lastOpenFiles": [
-    "1-projects/ArgoCD (CAPA)/00 - Certified Argo Project Associate (CAPA).md",
+    "1-projects/Proxmox/Nexus - Proxmox LXC.md",
     "1-projects/ArgoCD (CAPA)/02 - Argo CD.md",
+    "1-projects/ArgoCD (CAPA)/00 - Certified Argo Project Associate (CAPA).md",
     "1-projects/ArgoCD (CAPA)/01 - Argo Workflows.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/03 - ArgoCD.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/05 - Argo Rollouts.md",
@@ -459,7 +460,6 @@
     "1-projects/Proxmox/01 - enlarge LVM with 2nd disk.md",
     "1-projects/Proxmox/00 - Installation.md",
     "1-projects/Proxmox/Sonar - Proxmox LXC.md",
-    "1-projects/Proxmox/Nexus - Proxmox LXC.md",
     "1-projects/Proxmox/Jenkins - Proxmox LXC.md",
     "4-archives/Jellyfin.md",
     "1-projects/ArgoCD (CAPA)",

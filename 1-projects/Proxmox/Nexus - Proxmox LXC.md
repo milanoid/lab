@@ -166,6 +166,7 @@ The env var pattern is `UV_INDEX_<NAME_UPPERCASED>_USERNAME/PASSWORD`!
 - [x] add NEXUS_USERNAME and NEXUS_PASSWORD (scoped for repo devops-study-repo)
 - [x] use my nexus for push/pull deps
 - [ ] cloudflared
+- [ ] reset/retrieve admin password and save to LastPass
 
 
 
