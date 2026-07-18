@@ -167,12 +167,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/ArgoCD (CAPA)/CAPA course/03 - ArgoCD.md",
+                "file": "1-projects/ArgoCD (CAPA)/02 - Argo CD.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "03 - ArgoCD"
+              "title": "02 - Argo CD"
             }
           },
           {
@@ -433,11 +433,11 @@
   },
   "active": "300166014a8ee67c",
   "lastOpenFiles": [
+    "1-projects/ArgoCD (CAPA)/CAPA course/03 - ArgoCD.md",
     "1-projects/ArgoCD (CAPA)/02 - Argo CD.md",
     "1-projects/Proxmox/Nexus - Proxmox LXC.md",
     "1-projects/ArgoCD (CAPA)/00 - Certified Argo Project Associate (CAPA).md",
     "1-projects/ArgoCD (CAPA)/01 - Argo Workflows.md",
-    "1-projects/ArgoCD (CAPA)/CAPA course/03 - ArgoCD.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/05 - Argo Rollouts.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/06 - Argo Events.md",
     "Screenshot 2026-07-17 at 11.48.05.png",

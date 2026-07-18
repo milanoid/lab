@@ -32,3 +32,8 @@ spec:
 
 As my Argo CD in homelab is installed via a Helm chart the `argocd-cm` is using Helm Chart default values **but** with overrides in [release.yaml](https://github.com/milanoid-labs/homelab-cluster/blob/main/infrastructure/controllers/base/argocd/release.yaml#L26) e.g. the `ui.bannercontent`.
 
+
+
+# Example Apps
+
+https://github.com/argoproj/argocd-example-apps
