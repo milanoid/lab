@@ -1,8 +1,14 @@
 
 
-# Application
+# Application CRD
 
 - spec https://argo-cd.readthedocs.io/en/stable/user-guide/application-specification/
+
+Main questions it addresses:
+
+- Where the application code is? - `source`
+- Where it should be deployed? - `destination`
+- How it should be synced? - `syncPolicy`
 
 ```yaml
 spec: 
@@ -14,7 +20,7 @@ spec:
 	path: guestbook # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
 ```
 
-- source can be git or [Helm Chart Repository](https://helm.sh/docs/topics/chart_repository/) 
+- `source` can be Git Repository or [Helm Chart Repository](https://helm.sh/docs/topics/chart_repository/) 
 - Helm Chart Repository can be hosted on Nexus
 
 
@@ -23,4 +29,6 @@ spec:
 
 - spec https://argo-cd.readthedocs.io/en/stable/operator-manual/argocd-cm-yaml/
 
-- 
+
+As my Argo CD in homelab is installed via a Helm chart the `argocd-cm` is using Helm Chart default values **but** with overrides in [release.yaml](https://github.com/milanoid-labs/homelab-cluster/blob/main/infrastructure/controllers/base/argocd/release.yaml#L26) e.g. the `ui.bannercontent`.
+
