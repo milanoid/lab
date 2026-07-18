@@ -1,4 +1,5 @@
 
+- example apps https://github.com/argoproj/argocd-example-apps
 
 # Application CRD
 
@@ -34,6 +35,42 @@ As my Argo CD in homelab is installed via a Helm chart the `argocd-cm` is using 
 
 
 
-# Example Apps
+# Sync and Health Status
 
-https://github.com/argoproj/argocd-example-apps
+### Sync status
+
+- Synced - live state matches desired state
+- OutOfSync - live state DOES not match desired state
+- Progressing - undergoing sync operation
+
+They Sync status (green checkmark) is displayed only on components managed by Application. E.g. _Service_ and _Deployment_ has a sync status but _ReplicaSet_ does not (as it is managed by _Deployment):
+
+![[Pasted image 20260718205608.png]]
+
+The Sync status doesn't say anything about the health of the application.
+
+### Health status
+
+- Healthy or Degraded 
+- checked through probes
+
+
+#### Argo _tracking-id_ annotation
+
+How does Argo know which manifests are managed by Argo? 
+
+Through the `tracking-id` annotation:
+
+```yaml
+metadata:
+	annotations:
+		argocd.argoproj.io/tracking-id: guestbook:apps/Deployment:guestbook/guestbook-ui
+```
+
+- Kind: _Deployment_
+- Namespace: _guestbook_
+- Name: _guestbook-ui_
+
+If such annotation is not in the manifest than Argo is not managing it.
+
+
