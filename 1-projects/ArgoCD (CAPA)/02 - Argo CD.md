@@ -74,3 +74,9 @@ metadata:
 If such annotation is not in the manifest than Argo is not managing it.
 
 
+
+# Working with Helm Charts
+
+- does not run `helm install`
+- it treats Helm as a template engine, generates the K8s manifest and `kubectl apply` 
+
