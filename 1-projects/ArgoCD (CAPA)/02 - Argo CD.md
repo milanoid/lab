@@ -79,7 +79,13 @@ If such annotation is not in the manifest than Argo is not managing it.
 
 - does not run `helm install` or `helm upgrade`
 - it treats Helm as a template engine, generates the K8s manifest and `kubectl apply`
-- uses `helm template`
+- uses `helm template`i
+
+
+No need for plain Kubernetes manifests (Deployment, Service). These are encapsulated in the Helm Chart. E.g. https://github.com/argoproj/argocd-example-apps/tree/master/helm-guestbook/templates
+
+
+
 
 
 
