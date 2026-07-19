@@ -79,13 +79,33 @@ If such annotation is not in the manifest than Argo is not managing it.
 
 - does not run `helm install` or `helm upgrade`
 - it treats Helm as a template engine, generates the K8s manifest and `kubectl apply`
-- uses `helm template`i
+- uses `helm template`
 
 
 No need for plain Kubernetes manifests (Deployment, Service). These are encapsulated in the Helm Chart. E.g. https://github.com/argoproj/argocd-example-apps/tree/master/helm-guestbook/templates
 
 
+## Overriding Chart Values
+
+- multiple locations of the Helm Chart Values
+	- Chart's default Values file
+	- _Application_ manifest: _valueFiles_ (lowest priority)
+	- _Application_ manifest: _values_
+	- _Application_ manifest: _valuesObject_
+	- _Application_ manifest: _parameters_ (highest priority)
+
+https://argo-cd.readthedocs.io/en/latest/user-guide/helm/#helm-value-precedence
 
 
+### _valueFiles_
+```yaml
+# the last one wins
+valueFiles: 
+  - values-file-2.yaml 
+  - values-file-1.yaml 
+
+# In this case, values-file-1.yaml will override values from values-file-2.yaml.
+```
 
 
+- best practice for using a public Helm Charts -> have my own Git repo with my Values
