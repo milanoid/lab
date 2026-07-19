@@ -59,7 +59,7 @@ The Sync status doesn't say anything about the health of the application.
 
 How does Argo know which manifests are managed by Argo? 
 
-Through the `tracking-id` annotation:
+By default through the `tracking-id` annotation:
 
 ```yaml
 metadata:
@@ -77,6 +77,9 @@ If such annotation is not in the manifest than Argo is not managing it.
 
 # Working with Helm Charts
 
-- does not run `helm install`
-- it treats Helm as a template engine, generates the K8s manifest and `kubectl apply` 
+- does not run `helm install` or `helm upgrade`
+- it treats Helm as a template engine, generates the K8s manifest and `kubectl apply`
+- uses `helm template`
+
+
 
