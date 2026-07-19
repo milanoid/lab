@@ -123,4 +123,29 @@ valueFiles:
 
 
 
+---
+
+# Private Repositories
+
+https://argo-cd.readthedocs.io/en/latest/user-guide/private-repositories/
+
+- The _Application_ CRD is the same, but we need to create K8s Secrets with credentials
+- note the _label_ value
+
+
+```yaml
+---
+apiVersion: v1 
+kind: Secret 
+metadata:
+  name: git-private-repo 
+  namespace: argocd 
+  labels: argocd.argoproj.io/secret-type: repository 
+stringData: 
+  type: git 
+  url: https://contoso@dev.azure.com/my-projectcollection/my-project/_git/my-repo 
+  useAzureWorkloadIdentity: "true"
+```
+
+
 
