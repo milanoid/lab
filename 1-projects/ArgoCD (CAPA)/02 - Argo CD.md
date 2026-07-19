@@ -109,3 +109,18 @@ valueFiles:
 
 
 - best practice for using a public Helm Charts -> have my own Git repo with my Values
+
+
+---
+
+# Advanced Sync and Automation
+
+- https://argo-cd.readthedocs.io/en/latest/user-guide/auto_sync/
+
+- _automated_ - any change in tracked Git repo synced automatically (3 mins default)
+- _prune_ - whether to delete resources
+- _selfHeal_ - fix the drift (e.g. a manual change on cluster) back to desired state in Git
+
+
+
+
