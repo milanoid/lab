@@ -204,7 +204,13 @@ kubectl argo rollouts promote canary-demo -n argo-rollouts-canary-demo
 - 1 service in a load balancer role
 
 - _setWeight_ - dictates the percentage of traffic that should be sent to the canary
-- 
+
+
+_stableService_ vs _canaryService_
+
+
+
+
 
 
 
