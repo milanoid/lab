@@ -75,6 +75,20 @@ https://github.com/milanoid-labs/homelab-cluster/tree/main/apps/argocd/argo-roll
 ![[Pasted image 20260720095232.png]]
 
 
+```bash
+# promote
+> kubectl argo rollouts promote 
+
+Usage: kubectl-argo-rollouts promote ROLLOUT_NAME [flags] 
+
+Examples: 
+# Promote a paused rollout 
+kubectl argo rollouts promote guestbook 
+
+# Fully promote a rollout to desired version, skipping analysis, pauses, and steps 
+kubectl argo rollouts promote guestbook --full
+```
+
 After promotion:
 
 ```bash
