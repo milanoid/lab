@@ -122,8 +122,11 @@ NAME                                     KIND        STATUS        AGE    INFO
 ```
 
 
+can watch interactively using `--watch`:
 
-
+```bash
+kubectl argo rollouts get rollout canary-demo -n argo-rollouts-canary-demo --watch
+```
 
 
 
