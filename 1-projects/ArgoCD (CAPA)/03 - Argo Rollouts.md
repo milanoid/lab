@@ -129,4 +129,52 @@ kubectl argo rollouts get rollout canary-demo -n argo-rollouts-canary-demo --wat
 ```
 
 
+see the Canary deployment in action
+
+- it's Paused
+- 1 out of 5 Pods is the Canary
+- Ready to be tested/inspected
+- Needs to be promoted to continue
+
+```bash
+Name:            canary-demo
+Namespace:       argo-rollouts-canary-demo
+Status:          ॥ Paused
+Message:         CanaryPauseStep
+Strategy:        Canary
+  Step:          1/8
+  SetWeight:     20
+  ActualWeight:  20
+Images:          argoproj/rollouts-demo:green@sha256:e32df3d15f759d36c323b3dccb7003d38df1a4274d37217715151f085c24c58f (stable)
+                 argoproj/rollouts-demo:red (canary)
+Replicas:
+  Desired:       5
+  Current:       5
+  Updated:       1
+  Ready:         5
+  Available:     5
+
+NAME                                     KIND        STATUS        AGE   INFO
+⟳ canary-demo                            Rollout     ॥ Paused      13h
+├──# revision:4
+│  └──⧉ canary-demo-7f8d7cc775           ReplicaSet  ✔ Healthy     2m3s  canary
+│     └──□ canary-demo-7f8d7cc775-9w7vx  Pod         ✔ Running     2m2s  ready:1/1
+├──# revision:3
+│  └──⧉ canary-demo-7d94b95fd5           ReplicaSet  ✔ Healthy     145m  stable
+│     ├──□ canary-demo-7d94b95fd5-2dwpl  Pod         ✔ Running     145m  ready:1/1
+│     ├──□ canary-demo-7d94b95fd5-8szxf  Pod         ✔ Running     41m   ready:1/1
+│     ├──□ canary-demo-7d94b95fd5-6xkd9  Pod         ✔ Running     41m   ready:1/1
+│     └──□ canary-demo-7d94b95fd5-ks9g7  Pod         ✔ Running     40m   ready:1/1
+└──# revision:2
+   └──⧉ canary-demo-67fc7c4899           ReplicaSet  • ScaledDown  12h
+```
+
+
+```bash
+# cli to pronote a paused deployment
+kubectl argo rollouts promote canary-demo -n argo-rollouts-canary-demo
+```
+
+
+# Core Rollout Strategies
 
