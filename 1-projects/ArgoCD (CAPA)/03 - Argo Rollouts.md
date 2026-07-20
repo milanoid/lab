@@ -178,3 +178,22 @@ kubectl argo rollouts promote canary-demo -n argo-rollouts-canary-demo
 
 # Core Rollout Strategies
 
+## Blue-Green Deployment
+
+1. all blue
+	- blue Service
+	- blue RS running blue Pods
+2. green
+    - green Service
+    - green RS running green Pods
+3. scaling down blue, scaling up green
+4. promotion
+
+- resource heavy (2 environments)
+- _activeService_ vs _previewService_
+
+
+
+
+
+
