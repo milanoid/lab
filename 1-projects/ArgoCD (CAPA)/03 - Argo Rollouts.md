@@ -210,6 +210,24 @@ _stableService_ vs _canaryService_
 
 
 
+# Advanced Traffic Management
+
+## Replica-Weighted Limitations 
+
+- precision problem (5 replicas -> how to have 5 %?)
+- resource waste (over-provision)
+- no header-based routing (a canary request header to get the canary response)
+
+
+## Traffic-Weighted Canary
+
+Instead of relying on "public" service we create a Gateway (Ingress successor) which weights the traffic exactly as defined (5/95 %) not based on number of Pods.
+
+## Header-Based Routing
+
+I want to query canary application predictably.
+
+E.g. `x-canary: true` in http request
 
 
 
