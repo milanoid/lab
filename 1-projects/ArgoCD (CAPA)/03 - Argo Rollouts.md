@@ -180,6 +180,9 @@ kubectl argo rollouts promote canary-demo -n argo-rollouts-canary-demo
 
 ## Blue-Green Deployment
 
+- 2 environments running side by side
+- after promotion the blue is scaled down
+
 1. all blue
 	- blue Service
 	- blue RS running blue Pods
@@ -191,6 +194,17 @@ kubectl argo rollouts promote canary-demo -n argo-rollouts-canary-demo
 
 - resource heavy (2 environments)
 - _activeService_ vs _previewService_
+- service label contains a hash -> to know to which RS route the traffic
+
+
+## Canary Deployment
+
+- gradual shift
+- e.g. 80 % stable env, 20 % canary env
+- 1 service in a load balancer role
+
+- _setWeight_ - dictates the percentage of traffic that should be sent to the canary
+- 
 
 
 
