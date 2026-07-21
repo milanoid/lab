@@ -1,0 +1,3 @@
+- test cluster running on Rancher Desktop@Macbook
+- training course[ DevOps and Workflow Management with Argo (LFS256)](https://trainingportal.linuxfoundation.org/learn/course/devops-and-workflow-management-with-argo-lfs256/introduction-to-argo/knowledge-check)
+- my test repo https://github.com/milanoid-labs/LFS256-code
