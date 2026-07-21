@@ -263,10 +263,13 @@ Components
 
 ## Automated Analysis & Promotion
 
-- we need to scrape metrics on both deployment (canary/stable, green/blue) before promoting it
-- _AnalysisTemplete_ - a template for our analysis
-- _AnalysisRun_ - an instance of the template, either fail (Rollback) or succeed (Auto-Promotion)
 
+https://argo-rollouts.readthedocs.io/en/stable/features/analysis/
+
+- we need to scrape metrics on both deployment (canary/stable, green/blue) before promoting it
+- _AnalysisTemplete_ - a template for our analysis (namespace scoped)
+- _AnalysisRun_ - an instance of the template, either fail (Rollback) or succeed (Auto-Promotion)
+- _ClusterAnalysisTemplate_ - like _AnalysisTemplate_ but cluster wide
 
 
 
