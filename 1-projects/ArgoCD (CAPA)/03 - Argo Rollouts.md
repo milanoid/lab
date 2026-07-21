@@ -276,3 +276,9 @@ https://argo-rollouts.readthedocs.io/en/stable/features/analysis/
 ## Analysis in Canary and Blue-Green Strategies
 
 
+### Canary
+
+
+### Blue-Green
+
+
