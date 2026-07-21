@@ -294,7 +294,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Nexus",
+                "query": "az login",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -433,9 +433,10 @@
   },
   "active": "300166014a8ee67c",
   "lastOpenFiles": [
-    "Pasted image 20260720095232.png",
     "1-projects/ArgoCD (CAPA)/CAPA course/05 - Argo Rollouts.md",
+    "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
     "1-projects/ArgoCD (CAPA)/03 - Argo Rollouts.md",
+    "Pasted image 20260720095232.png",
     "1-projects/ArgoCD (CAPA)/02 - Argo CD.md",
     "Pasted image 20260718205608.png",
     "1-projects/ArgoCD (CAPA)/CAPA course/03 - ArgoCD.md",
@@ -476,7 +477,6 @@
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 1 - Introduction",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 3 - Python - Pre-requisites",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass",
-    "Pasted image 20260413081842.png",
     "Services+(1).pdf",
     "Untitled.canvas",
     "Untitled 1.canvas",

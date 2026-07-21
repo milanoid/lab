@@ -235,3 +235,41 @@ E.g. `x-canary: true` in http request
 # Automated Analysis and Promotion
 
 
+## Prometheus & Metrics Architecture
+
+
+### Prometheus
+
+
+- https://prometheus.io/
+- [The Prometheus Certified Associate (PCA) exam ($250)](https://www.cncf.io/training/certification/pca/)
+- [x] Helm Chart `kube-prometheus-stack` on my Homelab (with extras, like Grafana)
+- [ ] vs much simple `prometheus-community/prometheus`
+
+-  scrapes metrics, stored them for further analysis
+- living in it's own namespace
+- prometheus monitors resources with a proper `prometheus` annotation
+
+
+Components
+
+- _prometheus-server_ - scraping the resources metrics (Rollout, Service etc.)
+- _prometheus-kube-state-metrics_ - K8s API for cluster/nodes metrics
+- _prometheus-node-exporter_ - run on every mode (CPU, memory ..l)
+- _prometheus-pushgateway_
+- _prometheus-alertmanager_ - Slack, email, PageDuty alerts
+
+
+
+## Automated Analysis & Promotion
+
+- we need to scrape metrics on both deployment (canary/stable, green/blue) before promoting it
+- _AnalysisTemplete_ - a template for our analysis
+- _AnalysisRun_ - an instance of the template, either fail (Rollback) or succeed (Auto-Promotion)
+
+
+
+
+## Analysis in Canary and Blue-Green Strategies
+
+
