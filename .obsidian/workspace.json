@@ -167,7 +167,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 6 - K3d/notes.md",
+                "file": "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 1 - Introduction/notes.md",
                 "mode": "source",
                 "source": false
               },
@@ -433,8 +433,10 @@
   },
   "active": "300166014a8ee67c",
   "lastOpenFiles": [
-    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions/notes.md",
+    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 4 - Containerization/notes.md",
+    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 3 - Python - Pre-requisites/my notes on Python packaging.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 6 - K3d/notes.md",
+    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions/notes.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 6 - K3d",
     "1-projects/ArgoCD (CAPA)/CAPA course/06 - Argo Events.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/04 - Argo Workflows.md",
@@ -469,9 +471,7 @@
     "1-projects/Proxmox/00 - Installation.md",
     "1-projects/Proxmox/Sonar - Proxmox LXC.md",
     "1-projects/Proxmox/Jenkins - Proxmox LXC.md",
-    "4-archives/Jellyfin.md",
     "1-projects/ArgoCD (CAPA)",
-    "4-archives/VPN server with dynamic IP.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 4 - Containerization",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 2 - Dev environment",

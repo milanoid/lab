@@ -180,3 +180,6 @@ echo -e "${YELLOW}k3d cluster delete $CLUSTER_NAME${NC}"
 
 # End to end testing with k3d and python
 
+when to use shell
+
+https://google.github.io/styleguide/shellguide.html#s1.2-when-to-use-shell
