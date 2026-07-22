@@ -124,6 +124,7 @@ Plugin
 
 - allows define tasks as a graph of dependencies
 - for workflows with complex dependencies and conditional execution
+- tasks without any dependencies will be run immediately.
 
 ```yaml
 # example
@@ -142,6 +143,8 @@ Plugin
       dependencies: [B, C]
       template: echo
 ```
+
+- A run first, then B and C, then D
 
 [Steps](https://argo-workflows.readthedocs.io/en/latest/workflow-concepts/#steps)
 
