@@ -34,11 +34,11 @@ spec:
 
 - Event listener
 - defines a set of event dependencies (inputs) and triggers (outputs)
-- listens to events on the eventbus and acts as an event dependency manager to resolve and execute the triggers
+- listens to events on the _Eventbus_ and acts as an event dependency manager to resolve and execute the triggers
 
 
 ```yaml
-piVersion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: Sensor
 metadata:
   name: webhook-sensor
