@@ -19,15 +19,17 @@ metadata:
 spec:
   entrypoint: whalesay
   templates:
-- name: whalesay
-  container:
-    image: docker/whalesay
-    command: [cowsay]
-    args: ["hello world"]
+	- name: whalesay
+	  container:
+	    image: docker/whalesay
+	    command: [cowsay]
+	    args: ["hello world"]
 ```
 
 
 ### Template Types
+
+https://argo-workflows.readthedocs.io/en/latest/workflow-concepts/#template-types
 
 #### Template Definitions
 
@@ -94,12 +96,33 @@ Suspend
     duration: "20s"
 ```
 
+Plugin
+
+- allows to reference an executor plugin, e.g. Slack
+
+```yaml
+- name: main 
+  plugin: 
+    slack: 
+       text: "{{workflow.name}} finished!"
+```
+
+
+[Container Set](https://argo-workflows.readthedocs.io/en/latest/workflow-concepts/#container-set)
+
+- similar to a normal container or script template, but allows you to specify multiple containers to run within a single pod
+
+
+[Http](https://argo-workflows.readthedocs.io/en/latest/workflow-concepts/#http)
+
+- can execute HTTP Requests
+- the body of the response is automatically exported into the result output parameter
 
 #### Template Invocators
 
-DAG (Direct-Acyclic Graph)
+[DAG (Direct-Acyclic Graph)](https://argo-workflows.readthedocs.io/en/latest/workflow-concepts/#dag)
 
-- allows define tesks as a graph of dependencies
+- allows define tasks as a graph of dependencies
 - for workflows with complex dependencies and conditional execution
 
 ```yaml
@@ -120,7 +143,7 @@ DAG (Direct-Acyclic Graph)
       template: echo
 ```
 
-Steps
+[Steps](https://argo-workflows.readthedocs.io/en/latest/workflow-concepts/#steps)
 
 - defines multiple steps within a template
 - for sequential or parallel execution
