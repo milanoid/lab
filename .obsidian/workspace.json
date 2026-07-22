@@ -167,12 +167,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/ArgoCD (CAPA)/CAPA course/06 - Argo Events.md",
+                "file": "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 6 - K3d/notes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "06 - Argo Events"
+              "title": "notes"
             }
           },
           {
@@ -433,13 +433,16 @@
   },
   "active": "300166014a8ee67c",
   "lastOpenFiles": [
+    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions/notes.md",
+    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 6 - K3d/notes.md",
+    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 6 - K3d",
+    "1-projects/ArgoCD (CAPA)/CAPA course/06 - Argo Events.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/04 - Argo Workflows.md",
     "1-projects/ArgoCD (CAPA)/01 - Argo Workflows.md",
     "1-projects/ArgoCD (CAPA)/00 - 0 README.md",
     "1-projects/ArgoCD (CAPA)/00 - Certified Argo Project Associate (CAPA).md",
     "1-projects/ArgoCD (CAPA)/CAPA course/00 - README.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/02 - Introduction to Argo.md",
-    "1-projects/ArgoCD (CAPA)/CAPA course/06 - Argo Events.md",
     "1-projects/ArgoCD (CAPA)/03 - Argo Rollouts.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/05 - Argo Rollouts.md",
     "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/01 - Intro, Settings repo and Azure.md",
@@ -468,9 +471,7 @@
     "1-projects/Proxmox/Jenkins - Proxmox LXC.md",
     "4-archives/Jellyfin.md",
     "1-projects/ArgoCD (CAPA)",
-    "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions/notes.md",
     "4-archives/VPN server with dynamic IP.md",
-    "1-projects/Kubecraft - DevOps OS - Part2/Kubernetes in the Cloud/06 - DB Backups.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 4 - Containerization",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 2 - Dev environment",
@@ -479,7 +480,6 @@
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass",
     "Services+(1).pdf",
     "Untitled.canvas",
-    "Untitled 1.canvas",
-    "1-projects/Proxmox"
+    "Untitled 1.canvas"
   ]
 }
