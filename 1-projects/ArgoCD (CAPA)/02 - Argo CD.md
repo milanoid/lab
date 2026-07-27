@@ -101,7 +101,7 @@ No need for plain Kubernetes manifests (Deployment, Service). These are encapsul
 ## Overriding Chart Values
 
 - multiple locations of the Helm Chart Values
-	- Chart's default Values file
+	- Chart's own default Values file
 	- _Application_ manifest: _valueFiles_ (lowest priority)
 	- _Application_ manifest: _values_
 	- _Application_ manifest: _valuesObject_
