@@ -229,7 +229,50 @@ spec:
     server: '*'
 ```
 
+
+### Propagation Policies
+
+Pods (owned by) - ReplicaSet (owned by) - Deployment (Owner)
+
+- it's about the policy by which the resources are deleted
+
+#### Foreground
+
+- owner enters "Deletion in progress"
+- garbage collector deletes all dependents first
+- than the owner
+
+#### Background (default)
+
+- owner is deleted first
+- garbage collector then cleans the rest
+
+#### Orphan
+
+- owner object deleted
+- dependents object kept -> they become _orphans_
+
+
+
 ## Sync Phases and Hooks
+
+
+- allows to run a custom code during Argo CD sync operation
+
+Sync is not an atomic action, it consists of phases, each can run a Job with appropriated annotation:
+
+1. _PreSync_ -  `argocd.argoproj.io/hook: Presync`
+   - could lead to either _Sync_ or _SyncFail_ phase
+2. _Sync_ phase - `argocd.argoproj.io/hook: Sync`
+3. _SyncFail_  - `argocd.argoproj.io/hook: SyncFail`
+4. _PostSync_ -  `argocd.argoproj.io/hook: PostSync`
+
+Additional Argo CD hooks:
+
+- _Skip_ - skip application of the manifest
+- _PostDelete_ - execute after all resources are deleted
+
+
 
 ## Sync Waves
 
