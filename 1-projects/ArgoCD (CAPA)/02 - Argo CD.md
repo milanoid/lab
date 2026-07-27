@@ -143,11 +143,24 @@ chart: chart-name  # Set this when pulling directly from a Helm repo. DO NOT set
 - _prune_ - whether to delete resources
 - _selfHeal_ - fix the drift (e.g. a manual change on cluster) back to desired state in Git
 
+https://github.com/milanoid-labs/homelab-cluster/blob/main/apps/argocd/devops-study-app.yaml#L18
 
+
+```yaml
+# it's spec.syncPolicy.automated.enabled|prune|selfHeal
+spec:
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+      selfHeal: true
+```
 
 ---
 
 # Private Repositories
+
+If application manifests are located in private repository then repository credentials have to be configured. Argo CD supports both HTTPS and SSH Git credentials.
 
 https://argo-cd.readthedocs.io/en/latest/user-guide/private-repositories/
 
