@@ -184,3 +184,53 @@ stringData:
 
 
 Deploy Key - a _public_ key with read-only access to repo so Argo CD can clone it and read
+
+Deploy Key is a GitHub legacy approach. Preferred is GitHub App.
+
+
+# Orchestrating Applications
+
+
+## Argo CD Projects and Multi-Tenancy
+
+### Project
+
+- provide a logical grouping of applications, which is useful when Argo CD is used by multiple teams
+- https://argo-cd.readthedocs.io/en/stable/user-guide/projects/
+- if not specified -> _default_ project (can be modified, but not deleted)
+- central point of RBAC
+
+```yaml
+# very permissive default project
+spec: 
+  sourceRepos: 
+    - '*'
+  destinations: 
+    - namespace: '*' 
+      server: '*' 
+  clusterResourceWhitelist: 
+    - group: '*' 
+      kind: '*'
+```
+
+example of a non-default project manifest:
+
+```yaml
+spec:
+  destinations:
+  # Do not allow any app to be installed in `kube-system`  
+  - namespace: '!kube-system'
+    server: '*'
+  # Or any cluster that has a URL of `team1-*`   
+  - namespace: '*'
+    server: '!https://team1-*'
+    # Any other namespace or server is fine though.
+  - namespace: '*'
+    server: '*'
+```
+
+## Sync Phases and Hooks
+
+## Sync Waves
+
+
