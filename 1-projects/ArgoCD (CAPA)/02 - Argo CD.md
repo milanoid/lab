@@ -1,6 +1,19 @@
 
 - example apps https://github.com/argoproj/argocd-example-apps
 
+# The Argo CD Components
+
+In namespace `argocd`
+
+- API Server
+	  - UI and `argocd` CLI or gRPC/REST
+- Repository Server
+	  - interacts with Git Repo, keeps local cache
+	- generates final Kubernetes manifest files
+- Application Controller
+  - monitors desired vs actual state of the application
+	- monitors _Lifecycle Hooks_
+
 # Application CRD
 
 - spec https://argo-cd.readthedocs.io/en/stable/user-guide/application-specification/
