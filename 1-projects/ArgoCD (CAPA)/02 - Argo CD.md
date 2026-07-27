@@ -183,4 +183,4 @@ stringData:
 ```
 
 
-
+Deploy Key - a _public_ key with read-only access to repo so Argo CD can clone it and read
