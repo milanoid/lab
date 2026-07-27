@@ -53,10 +53,10 @@ As my Argo CD in homelab is installed via a Helm chart the `argocd-cm` is using 
 ### Sync status
 
 - Synced - live state matches desired state
-- OutOfSync - live state DOES not match desired state
+- OutOfSync - live state DOES NOT match desired state
 - Progressing - undergoing sync operation
 
-They Sync status (green checkmark) is displayed only on components managed by Application. E.g. _Service_ and _Deployment_ has a sync status but _ReplicaSet_ does not (as it is managed by _Deployment):
+They Sync status (green checkmark) is displayed only on components managed directly by Argo CD. E.g. _Service_ and _Deployment_ has a sync status but _ReplicaSet_ does not (as it is managed by _Deployment):
 
 ![[Pasted image 20260718205608.png]]
 
