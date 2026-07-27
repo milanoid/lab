@@ -277,3 +277,10 @@ Additional Argo CD hooks:
 ## Sync Waves
 
 
+- way how to explicitly set the order of creating resources within _Sync_
+- e.g. create namespace first
+- `argocd.argoproj.io/sync-wave: 0|1|2|3|-1`, `-1` the very first, `0` is default
+- after each wave it checks the health status, only continues if a previous wave succeeded
+
+Can combine Sync Waves and Hooks!
+
