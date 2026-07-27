@@ -124,6 +124,15 @@ valueFiles:
 - best practice for using a public Helm Charts -> have my own Git repo with my Values
 
 
+# Deploying Public Helm Charts
+
+- Helm Charts marketplace e.g. Headlamp https://artifacthub.io/packages/helm/headlamp/headlamp
+- not a git repo, must use `chart`
+```yaml
+chart: chart-name  # Set this when pulling directly from a Helm repo. DO NOT set for git-hosted Helm charts.  
+```
+
+
 ---
 
 # Advanced Sync and Automation
