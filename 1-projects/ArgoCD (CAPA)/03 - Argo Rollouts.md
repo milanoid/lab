@@ -216,6 +216,8 @@ Example Blue-Green Rollout https://github.com/argoproj/argo-rollouts/blob/master
 
 _stableService_ vs _canaryService_
 
+![[Pasted image 20260728105650.png]]
+
 
 
 # Advanced Traffic Management
