@@ -312,7 +312,21 @@ annotations:
 - prometheus-server will reach the targets every 1 minute (default)
 - _pull model_
 - can be setup to use _push model_  - via _prometheus-pushgateway_
-- the `/metrics` endpoint must be implemented in the application itself (?)
+- the `/metrics` endpoint must be implemented in the application itself
+
+```
+# example /metrics response
+
+# HELP http_requests_total Total number of HTTP requests 
+# TYPE http_requests_total counter http_requests_total{method="GET",status="200"} 1027 
+
+# HELP process_resident_memory_bytes Resident memory size in bytes 
+# TYPE process_resident_memory_bytes gauge 
+process_resident_memory_bytes 5.5452928e+07 
+
+# HELP http_request_duration_seconds Histogram of request duration 
+# TYPE http_request_duration_seconds histogram http_request_duration_seconds_bucket{le="0.1"} 240 http_request_duration_seconds_bucket{le="0.5"} 450 http_request_duration_seconds_bucket{le="+Inf"} 500 http_request_duration_seconds_sum 128.4 http_request_duration_seconds_count 500
+```
 
 ## Automated Analysis & Promotion
 
@@ -329,6 +343,46 @@ https://argo-rollouts.readthedocs.io/en/stable/features/analysis/
 - _ClusterAnalysisTemplate_ - like _AnalysisTemplate_ but cluster wide
 
 
+
+https://argo-rollouts.readthedocs.io/en/stable/analysis/prometheus/
+```yaml
+# Example
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: success-rate
+spec:
+  args:
+  - name: service-name
+  metrics:
+  - name: success-rate
+    interval: 5m
+    # NOTE: prometheus queries return results in the form of a vector.
+    # So it is common to access the index 0 of the returned array to obtain the value
+    successCondition: result[0] >= 0.95
+    failureLimit: 3
+    # take 5 measurements 60 seconds between each other
+    interval: 60
+    count: 5 
+    provider:
+      prometheus:
+        address: http://prometheus.example.com:9090
+        # timeout is expressed in seconds
+        timeout: 40
+        headers:
+        - key: X-Scope-OrgID
+          value: tenant_a
+        query: |
+          sum(irate(
+            istio_requests_total{reporter="source",destination_service=~"{{args.service-name}}",response_code!~"5.*"}[5m]
+          )) /
+          sum(irate(
+            istio_requests_total{reporter="source",destination_service=~"{{args.service-name}}"}[5m]
+          ))
+
+```
+
+- _AnalysisTemplate_ accepts _arguments_ - e.g. `args.service-name`
 
 ## Analysis in Canary and Blue-Green Strategies
 
