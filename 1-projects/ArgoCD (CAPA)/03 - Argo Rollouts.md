@@ -202,6 +202,8 @@ Example Blue-Green Rollout https://github.com/argoproj/argo-rollouts/blob/master
 
 ![[Pasted image 20260728093544.png]]
 
+- after a promotion there is small delay on scaling down the old revision 
+- [_scaleDownDelaySeconds_](https://argo-rollouts.readthedocs.io/en/stable/features/bluegreen/#scaledowndelayseconds) (default 30 seconds)
 
 ## Canary Deployment
 
