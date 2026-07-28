@@ -197,6 +197,10 @@ kubectl argo rollouts promote canary-demo -n argo-rollouts-canary-demo
 - _activeService_ vs _previewService_
 - service label contains a hash -> to know to which RS route the traffic
 
+Example Blue-Green Rollout https://github.com/argoproj/argo-rollouts/blob/master/examples/rollout-bluegreen.yaml
+
+![[Pasted image 20260728093544.png]]
+
 
 ## Canary Deployment
 
