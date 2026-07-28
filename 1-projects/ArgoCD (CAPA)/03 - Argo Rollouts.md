@@ -298,9 +298,28 @@ Components
 - _prometheus-alertmanager_ - Slack, email, PageDuty alerts
 
 
+https://argo-rollouts.readthedocs.io/en/stable/analysis/prometheus/
+
+Enrich the K8s manifests with a special annotation:
+
+```yaml
+annotations:
+  prometheus.io/scrape: 'true'
+  prometheus.io/port: '3000'
+  prometheus.io/path: '/metrics'
+```
+
+- prometheus-server will reach the targets every 1 minute (default)
+- _pull model_
+- can be setup to use _push model_  - via _prometheus-pushgateway_
+- the `/metrics` endpoint must be implemented in the application itself (?)
 
 ## Automated Analysis & Promotion
 
+- can be used with both Canary and Blue-Green strategy
+
+
+![[Screenshot 2026-07-28 at 13.27.05.png]]
 
 https://argo-rollouts.readthedocs.io/en/stable/features/analysis/
 
