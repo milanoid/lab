@@ -227,17 +227,45 @@ _stableService_ vs _canaryService_
 - precision problem (5 replicas -> how to have 5 %?)
 - resource waste (over-provision)
 - no header-based routing (a canary request header to get the canary response)
+- Solution - a Gateway/Traefik
 
 
 ## Traffic-Weighted Canary
 
 Instead of relying on "public" service we create a Gateway (Ingress successor) which weights the traffic exactly as defined (5/95 %) not based on number of Pods.
 
+![[Pasted image 20260728113625.png]]
+
+
+![[Pasted image 20260728113807.png]]
+
+
+```yaml
+# rollout.yaml
+strategy:
+  canary:
+    canaryService: rollout-gateway-canary
+    stableService: rollout-gateway-stable
+    trafficRouting:
+      plugins:
+        argoproj-labs/gatewayAPI:
+          httpRoute: rollout-gateway-route # our created httproute
+          namespace: gateway-lab # namespace where this rollout resides
+```
+
+
+- `dynamicStableScale: true` - reduce the scale of the stable ReplicaSet during an update such that it scales down as the traffic weight increases to canary
+- (When using traffic routing, by default the stable ReplicaSet is left scaled to 100% during the update.)
+- see https://argo-rollouts.readthedocs.io/en/stable/features/canary/#dynamic-stable-scale-with-traffic-routing
+
 ## Header-Based Routing
 
 I want to query canary application predictably.
 
 E.g. `x-canary: true` in http request
+
+
+
 
 
 
