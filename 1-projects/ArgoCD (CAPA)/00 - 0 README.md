@@ -24,4 +24,14 @@ https://docs.linuxfoundation.org/tc-docs/certification/lf-handbook2/candidate-re
 
 PSI Secure Browser trial
 
+- [x] check (no external display, headset, extra apps)
+- [x] uninstall
+
+
+Exam day 30/7@8:00am
+
+- at the office at 7am
+- login 30 minutes before https://test-takers.psiexams.com/linux/manage/my-tests
+- ID CARD and iPhone!
+- No Apple Watch
 
