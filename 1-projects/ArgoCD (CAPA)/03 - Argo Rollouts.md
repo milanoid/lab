@@ -406,12 +406,7 @@ spec:
 
 - query language called [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/) (Prometheus Query Language)
 
-## Analysis in Canary and Blue-Green Strategies
+Analysis can run either as a `step` or continuously in background.
 
-
-### Canary
-
-
-### Blue-Green
 
 
