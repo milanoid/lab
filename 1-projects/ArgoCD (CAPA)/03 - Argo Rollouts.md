@@ -383,6 +383,8 @@ spec:
 ```
 
 - _AnalysisTemplate_ accepts _arguments_ - e.g. `args.service-name`
+- query language called [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/) (Prometheus Query Language)
+- 
 
 ## Analysis in Canary and Blue-Green Strategies
 
