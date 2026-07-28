@@ -29,8 +29,9 @@ Enter Argo Rollouts with BlueGreen and Canary deployment strategies.
 
 https://argo-rollouts.readthedocs.io/en/stable/features/specification/
 
-- very similar to Deployment with some extras
+- very similar to Deployment with some extras (_strategy_)
 - easy to migrate to/from Rollout/Deployment
+- Rollout with missing _strategy_ can be applied (kubectl apply), but fails in rollout phase (Degraded, InvalidSpec)
 
 
 # First Rollout@homelab
@@ -59,7 +60,7 @@ stableService: canary-demo-stable
       stableService: canary-demo-stable
       steps:
         - setWeight: 20
-        - pause: {}
+        - pause: {} # pause indefinitelly (must be manually promoted)
         - setWeight: 40
         - pause: {duration: 10}
         - setWeight: 60
