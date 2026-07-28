@@ -383,8 +383,28 @@ spec:
 ```
 
 - _AnalysisTemplate_ accepts _arguments_ - e.g. `args.service-name`
+
+
+```yaml
+# example of passing arguments to AnalysisTemplete
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: guestbook
+spec:
+...
+  strategy:
+    canary:
+      analysis:
+        templates:
+        - templateName: args-example
+        args:
+        # required value
+        - name: service-name
+          value: guestbook-svc.default.svc.cluster.local
+```
+
 - query language called [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/) (Prometheus Query Language)
-- 
 
 ## Analysis in Canary and Blue-Green Strategies
 
