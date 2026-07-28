@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/ArgoCD (CAPA)/03 - Argo Rollouts.md",
+                "file": "1-projects/ArgoCD (CAPA)/00 - 0 README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "03 - Argo Rollouts"
+              "title": "00 - 0 README"
             }
           }
         ]
@@ -180,8 +180,8 @@
   },
   "active": "300166014a8ee67c",
   "lastOpenFiles": [
-    "1-projects/ArgoCD (CAPA)/00 - 0 README.md",
     "1-projects/ArgoCD (CAPA)/03 - Argo Rollouts.md",
+    "1-projects/ArgoCD (CAPA)/00 - 0 README.md",
     "Screenshot 2026-07-28 at 13.27.05.png",
     "Pasted image 20260728113807.png",
     "Pasted image 20260728113625.png",

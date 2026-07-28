@@ -5,3 +5,23 @@
 - (Argo Events) - doc & & [[06 - Argo Events]]
 
 
+
+
+
+# Exam
+
+https://trainingportal.linuxfoundation.org/courses/certified-argo-project-associate
+
+
+- Multiple Choice Exam  
+- Duration of Exam 90 minutes
+
+
+### Hardware Compatibility Check
+
+https://docs.linuxfoundation.org/tc-docs/certification/lf-handbook2/candidate-requirements#hardware-compatibility-check
+
+
+PSI Secure Browser trial
+
+
