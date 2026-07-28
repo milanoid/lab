@@ -408,5 +408,31 @@ spec:
 
 Analysis can run either as a `step` or continuously in background.
 
+## Analysis in Canary and Blue-Green Strategies
+
+
+### Canary
+
+
+### Blue-Green
+
+https://argo-rollouts.readthedocs.io/en/stable/features/analysis/#bluegreen-pre-promotion-analysis
+
+```yaml
+strategy:
+  blueGreen:
+    activeService: blue-green-active
+    previewService: blue-green-preview
+    prePromotionAnalysis:
+      templates:
+        - templateName:
+	  args:
+	    - name: service-name
+	      value: blue-green-preview
+```
+
+
+- `prePromotionAnalysis` - run _AnalysisRun_ before switching traffic to the new version
+- `postPromotionAnalysis` - run _AnalysisRun_ after
 
 
