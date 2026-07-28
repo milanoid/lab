@@ -195,7 +195,8 @@ kubectl argo rollouts promote canary-demo -n argo-rollouts-canary-demo
 
 - resource heavy (2 environments)
 - _activeService_ vs _previewService_
-- service label contains a hash -> to know to which RS route the traffic
+- _Service_ selector contains a hash -> to know to which RS route the traffic
+	- `selector: app=rollout-bluegreen,rollouts-pod-template-hash=6858478779`
 
 Example Blue-Green Rollout https://github.com/argoproj/argo-rollouts/blob/master/examples/rollout-bluegreen.yaml
 
