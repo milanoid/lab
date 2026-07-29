@@ -178,12 +178,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9f5491a4de1aa2c3",
+  "active": "300166014a8ee67c",
   "lastOpenFiles": [
     "1-projects/ArgoCD (CAPA)/CAPA course/06 - Argo Events.md",
+    "1-projects/ArgoCD (CAPA)/04 - Argo Events.md",
+    "1-projects/ArgoCD (CAPA)/00 - 0 README.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/04 - Argo Workflows.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/00 - README.md",
-    "1-projects/ArgoCD (CAPA)/00 - 0 README.md",
     "1-projects/ArgoCD (CAPA)/01 - Argo Workflows.md",
     "1-projects/ArgoCD (CAPA)/03 - Argo Rollouts.md",
     "Screenshot 2026-07-28 at 13.27.05.png",
@@ -209,7 +210,6 @@
     "Screenshot 2026-07-17 at 11.48.05.png",
     "Pasted image 20260717114658.png",
     "Pasted image 20260717112133.png",
-    "1-projects/ArgoCD (CAPA)/04 - Argo Events.md",
     "4-archives/LPIC-1 exam prep/104.6 Create and change hard and symbolic links.md",
     "4-archives/kubernetes-masterclass/Setup.md",
     "4-archives/Arch Linux installation/17 - Docker & DevPod.md",

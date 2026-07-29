@@ -85,11 +85,44 @@ https://github.com/argoproj/argo-events/blob/master/examples/event-sources/webho
 	- `dependencyGroups` plus `dependencyExpression` let you express AND/OR logic.
 
 
+---
+
+- Which filter types can a Sensor use to evaluate events?
+	- 
+
+
+---
+
+- For an Argo Events webhook EventSource, which section exposes the service port?
+	- > `spec.service.ports[]`
+
+https://github.com/argoproj/argo-events/blob/master/examples/event-sources/webhook.yaml
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: EventSource
+metadata:
+  name: webhook
+spec:
+  service:
+    ports:
+      - port: 12000
+        targetPort: 12000
+    metadata:
+      labels:
+        foo: bar
+      annotations:
+        foo: bar
+```
 ## Argo Rollouts
 
 - In Argo Rollouts, which setting controls the maximum number of Pods that may be unavailable during an update?
 	- _maxUnavailable_
 	- https://argo-rollouts.readthedocs.io/en/stable/features/specification/
+
+---
+
+- What does 'workloadRef' enable in a Rollout spec?
+	- > 
 
 ## Argo Workflows
 
@@ -110,8 +143,29 @@ sidecars:
 
 - > Run a basic NGINX web server alongside the curl container.
 
+---
+
+- In a DAG template, how do you reference the 'result' of a task named 'gen'?
+	- > `{{tasks.gen.outputs.result}}`
+
+---
 
 
+- Which configuration retries a step with exponential backoff up to 5 times?
+	- > 
+
+---
+
+- Which feature limits concurrent execution across Workflows or steps using a named lock?
+	- > 
+
+
+---
+
+- Which field removes Workflow resources 10 minutes after success?
+	- > `ttlStrategy.secondsAfterSuccess: 600`
+	- https://argo-workflows.readthedocs.io/en/latest/fields/#ttlstrategy
+	- https://github.com/argoproj/argo-workflows/blob/main/examples/gc-ttl.yaml
 ## Argo CD
 
 - Which of the following destination rules is **invalid** for an Argo CD AppProject? 
@@ -197,3 +251,80 @@ spec:
 	- > `spec.sourceRepos`
 	- sourceRepos is a list of allowed repo URLs/patterns (e.g., '*').
 	- https://argo-cd.readthedocs.io/en/stable/user-guide/projects/
+
+---
+
+- To ensure dependents are removed before their owner during pruning, which sync option should be set?
+	- > 
+
+
+---
+
+- How do you enforce that Argo CD only syncs from Git commits signed by approved keys?
+	- > Configure GPG keys and `gpg.enabled: true` in `argocd-cm`
+	- https://argo-cd.readthedocs.io/en/stable/user-guide/gpg-verification/
+
+
+---
+
+- Where do you configure resources Argo CD should never manage (global exclusions)?
+	- >
+
+
+---
+
+- You must use a Helm plugin with Argo CD. What is the correct way to provide it?
+	- > 
+
+---
+
+- How can you tell Argo CD to compare only out-of-sync resources during sync?
+	- > 
+
+---
+
+- With ApplicationSet List generator, which key is available in the template by default?
+	- > 
+
+---
+
+- What does a 'hard refresh' do in Argo CD?
+	- > 
+
+---
+
+- In Argo CD, what is the effect of the 'resources-finalizer.argocd.argoproj.io' finalizer on an Application?
+	- > Argo CD deletes the application's managed resources when the Application is deleted
+	- https://argo-cd.readthedocs.io/en/stable/user-guide/app_deletion/#about-the-deletion-finalizer
+
+
+---
+
+- How can you ignore fields managed by a specific controller (manager) in Argo CD diffs?
+	- > Use `managedFieldsManagers` in `ignoreDifferences` rules
+
+
+---
+
+- Which annotation subscribes an Application to a Slack notification on sync success?
+	- > 
+
+---
+
+- Which field is used to ignore JSON paths from diff for a specific kind in an Application?
+	- > `notifications.argoproj.io/subscribe.on-sync-succeeded.slack: <channel>`
+	- https://argo-cd.readthedocs.io/en/stable/user-guide/subscriptions/
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: my-channel1;my-channel2
+```
+
+
+---
+
+- How can you pin a specific Kustomize version for building an Application?
+	- > 
