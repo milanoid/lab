@@ -327,4 +327,5 @@ metadata:
 ---
 
 - How can you pin a specific Kustomize version for building an Application?
-	- > 
+	- > Install a matching 'kustomize' binary in argocd-repo-server and select it via `argocd-cm` settings
+	- https://argo-cd.readthedocs.io/en/stable/user-guide/kustomize/#custom-kustomize-versions
