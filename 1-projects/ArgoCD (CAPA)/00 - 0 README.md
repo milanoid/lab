@@ -122,7 +122,7 @@ spec:
 ---
 
 - What does 'workloadRef' enable in a Rollout spec?
-	- > 
+	- > Holds a reference to a workload that provides Pod template # (e.g. Deployment)
 
 ## Argo Workflows
 
@@ -307,12 +307,7 @@ spec:
 ---
 
 - Which annotation subscribes an Application to a Slack notification on sync success?
-	- > 
-
----
-
-- Which field is used to ignore JSON paths from diff for a specific kind in an Application?
-	- > `notifications.argoproj.io/subscribe.on-sync-succeeded.slack: <channel>`
+	- > -`notifications.argoproj.io/subscribe.on-sync-succeeded.slack: <channel>`
 	- https://argo-cd.readthedocs.io/en/stable/user-guide/subscriptions/
 
 ```yaml
@@ -322,6 +317,10 @@ metadata:
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: my-channel1;my-channel2
 ```
+
+---
+
+- Which field is used to ignore JSON paths from diff for a specific kind in an Application?
 
 
 ---
