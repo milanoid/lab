@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "00 - README"
             }
+          },
+          {
+            "id": "91ea22ba9786a746",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.13.4"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.13.4"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -66,7 +79,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -178,7 +193,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "300166014a8ee67c",
+  "active": "91ea22ba9786a746",
   "lastOpenFiles": [
     "1-projects/ArgoCD (CAPA)/00 - 0 README.md",
     "1-projects/ArgoCD (CAPA)/CAPA course/06 - Argo Events.md",
