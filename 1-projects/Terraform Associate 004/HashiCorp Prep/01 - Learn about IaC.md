@@ -23,6 +23,12 @@ check
 
 - [x] terraform installed
 - [x] HCP Terraform free account (with 2FA enabled)
+- [ ] fix tofu
+
+```bash
+tofu plan
+-bash: /opt/homebrew/bin/tofu: No such file or directory
+```
 
 
 
