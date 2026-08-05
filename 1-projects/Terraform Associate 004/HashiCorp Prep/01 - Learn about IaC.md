@@ -23,7 +23,7 @@ check
 
 - [x] terraform installed
 - [x] HCP Terraform free account (with 2FA enabled)
-- [ ] fix tofu
+- [x] fix tofu
 
 ```bash
 tofu plan
