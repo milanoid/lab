@@ -15,7 +15,16 @@ Terraform providers available on the [Terraform Registry](https://registry.terra
 - free plan for small teams exists, I [do have account](https://app.terraform.io/app/milanvojnovic-org/workspaces) `milanvojnovic-org`
 - private registry for modules
 - Sentinel (cz: _Stráž_) - policy enforcement
-- 
+
+
+---
+
+check 
+
+- [x] terraform installed
+- [x] HCP Terraform free account (with 2FA enabled)
+
+
 
 
 

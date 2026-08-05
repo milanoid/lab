@@ -8,7 +8,16 @@ https://developer.hashicorp.com/terraform/tutorials/certification-004/associate-
 	- https://github.com/milanoid-labs/milanoid-labs-terraform
 
 
-- [ ] install proper version of terraform
+- [x] install proper version of terraform
+
+
+```bash
+# on Mac
+terraform --version
+Terraform v1.15.8
+on darwin_arm64
+```
+
 - [ ] HashiCorp tutorial with a cloud provider of choice (AWS)
 
 
