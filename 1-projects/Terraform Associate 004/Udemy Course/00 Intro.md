@@ -1,0 +1,3 @@
+-  [HashiCorp Certified Terraform Associate 004 Exam Prep Course](https://statsperform.udemy.com/course/hashicorp-certified-terraform-associate-004/)
+- [ ] take practice exam (find the gaps)
+- [ ] book exam upfront (~ 4 weeks)
