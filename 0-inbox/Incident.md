@@ -12,7 +12,7 @@ error: You must be logged in to the server (the server has asked for the client 
 ```
 
 - deployed applications running
-- `kubectl` from the control plane (hpmini01) works
+- `kubectl` from the control plane (hpmini01) works - how? where is the kubeconfig?
 
 
 ```bash
