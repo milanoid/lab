@@ -248,3 +248,7 @@ grep -e '"version"' -e '"terraform_version"' terraform.tfstate
 https://developer.hashicorp.com/terraform/tutorials/configuration-language/provider-versioning
 
 
+There are 2 ways how to manage provider versions
+
+1. specify the version in `terraform` block
+2. use the _dependency_lock_file
