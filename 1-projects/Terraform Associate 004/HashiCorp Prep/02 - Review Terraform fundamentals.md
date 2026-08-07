@@ -238,3 +238,13 @@ grep -e '"version"' -e '"terraform_version"' terraform.tfstate
 - tf version specified
 - may hold secrets, do not push to cvs
 
+
+---
+
+
+# Lock and upgrade provider version
+
+
+https://developer.hashicorp.com/terraform/tutorials/configuration-language/provider-versioning
+
+
