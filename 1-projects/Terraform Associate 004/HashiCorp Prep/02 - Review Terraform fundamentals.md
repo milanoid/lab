@@ -175,3 +175,37 @@ If you ever set or change modules or backend configuration for Terraform,
 rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
+
+
+To run the plan, configure the AWS access
+
+```bash
+export AWS_PROFILE=milanoid
+terraform plan
+
+...
+Plan: 2 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + application_url = (known after apply)
+  + domain_name     = (known after apply)
+```
+
+or setup the profile in the profile attribute:
+
+
+```bash
+> git diff
+diff --git a/main.tf b/main.tf
+index 7fdf70c..498fa9a 100644
+--- a/main.tf
++++ b/main.tf
+@@ -2,7 +2,8 @@
+ # SPDX-License-Identifier: MPL-2.0
+
+ provider "aws" {
+-  region = "us-west-2"
++  region  = "us-west-2"
++  profile = "milanoid"
+ }
+```
