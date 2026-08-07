@@ -132,7 +132,7 @@ Initializing the backend...
 ```
 
 
-update:
+### update the tf
 
 
 ```bash
@@ -209,3 +209,32 @@ index 7fdf70c..498fa9a 100644
 +  profile = "milanoid"
  }
 ```
+
+
+then apply
+
+```bash
+terraform apply
+
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+application_url = "ec2-35-94-56-12.us-west-2.compute.amazonaws.com/index.php"
+domain_name = "ec2-35-94-56-12.us-west-2.compute.amazonaws.com"
+```
+
+### Inspect the Terraform state file
+
+
+```bash
+grep -e '"version"' -e '"terraform_version"' terraform.tfstate
+  "version": 4,
+  "terraform_version": "1.15.8",
+```
+
+
+- it's a plaintext file
+- tf version specified
+- may hold secrets, do not push to cvs
+
