@@ -520,3 +520,40 @@ https://developer.hashicorp.com/terraform/language/v1.12.x/block/terraform
 # Provider Requirements
 
 https://developer.hashicorp.com/terraform/language/v1.12.x/providers/requirements
+
+- each has source and version
+- each has two identifiers - source and _local name_ (used everywhere else in a Terraform module)
+
+```terraform
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 4.5.0"
+    }
+  }
+```
+
+- `aws` - is _local name_
+- _local name_ can be anything but there is a provider _preferred local name_
+- (For example, resources from `hashicorp/aws` all begin with `aws`, like `aws_instance` or `aws_security_group`.)
+
+```terraform
+# usage example
+
+provider "aws" {
+  region = "eu-central-1"
+}
+
+resource "aws_s3_bucket" "sample" {
+  bucket = "bucket-unique-name"
+
+  tags = {
+    public_bucket = false
+  }
+}
+```
+
+#### Handling Local Name Conflicts
+
+https://developer.hashicorp.com/terraform/language/v1.12.x/providers/requirements#handling-local-name-conflicts
+
