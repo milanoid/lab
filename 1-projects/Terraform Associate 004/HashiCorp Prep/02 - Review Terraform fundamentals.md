@@ -514,3 +514,9 @@ Note: You didn't use the -out option to save this plan, so Terraform can't guara
 
 https://developer.hashicorp.com/terraform/language/v1.12.x/block/terraform
 
+
+---
+
+# Provider Requirements
+
+https://developer.hashicorp.com/terraform/language/v1.12.x/providers/requirements
