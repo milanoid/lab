@@ -153,4 +153,96 @@ Update provider and modules versions
 ╵
 ```
 
-- because I updated the version I need to reinitialize the project
+- because I updated the version I need to reinitialize the project `terraform init -upgrade`
+---
+
+#### terraform fmt/validat command
+
+- `terrafrom fmt`
+- `terraform validate` - does not validate remote services (remote state, API)
+
+
+
+---
+
+# Create a Terraform plan
+
+https://developer.hashicorp.com/terraform/tutorials/cli/plan
+
+
+tutorial
+
+```bash
+git clone https://github.com/hashicorp-education/learn-terraform-plan
+```
+
+
+`terraform plan -out tfplan`
+
+- export the plan to a file `tfplan`
+- when applying we are 100 % sure only the changes in the plan file are applied
+- best practices for automation
+
+`terraform apply` - if no plan file passed, then TF will create a plan and prompt
+
+- plan file is a binary file - use `terraform show "tfplan"`
+
+`terraform show -json "tfplan" | jq > tfplan.json`
+
+- convert to json (nice for automation)
+
+Never commit plans to VCS!
+
+
+Review the plan
+
+```
+jq '.terraform_version, .format_version' tfplan.json
+jq '.configuration.provider_config' tfplan.json
+```
+
+
+#### Apply a saved plan
+
+
+```bash
+# will NOT ask me for approve
+terraform apply "tfplan"
+```
+
+
+#### Modify configuration
+
+
+```bash
+# add to variables.tf
+variable "secret_key" {
+  type        = string
+  sensitive   = true
+  description = "Secret key for hello module"
+}
+```
+
+create a `terraform.tfvars`
+
+```bash
+secret_key="TOPSECRET"
+```
+
+- NEVER `.tfvars` to VCS!
+
+referrence the input var in main.tf
+
+
+```bash
+some_key = var.secret_key
+```
+
+
+#### Destroy
+
+```bash
+terraform plan -destroy -out "tfplan-destroy"
+
+terraform apply "tfplan-destroy"
+```
