@@ -8,7 +8,7 @@
 Important 70/30 rule (practice vs theory)
 
 
-
+# 01 - install terraform
 # Setup
 
 - [x] install terraform 1.12 (latest is 1.15)
@@ -30,7 +30,7 @@ is 1.15.8. You can update by downloading from https://developer.hashicorp.com/te
 
 # Setup AWS  Credentials
 
-- [ ] 
+- [x] 
 
 ```bash
 --profile milanoid

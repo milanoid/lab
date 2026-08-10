@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Terraform Associate 004/Udemy Course/00 Intro.md",
+                "file": "1-projects/Terraform Associate 004/Udemy Course/03 - Terraform Foundations.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "00 Intro"
+              "title": "03 - Terraform Foundations"
             }
           }
         ],
@@ -225,10 +225,11 @@
   },
   "active": "1784ea694983abe9",
   "lastOpenFiles": [
+    "1-projects/Terraform Associate 004/Udemy Course/00 - Intro.md",
+    "1-projects/Terraform Associate 004/Udemy Course/03 - Terraform Foundations.md",
     "1-projects/Terraform Associate 004/HashiCorp Prep/03 - Use the core Terraform workflow.md",
     "1-projects/Terraform Associate 004/HashiCorp Prep/02 - Review Terraform fundamentals.md",
     "1-projects/Terraform Associate 004/HashiCorp Prep/00 - Overview.md",
-    "1-projects/Terraform Associate 004/Udemy Course/00 Intro.md",
     "4-archives/Incident with expired cert.md",
     "0-inbox/Untitled.md",
     "Pasted image 20260807153404.png",
@@ -261,7 +262,6 @@
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 6 - K3d/notes.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions/notes.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 6 - K3d",
-    "4-archives/ArgoCD (CAPA)/CAPA course/05 - Argo Rollouts.md",
     "Pasted image 20260720095232.png",
     "Pasted image 20260718205608.png",
     "Screenshot 2026-07-17 at 11.48.05.png",
