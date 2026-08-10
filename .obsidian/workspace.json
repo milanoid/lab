@@ -84,7 +84,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "k3s.yaml",
+                "query": "stack",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -131,8 +131,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 407.0625
   },
   "right": {
     "id": "c30d66fb63f83402",
@@ -224,11 +223,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1784ea694983abe9",
+  "active": "9f5491a4de1aa2c3",
   "lastOpenFiles": [
-    "0-inbox/Untitled.md",
-    "0-inbox/Incident with expired cert.md",
     "1-projects/Terraform Associate 004/Udemy Course/00 Intro.md",
+    "0-inbox/Incident with expired cert.md",
+    "0-inbox/Untitled.md",
     "1-projects/Terraform Associate 004/HashiCorp Prep/02 - Review Terraform fundamentals.md",
     "Pasted image 20260807153404.png",
     "1-projects/Terraform Associate 004/HashiCorp Prep/00 - Overview.md",
