@@ -626,3 +626,87 @@ provider_installation {
 
 https://developer.hashicorp.com/terraform/language/v1.12.x/files/dependency-lock
 
+external deps
+
+1. Providers
+2. Modules
+
+
+- a file that belongs to the configuration as a whole, rather than to each separate module in the configuration
+- name is always: `.terraform.lock.hcl`
+- created/updated on every `terraoform init` command
+- should be in VCS
+
+
+## Dependency Installation Behaviour
+
+https://developer.hashicorp.com/terraform/language/v1.12.x/files/dependency-lock#dependency-installation-behavior
+
+What version is installed depends on version constraint in configuration AND what's in the lock file. The lock file version takes precedence - even there is a new version available and it satisfy the version constraint it won't be automatically updated. Can be override by `-upgrade` option.
+
+## Checksum verification
+
+- at least one checksum of a previously recorded in lock file must match
+- so called a [trust on first use](https://en.wikipedia.org/wiki/Trust_on_first_use) (TOFU)
+
+```bash
+# example of error on non-matching checksum
+Error: Failed to install provider
+
+Error while installing hashicorp/azurerm v2.1.0: the current package for
+registry.terraform.io/hashicorp/azurerm 2.1.0 doesn't match any of the
+checksums previously recorded in the dependency lock file.
+```
+
+
+
+## Understanding Lock File Changes
+
+As the lock file is in VCS, there might be changes in a PR affecting the lockfile.
+
+### Dependency on a new provider
+
+- if a new provider is added it's checksum is added
+
+The lock file contains:
+
+- `version`
+- `constraint`
+- `hashes`
+
+
+### New version of an existing provider
+
+- after running `terraform init -upgrade`
+
+
+### New provider package checksums
+
+- a new checksum w/o module/plugin change
+- represents Terraform gradually transitioning between _hashing schemes_
+
+
+- `h1:` vs `zh:` schema
+```bash
+--- .terraform.lock.hcl 2020-10-07 17:24:23.397892140 -0700
++++ .terraform.lock.hcl 2020-10-07 17:24:57.423130253 -0700
+@@ -10,6 +10,7 @@
+   version     = "2.1.0"
+   constraints = "~> 2.1.0"
+   hashes = [
++    "h1:1xvaS5D8B8t6J6XmXxX8spo97tAzjhacjedFX1B47Fk=",
+     "h1:EOJImaEaVThWasdqnJjfYc6/P8N/MRAq1J7avx5ZbV4=",
+     "zh:0015b491cf9151235e57e35ea6b89381098e61bd923f56dffc86026d58748880",
+     "zh:4c5682ba1e0fc7e2e602d3f103af1638f868c31fe80cc1a884a97f6dad6e1c11",
+
+```
+
+
+- `zh:` - "zip hash" - legacy
+- `h1:` - "hash schema 1" - current
+
+### Providers that are no longer required
+
+- when removing a dep the lock file record is removed as well
+
+
