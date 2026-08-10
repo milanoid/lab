@@ -83,3 +83,74 @@ terraform {
 
 https://developer.hashicorp.com/terraform/tutorials/cli/init
 
+init - init workspace, configure backend, install providers and modules, creates lock file
+
+tutorial
+
+```bash
+git clone https://github.com/hashicorp-education/learn-terraform-init
+
+terraform init
+```
+
+- defaults to _local_ backend
+- detects local module `modules/aws-ec2-instance`
+- detects remote module `hello`
+- creates lock file `.terraform.local.hcl`
+
+
+
+```bash
+> terraform validate
+
+Success! The configuration is valid.
+```
+
+
+`.terraform` - dir with project's providers and modules
+
+- do not check in to VCS
+
+
+```bash
+> tree .terraform
+.terraform
+├── modules
+│   ├── hello
+│   │   ├── random.tf
+│   │   └── README.md
+│   └── modules.json
+└── providers
+    └── registry.terraform.io
+        └── hashicorp
+            ├── aws
+            │   └── 6.2.0
+            │       └── darwin_arm64
+            │           ├── LICENSE.txt
+            │           └── terraform-provider-aws_v6.2.0_x5
+            └── random
+                └── 3.6.0
+                    └── darwin_arm64
+                        └── terraform-provider-random_v3.6.0_x5
+
+12 directories, 6 files
+```
+
+
+Update provider and modules versions
+
+
+```bash
+> terraform validate
+╷
+│ Error: Module version requirements have changed
+│
+│   on main.tf line 38, in module "hello":
+│   38:   source  = "joatmon08/hello/random"
+│
+│ The version requirements have changed since this module was installed and the installed version (4.0.0) is no longer acceptable. Run "terraform init" to install all modules
+│ required by this configuration.
+╵
+```
+
+- because I updated the version I need to reinitialize the project
