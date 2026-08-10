@@ -557,3 +557,72 @@ resource "aws_s3_bucket" "sample" {
 
 https://developer.hashicorp.com/terraform/language/v1.12.x/providers/requirements#handling-local-name-conflicts
 
+
+- use preferred local name (usually the _type_) when possible
+- otherwise combine providers namespace with its _type_
+
+```
+terraform {
+  required_providers {
+    # In the rare situation of using two providers that
+    # have the same type name -- "http" in this example --
+    # use a compound local name to distinguish them.
+    hashicorp-http = {
+      source  = "hashicorp/http"
+      version = "~> 2.0"
+    }
+    mycorp-http = {
+      source  = "mycorp/http"
+      version = "~> 1.0"
+    }
+  }
+}
+
+# References to these providers elsewhere in the
+# module will use these compound local names.
+provider "mycorp-http" {
+  # ...
+}
+
+data "http" "example" {
+  provider = hashicorp-http
+  #...
+}
+
+```
+
+
+### Build-in Providers
+
+- providers are distributed as plugins
+- but there is one which is built-in
+- it's _terraform_remote_state_ - to fetch latest state of snapshot in  a remote state
+
+
+### In-houser Providers
+
+
+- either hosted locally without publishing to Terraform Registry
+- or - via a filesystem mirrors
+  
+  
+```
+provider_installation {
+  filesystem_mirror {
+    path    = "/usr/share/terraform/providers"
+    include = ["example.com/*/*"]
+  }
+  direct {
+    exclude = ["example.com/*/*"]
+  }
+}
+
+```
+
+
+---
+
+# Dependency Lock File
+
+https://developer.hashicorp.com/terraform/language/v1.12.x/files/dependency-lock
+
