@@ -71,3 +71,30 @@ resource "aws_s3_bucket" "eu_bucket" {
 
 ```
 
+
+## Resource Block
+
+
+
+## Data Block
+
+- dynamically retrieve cloud provider data
+- can get information on resource NOT managed by TF
+
+
+```terraform
+# retrive data
+data "aws_vpc" "prd" {
+  filter {
+    name   = "tag:Name"
+    values = ["prd-vpc]
+  }
+}
+
+# use the data
+resource "aws_subnet" "pub" {
+  vpc_id     = data.aws_vpc.prd.id
+  cidr_block = "10.0.6.0/24"
+}
+```
+
