@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Terraform Associate 004/HashiCorp Prep/04 - Read and write configuration.md",
+                "file": "1-projects/Terraform Associate 004/Udemy Course/07 - Terraform Configuration Fundamentals.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "04 - Read and write configuration"
+              "title": "07 - Terraform Configuration Fundamentals"
             }
           }
         ],
@@ -131,7 +131,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 407.0625
+    "width": 263.9609375
   },
   "right": {
     "id": "c30d66fb63f83402",
@@ -225,8 +225,8 @@
   },
   "active": "1784ea694983abe9",
   "lastOpenFiles": [
-    "1-projects/Terraform Associate 004/HashiCorp Prep/03 - Use the core Terraform workflow.md",
     "1-projects/Terraform Associate 004/HashiCorp Prep/04 - Read and write configuration.md",
+    "1-projects/Terraform Associate 004/HashiCorp Prep/03 - Use the core Terraform workflow.md",
     "1-projects/Terraform Associate 004/Udemy Course/07 - Terraform Configuration Fundamentals.md",
     "1-projects/Terraform Associate 004/Udemy Course/06 - Terraform File Structure and Organization.md",
     "1-projects/Terraform Associate 004/Udemy Course/05 - Terraform CLI.md",
