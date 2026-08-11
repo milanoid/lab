@@ -18,4 +18,9 @@ https://developer.hashicorp.com/terraform/tutorials/configuration-language/data-
 ```bash
 # export so the terrafor.tf doesn't need to be changed
 export TF_CLOUD_ORGANIZATION="milanvojnovic-org"
+
+
+...
+
+terraform apply -var aws_region=eu-central-1
 ```
