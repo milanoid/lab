@@ -5,6 +5,7 @@ two approaches
 
 - all labs in GitHub, AWS, Azure flavor - pick one
 
+labs repo fork: https://github.com/milanoid/terraform-associate-labs
 
 ## LAB-01
 
