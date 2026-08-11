@@ -8,3 +8,14 @@ tutorial https://developer.hashicorp.com/terraform/tutorials/configuration-langu
 
 In this tutorial, you will create an EC2 instance that runs a PHP web application. You will then refer to documentation in the Terraform Registry to create a security group to make the application publicly accessible.
 
+
+
+## Query data source (tutorial)
+
+
+https://developer.hashicorp.com/terraform/tutorials/configuration-language/data-sources
+
+```bash
+# export so the terrafor.tf doesn't need to be changed
+export TF_CLOUD_ORGANIZATION="milanvojnovic-org"
+```
