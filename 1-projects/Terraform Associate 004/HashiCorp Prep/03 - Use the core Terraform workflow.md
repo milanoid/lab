@@ -256,5 +256,25 @@ https://developer.hashicorp.com/terraform/tutorials/cli/apply
 
 ```bash
 git clone https://github.com/hashicorp-education/learn-terraform-apply
+```
 
+
+Replace Resources
+
+```bash
+# list resources and its address
+> terraform state list
+data.aws_ami.ubuntu
+aws_instance.main[0]
+aws_instance.main[1]
+aws_instance.main[2]
+aws_s3_bucket.example
+aws_s3_object.example
+random_pet.instance
+```
+
+replace the 2nd EC2 instance:
+
+```bash
+terraform apply -replace "aws_instance.main[1]"
 ```
