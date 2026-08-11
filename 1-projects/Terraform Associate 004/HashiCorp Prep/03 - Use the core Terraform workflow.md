@@ -246,3 +246,15 @@ terraform plan -destroy -out "tfplan-destroy"
 
 terraform apply "tfplan-destroy"
 ```
+
+
+
+Apply Tutorial
+
+https://developer.hashicorp.com/terraform/tutorials/cli/apply
+
+
+```bash
+git clone https://github.com/hashicorp-education/learn-terraform-apply
+
+```
