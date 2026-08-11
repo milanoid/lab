@@ -4,3 +4,9 @@ two approaches
 2. Codespaces lab
 
 - all labs in GitHub, AWS, Azure flavor - pick one
+
+
+## LAB-01
+
+https://github.com/btkrausen/terraform-associate-labs/blob/main/labs/lab_01_getting_started_with_terraform/github.md
+
