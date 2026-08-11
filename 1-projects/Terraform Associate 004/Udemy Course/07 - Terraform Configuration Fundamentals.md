@@ -98,3 +98,64 @@ resource "aws_subnet" "pub" {
 }
 ```
 
+
+
+## Variable Block
+
+```
+variable "github_organization" {
+  description = "Name of the GitHub organization to manage."
+  type        = string
+  default     = "milanoid-labs"
+}
+```
+
+- type = string|number|bool|list|map|set
+
+
+### Assigning Values to Variables
+
+1. set directly in the variable block defaults (lowest precedence)
+2. environment variables (starts with `TF_VAR_)
+3. `.tfvars` file
+4. `.auto.tfvars` file
+5. command line flags `-var="key=value"` (highest precedence)
+
+
+
+## Output Block
+
+
+- display resource details
+- pass data between modules or automating workflows
+- stored in terraform state `terraform output`
+
+
+## Terraform Block
+
+
+- global configuration
+- required providers and its version
+- backend settings
+
+```
+terraform {
+  required_version = ">= 1.6.0"
+
+  backend "local" {
+    path = "terraform.tfstate"
+  }
+
+  required_providers {
+    github = {
+      source  = "integrations/github"
+      version = "~> 6.0"
+    }
+  }
+}
+```
+
+
+
+
+
