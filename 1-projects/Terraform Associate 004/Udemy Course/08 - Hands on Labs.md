@@ -7,7 +7,11 @@ two approaches
 
 labs repo fork: https://github.com/milanoid/terraform-associate-labs
 
-## LAB-01
+## LAB-01 - LAB-03
 
 https://github.com/btkrausen/terraform-associate-labs/blob/main/labs/lab_01_getting_started_with_terraform/github.md
 
+
+Running plan with `.tfvars` file
+
+`terraform plan -var-file="testing.tfvars"`
