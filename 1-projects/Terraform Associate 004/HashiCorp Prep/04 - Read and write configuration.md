@@ -200,3 +200,17 @@ Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 Both implicit and explicit deps affect the order when running `destroy` too.
 
 
+
+## Target resources (tutorial)
+
+https://developer.hashicorp.com/terraform/tutorials/state/resource-targeting
+
+- In a typical Terraform workflow, you apply the entire plan at once. Occasionally you may want to apply only part of a plan
+- `-target` option
+
+
+```bash
+git clone https://github.com/hashicorp-education/learn-terraform-resource-targeting
+
+
+```
