@@ -214,3 +214,27 @@ git clone https://github.com/hashicorp-education/learn-terraform-resource-target
 
 
 ```
+
+
+### Target the S3 bucket name
+
+main.tf
+
+```
+ resource "random_pet" "bucket_name" {
+-  length    = 3
++  length    = 5
+   separator = "-"
+   prefix    = "learning"
+ }
+```
+
+- running `terraform plan` -> would _replace_ all the resources ( AWS can't rename S3 bucket )
+
+vs
+
+`terraform plan -target="random_pet.bucket_name"` 
+
+- will modify just the bucket name
+
+`terraform plan -target="module.s3_bucket"`
