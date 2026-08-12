@@ -238,3 +238,57 @@ vs
 - will modify just the bucket name
 
 `terraform plan -target="module.s3_bucket"`
+
+
+### Target specific bucket objects
+
+
+- modify the `content` of the "objects" - then plan/apply to some only:
+
+```bash
+terraform apply -target="aws_s3_object.objects[2]" -target="aws_s3_object.objects[3]"
+```
+
+- updates the selected buckets only
+
+
+### Target bucket object names
+
+
+main.tf - remove `prefix`
+
+```
+ resource "random_pet" "object_names" {
+   count = 4
+
+   length    = 5
+   separator = "_"
+-  prefix    = "learning"
+ }
+```
+
+`terraform apply -target="aws_s3_object.objects[2]"`
+
+- TF updates all five object names - not just the one targetted
+
+
+### Destroy your infrastructure
+
+- also supports targeting
+
+```bash
+terraform destroy -target="aws_s3_object.objects"
+```
+
+- destroy all S3 bucket objects (files)
+
+
+
+---
+
+## Customize Terraform configuration with variables (tutorial)
+
+https://developer.hashicorp.com/terraform/tutorials/configuration-language/variables
+
+
+
