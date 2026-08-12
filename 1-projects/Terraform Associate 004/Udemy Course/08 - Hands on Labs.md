@@ -15,3 +15,4 @@ https://github.com/btkrausen/terraform-associate-labs/blob/main/labs/lab_01_gett
 Running plan with `.tfvars` file
 
 `terraform plan -var-file="testing.tfvars"`
+
