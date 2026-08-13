@@ -62,9 +62,21 @@
               "icon": "lucide-file",
               "title": "04 - Read and write configuration"
             }
+          },
+          {
+            "id": "074eb2de1a9d2472",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.13.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.13.7"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -223,7 +235,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1784ea694983abe9",
+  "active": "074eb2de1a9d2472",
   "lastOpenFiles": [
     "1-projects/Terraform Associate 004/Udemy Course/08 - Hands on Labs.md",
     "1-projects/Terraform Associate 004/HashiCorp Prep/04 - Read and write configuration.md",
