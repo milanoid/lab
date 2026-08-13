@@ -291,8 +291,9 @@ terraform destroy -target="aws_s3_object.objects"
 https://developer.hashicorp.com/terraform/tutorials/configuration-language/variables
 
 
-- simple values - _string_, _number_, _bool_
-- collection value - _list_, _map_, _set_
+- simple - _string_, _number_, _bool_
+- collection - _list_, _map_, _set_
+- structural - _tuple_, _object_
 
 List - a sequence of values of the same type, `list(string`
 
@@ -303,7 +304,7 @@ Set - An unordered collection of unique values, all of the same type
 
 `slice()` - function to get a subset of these lists
 
-### terraform console
+#### terraform console
 
 - interactive console for evaluating _expressions_
 
@@ -358,3 +359,66 @@ There default functions
 - Terraform specific
 
 - functions available: https://developer.hashicorp.com/terraform/language/functions
+
+
+#### Assigning a value to a variable
+
+1. command line flag: `terraform apply -var ec2_instance_type=t2.micro`
+2. with a file `*.auto.tfvars` - TF loads such files
+
+### Interpolate variables in strings
+
+- inserting the output of an expression into a string
+
+```bash
+name = "lb-${random_string.lb_id.result}-${var.resource_tags["project"]}-${var.resource_tags["environment"]}"
+```
+
+
+### Validate variables
+
+```bash
+variable "resource_tags" {
+  description = "Tags to set for all resources"
+  type        = map(string)
+  default     = {
+    project     = "my-project",
+    environment = "dev"
+  }
+
+  validation {
+    condition     = length(var.resource_tags["project"]) <= 16 && length(regexall("[^a-zA-Z0-9-]", var.resource_tags["project"])) == 0
+    error_message = "The project tag must be no more than 16 characters, and only contain letters, numbers, and hyphens."
+  }
+
+  validation {
+    condition     = length(var.resource_tags["environment"]) <= 8 && length(regexall("[^a-zA-Z0-9-]", var.resource_tags["environment"])) == 0
+    error_message = "The environment tag must be no more than 8 characters, and only contain letters, numbers, and hyphens."
+  }
+}
+```
+
+
+
+```bash
+$ terraform apply -var='resource_tags={project="my-project",environment="development"}'
+random_string.lb_id: Refreshing state... [id=CVB]
+data.aws_availability_zones.available: Reading...
+data.aws_availability_zones.available: Read complete after 1s [id=us-west-2]
+
+Planning failed. Terraform encountered an error while generating this plan.
+
+╷
+│ Error: Invalid value for variable
+│
+│   on variables.tf line 72:
+│   72: variable "resource_tags" {
+│     ├────────────────
+│     │ var.resource_tags["environment"] is "development"
+│
+│ The environment tag must be no more than 8 characters, and only contain
+│ letters, numbers, and hyphens.
+│
+│ This was checked by the validation rule at variables.tf:85,3-13.
+
+```
