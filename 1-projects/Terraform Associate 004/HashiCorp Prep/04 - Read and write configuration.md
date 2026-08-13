@@ -291,4 +291,48 @@ terraform destroy -target="aws_s3_object.objects"
 https://developer.hashicorp.com/terraform/tutorials/configuration-language/variables
 
 
+- simple values - _string_, _number_, _bool_
+- collection value - _list_, _map_, _set_
 
+List - a sequence of values of the same type, `list(string`
+
+Map - A lookup table, matching keys to values, all of the same type
+
+Set - An unordered collection of unique values, all of the same type
+
+
+`slice()` - function to get a subset of these lists
+
+### terraform console
+
+- interactive console for evaluating _expressions_
+
+https://developer.hashicorp.com/terraform/cli/commands/console
+
+```bash
+# a cli - can query the variables
+> terraform console
+
+> var.private_subnet_cidr_blocks
+tolist([
+  "10.0.101.0/24",
+  "10.0.102.0/24",
+  "10.0.103.0/24",
+  "10.0.104.0/24",
+  "10.0.105.0/24",
+  "10.0.106.0/24",
+  "10.0.107.0/24",
+  "10.0.108.0/24",
+])
+
+```
+
+
+```bash
+> echo 'split(",", "foo,bar,baz")' | terraform console 
+tolist([ 
+	"foo", 
+	"bar", 
+	"baz", 
+])
+```
