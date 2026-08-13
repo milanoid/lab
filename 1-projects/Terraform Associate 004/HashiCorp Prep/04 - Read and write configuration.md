@@ -327,6 +327,8 @@ tolist([
 
 ```
 
+- that doesn't work when having the state remote (HCP Terraform), even tried that with `terraform console -plan`
+
 
 ```bash
 > echo 'split(",", "foo,bar,baz")' | terraform console 
@@ -336,3 +338,23 @@ tolist([
 	"baz", 
 ])
 ```
+
+```bash
+> cidrnetmask("172.16.0.0/12")
+"255.240.0.0"
+```
+
+There default functions
+
+- Numerical (`max()`...)
+- String ( `endswith()` ...)
+- Collection ( `alltrue([true, true])`)
+- Encoding functions
+- Filesystem functions
+- Data and time
+- Hash and crypto
+- IP network
+- Type conversion
+- Terraform specific
+
+- functions available: https://developer.hashicorp.com/terraform/language/functions
