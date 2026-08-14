@@ -422,3 +422,31 @@ Planning failed. Terraform encountered an error while generating this plan.
 │ This was checked by the validation rule at variables.tf:85,3-13.
 
 ```
+
+
+
+
+## Variables docs
+
+https://developer.hashicorp.com/terraform/language/v1.12.x/values/variables
+
+- `sensitive = true` - value won't be displayed in CLI output
+- `ephemeral = true` - value omit from state and plan files
+
+On how to manage sensitive data https://developer.hashicorp.com/terraform/language/v1.12.x/manage-sensitive-data
+
+
+
+
+
+## Output data from Terraform (tutorial)
+
+
+https://developer.hashicorp.com/terraform/tutorials/configuration-language/outputs
+
+
+1. create infrastructure
+
+```bash
+git clone https://github.com/hashicorp-education/learn-terraform-outputs
+```
