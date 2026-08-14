@@ -35,9 +35,11 @@ terraform {
 
 - [ ] migrate my https://github.com/milanoid-labs/milanoid-labs-terraform
 ---
+I'm using `tofu` (a Linux Foundation fork of Terraform), basically the same
 
 ```bash
-
+# verfy the state
+tofu plan
 ```
 
 ---
