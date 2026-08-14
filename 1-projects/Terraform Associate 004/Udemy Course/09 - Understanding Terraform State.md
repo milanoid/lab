@@ -37,9 +37,13 @@ terraform {
 ---
 I'm using `tofu` (a Linux Foundation fork of Terraform), basically the same
 
+- S3 bucket name `milanoid-labs-terraform-tofu-state`
+
 ```bash
 # verfy the state
 tofu plan
+
+
 ```
 
 ---
