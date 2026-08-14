@@ -450,3 +450,165 @@ https://developer.hashicorp.com/terraform/tutorials/configuration-language/outpu
 ```bash
 git clone https://github.com/hashicorp-education/learn-terraform-outputs
 ```
+
+
+```bash
+# outputs.tf
+output "vpc_id" {
+  description = "ID of project VPC"
+  value       = module.vpc.vpc_id
+}
+
+output "vpc_name" {
+  description = "The name of the VPC"
+  value       = module.vpc.name
+}
+
+
+output "lb_url" {
+  # uses string interpolation
+  description = "URL of load balancer"
+  value       = "http://${module.elb_http.elb_dns_name}/"
+}
+
+output "web_server_count" {
+  # uses length functon to count instances
+  description = "Number of web servers provisioned"
+  value       = length(module.ec2_instances.instance_ids)
+}
+```
+
+
+```bash
+# terraform apply
+# ....
+
+Outputs:
+web_server_count = 4
+lb_url = "http://lb-ZMn-project-alpha-dev-786610010.us-east-1.elb.amazonaws.com/"
+vpc_id = "vpc-097f73de93fec0cb6"
+vpc_name = null
+```
+
+### Query outputs
+
+```bash
+# after creating the outputs
+> terraform output 
+lb_url = "http://lb-ZMn-project-alpha-dev-786610010.us-east-1.elb.amazonaws.com/" 
+vpc_id = "vpc-097f73de93fec0cb6" 
+vpc_name = "" 
+web_server_count = 4
+```
+
+query an individual output
+
+```bash
+# string in quotes by default
+> terraform output lb_url
+"http://lb-ZMn-project-alpha-dev-786610010.us-east-1.elb.amazonaws.com/"
+
+
+# unquote - for machine-readable format
+> terraform output -raw lb_url
+http://lb-ZMn-project-alpha-dev-786610010.us-east-1.elb.amazonaws.com/
+```
+
+
+### Redact sensitive outputs
+
+
+- for sensitive data
+- not printed when planning, applying, or destroying
+- printed though when queried by name and in some other cases too
+
+```bash
+output "db_username" {
+  description = "Database administrator username"
+  value       = aws_db_instance.database.username
+  sensitive   = true
+}
+
+output "db_password" {
+  description = "Database administrator password"
+  value       = aws_db_instance.database.password
+  sensitive   = true
+}
+```
+
+
+```bash
+# tarraform apply
+# ...
+
+vpc_name = null
+web_server_count = 4
+db_password = (sensitive value)
+db_username = (sensitive value)
+lb_url = "http://lb-ZMn-project-alpha-dev-786610010.us-east-1.elb.amazonaws.com/"
+vpc_id = "vpc-097f73de93fec0cb6"
+```
+
+
+```bash
+# visible when queried by name
+> terraform output db_password 
+"notasecurepassword"
+```
+
+pull remote state file from HCP Terraform
+
+```bash
+> terraform state pull > terraform.tfstate
+> grep --after-context=10 outputs terraform.tfstate
+  "outputs": {
+    "db_password": {
+      "value": "notasecurepassword",
+      "type": "string",
+      "sensitive": true
+    },
+    "db_username": {
+      "value": "admin",
+      "type": "string",
+      "sensitive": true
+    }
+```
+
+
+Generate machine-readable output
+
+```bash
+> terraform output -json
+{
+  "db_password": {
+    "sensitive": true,
+    "type": "string",
+    "value": "notasecurepassword"
+  },
+  "db_username": {
+    "sensitive": true,
+    "type": "string",
+    "value": "admin"
+  },
+  "lb_url": {
+    "sensitive": false,
+    "type": "string",
+    "value": "http://lb-ZMn-project-alpha-dev-786610010.us-east-1.elb.amazonaws.com/"
+  },
+  "vpc_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "vpc-097f73de93fec0cb6"
+  },
+  "vpc_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": ""
+  },
+  "web_server_count": {
+    "sensitive": false,
+    "type": "number",
+    "value": 4
+  }
+}
+```
