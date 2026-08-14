@@ -856,3 +856,12 @@ https://developer.hashicorp.com/terraform/tutorials/configuration-language/expre
 vs 
 
 `var.list[*].id`
+
+
+
+
+## Manage resource lifecycle (tutorial)
+
+
+https://developer.hashicorp.com/terraform/tutorials/state/resource-lifecycle
+
