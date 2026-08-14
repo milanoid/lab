@@ -772,7 +772,7 @@ ssh ubuntu@$(terraform output -raw web_public_ip) -i ssh_key
 ```
 
 
-sidenote - terraform apply error - _InsufficientInstanceCapacity_:
+side-note: terraform apply error - _InsufficientInstanceCapacity_:
 
 ```
 aws_instance.web: Creating...
@@ -786,4 +786,34 @@ aws_instance.web: Creating...
 │
 ╵
 Operation failed: failed running terraform apply (exit 1)
+```
+
+
+
+
+## Create dynamic expressions
+
+https://developer.hashicorp.com/terraform/tutorials/configuration-language/expressions
+
+[Conditional expressions](https://developer.hashicorp.com/terraform/language/expressions/conditionals) select a value based on whether the expression evaluates to true or false.
+
+```bash
+resource "random_id" "id" {
+  byte_length = 8
+}
+
+locals {
+  name  = (var.name != "" ? var.name : random_id.id.hex)
+  owner = var.team
+  common_tags = {
+    Owner = local.owner
+    Name  = local.name
+  }
+}
+
+```
+
+
+```bash
+git clone https://github.com/hashicorp-education/learn-terraform-expressions
 ```
