@@ -712,3 +712,13 @@ When a user data script is processed, it is [copied to and run from ](https://d
 
 https://developer.hashicorp.com/terraform/tutorials/configuration-language/functions#use-lookup-function-to-select-ami
 
+`lookup` - https://developer.hashicorp.com/terraform/language/functions/lookup
+
+`lookup(map, key, default)` - returns a single element - `key` - from a map, fallback to `defautl`
+
+```bash
+> lookup({a="ay", b="bee"}, "a", "what?")
+ay
+> lookup({a="ay", b="bee"}, "c", "what?")
+what?
+```
