@@ -48,6 +48,7 @@ removed {
 
 - adopt existing infrastructure into TF
 
+
 ```bash
 import {
   to = aws_s3_bucket.terraform_state
@@ -55,3 +56,45 @@ import {
 }
 ```
 
+- needs to have a `resource` block created:
+
+```bash
+resource "aws_s3_bucket" "terraform_state" {
+  description = "Terraform State bucket"
+}
+```
+
+
+
+```bash
+terraform plan -generate-config-out=PATH
+```
+
+- or, terraform can create `resource` block for me
+
+
+Exercise:
+
+- [ ] create a new repo in milanoid-org and import it
+
+
+```bash
+# import.tf
+import {
+  to = github_repository.import-me-tofu
+  id = "milanoid-labs/import-me-tofu"
+}
+```
+
+```bash
+> tofu plan
+╷
+│ Error: Configuration for import target does not exist
+│
+│   on import.tf line 1:
+│    1: import {
+│
+│ The configuration for the given import github_repository.import-me-tofu does not exist. All target instances must have an associated configuration to be
+│ imported.
+╵
+```
