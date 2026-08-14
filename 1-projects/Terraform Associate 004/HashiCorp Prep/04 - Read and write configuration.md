@@ -763,3 +763,10 @@ resource "aws_key_pair" "ssh_key" {
 }
 
 ```
+
+
+after apply I can connect via ssh:
+
+```bash
+ssh ubuntu@$(terraform output -raw web_public_ip) -i ssh_key
+```
