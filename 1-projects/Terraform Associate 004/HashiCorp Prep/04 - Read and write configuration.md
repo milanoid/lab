@@ -722,3 +722,44 @@ ay
 > lookup({a="ay", b="bee"}, "c", "what?")
 what?
 ```
+
+
+
+
+
+### Use the `file` function
+
+https://developer.hashicorp.com/terraform/language/v1.12.x/functions/file
+
+- reads the contents of a file at the given path and returns them as a string.
+
+
+In this section, you will create a new security group to allow SSH ingress traffic to your instance and configure the instance with an SSH key.
+
+#### Create an SSH key and a security group resource
+
+```bash
+ssh-keygen -C "your_email@example.com" -f ssh_key
+```
+
+
+```bash
+# main.tf
+resource "aws_security_group" "sg_22" {
+  name = "sg_22"
+  vpc_id = aws_vpc.vpc.id
+
+  ingress {
+    from_port = 22
+    to_port  = 22
+    protocol  = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_key_pair" "ssh_key" {
+  key_name = "ssh_key"
+  public_key = file("ssh_key.pub")
+}
+
+```
