@@ -612,3 +612,55 @@ Generate machine-readable output
   }
 }
 ```
+
+
+-  ? - Claude says it's OK - the ENI is owner by AWS not me, TF tries to destroy it explicitly to speed up destroy of the ELB
+
+```bash
+> terraform destroy
+
+
+│ Warning: cleaning up ELB Classic Load Balancer (lb-ZMn-project-alpha-dev) ENIs: detaching EC2 Network Interface (eni-0642bb5e6730affb3/eni-attach-0ff3cbb695f4ef641): AuthFailure: You do not have permission to access the specified resource.
+│       status code: 400, request id: 5b8f7487-8d1e-4c43-b292-5086eaf23d76
+│ detaching EC2 Network Interface (eni-0239ebd937a363aed/eni-attach-04a396f7b3bd6ab52): AuthFailure: You do not have permission to access the specified resource.
+│       status code: 400, request id: 1237113a-6a1c-472c-bce3-22df3461963b
+│
+│
+╵
+╷
+│ Warning: EC2 Default Network ACL (acl-02d1f7fdf63263d8b) not deleted, removing from state
+│
+│
+╵
+
+Apply complete! Resources: 0 added, 0 changed, 49 destroyed.
+```
+
+
+
+## Perform dynamic operations with functions (tutorial)
+
+https://developer.hashicorp.com/terraform/tutorials/configuration-language/functions
+
+```bash
+git clone https://github.com/hashicorp-education/learn-terraform-functions
+```
+
+### Use templatefile to dynamically generate a script
+
+Used in SP Jenkins controller TF
+
+
+```bash
+resource "aws_instance" "web" {
+  ami                         = data.aws_ami.ubuntu.id
+  instance_type               = "t2.micro"
+  subnet_id                   = aws_subnet.subnet_public.id
+  vpc_security_group_ids      = [aws_security_group.sg_8080.id]
+  associate_public_ip_address = true
+  user_data                   = templatefile("user_data.tftpl")
+}
+```
+
+- `templatefile` https://developer.hashicorp.com/terraform/language/functions/templatefile
+- `templatefile(path, vars)`
