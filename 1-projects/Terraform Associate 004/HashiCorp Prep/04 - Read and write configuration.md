@@ -667,3 +667,48 @@ resource "aws_instance" "web" {
 
 ### Create infrastructure
 
+```bash
+> terraform apply
+Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
+
+Outputs:
+web_public_address = "54.211.3.35:8080"
+web_public_ip = "54.211.3.35"
+```
+
+http://54.211.3.35:8080/ - tetris game! :)
+
+```bash
+# get instance_id
+TARGET=$(aws ec2 --region='us-east-1' describe-instances --profile milanoid --filters Name=instance-state-name,Values=running --query "Reservations[*].Instances[*].InstanceId" --output text)
+i-0b905467894dde3ef
+
+
+# access the instance
+aws ssm start-session --region us-east-1 --target $TARGET --profile milanoid
+aws: [ERROR]: An error occurred (TargetNotConnected) when calling the StartSession operation: i-0b905467894dde3ef is not connected. 
+```
+
+Doesn't work because 'DHMC is not enabled and IAM instance profile is not attached': https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started-instance-profile.html
+
+But can connect via AWS Console - EC2 Instance Connect if ssh port 22 inbound connections is allowed - update `aws_security_group`
+
+```bash
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+```
+
+Once applied the EC2 Instance Connect works.
+
+When a user data script is processed, it is [copied to and run from ](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html)``/var/lib/cloud/instances/`instance-id`/``. The script is not deleted after it is run.
+
+
+
+### Use `lookup` function to select AMI
+
+https://developer.hashicorp.com/terraform/tutorials/configuration-language/functions#use-lookup-function-to-select-ami
+
