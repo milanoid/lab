@@ -40,9 +40,43 @@ I'm using `tofu` (a Linux Foundation fork of Terraform), basically the same
 - S3 bucket name `milanoid-labs-terraform-tofu-state`
 
 ```bash
-# verfy the state
-tofu plan
+# version
+> tofu version 
+OpenTofu v1.12.5
 
+# verfy the state
+> tofu plan
+
+# migrate
+> tofu init -migrate-state
+Initializing the backend...
+
+OpenTofu detected that the backend type changed from "local" to "s3".
+Do you want to copy existing state to the new backend?
+  Pre-existing state was found while migrating the previous "local" backend to the
+  newly configured "s3" backend. No existing state was found in the newly
+  configured "s3" backend. Do you want to copy this state to the new "s3"
+  backend? Enter "yes" to copy and "no" to start with an empty state.
+
+  Enter a value: yes
+
+
+Successfully configured the backend "s3"! OpenTofu will automatically
+use this backend unless the backend configuration changes.
+
+Initializing provider plugins...
+- Reusing previous version of integrations/github from the dependency lock file
+- Using previously-installed integrations/github v6.12.1
+
+OpenTofu has been successfully initialized!
+
+You may now begin working with OpenTofu. Try running "tofu plan" to see
+any changes that are required for your infrastructure. All OpenTofu commands
+should now work.
+
+If you ever set or change modules or backend configuration for OpenTofu,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
 
 ```
 
