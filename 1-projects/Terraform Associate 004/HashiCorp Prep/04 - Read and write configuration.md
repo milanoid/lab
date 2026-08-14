@@ -658,9 +658,12 @@ resource "aws_instance" "web" {
   subnet_id                   = aws_subnet.subnet_public.id
   vpc_security_group_ids      = [aws_security_group.sg_8080.id]
   associate_public_ip_address = true
-  user_data                   = templatefile("user_data.tftpl")
+  user_data                   = templatefile("user_data.tftpl", { department = var.user_department, name = var.user_name })
 }
 ```
 
 - `templatefile` https://developer.hashicorp.com/terraform/language/functions/templatefile
 - `templatefile(path, vars)`
+
+### Create infrastructure
+
