@@ -78,6 +78,9 @@ If you ever set or change modules or backend configuration for OpenTofu,
 rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 
+
+> tofu apply -refresh-only
+
 ```
 
 ---
