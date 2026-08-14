@@ -817,3 +817,16 @@ locals {
 ```bash
 git clone https://github.com/hashicorp-education/learn-terraform-expressions
 ```
+
+
+
+### Create a conditional count criteria
+
+```bash
+variable "high_availability" {
+  type        = bool
+  description = "If this is a multiple instance deployment, choose `true` to deploy 3 instances"
+  default     = true
+}
+
+```
