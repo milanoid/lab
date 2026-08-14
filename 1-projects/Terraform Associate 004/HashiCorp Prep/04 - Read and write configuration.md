@@ -828,5 +828,31 @@ variable "high_availability" {
   description = "If this is a multiple instance deployment, choose `true` to deploy 3 instances"
   default     = true
 }
-
 ```
+
+
+```bash
+resource "aws_instance" "ubuntu" {
+  count                       = (var.high_availability == true ? 3 : 1)
+  ami                         = data.aws_ami.ubuntu.id
+  instance_type               = "t2.micro"
+  associate_public_ip_address = (count.index == 0 ? true : false)
+  subnet_id                   = aws_subnet.subnet_public.id
+  tags                        = merge(local.common_tags)
+}
+```
+
+
+#### Create a splat expression
+
+https://developer.hashicorp.com/terraform/tutorials/configuration-language/expressions#create-a-splat-expression
+
+`Splat Expression` - https://developer.hashicorp.com/terraform/language/expressions/splat
+
+- a shorthand for a `for` loop:
+
+`[for o in var.list : o.id]` 
+
+vs 
+
+`var.list[*].id`
