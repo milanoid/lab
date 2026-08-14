@@ -770,3 +770,20 @@ after apply I can connect via ssh:
 ```bash
 ssh ubuntu@$(terraform output -raw web_public_ip) -i ssh_key
 ```
+
+
+sidenote - terraform apply error - _InsufficientInstanceCapacity_:
+
+```
+aws_instance.web: Creating...
+╷
+│ Error: creating EC2 Instance: InsufficientInstanceCapacity: We currently do not have sufficient t2.micro capacity in the Availability Zone you requested (us-east-1e). Our system will be working on provisioning additional capacity. You can currently get t2.micro capacity by not specifying an Availability Zone in your request or choosing us-east-1a, us-east-1b, us-east-1c, us-east-1d, us-east-1f.
+│       status code: 500, request id: cb5fc194-9acd-4a50-8630-72c89395e47d
+│
+│   with aws_instance.web,
+│   on main.tf line 78, in resource "aws_instance" "web":
+│   78: resource "aws_instance" "web" {
+│
+╵
+Operation failed: failed running terraform apply (exit 1)
+```
