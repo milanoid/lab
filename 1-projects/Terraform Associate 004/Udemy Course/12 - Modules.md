@@ -52,7 +52,7 @@ Child Module must have `output` block
 
 ```bash
 output "child_module_output" {
-  
+  value = a_value
 }
 
 ```
