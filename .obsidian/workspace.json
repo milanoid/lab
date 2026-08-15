@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Terraform Associate 004/Udemy Course/12 - Modules.md",
+                "file": "1-projects/Terraform Associate 004/Udemy Course/14 - Securing Terraform Configurations.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "12 - Modules"
+              "title": "14 - Securing Terraform Configurations"
             }
           }
         ],
@@ -225,9 +225,11 @@
   },
   "active": "1784ea694983abe9",
   "lastOpenFiles": [
+    "1-projects/Terraform Associate 004/Udemy Course/13 - Managing Resource Behavior and Dependecies.md",
+    "1-projects/Terraform Associate 004/Udemy Course/14 - Securing Terraform Configurations.md",
+    "1-projects/Terraform Associate 004/Udemy Course/12 - Modules.md",
     "Pasted image 20260815162004.png",
     "1-projects/Terraform Associate 004/Udemy Course/11 - Refactoring Terraform State.md",
-    "1-projects/Terraform Associate 004/Udemy Course/12 - Modules.md",
     "1-projects/Terraform Associate 004/Udemy Course/10 - Making Code Reusable.md",
     "1-projects/Terraform Associate 004/Udemy Course/09 - Understanding Terraform State.md",
     "1-projects/Terraform Associate 004/HashiCorp Prep/04 - Read and write configuration.md",
@@ -255,7 +257,6 @@
     "4-archives/ArgoCD (CAPA)/00 - 0 README.md",
     "4-archives/ArgoCD (CAPA)/CAPA course/06 - Argo Events.md",
     "4-archives/ArgoCD (CAPA)/04 - Argo Events.md",
-    "4-archives/ArgoCD (CAPA)/CAPA course/04 - Argo Workflows.md",
     "Screenshot 2026-07-28 at 13.27.05.png",
     "Pasted image 20260728113807.png",
     "Pasted image 20260728113625.png",
@@ -264,7 +265,6 @@
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 6 - K3d",
     "Pasted image 20260720095232.png",
     "Pasted image 20260718205608.png",
-    "Screenshot 2026-07-17 at 11.48.05.png",
     "4-archives/ArgoCD (CAPA)/CAPA course",
     "4-archives/ArgoCD (CAPA)",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions",

@@ -90,7 +90,7 @@ module "s3_bucket" {
 
 the module code: https://github.com/terraform-aws-modules/terraform-aws-s3-bucket
 
-- [ ] exercise - create S3 bucket using the official module:
+- [x] exercise - create S3 bucket using the official module:
 
 
 ```bash
