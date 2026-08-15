@@ -101,3 +101,63 @@ terraform {
 
 - can be added later on
 - [ ] my S3 bucket with state file under TF management
+
+
+
+
+## Keeping Secrets Out of State with Ephemeral Values and Write-only Arguments
+
+
+or how to keep secrets completely out of state
+
+### Ephemeral Values
+
+- only in memory
+- never written to State or Plan files
+- introduced in `v1.10`
+- `ephmeral = true` (variable or output)
+
+
+! `ephemeral` variable cannot be used in a `resource` block
+
+
+
+### Ephemeral Resources
+
+- fetches data at runtime and stored in memory
+- open and closed during execution
+
+
+When to use
+
+- fetching secrets from Vault (or other Secret Manager)
+- reading temporary credentials
+- retrieving dynamic tokens
+
+Depends on provider - not all resource have `ephemeral` equivalent. 
+
+
+
+## Write-Only Arguments
+
+
+```bash
+resource "aws_db_instance" "test" {
+  instance_class      = "db.t3.micro"
+  password_wo         = "old-password-here"
+  password_wo_version = 1
+}
+```
+
+`wo` - never read them back
+
+
+
+## Working with HashiCorp Vault for Dynamic Credentials
+
+
+- short-lived credentials (2,3,5,10,15 minutes)
+- generated on demand
+- usually limited scope
+
+
