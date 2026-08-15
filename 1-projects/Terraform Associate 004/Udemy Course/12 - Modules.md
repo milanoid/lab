@@ -62,3 +62,30 @@ then in Root Module reference by:
 ```bash
 module.jenkins.child_module_output
 ```
+
+
+## Using Modules from Terraform Registry
+
+
+e.g. https://registry.terraform.io/modules/terraform-aws-modules/s3-bucket/aws/latest
+
+I don't have to write a `resource` block for a S3 bucket. I can use create a `module` block with `source` of that module. And let the Child Module do the heavy lifting.
+
+
+```bash
+module "s3_bucket" {
+  source = "terraform-aws-modules/s3-bucket/aws"
+
+  bucket = "my-s3-bucket"
+  acl    = "private"
+
+  control_object_ownership = true
+  object_ownership         = "ObjectWriter"
+
+  versioning = {
+    enabled = true
+  }
+}
+```
+
+the module code: https://github.com/terraform-aws-modules/terraform-aws-s3-bucket
