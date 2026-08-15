@@ -75,7 +75,7 @@ terraform plan -generate-config-out=PATH
 
 Exercise:
 
-- [ ] create a new repo in milanoid-org and import it https://github.com/milanoid-labs/milanoid-labs-terraform/pull/25
+- [x] create a new repo in milanoid-org and import it https://github.com/milanoid-labs/milanoid-labs-terraform/pull/25
 
 
 ```bash
@@ -135,4 +135,12 @@ milan@SPM-LN4K9M0GG7 ~/repos/milanoid-labs-terraform (tofu-import-excercise)
 
 - need to declare dependency `depends_on` ?
 - not even re-plan/re-apply didn't help
-- [ ] why it fails?
+- [x] why it fails? - the repo was empty - had to git init and push a first commit
+
+
+```bash
+> git clone git@github.com:milanoid-labs/import-me-tofu.git
+Cloning into 'import-me-tofu'...
+warning: You appear to have cloned an empty repository.
+```
+
