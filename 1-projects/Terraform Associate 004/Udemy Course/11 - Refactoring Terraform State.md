@@ -75,7 +75,7 @@ terraform plan -generate-config-out=PATH
 
 Exercise:
 
-- [ ] create a new repo in milanoid-org and import it
+- [ ] create a new repo in milanoid-org and import it https://github.com/milanoid-labs/milanoid-labs-terraform/pull/25
 
 
 ```bash
@@ -98,3 +98,41 @@ import {
 │ imported.
 ╵
 ```
+
+- the `id` - is only the repo name (without org, which is already specified elsewhere)
+
+
+apply failed:
+
+
+```bash
+  Enter a value: yes
+
+github_repository.this["import-me-tofu"]: Importing... [id=import-me-tofu]
+github_repository.this["import-me-tofu"]: Import complete [id=import-me-tofu]
+github_repository.this["import-me-tofu"]: Modifying... [id=import-me-tofu]
+github_repository.this["import-me-tofu"]: Modifications complete after 6s [id=import-me-tofu]
+github_repository_file.codeowners["import-me-tofu"]: Creating...
+╷
+│ Warning: Value derived from a deprecated source
+│
+│   with github_repository_file.codeowners["import-me-tofu"],
+│   on codeowners.tf line 8, in resource "github_repository_file" "codeowners":
+│    8: resource "github_repository_file" "codeowners" {
+│
+│ This value is derived from github_repository.this.default_branch, which is deprecated.
+╵
+╷
+│ Error: unexpected status code: 404 Not Found
+│
+│   with github_repository_file.codeowners["import-me-tofu"],
+│   on codeowners.tf line 8, in resource "github_repository_file" "codeowners":
+│    8: resource "github_repository_file" "codeowners" {
+│
+╵
+milan@SPM-LN4K9M0GG7 ~/repos/milanoid-labs-terraform (tofu-import-excercise)
+```
+
+- need to declare dependency `depends_on` ?
+- not even re-plan/re-apply didn't help
+- [ ] why it fails?
