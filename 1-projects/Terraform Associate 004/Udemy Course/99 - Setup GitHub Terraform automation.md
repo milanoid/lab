@@ -51,7 +51,7 @@ gh secret set TF_VAR_devops_study_app_pat --repo milanoid-labs/milanoid-labs-ter
 
 
 
-### Workflow for plan
+### Workflow for plan and apply
 
 https://github.com/milanoid-labs/milanoid-labs-terraform/pull/30
 
@@ -70,7 +70,5 @@ tofu init -reconfigure
 ```
 
 
-
-
-
-### Workflow for apply
+Test PR (plan) https://github.com/milanoid-labs/milanoid-labs-terraform/pull/31
+Tofu applied https://github.com/milanoid-labs/milanoid-labs-terraform/actions/runs/31945886063
