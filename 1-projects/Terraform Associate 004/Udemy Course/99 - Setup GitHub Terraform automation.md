@@ -1,6 +1,7 @@
 
 
 Repo: https://github.com/milanoid-labs/milanoid-labs-terraform
+Doc: https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-aws
 
 I want to run the tofu via Actions on my self-hosted runners.
 
@@ -24,4 +25,4 @@ plan_role_arn = "arn:aws:iam::268091806187:role/milanoid-labs-terraform-ci-plan"
 ## Setting up OIDC provider in GitHub
 
 
-
+https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-aws#updating-your-github-actions-workflow
