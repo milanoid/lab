@@ -36,6 +36,20 @@ https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-depl
 
 Action [https://github.com/aws-actions/configure-aws-credentials](https://github.com/aws-actions/configure-aws-credentials/releases/tag/v6.2.3)
 
+The terraform variables needed to be available in GH
+
+1. nexus pass/user -> milanoid-labs-terraform repo added to the scoped
+2. github token (which interacts via the github provider with GH API) - new one `milanoid-labs-terraform-ci`
+3. DEVOPS_STUDY_APP add to repo scope
+
+
+```bash
+# add repo secrets, it prompts for password 
+gh secret set TF_ADMIN_GITHUB_TOKEN --repo milanoid-labs/milanoid-labs-terraform
+gh secret set TF_VAR_devops_study_app_pat --repo milanoid-labs/milanoid-labs-terraform
+```
+
+
 
 Workflow for plan
 
