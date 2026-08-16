@@ -30,3 +30,15 @@ https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-depl
 
 - [x] https://github.com/milanoid-labs/milanoid-labs-terraform/pull/29
 
+
+
+## GitHub Actions
+
+Action [https://github.com/aws-actions/configure-aws-credentials](https://github.com/aws-actions/configure-aws-credentials/releases/tag/v6.2.3)
+
+
+Workflow for plan
+
+
+
+Workflow for apply
