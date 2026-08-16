@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/Terraform Associate 004/Udemy Course/16 - HCP Terraform.md",
+                "file": "1-projects/Terraform Associate 004/Udemy Course/99 - Setup GitHub Terraform automation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "16 - HCP Terraform"
+              "title": "99 - Setup GitHub Terraform automation"
             }
           }
         ],
@@ -131,7 +131,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 408.796875
   },
   "right": {
     "id": "c30d66fb63f83402",
@@ -225,9 +225,10 @@
   },
   "active": "1784ea694983abe9",
   "lastOpenFiles": [
+    "1-projects/Terraform Associate 004/Udemy Course/16 - HCP Terraform.md",
+    "1-projects/Terraform Associate 004/Udemy Course/99 - Setup GitHub Terraform automation.md",
     "Pasted image 20260815205518.png",
     "1-projects/Terraform Associate 004/Udemy Course/15 - Terraform Troubleshooting.md",
-    "1-projects/Terraform Associate 004/Udemy Course/16 - HCP Terraform.md",
     "1-projects/Terraform Associate 004/Udemy Course/14 - Securing Terraform Configurations.md",
     "1-projects/Terraform Associate 004/Udemy Course/13 - Managing Resource Behavior and Dependecies.md",
     "1-projects/Terraform Associate 004/Udemy Course/12 - Modules.md",
@@ -264,7 +265,6 @@
     "Pasted image 20260728093544.png",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 6 - K3d",
     "Pasted image 20260720095232.png",
-    "Pasted image 20260718205608.png",
     "4-archives/ArgoCD (CAPA)/CAPA course",
     "4-archives/ArgoCD (CAPA)",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions",
