@@ -51,8 +51,26 @@ gh secret set TF_VAR_devops_study_app_pat --repo milanoid-labs/milanoid-labs-ter
 
 
 
-Workflow for plan
+### Workflow for plan
 
 https://github.com/milanoid-labs/milanoid-labs-terraform/pull/30
 
-Workflow for apply
+#### version mismatch issue
+
+locally I had tofu `1.12.5`, in CI is set `1.12.2`. The CI already planned something. 
+
+```bash
+# install tofuenv, might need to uninstall tofu first
+brew install tofuenv
+
+# swithc to correct version
+tofuev use 1.12.2
+
+tofu init -reconfigure
+```
+
+
+
+
+
+### Workflow for apply
