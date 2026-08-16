@@ -53,6 +53,6 @@ gh secret set TF_VAR_devops_study_app_pat --repo milanoid-labs/milanoid-labs-ter
 
 Workflow for plan
 
-
+https://github.com/milanoid-labs/milanoid-labs-terraform/pull/30
 
 Workflow for apply
