@@ -1,6 +1,6 @@
 
 
-Repo: https://github.com/statsperform/devops-terraform/
+Repo: https://github.com/milanoid-labs/milanoid-labs-terraform
 
 I want to run the tofu via Actions on my self-hosted runners.
 
