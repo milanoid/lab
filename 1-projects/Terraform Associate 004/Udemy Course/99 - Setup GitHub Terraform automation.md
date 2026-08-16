@@ -12,7 +12,7 @@ I want to run the tofu via Actions on my self-hosted runners.
 
 ## Setting up OIDC trust in AWS for GitHub Actions
 
-https://github.com/milanoid-labs/milanoid-labs-terraform/pull/28
+- [x] https://github.com/milanoid-labs/milanoid-labs-terraform/pull/28
 
 
 ```bash
@@ -26,3 +26,7 @@ plan_role_arn = "arn:aws:iam::268091806187:role/milanoid-labs-terraform-ci-plan"
 
 
 https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-aws#updating-your-github-actions-workflow
+
+
+- [x] https://github.com/milanoid-labs/milanoid-labs-terraform/pull/29
+
