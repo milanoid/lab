@@ -256,8 +256,93 @@ data "tfe_outputs" "webserver" {
 - [x] Test 4 - 89 %
 
 
+Q: Your AWS provider configuration is shown in the exhibit below. When running a `terraform plan`, the region is set to `us-west-2` in the provider block, but the `AWS_REGION` environment variable is set to `eu-west-1`. Which region will the provider use?
+
+```
+provider "aws" {
+  region = "us-west-2"
+  default_tags {
+    tags = {
+      Project = "Project-502"
+    }
+  }
+}  
+```
+
+A: `us-west-2` from the provider block configuration
+
+---
+
+Q: When using Terraform, where can providers be installed from? (select four)
+
+A: !! not from source
+
+From Terraform’s perspective, official install sources are:
+
+- public registry,
+    
+- private/external registries,
+    
+- local mirrors/cache,
+    
+- HCP Terraform private registry.
+  
+  
+--- 
+
+Q: You have declared a variable named `db_connection_string` inside of the `app` module. However, when you run a `terraform apply`, you get the following error message:
+
+```
+    Error: Reference to undeclared input variable
+     
+    on main.tf line 35:
+    35: db_path = var.db_connection_string
+     
+    An input variable with the name "db_connection_string" has not been declared. This variable can be declared with a variable "db_connection_string" {} block.
 
 
+```
+
+Why would you receive such an error?
+
+A: since the variable was declared within the module, it cannot be referenced outside of the module
+
+%^%a%d^w
+
+---
+Q: You execute Terraform runs from a CI pipeline and must move an existing resource from Stack A’s state to Stack B’s state without destroying it. Which two configuration blocks enable this configuration-driven workflow? (select two)
+
+A: `removed` block in the source stack + `import` block in the destination stack
+
+--- 
+
+Q: You have developed a module named `web` that creates a public DNS record for a load balancer. You want to provide an output in the CLI so that you can simply click the URL and access the application after running `terraform apply`. What code snippets would satisfy these requirements? (select two)
+
+
+A: 
+```Add this to the root module in the `outputs.tf` file:
+output "website_url" {
+  value = "https://${module.web.public_dns}:8080/index.html"
+}
+```
+
+```Add this to the /modules/web/outputs.tf file:
+
+    output "public_dns" {
+      description = "DNS name of the web load balancer"
+      value       = aws_lb.web.dns_name
+    }
+```
+
+---
+
+Q: You want to use the new features available in Terraform 1.12.0 and change the `required_version` constraint in your configuration to `~> 1.12.0`. After committing and pushing the change, your HCP Terraform run fails with an error stating that the Terraform version does not meet the `required_version` constraint. What is the most likely cause of this error?
+
+A: The Terraform version setting in HCP Terraform workspace is still set to an older version and needs to be updated to 1.12.0 or later.
+
+The most likely cause of the error is that the Terraform version setting in the HCP Terraform workspace is still configured to use an older version, which does not meet the `required_version` constraint of `~> 1.12.0`. Updating the Terraform version setting in the workspace to 1.12.0 or later should resolve this issue.
+
+---
 
 
 - [ ] Test 5
