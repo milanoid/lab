@@ -253,7 +253,7 @@ data "tfe_outputs" "webserver" {
 ```
 
 
-- [ ] Test 4 
+- [x] Test 4 - 89 %
 
 
 
