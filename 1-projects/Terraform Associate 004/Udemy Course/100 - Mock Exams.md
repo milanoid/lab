@@ -147,11 +147,118 @@ A: The `.terraform.lock.hcl` file is a dependency lock file used by Terraform. I
 
 
 
+Q: You’re using the `local` backend. In the current workspace, `terraform.tfstate` was accidentally deleted, but the configuration is unchanged. You run `terraform plan`.
+
+A: 1 - Terraform will try to create previously managed resources.
+A: 2 - Data sources may still read remote systems during planning, but they do not fix the resource state.
+A: 3 - `terraform destroy` cannot identify any resources to destroy until state is restored
+
+---
+
+Q: Which method below ensures sensitive information is not stored in the state file?
+
+A: none of the above
+
+
+---
+
+Q: You open the `terraform.tfstate` file in a text editor to inspect it. What format is the file, and what type of information does it contain?
+
+A: JSON format containing resource metadata, attributes, dependencies, and potentially sensitive values in plaintext
+
+---
+
+Q: You have an existing VPC in your account and have added the `data` block to your configuration, as shown below. How would you reference the `id` of the VPC
+
+```bash
+ data "aws_vpc" "production" {
+   tags = { Name = "prod" }
+ }
+```
+
+A: `data.aws_vpc.production.id`
+
+
+---
+
+Q: Your team manages long-lived VMs with a configuration management tool, but drift and rollbacks are frequent. You’re evaluating alternatives. Which option best reflects an IaC advantage over traditional configuration management?
+
+A: Using declarative IaC and immutable infrastructure allows you to define the desired state in code, easily replace resources, and version everything.
+
+
+---
+
+Q: Your team needs to capture Terraform logs for a production deployment. You want the logs saved to a file rather than displayed in the terminal so you can review with senior engineers. Which environment variable should you set to specify the log file location?
+
+A: `TF_LOG_PATH`
+
+---
+
+Q: You need to launch an EC2 instance into the existing subnet of your production VPC and restrict SSH to the VPC CIDR. You add the following data sources as shown below. Which snippets correctly use the returned attributes from these data sources in your configuration? (select two)
+
+```
+data "aws_vpc" "prod" {
+  tags = { Name = "bk-prod" }
+}
+ 
+data "aws_subnet" "app" {
+  filter {
+    name   = "tag:Tier"
+    values = ["bk-app"]
+  }
+  vpc_id = data.aws_vpc.prod.id
+}
+```
+
+A: 1
+
+```
+resource "aws_instance" "web" {
+  ami           = "ami-0abcd1234"
+  instance_type = "t3.micro"
+  subnet_id     = data.aws_subnet.app.id
+}
+```
+
+A: 2 
+
+```
+resource "aws_security_group" "ssh" {
+  name   = "ssh"
+  vpc_id = data.aws_vpc.prod.id
+ 
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = [data.aws_vpc.prod.cidr_block]
+  }
+}
+```
+
+---
+
+Q: Your team is using two HCP Terraform workspaces. The `prod-webserver` workspace has successfully deployed an Azure VM. You're now working in the `prod-dns` workspace and need to use the public IP to create a DNS record. The webserver IP keeps changing, so you don't want to manually update a variable whenever it changes.
+
+What can you add to the `prod-dns` workspace to automatically retrieve the IP from `prod-webserver`?
+
+A: a `tfe_outputs` data source that references the `prod-webserver` workspace
+
+
+```
+data "tfe_outputs" "webserver" { 
+  organization = "bk-organization"
+  workspace    = "prod-webserver" 
+} 
+```
+
+
+- [ ] Test 4 
 
 
 
 
 
-- [ ] Test 4
+
 - [ ] Test 5
 - [ ] Test 6
