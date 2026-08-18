@@ -67,7 +67,7 @@ variable "image" {
 ```
 
 
-- [x] Test 2
+- [x] Test 2 85 %
 
 
 Q: True or False? After successfully applying a `moved` block to refactor your resources, you should immediately remove the `moved` block from your configuration to keep your code clean.
@@ -143,7 +143,7 @@ A: The `.terraform.lock.hcl` file is a dependency lock file used by Terraform. I
 
 
 
-- [ ] Test 3
+- [x] Test 3 - 85 %
 
 
 
