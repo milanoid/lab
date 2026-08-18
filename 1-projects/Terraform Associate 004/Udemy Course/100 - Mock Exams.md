@@ -345,5 +345,10 @@ The most likely cause of the error is that the Terraform version setting in the 
 ---
 
 
-- [ ] Test 5
+- [x] Test 5 - 87 %
+
+
+
+
+
 - [ ] Test 6
