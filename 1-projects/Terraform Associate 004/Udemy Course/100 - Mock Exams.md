@@ -141,7 +141,17 @@ Q: What is the `.terraform.lock.hcl` file and when does Terraform create or modi
 
 A: The `.terraform.lock.hcl` file is a dependency lock file used by Terraform. It is created or updated every time you run `terraform init`.
 
+
+
 - [ ] Test 3
+
+
+
+
+
+
+
+
 - [ ] Test 4
 - [ ] Test 5
 - [ ] Test 6
