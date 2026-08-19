@@ -348,7 +348,64 @@ The most likely cause of the error is that the Terraform version setting in the 
 - [x] Test 5 - 87 %
 
 
+Q: You have decided to remove a VM from your design and need Terraform to delete it without using the `terraform destroy` command. What should you do next? (select two)
 
+A: 1 - Run `terraform apply` to reconcile state with the new desired configuration.
+A: 2 - Delete the VM’s resource block from the configuration.
+
+---
+
+Q: You are managing multiple resources using Terraform. You want to destroy all the resources except for a single web server, which should remain running but no longer be managed by Terraform. How can you accomplish this?
+
+A: Add a `removed` block with `from = <address>` to stop managing the web server, then run `terraform apply` followed by `terraform destroy`
+
+
+---
+
+Q: You have developed several new modules to share with the team and need to validate them. You also want to validate the root module. What steps should you take? (select two)
+
+A: 1 - run the `terraform test` command to validate the modules
+A: 2 - add `.tftest.hcl` files with run and assert blocks to each module
+
+
+---
+
+Q: You're creating a GCP configuration that requires creating a storage bucket first, then creating an IAM binding that grants access to it. The problem is that the IAM binding doesn't directly reference the bucket resource, so it's being created too quickly. How do you ensure the bucket is created before the IAM binding is applied?
+
+A: add a `depends_on = [google_storage_bucket.data]` to the IAM binding `resource` block
+
+---
+
+Q: Your organization uses infrastructure across AWS, Azure, and on-premises VMware environments. The team is evaluating whether to use Terraform or separate cloud-native tools for each platform. Which statements accurately describe how Terraform handles multi-cloud and hybrid cloud workflows? (select three)
+
+A: 1 - A single Terraform configuration can define resources across multiple cloud providers and on-premises infrastructure simultaneously.
+
+A: 2 - Terraform's provider ecosystem allows it to manage resources beyond traditional cloud services, including SaaS platforms and network devices.
+
+A: 3 - Terraform uses a consistent workflow and syntax across different cloud providers, reducing the learning curve for managing multi-cloud infrastructure.
+
+---
+Q: Your child module creates an Azure storage account and defines this output as shown in the exhibit below.
+
+```
+    output "storage_account_name" {
+      value = azurerm_storage_account.data.name
+    }
+
+In your root module, you call this module as shown below:
+
+    module "storage" { 
+      source = "./modules/storage" 
+    }
+```
+
+A: `module.storage.storage_account_name`
+
+----
+
+Q: After many hours of development, you've created a new Terraform configuration from scratch, and now you want to test it. Before provisioning the resources, what is the first command you should run?
+
+A: `terraform init`
 
 
 - [ ] Test 6
