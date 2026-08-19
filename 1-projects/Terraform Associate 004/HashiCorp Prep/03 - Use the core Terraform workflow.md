@@ -181,7 +181,7 @@ git clone https://github.com/hashicorp-education/learn-terraform-plan
 
 - export the plan to a file `tfplan`
 - when applying we are 100 % sure only the changes in the plan file are applied
-- best practices for automation
+- best practice for automation
 
 `terraform apply` - if no plan file passed, then TF will create a plan and prompt
 
