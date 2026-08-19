@@ -18,7 +18,7 @@ Terraform v1.15.8
 on darwin_arm64
 ```
 
-- [ ] HashiCorp tutorial with a cloud provider of choice (AWS)
+- [x] HashiCorp tutorial with a cloud provider of choice (AWS)
 
 
 ## Topics

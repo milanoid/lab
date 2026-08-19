@@ -56,7 +56,7 @@ Syncing
 
 https://developer.hashicorp.com/terraform/language/v1.12.x/providers
 
-- Plugins called Providers interacts with could providers and other APIs.
+- Plugins called Providers interacts with cloud providers and other APIs.
 - Each provider adds a set of _resource types_ and/or _data_sources_.
 - Marketplace at [Terraform Registry](https://registry.terraform.io/browse/providers?product_intent=terraform)
 
