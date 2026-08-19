@@ -408,4 +408,4 @@ Q: After many hours of development, you've created a new Terraform configuration
 A: `terraform init`
 
 
-- [ ] Test 6
+- [x] Test 6 - 92 %
