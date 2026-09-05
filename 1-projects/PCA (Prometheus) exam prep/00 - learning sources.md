@@ -6,5 +6,5 @@ https://trainingportal.linuxfoundation.org/courses/prometheus-certified-associat
 Intro YT video by from a co-founder of Prometheus https://www.youtube.com/watch?v=STVMGrYIlfg&list=PLyBW7UHmEXgylLwxdVbrBQJ-fJ_jMvh8h
 
 
-(paid) https://learn.kodekloud.com/learn/courses/prometheus-certified-associate-pca
+- $15/month https://learn.kodekloud.com/learn/courses/prometheus-certified-associate-pca
 
