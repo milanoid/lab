@@ -16,4 +16,4 @@ Intro YT video by from a co-founder of Prometheus https://www.youtube.com/watch?
 
 
 
-- [ ] start with https://training.promlabs.com/training/introduction-to-prometheus/training-overview/introduction/
+- [x] start with https://training.promlabs.com/training/introduction-to-prometheus/training-overview/introduction/
