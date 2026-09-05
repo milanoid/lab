@@ -8,3 +8,4 @@ Intro YT video by from a co-founder of Prometheus https://www.youtube.com/watch?
 
 - $15/month https://learn.kodekloud.com/learn/courses/prometheus-certified-associate-pca
 
+- Exam curriculum: [https://github.com/cncf/curriculum/blob/master/PCA_Curriculum.pdf](https://github.com/cncf/curriculum/blob/master/PCA_Curriculum.pdf)
