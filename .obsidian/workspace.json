@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/PCA (Prometheus) exam prep/PromLabs/01 - Introduction to Prometheus.md",
+                "file": "1-projects/PCA (Prometheus) exam prep/00 - learning sources.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01 - Introduction to Prometheus"
+              "title": "00 - learning sources"
             }
           },
           {
@@ -222,10 +222,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "300166014a8ee67c",
+  "active": "9f5491a4de1aa2c3",
   "lastOpenFiles": [
-    "1-projects/PCA (Prometheus) exam prep/00 - learning sources.md",
     "1-projects/PCA (Prometheus) exam prep/PromLabs/01 - Introduction to Prometheus.md",
+    "1-projects/PCA (Prometheus) exam prep/00 - learning sources.md",
     "1-projects/PCA (Prometheus) exam prep/PromLabs",
     "4-archives/VPN server with dynamic IP.md",
     "4-archives/Terraform Associate 004/Udemy Course/100 - Mock Exams.md",
