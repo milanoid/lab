@@ -40,7 +40,7 @@ High-level
 
 - [ ] already setup on my homelab, verify the access (UI, etc)
 - [ ] update: not updated by Renovate, installed 77.x, current latest [90.x](https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack)
-- [ ] fix: renovate to update _kube-prometheus-stack_
+- [ ] fix: renovate to update _kube-prometheus-stack_ https://github.com/milanoid-labs/homelab-cluster/pull/478
 kube-prometheus-stack - https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
 
 
