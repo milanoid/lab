@@ -59,7 +59,17 @@ kube-prometheus-stack - https://github.com/prometheus-community/helm-charts/tree
 - spec https://prometheus.io/docs/prometheus/latest/configuration/configuration/
 - example: https://github.com/prometheus/prometheus/blob/release-3.14/config/testdata/conf.good.yml
 
-in my k8s - ConfigMap `monitoring/kube-prometheus-stack-prometheus`
+in my k8s:
+
+- Secret `monitoring/prometheus-kube-prometheus-stack-prometheus`
+- `prometheus.yaml.gz`
+
+
+```bash
+#dump
+kubectl get secret -n monitoring prometheus-kube-prometheus-stack-prometheus \
+  -o jsonpath='{.data.prometheus\.yaml\.gz}' | base64 -d | gunzip
+```
 
 
 
