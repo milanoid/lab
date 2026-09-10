@@ -52,4 +52,14 @@ kube-prometheus-stack - https://github.com/prometheus-community/helm-charts/tree
 - https://github.com/prometheus/node_exporter
 
 
+## Prometheus Configuration
+
+`prometheus.yml`
+
+- spec https://prometheus.io/docs/prometheus/latest/configuration/configuration/
+- example: https://github.com/prometheus/prometheus/blob/release-3.14/config/testdata/conf.good.yml
+
+in my k8s - ConfigMap `monitoring/kube-prometheus-stack-prometheus`
+
+
 
