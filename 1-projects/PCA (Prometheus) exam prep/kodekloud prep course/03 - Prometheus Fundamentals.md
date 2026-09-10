@@ -71,5 +71,15 @@ kubectl get secret -n monitoring prometheus-kube-prometheus-stack-prometheus \
   -o jsonpath='{.data.prometheus\.yaml\.gz}' | base64 -d | gunzip
 ```
 
+UI  /query
+
+```bash
+# query UI
+kubectl -n monitoring port-forward svc/kube-prometheus-stack-prometheus 9090:9090
+http://localhost:9090/query
+```
 
 
+UI grafana
+
+https://grafana.milanoid.net/
