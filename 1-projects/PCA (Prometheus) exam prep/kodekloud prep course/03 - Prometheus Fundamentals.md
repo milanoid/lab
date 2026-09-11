@@ -80,6 +80,15 @@ http://localhost:9090/query
 ```
 
 
-UI grafana
+UI Grafana
 
 https://grafana.milanoid.net/
+
+
+
+
+# Authentication & Encryption
+
+
+between Prometheus and Targets
+
