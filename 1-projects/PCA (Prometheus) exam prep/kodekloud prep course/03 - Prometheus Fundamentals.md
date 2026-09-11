@@ -291,3 +291,7 @@ sudo openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout node_expor
 
 the Values are in subchart https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-node-exporter/values.yaml#L42
 
+
+```bash
+# 
+```
