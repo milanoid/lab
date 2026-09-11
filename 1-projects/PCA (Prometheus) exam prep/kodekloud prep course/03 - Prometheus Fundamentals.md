@@ -48,6 +48,9 @@ kube-prometheus-stack - https://github.com/prometheus-community/helm-charts/tree
 
 
 ```bash
+# already running as simple binary in - I want to run via systemd
+~/prometheus-training/prometheus-3.14.0.linux-amd64
+
 # create user/service account (user cannot login)
 sudo useradd --no-create-home --shell /bin/false prometheus
 
@@ -60,6 +63,15 @@ sudo mkdir /var/lib/prometheus
 # update permissions
 sudo chown prometheus:prometheus /etc/prometheus
 sudo chown prometheus:prometheus /var/lib/prometheus
+
+
+# copy binaries
+milan@prom-lab:~/prometheus-training/prometheus-3.14.0.linux-amd64 $ sudo cp prometheus promtool /usr/local/bin/
+
+# update permissions
+sudo chown prometheus:prometheus /usr/local/bin/prometheus /usr/local/bin/promtool
+
+
 ```
 
 
