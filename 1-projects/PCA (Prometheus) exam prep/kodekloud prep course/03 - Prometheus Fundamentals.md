@@ -71,8 +71,9 @@ kubectl get secret -n monitoring prometheus-kube-prometheus-stack-prometheus \
   -o jsonpath='{.data.prometheus\.yaml\.gz}' | base64 -d | gunzip
 ```
 
-UI  /query
+UI  /query http://localhost:9090/
 
+- [ ] expose as a Service/Ingress
 ```bash
 # query UI
 kubectl -n monitoring port-forward svc/kube-prometheus-stack-prometheus 9090:9090
@@ -91,4 +92,7 @@ https://grafana.milanoid.net/
 
 
 between Prometheus and Targets
+
+- by default no auth, anybody with access can also scrape
+
 
