@@ -91,8 +91,11 @@ https://grafana.milanoid.net/
 # Authentication & Encryption
 
 
-between Prometheus and Targets
+between Prometheus and Targets, via TLS
 
 - by default no auth, anybody with access can also scrape
 
-
+```bash
+# generate tls for the node exporter - on hpmini01
+sudo openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout node_exporter.key -out node_exporter.crt -subj "/C=US/ST=California/L=Oakland/O=MyOrg/CN=localhost" -addext "subjectAltName = DNS:localhost"
+```
