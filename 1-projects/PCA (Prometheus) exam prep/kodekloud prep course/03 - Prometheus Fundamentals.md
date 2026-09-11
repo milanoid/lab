@@ -99,3 +99,6 @@ between Prometheus and Targets, via TLS
 # generate tls for the node exporter - on hpmini01
 sudo openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout node_exporter.key -out node_exporter.crt -subj "/C=US/ST=California/L=Oakland/O=MyOrg/CN=localhost" -addext "subjectAltName = DNS:localhost"
 ```
+
+the Values are in subchart https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus-node-exporter/values.yaml#L42
+
