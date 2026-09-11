@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/03 - Prometheus Fundamentals.md",
+                "file": "1-projects/PCA (Prometheus) exam prep/PromLabs/01 - Introduction to Prometheus.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "03 - Prometheus Fundamentals"
+              "title": "01 - Introduction to Prometheus"
             }
           },
           {
@@ -224,9 +224,9 @@
   },
   "active": "300166014a8ee67c",
   "lastOpenFiles": [
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/01 - Intro.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/02 - Observability Fundamentals.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/03 - Prometheus Fundamentals.md",
+    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/02 - Observability Fundamentals.md",
+    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/01 - Intro.md",
     "1-projects/PCA (Prometheus) exam prep/PromLabs/01 - Introduction to Prometheus.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/Prometheus_Certified_Associate-1.pdf",
     "1-projects/PCA (Prometheus) exam prep/00 - learning sources.md",

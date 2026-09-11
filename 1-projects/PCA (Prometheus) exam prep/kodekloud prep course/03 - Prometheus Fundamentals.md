@@ -71,6 +71,72 @@ milan@prom-lab:~/prometheus-training/prometheus-3.14.0.linux-amd64 $ sudo cp pro
 # update permissions
 sudo chown prometheus:prometheus /usr/local/bin/prometheus /usr/local/bin/promtool
 
+# I don't have these
+sudo cp -r consoles /etc/prometheus
+sudo cp -r console_libraries /etc/prometheus
+sudo chown -R prometheus:prometheus /etc/prometheus/consoles /etc/prometheus/console_libraries
+
+# copy configuration file
+sudo cp prometheus.yml /etc/prometheus/prometheus.yaml
+sudo chown prometheus:prometheus /etc/prometheus/prometheus.yaml
+
+
+# actual run command
+sudo -u prometheus /usr/local/bin/prometheus \
+  --config.file /etc/prometheus/prometheus.yml \
+  --storage.tsdb.path /var/lib/prometheus/ \
+  --web.console.templates=/etc/prometheus/consoles \
+  --web.console.libraries=/etc/prometheus/console_libraries
+  
+# service file
+sudo vi /etc/systemd/system/prometheus.service
+
+### /etc/systemd/system/prometheus.service
+[Unit]  
+Description=Prometheus
+Wants=network-online.target
+After=network-online.target
+  
+[Service]  
+User=prometheus
+Group=prometheus
+Type=simple
+ExecStart=/usr/local/bin/prometheus \
+    --config.file /etc/prometheus/prometheus.yml \
+    --storage.tsdb.path /var/lib/prometheus/ \
+    --web.console.templates=/etc/prometheus/consoles \
+    --web.console.libraries=/etc/prometheus/console_libraries
+
+[Install]
+WantedBy=multi-user.target
+
+###
+  
+  
+  
+# reload
+sudo systemctl daemon-reload
+
+# start
+sudo systemctl start prometheus
+
+# get
+sudo systemctl status prometheus
+
+× prometheus.service - Prometheus
+     Loaded: loaded (/etc/systemd/system/prometheus.service; disabled; preset: enabled)
+     Active: failed (Result: exit-code) since Fri 2026-09-11 10:50:38 UTC; 4s ago
+   Duration: 45ms
+ Invocation: 1ac62a328728488282217f9e8664af3f
+    Process: 27030 ExecStart=/usr/local/bin/prometheus --config.file /etc/prometheus/prometheus.yml --storage.tsdb.path /var/lib/prometheus/ --web.console.tem>
+   Main PID: 27030 (code=exited, status=2)
+   Mem peak: 12.3M
+        CPU: 45ms
+
+Sep 11 10:50:38 prom-lab systemd[1]: Started prometheus.service - Prometheus.
+Sep 11 10:50:38 prom-lab prometheus[27030]: time=2026-09-11T10:50:38.736Z level=ERROR source=main.go:751 msg="Error loading config (--config.file=/etc/prometh>
+Sep 11 10:50:38 prom-lab systemd[1]: prometheus.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+Sep 11 10:50:38 prom-lab systemd[1]: prometheus.service: Failed with result 'exit-code'.
 
 ```
 
