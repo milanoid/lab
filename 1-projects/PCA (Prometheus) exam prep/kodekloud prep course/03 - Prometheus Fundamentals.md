@@ -71,14 +71,10 @@ milan@prom-lab:~/prometheus-training/prometheus-3.14.0.linux-amd64 $ sudo cp pro
 # update permissions
 sudo chown prometheus:prometheus /usr/local/bin/prometheus /usr/local/bin/promtool
 
-# I don't have these
-sudo cp -r consoles /etc/prometheus
-sudo cp -r console_libraries /etc/prometheus
-sudo chown -R prometheus:prometheus /etc/prometheus/consoles /etc/prometheus/console_libraries
 
 # copy configuration file
-sudo cp prometheus.yml /etc/prometheus/prometheus.yaml
-sudo chown prometheus:prometheus /etc/prometheus/prometheus.yaml
+sudo cp prometheus.yml /etc/prometheus/prometheus.yml
+sudo chown prometheus:prometheus /etc/prometheus/prometheus.yml
 
 
 # actual run command
@@ -103,9 +99,7 @@ Group=prometheus
 Type=simple
 ExecStart=/usr/local/bin/prometheus \
     --config.file /etc/prometheus/prometheus.yml \
-    --storage.tsdb.path /var/lib/prometheus/ \
-    --web.console.templates=/etc/prometheus/consoles \
-    --web.console.libraries=/etc/prometheus/console_libraries
+    --storage.tsdb.path /var/lib/prometheus/
 
 [Install]
 WantedBy=multi-user.target
