@@ -120,21 +120,8 @@ sudo systemctl status prometheus
 # autostart
 sudo systemctl enable prometheus.service
 
-× prometheus.service - Prometheus
-     Loaded: loaded (/etc/systemd/system/prometheus.service; disabled; preset: enabled)
-     Active: failed (Result: exit-code) since Fri 2026-09-11 10:50:38 UTC; 4s ago
-   Duration: 45ms
- Invocation: 1ac62a328728488282217f9e8664af3f
-    Process: 27030 ExecStart=/usr/local/bin/prometheus --config.file /etc/prometheus/prometheus.yml --storage.tsdb.path /var/lib/prometheus/ --web.console.tem>
-   Main PID: 27030 (code=exited, status=2)
-   Mem peak: 12.3M
-        CPU: 45ms
-
-Sep 11 10:50:38 prom-lab systemd[1]: Started prometheus.service - Prometheus.
-Sep 11 10:50:38 prom-lab prometheus[27030]: time=2026-09-11T10:50:38.736Z level=ERROR source=main.go:751 msg="Error loading config (--config.file=/etc/prometh>
-Sep 11 10:50:38 prom-lab systemd[1]: prometheus.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
-Sep 11 10:50:38 prom-lab systemd[1]: prometheus.service: Failed with result 'exit-code'.
-
+# view logs
+sudo journalctl -u prometheus.service -f
 ```
 
 
@@ -144,6 +131,12 @@ Sep 11 10:50:38 prom-lab systemd[1]: prometheus.service: Failed with result 'exi
 
 - also installed on each k8s node
 - https://github.com/prometheus/node_exporter
+
+
+```bash
+# setup Node Exporter
+
+```
 
 
 ## Prometheus Configuration
