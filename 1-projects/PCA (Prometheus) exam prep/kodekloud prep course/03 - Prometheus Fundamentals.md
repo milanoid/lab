@@ -117,6 +117,9 @@ sudo systemctl start prometheus
 # get
 sudo systemctl status prometheus
 
+# autostart
+sudo systemctl enable prometheus.service
+
 × prometheus.service - Prometheus
      Loaded: loaded (/etc/systemd/system/prometheus.service; disabled; preset: enabled)
      Active: failed (Result: exit-code) since Fri 2026-09-11 10:50:38 UTC; 4s ago
