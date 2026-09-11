@@ -43,7 +43,7 @@ High-level
 - [x] fix: renovate to update _kube-prometheus-stack_ https://github.com/milanoid-labs/homelab-cluster/pull/478
 kube-prometheus-stack - https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
 
-- [ ] install Prometheus on a throw away VM@Proxmox - there is a lot K8s overhead, slow me down with the subject itself
+- [ ] install Prometheus on a throw away VM@Proxmox - there is a lot K8s overhead, slow me down with the subject itself - use VM ID 103 (prom-lab)
 
 
 
