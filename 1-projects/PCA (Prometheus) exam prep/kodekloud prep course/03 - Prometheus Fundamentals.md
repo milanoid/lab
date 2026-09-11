@@ -215,8 +215,67 @@ Configuration on prom-lab
 ```bash
 # edit as user prometheus
 sudo -u prometheus vi /etc/prometheus/prometheus.yml
+
+
+###
+global:
+  scrape_interval: 1m
+  scrape_timeout: 10s
+
+scrape_configs:
+  - job_name: 'node'
+    scrape_interval: 15s
+    scrape_timeout: 5s
+    sample_limit: 1000
+    schema: http
+    metrics_path: /stats/metrics
+    static_configs:
+      - targets: ['localhost:9090']
+###
+
+
+# check syntax
+promtool check config /etc/prometheus/prometheus.yml Checking /etc/prometheus/prometheus.yml SUCCESS: /etc/prometheus/prometheus.yml is valid prometheus config file syntax
 ```
 
+- after a change in `/etc/prometheus/prometheus.yml` we need to restart prometheus
+
+```bash
+kill -HUP <pid_of_prometheus>
+
+# or simply
+sudo systemctl restart prometheus
+```
+
+- [x] configure auto-reload https://github.com/prometheus/prometheus/issues/9783 https://github.com/prometheus/prometheus/pull/14769
+
+```bash
+[Unit]
+Description=Prometheus
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=prometheus
+Group=prometheus
+Type=simple
+ExecStart=/usr/local/bin/prometheus \
+    --config.file /etc/prometheus/prometheus.yml \
+    --storage.tsdb.path /var/lib/prometheus/ \
+    --enable-feature=auto-reload-config \
+    --config.auto-reload-interval=30s
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
+
+```bash
+Sep 11 13:07:31 prom-lab prometheus[1923]: time=2026-09-11T13:07:31.795Z level=INFO source=main.go:1411 msg="Configuration file change detected, reloading the configuration."
+Sep 11 13:07:31 prom-lab prometheus[1923]: time=2026-09-11T13:07:31.795Z level=INFO source=main.go:1690 msg="Loading configuration file" filename=/etc/prometheus/prometheus.yml
+Sep 11 13:07:31 prom-lab prometheus[1923]: time=2026-09-11T13:07:31.796Z level=INFO source=main.go:1729 msg="Completed loading of configuration file" db_storage=34.347µs remote_storage=5.702µs web_handler=2.626µs query_engine=754ns scrape=838.964µs scrape_sd=10.247µs notify=12.72µs notify_sd=2.548µs rules=25.643µs tracing=6.264µs filename=/etc/prometheus/prometheus.yml totalDuration=1.339558ms
+```
 
 # Authentication & Encryption
 
