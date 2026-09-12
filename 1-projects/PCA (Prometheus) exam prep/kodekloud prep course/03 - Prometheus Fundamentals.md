@@ -361,6 +361,148 @@ Sep 12 15:17:44 prom-lab node_exporter[6430]: time=2026-09-12T15:17:44.692Z leve
 
 
 ```bash
-# fix the confing.yml
+# fix the config.yml
+
+###
+
+# TLS and basic authentication configuration example.
+#
+# Additionally, a certificate and a key file are needed.
+tls_server_config:
+  cert_file: node_exporter.crt
+  key_file: node_exporter.key
+
+###
+
+
+
+Sep 12 15:32:00 prom-lab node_exporter[6931]: time=2026-09-12T15:32:00.612Z level=INFO source=tls_config.go:415 msg="TLS is enabled." http2=true address=[::]:
+
+>
+```
+
+- doc https://github.com/prometheus/exporter-toolkit/blob/master/docs/web-configuration.md
+
+
+Now we have set the node_exporter to listen on tls connection. But we also need to configure Prometheus to use tls instead plain http.
+
+
+```bash
+# copy node_exporter.crt (public key) to Prometheus server
+sudo cp /etc/node_exporter/node_exporter.crt /etc/prometheus
+sudo chown prometheus:prometheus node_exporter.crt
+
+# update prometheus config
+sudo -u prometheus vi /etc/prometheus/prometheus.yml
+
+
+###
+
+global:
+  scrape_interval: 1m
+  scrape_timeout: 10s
+
+scrape_configs:
+  - job_name: 'node'
+    scrape_interval: 15s
+    scrape_timeout: 5s
+    sample_limit: 2000
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
+      ca_file: /etc/prometheus/node_exporter.crt
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['localhost:9100']
+
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+###
+```
+
+
+- doc https://prometheus.io/docs/prometheus/latest/configuration/configuration/#tls_config
+
+
+Done with Encrypted connection - now let's configure Authentication
+
+On the node_exporter config
+
+- we need to generate bcrypt hash
+
+```bash
+sudo apt install apache2-utils
+htpasswd -nBC 12 "" | tr -d ':\n' # 'secret-password'
+$2y$12$ReC83YF6fpghLBQjPzirWehg5xTk.UXtTQY3nrwy3Need.xenZjrm
+
+
+### /etc/node_exporter/config
+
+# TLS and basic authentication configuration example.
+#
+# Additionally, a certificate and a key file are needed.
+tls_server_config:
+  cert_file: node_exporter.crt
+  key_file: node_exporter.key
+
+# Usernames and passwords required to connect.
+# Passwords are hashed with bcrypt: https://github.com/prometheus/exporter-toolkit/blob/master/docs/web-configuration.md#about-bcrypt.
+basic_auth_users:
+  prometheus: $2y$12$ReC83YF6fpghLBQjPzirWehg5xTk.UXtTQY3nrwy3Need.xenZjrm
+
+###
 
 ```
+
+
+- in http://192.168.1.103:9090/targets
+
+```bash
+**Error scraping target:** server returned HTTP status 401 Unauthorized
+```
+
+- the Prometheus must be updated with the user too
+
+On prometheus config add the password in plaintext?:
+
+
+```bash
+
+###
+
+global:
+  scrape_interval: 1m
+  scrape_timeout: 10s
+
+scrape_configs:
+  - job_name: 'node'
+    scrape_interval: 15s
+    scrape_timeout: 5s
+    sample_limit: 2000
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true
+      ca_file: /etc/prometheus/node_exporter.crt
+    basic_auth:
+      username: 'prometheus'
+      password: 'secret-password'
+    metrics_path: /metrics
+    static_configs:
+      - targets: ['localhost:9100']
+
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+###
+sudo systemctl restart prometheus.service
+
+now all green in http://192.168.1.103:9090/targets
+```
+
+- doc https://prometheus.io/docs/prometheus/latest/configuration/configuration/#http_config
+
+
+
