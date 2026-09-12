@@ -293,5 +293,74 @@ the Values are in subchart https://github.com/prometheus-community/helm-charts/b
 
 
 ```bash
-# 
+# creete node_exporter directory
+sudo mkdir /etc/node_exporter
+
+# move generated certs to that directory
+sudo mv node_exporter.* /etc/node_exporter
+
+# create the config
+touch /etc/node_exporter/config.yml
+
+# fix permissions
+sudo chown -R node_exporter:node_exporter /etc/node_exporter
+
+# update service
+sudo vi /etc/systemd/system/node_exporter.service
+
+###
+[Unit]
+Description=Node Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=node_exporter
+Group=node_exporter
+Type=simple
+ExecStart=/usr/local/bin/node_exporter --web.config.file=/etc/node_exporter/config.yml
+
+[Install]
+WantedBy=multi-user.target
+
+###
+
+
+sudo systemctl daemon-reload
+sudo systemctl restart node_exporter.service
+
+curl https://localhost:9100/metrics
+```
+
+
+tls error `SSL routines::wrong version number`
+
+```bash
+milan@prom-lab:~$ curl -v https://localhost:9100/metrics
+* Host localhost:9100 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:9100...
+* ALPN: curl offers h2,http/1.1
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+* SSL Trust Anchors:
+*   CAfile: /etc/ssl/certs/ca-certificates.crt
+*   CApath: /etc/ssl/certs
+* TLS connect error: error:0A00010B:SSL routines::wrong version number
+* closing connection #0
+curl: (35) TLS connect error: error:0A00010B:SSL routines::wrong version number
+```
+
+
+```bash
+# tls is disabled?
+Sep 12 15:17:44 prom-lab node_exporter[6430]: time=2026-09-12T15:17:44.692Z level=INFO source=tls_config.go:418 msg="TLS is disabled." http2=false address=[::
+
+>
+```
+
+
+```bash
+# fix the confing.yml
+
 ```
