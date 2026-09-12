@@ -511,3 +511,53 @@ now all green in http://192.168.1.103:9090/targets
 # Metrics
 
 
+## Metric types
+
+_Counter_ 
+   - how many times X did happen?
+   - e.g. total # requests
+   - can only go up
+
+_Gauge_
+- what is the current value of X? 
+- e.g. current CPU utilization
+- can go up or down
+
+
+_Histogram_
+
+- how long or how big something is
+- e.g. response time
+- groups observation into buckets (cumulative)
+- e.g. response time < 1s, response time < 0.5s
+
+_Summary_
+
+- similar to histogram
+- how many observations fell below X
+- e.g. response time
+  - 20 % = 0.3s
+  - 50 % = 0.8s
+  - 80 % = 1.0s
+
+
+
+
+## Metric Rules
+
+
+## Metrics Labels
+
+- key values pair
+- why? e.g. request_total metric for each endpoint (/auth, /user ...) differentiate them by label - can easily count requests_total across all endpoints (application)
+- can have multiple labels
+- metric name is just another label
+- `__name__` - internal labels enclosed by `__`
+- every metric is assigned 2 labels by default (_instance_ and _job_)
+
+```bash
+node_memory_KernelStack_bytes{instance="localhost:9100", job="node"}
+```
+
+
+
