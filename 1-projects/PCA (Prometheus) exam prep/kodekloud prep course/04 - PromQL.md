@@ -164,6 +164,63 @@ node_filesystem_avail_bytes > 1000 unless node_filesystem_avail_bytes > 3000
 # Vector Matching
 
 
+- operations between 2 instant vectors
+- `1:1`, `many:1`, `many:many`
+- samples with exactly the same labels get matched together
+
 ```bash
 node_filesystem_avail_bytes / node_filesystem_size_bytes * 100
 ```
+
+
+### `ignoring` keyword
+
+- an extra label can be set to be ignored to make the match: `ignoring` keyword
+
+Example:
+
+- a metric with 2 labels
+
+```bash
+http_errors{method='get', code='500'}     40 # vector
+http_errors{method='get', code='404'}     10
+http_errors{method='put', code='201'}     10
+http_errors{method='post', code='202'}    11
+```
+
+- a metric with all requests, one label
+
+```bash
+http_requests{method='get'}     4000
+http_requests{method='get'}     1000
+http_requests{method='put'}     1000
+http_requests{method='post}     1100
+```
+
+
+
+```bash
+# NO MATCH
+http_errors{code='500'} / http_requests
+
+# WORKS
+http_errors{code='500'} / ignoring(code) http_requests
+```
+
+
+### `on` keyword - the opposite of `ignoring`
+
+
+
+```bash
+http_errors{code='500'} / on(method) http_requests
+```
+
+
+### Many-To-One
+
+
+- `group_left` keyword
+- `group_rigt` keyword
+
+![[Pasted image 20260913153641.png]]
