@@ -585,9 +585,149 @@ global:
 scrape_configs:
   - job_name: "prometheus"
     static_configs:
-      - targets: "[localhost:9090]"
+      - targets: ["localhost:9090"]
 ```
 
 ```bash
-podman run -d -v /path/to/prometheus.yml:/etc/prometheus/prometheus.yml -p 9090:9090 prom/prometheus
+podman run -d -v /private/tmp/prometheus.yml:/etc/prometheus/prometheus.yml -p 9090:9090 prom/prometheus
+```
+
+- must use `/private/tmp` even-though the file on Mac OS host is in `/tmp`
+- the podman VM doesn't have `/tmp` but maps to `/private/tmp`
+
+
+
+
+# Promtools
+
+utility to
+ - check configuration syntax
+ - validate metrics
+ - perform queries
+ - debug and profile Prometheus server
+ - run unit-tests against Recording/Alerting rules
+
+
+
+```bash
+promtool check config /etc/prometheus/prometheus.yml
+Checking /etc/prometheus/prometheus.yml 
+SUCCESS: /etc/prometheus/prometheus.yml is valid prometheus config file syntax
+```
+
+
+# Monitoring Containers
+
+
+- metrics can be scraped from containerized environments
+- docker engine metrics
+- container metrics using [_cAdvisor_](https://github.com/google/cadvisor) 
+
+### Docker engine metrics
+
+
+- only monitors Docker engine itself!
+- how much CPU does docker use?
+- total number of failed image builds?
+- time to process container actions?
+
+docker is installed on the machine running Prometheus, if not install:
+
+```bash
+sudo apt install docker.io
+# [follow https://docs.docker.com/engine/install/linux-postinstall/](https://docs.docker.com/engine/install/linux-postinstall/#add-your-user-to-the-docker-group)
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+docker run hello-world # instead 'sudo docker run hello-world'
+
+```
+
+
+Doc: https://docs.docker.com/engine/daemon/prometheus/
+
+```bash
+sudo vi /etc/docker/daemon.json
+
+###
+{
+  "metrics-addr": "127.0.0.1:9323",
+  "experimental": true
+}
+###
+
+# restart
+sudo systemctl restart docker
+```
+
+
+now the docker engine metrics available
+
+```bash
+curl localhost:9323/metrics
+```
+
+
+
+now configure Premetheus to collect the metrics
+
+```yaml
+# prometheus.yml - when running Prometheus inside a container
+- job_name: docker
+    static_configs:
+      - targets: ["host.docker.internal:9323"]
+```
+
+
+
+```yaml
+# prometheus.yml - when running Prometheus bare metal/VM
+- job_name: docker
+    static_configs:
+      - targets: ["localhost:9323"] # host running the docker engine
+```
+
+
+###  _cAdvisor_ Metrics
+
+- these are getting container metrics! Per container metrics
+- how much cpu/mem does each container use?
+- number of processes running inside a container?
+- container uptime?
+- https://github.com/google/cadvisor
+- run as a container
+
+```
+VERSION=0.55.1 # use the latest release version from https://github.com/google/cadvisor/releases
+sudo docker run \
+  --volume=/:/rootfs:ro \
+  --volume=/var/run:/var/run:ro \
+  --volume=/sys:/sys:ro \
+  --volume=/var/lib/docker/:/var/lib/docker:ro \
+  --volume=/dev/disk/:/dev/disk:ro \
+  --publish=8080:8080 \
+  --detach=true \
+  --name=cadvisor \
+  --privileged \
+  --device=/dev/kmsg \
+  ghcr.io/google/cadvisor:$VERSION
+```
+
+
+metrics available
+
+```bash
+curl localhost:8080/metrics
+```
+
+
+
+Update Prometheus with a new scrape job
+
+
+```yml
+scrape_configs:
+  - job_name: 'cAdvisor'
+    static_configs:
+       - targets: ['localhost:8080']
 ```
