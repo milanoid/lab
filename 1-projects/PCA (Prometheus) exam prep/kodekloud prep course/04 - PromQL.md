@@ -229,6 +229,8 @@ http_errors{code='500'} / on(method) http_requests
 # Aggregation
 
 
+https://prometheus.io/docs/prometheus/latest/querying/operators/#aggregation-operators
+
 - `Sum`
 - `Min`
 - `Max`
