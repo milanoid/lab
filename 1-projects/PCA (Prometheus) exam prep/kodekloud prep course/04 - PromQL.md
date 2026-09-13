@@ -71,4 +71,23 @@ node_memory_Active_bytes{instance="localhost:9100"} @<unix_timestamp offset 1h
 
 
 
+query using `promtool`
+
+
+```bash
+promtool query instant http://localhost:9090 up
+up{instance="localhost:9090", job="prometheus"} => 1 @[1789287154.861]
+up{instance="node01:9100", job="web"} => 1 @[1789287154.861]
+up{instance="node02:9100", job="web"} => 1 @[1789287154.861]
+up{instance="loadbalancer:9100", job="loadbalancer"} => 1 @[1789287154.861]
+
+
+
+
+promtool query instant http://localhost:9090 "up
+{job='web'}"
+up{instance="node01:9100", job="web"} => 1 @[1789287225.415]
+up{instance="node02:9100", job="web"} => 1 @[1789287225.415]
+```
+
 
