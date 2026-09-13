@@ -561,3 +561,33 @@ node_memory_KernelStack_bytes{instance="localhost:9100", job="node"}
 
 
 
+# Exploring Expression Browser
+
+
+http://192.168.1.103:9090/query
+
+queries
+- `up`
+- `node_cpu_seconds_total`
+
+Via "calendar" we can travel in time back to see historical values. Graph to plot data.
+
+
+
+
+# Prometheus on Docker
+
+
+
+```yaml
+# prometheus.yml
+global:
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: "[localhost:9090]"
+```
+
+```bash
+podman run -d -v /path/to/prometheus.yml:/etc/prometheus/prometheus.yml -p 9090:9090 prom/prometheus
+```
