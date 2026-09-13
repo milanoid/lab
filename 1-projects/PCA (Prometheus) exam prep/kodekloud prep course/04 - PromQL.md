@@ -224,3 +224,27 @@ http_errors{code='500'} / on(method) http_requests
 - `group_rigt` keyword
 
 ![[Pasted image 20260913153641.png]]
+
+
+# Aggregation
+
+
+- `Sum`
+- `Min`
+- `Max`
+- `Avg`
+.....
+
+### `by` clause
+
+
+```bash
+sum by(instance) (http_requests)
+```
+
+
+
+### `without` keyword
+
+
+- opposite of `by`
