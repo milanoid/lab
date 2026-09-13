@@ -99,3 +99,71 @@ promtool query instant http://localhost:9090 "node_arp_entries{node='node01:9100
 # Operators
 
 
+## Aritmetic Operators
+
+- `+`
+- `-`
+- `/`
+- `*`
+
+```bash
+node_memory_Active_bytes{instance='node1'}       2204815360
+node_memory_Active_bytes{instance='node1'} + 10  2204815370
+```
+
+
+## Comparison Operators
+
+- `==`
+- `!==`
+- `>`
+- `<`
+- `>=`
+- `<=`
+
+```bash
+node_network_flags > 100
+```
+
+
+## Bool Operator
+
+- good for alerts
+- 1/true, 0/false
+
+```bash
+node_filesystem_avail_bytes < 1000
+```
+
+
+## Binary Operator Precedence
+
+
+1. `^`
+2. `*`, `/`, `%`, `atan2`
+3. `==`, `!=`, `<=`, `<`, `>=`, `>`
+4. `and`, `unless`
+5. `or`
+
+
+## Logical Operators
+
+
+`OR`, `AND`, `UNLESS`
+
+
+```bash
+node_filesystem_avail_bytes > 1000 and node_filesystem_avail_bytes < 3000
+
+node_filesystem_avail_bytes > 1000 unless node_filesystem_avail_bytes > 3000
+```
+
+
+
+
+# Vector Matching
+
+
+```bash
+node_filesystem_avail_bytes / node_filesystem_size_bytes * 100
+```
