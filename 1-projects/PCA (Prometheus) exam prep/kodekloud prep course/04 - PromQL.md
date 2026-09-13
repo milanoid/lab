@@ -70,6 +70,10 @@ node_memory_Active_bytes{instance="localhost:9100"} @<unix_timestamp offset 1h
 ```
 
 
+# Lab - PromQL
+
+
+- can query via UI or CLI
 
 query using `promtool`
 
@@ -90,5 +94,8 @@ up{instance="node02:9100", job="web"} => 1 @[1789287225.415]
 
 promtool query instant http://localhost:9090 "node_arp_entries{node='node01:9100'}"
 ```
+
+
+# Operators
 
 
