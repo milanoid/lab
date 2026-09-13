@@ -52,4 +52,23 @@ node_arp_entries{instance = "localhost:9100" } [2m]
 
 # Modifiers
 
+Offset Modifier
+
+- to go back in time `ms`, `s`, `m`, `h`, `d`, `w`, `y`
+
+```bash
+# offset
+node_memory_Active_bytes{instance="localhost:9100"} offset 1h30m
+
+
+# go to a specific time
+node_memory_Active_bytes{instance="localhost:9100"} @<unix_timestamp>
+
+
+# combination
+node_memory_Active_bytes{instance="localhost:9100"} @<unix_timestamp offset 1h
+```
+
+
+
 
