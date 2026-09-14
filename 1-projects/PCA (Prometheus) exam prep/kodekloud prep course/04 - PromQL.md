@@ -250,3 +250,11 @@ sum by(instance) (http_requests)
 
 
 - opposite of `by`
+
+
+
+
+
+# Functions
+
+
