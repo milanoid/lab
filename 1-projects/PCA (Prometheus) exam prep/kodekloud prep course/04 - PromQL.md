@@ -258,3 +258,4 @@ sum by(instance) (http_requests)
 # Functions
 
 
+https://prometheus.io/docs/prometheus/latest/querying/functions/
