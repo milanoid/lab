@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/04 - PromQL.md",
+                "file": "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/05 - Dashboarding & Visualization.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "04 - PromQL"
+              "title": "05 - Dashboarding & Visualization"
             }
           },
           {
@@ -224,9 +224,10 @@
   },
   "active": "300166014a8ee67c",
   "lastOpenFiles": [
+    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/04 - PromQL.md",
+    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/05 - Dashboarding & Visualization.md",
     "Pasted image 20260913153641.png",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/03 - Prometheus Fundamentals.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/04 - PromQL.md",
     "1-projects/PCA (Prometheus) exam prep/PromLabs/01 - Introduction to Prometheus.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/02 - Observability Fundamentals.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/01 - Intro.md",
@@ -267,7 +268,6 @@
     "Pasted image 20260728105650.png",
     "Pasted image 20260728093544.png",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 6 - K3d",
-    "Pasted image 20260720095232.png",
     "4-archives/ArgoCD (CAPA)/CAPA course",
     "4-archives/ArgoCD (CAPA)",
     "Untitled.canvas",

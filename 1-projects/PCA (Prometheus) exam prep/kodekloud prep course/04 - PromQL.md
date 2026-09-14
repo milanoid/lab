@@ -259,3 +259,47 @@ sum by(instance) (http_requests)
 
 
 https://prometheus.io/docs/prometheus/latest/querying/functions/
+
+
+`rate` vs `irate`
+
+### `rate`
+
+- looks at the last and first data point within a group
+- for slow moving counters and alerting rules
+
+
+### irate
+
+- looks at the last and second last 
+- instant rate, for fast moving counters
+
+Ideally have 4+ samples within a time range.
+
+
+
+
+# Subquery
+
+
+https://prometheus.io/blog/2019/01/28/subquery-support/
+
+
+# Histogram/Summary
+
+
+
+
+
+# Recording Rules
+
+
+https://prometheus.io/docs/practices/rules/
+
+
+
+
+# HTTP API
+
+
+https://prometheus.io/docs/prometheus/latest/querying/api/
