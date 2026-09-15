@@ -170,5 +170,28 @@ The env var pattern is `UV_INDEX_<NAME_UPPERCASED>_USERNAME/PASSWORD`!
 
 
 
+Admin pass can't be retrieved - only reset
+```bash
+#  1. Backup first (safety net, on the Proxmox host via pct exec 203):
+pct exec 203 -- tar czf /root/nexus-data-backup-$(date +%F).tar.gz -C /opt/nexus nexus-data
+### produec 250 MB backup
+
+# 2. Stop the running Nexus container to release the H2 file lock:
+pct exec 203 -- docker stop nexus
+
+
+#  3. Run the SQL update headlessly using a throwaway container from the same image, mounting the same data dir, invoking the bundled H2 CLI shell (avoids exposing the H2 web console/port):
+
+## This is Sonatype's official known hash, which corresponds to the temporary password admin123.
+
+pct exec 203 -- docker run --rm -v /opt/nexus/nexus-data:/nexus-data --entrypoint sh sonatype/nexus3:latest -c '
+   H2JAR=$(find /opt/sonatype -iname "h2-*.jar" | head -1)
+   java -cp "$H2JAR" org.h2.tools.Shell \
+     -url jdbc:h2:file:/nexus-data/db/nexus -user "" -password "" \
+     -sql "UPDATE security_user SET password='"'"'\$shiro1\$SHA-512\$1024\$NE+wqQq/TmjZMvfI7ENh/g==\$V4yPw8T64UQ6GfJfxYq2hLsVrBY8D1v+bktfOxGdt4b/9BthpWPNUy/CBk6V9iA0nHpzYzJFWO8v/tZFtES8CA==\'"'"', status='"'"'active'"'"' WHERE id='"'"'admin'"'"';"
+```
+
+
+
 
 ### docker registry
