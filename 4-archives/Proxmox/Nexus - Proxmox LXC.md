@@ -184,11 +184,15 @@ pct exec 203 -- docker stop nexus
 
 ## This is Sonatype's official known hash, which corresponds to the temporary password admin123.
 
-pct exec 203 -- docker run --rm -v /opt/nexus/nexus-data:/nexus-data --entrypoint sh sonatype/nexus3:latest -c '
-   H2JAR=$(find /opt/sonatype -iname "h2-*.jar" | head -1)
-   java -cp "$H2JAR" org.h2.tools.Shell \
-     -url jdbc:h2:file:/nexus-data/db/nexus -user "" -password "" \
-     -sql "UPDATE security_user SET password='"'"'\$shiro1\$SHA-512\$1024\$NE+wqQq/TmjZMvfI7ENh/g==\$V4yPw8T64UQ6GfJfxYq2hLsVrBY8D1v+bktfOxGdt4b/9BthpWPNUy/CBk6V9iA0nHpzYzJFWO8v/tZFtES8CA==\'"'"', status='"'"'active'"'"' WHERE id='"'"'admin'"'"';"
+docker run --rm -v /opt/nexus/nexus-data:/nexus-data --entrypoint sh sonatype/nexus3:latest -c '
+set -e
+cd /opt/sonatype/nexus/bin
+unzip -p sonatype-nexus-repository-*.jar BOOT-INF/lib/h2-2.3.232.jar > /tmp/h2.jar
+cat > /tmp/reset.sql << "EOSQL"
+update security_user set password = '"'"'$shiro1$SHA-512$1024$NE+wqQq/TmjZMvfI7ENh/g==$V4yPw8T64UQ6GfJfxYq2hLsVrBY8D1v+bktfOxGdt4b/9BthpWPNUy/CBk6V9iA0nHpzYzJFWO8v/tZFtES8CA=='"'"', status = '"'"'active'"'"' where id = '"'"'admin'"'"';
+EOSQL
+java -cp /tmp/h2.jar org.h2.tools.RunScript -url jdbc:h2:file:/nexus-data/db/nexus -user "" -password "" -script /tmp/reset.sql -showResults
+'
 ```
 
 
