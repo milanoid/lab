@@ -166,7 +166,7 @@ The env var pattern is `UV_INDEX_<NAME_UPPERCASED>_USERNAME/PASSWORD`!
 - [x] add NEXUS_USERNAME and NEXUS_PASSWORD (scoped for repo devops-study-repo)
 - [x] use my nexus for push/pull deps
 - [ ] cloudflared
-- [ ] reset/retrieve admin password and save to LastPass
+- [x] reset/retrieve admin password and save to LastPass
 
 
 
@@ -193,6 +193,10 @@ update security_user set password = '"'"'$shiro1$SHA-512$1024$NE+wqQq/TmjZMvfI7E
 EOSQL
 java -cp /tmp/h2.jar org.h2.tools.RunScript -url jdbc:h2:file:/nexus-data/db/nexus -user "" -password "" -script /tmp/reset.sql -showResults
 '
+
+
+# 4 restart. login as admin/admin123 and change pass
+docker start nexus
 ```
 
 
