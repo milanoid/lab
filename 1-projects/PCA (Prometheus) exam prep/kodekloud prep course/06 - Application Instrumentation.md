@@ -232,8 +232,20 @@ dotnet_queue_waiting_time (X)
       
 ```bash
 milan@SPM-LN4K9M0GG7 ~/repos/home-dashboard/src/backend/src/backend (main)
-> SHC_PASSWORD=<admin-password> uv run home-dashboard-api
+> SHC_PASSWORD=<admin-password> API_RELOAD=true uv run home-dashboard-api
 ```  
+
+
+```bash
+
+curl http://localhost:8001/  
+curl http://localhost:8001/health
+curl http://localhost:8001/zones
+
+# switch of light in living room
+curl -X POST http://localhost:8001/zones/hz_1/devices/xCo:6602052_u0/control -H "Content-Type: application/json" -d '{"state": "on"}'
+
+```
 
 
 
@@ -266,6 +278,12 @@ kubectl -n home-dashboard port-forward svc/home-dashboard-backend 8001:80
 
 > curl http://localhost:8001/ 
 > {"message":"Home Dashboard API"}
+```
+
+
+```bash
+# query
+request_processing_seconds_count{job="home-dashboard-backend"}
 ```
 
 #### prom-lab prometheus changes
