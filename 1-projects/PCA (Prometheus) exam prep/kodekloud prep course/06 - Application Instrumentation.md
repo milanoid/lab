@@ -241,8 +241,11 @@ milan@SPM-LN4K9M0GG7 ~/repos/home-dashboard/src/backend/src/backend (main)
 
 ### home-dashboard prometheus monitoring
 
-doc https://prometheus.github.io/client_python/
+- doc https://prometheus.github.io/client_python/
+- [x] PR in app https://github.com/milanoid-labs/home-dashboard/pull/10
+- [ ] changes in Prometheus
 
-- [ ] https://github.com/prometheus/client_python
-- [ ] 
+
+
+
 
