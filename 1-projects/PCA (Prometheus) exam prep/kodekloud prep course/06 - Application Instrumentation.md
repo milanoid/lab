@@ -241,9 +241,26 @@ milan@SPM-LN4K9M0GG7 ~/repos/home-dashboard/src/backend/src/backend (main)
 
 ### home-dashboard prometheus monitoring
 
+
+#### app changes
+
 - doc https://prometheus.github.io/client_python/
 - [x] PR in app https://github.com/milanoid-labs/home-dashboard/pull/10
+
+
+#### k8s prometheus changes
+
 - [ ] K8s homelab Prometheus scraping https://github.com/milanoid-labs/homelab-cluster/pull/497
+
+```bash
+# to access Prometheus@homelab http://localhost:9090
+kubectl -n monitoring port-forward svc/kube-prometheus-stack-prometheus 9090:9090
+```
+
+https://grafana.milanoid.net/
+
+#### prom-lab prometheus changes
+
 - [ ] Prometheus scraping in `prom-lab` installation
 
 
