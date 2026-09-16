@@ -228,7 +228,15 @@ dotnet_queue_waiting_time (X)
 
 
 - [ ] kodekloud lab
-- [ ] make the app runnable locally first
+- [x] make the app runnable locally first
+      
+```bash
+milan@SPM-LN4K9M0GG7 ~/repos/home-dashboard/src/backend/src/backend (main)
+> SHC_PASSWORD=<admin-password> uv run home-dashboard-api
+```  
+
+
+
 - [ ] monitor my Python app https://github.com/milanoid-labs/home-dashboard
 
 
