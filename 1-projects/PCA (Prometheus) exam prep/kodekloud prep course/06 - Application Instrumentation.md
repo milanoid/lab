@@ -259,6 +259,14 @@ kubectl -n monitoring port-forward svc/kube-prometheus-stack-prometheus 9090:909
 
 https://grafana.milanoid.net/
 
+```bash
+# to curl the backend
+kubectl -n home-dashboard port-forward svc/home-dashboard-backend 8001:80
+
+> curl http://localhost:8001/ 
+> {"message":"Home Dashboard API"}
+```
+
 #### prom-lab prometheus changes
 
 - [ ] Prometheus scraping in `prom-lab` installation
