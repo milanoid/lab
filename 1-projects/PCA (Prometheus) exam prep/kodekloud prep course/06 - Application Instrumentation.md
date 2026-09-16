@@ -227,7 +227,7 @@ dotnet_queue_waiting_time (X)
 # Lab
 
 
-- [ ] kodekloud lab
+- [x] kodekloud lab
 - [x] make the app runnable locally first
       
 ```bash
@@ -238,5 +238,6 @@ milan@SPM-LN4K9M0GG7 ~/repos/home-dashboard/src/backend/src/backend (main)
 
 
 - [ ] monitor my Python app https://github.com/milanoid-labs/home-dashboard
+
 
 
