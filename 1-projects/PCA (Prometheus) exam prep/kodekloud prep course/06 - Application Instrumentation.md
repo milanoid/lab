@@ -241,7 +241,8 @@ milan@SPM-LN4K9M0GG7 ~/repos/home-dashboard/src/backend/src/backend (main)
 
 ### home-dashboard prometheus monitoring
 
+doc https://prometheus.github.io/client_python/
 
-- [ ] ? https://github.com/trallnag/prometheus-fastapi-instrumentator or official client lib https://github.com/prometheus/client_python
+- [ ] https://github.com/prometheus/client_python
 - [ ] 
 
