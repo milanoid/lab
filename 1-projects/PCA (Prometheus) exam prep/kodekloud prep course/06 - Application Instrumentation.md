@@ -246,6 +246,7 @@ milan@SPM-LN4K9M0GG7 ~/repos/home-dashboard/src/backend/src/backend (main)
 
 - doc https://prometheus.github.io/client_python/
 - [x] PR in app https://github.com/milanoid-labs/home-dashboard/pull/10
+- [x] PR in app https://github.com/milanoid-labs/home-dashboard/pull/16
 
 
 #### k8s prometheus changes
