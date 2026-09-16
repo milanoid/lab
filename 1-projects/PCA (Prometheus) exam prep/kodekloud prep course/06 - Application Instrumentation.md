@@ -243,8 +243,10 @@ milan@SPM-LN4K9M0GG7 ~/repos/home-dashboard/src/backend/src/backend (main)
 
 - doc https://prometheus.github.io/client_python/
 - [x] PR in app https://github.com/milanoid-labs/home-dashboard/pull/10
-- [ ] Update the ArgoCD deployment (add service for port 8000)
-- [ ] changes in Prometheus
+- [ ] K8s homelab Prometheus scraping https://github.com/milanoid-labs/homelab-cluster/pull/497
+- [ ] Prometheus scraping in `prom-lab` installation
+
+
 
 
 
