@@ -86,6 +86,9 @@ https://grafana.com/blog/how-relabeling-in-prometheus-works/
 https://training.promlabs.com/training/relabeling/introduction-to-relabeling/relabeling-overview/
 
 
+- ! all labels beginning with `__` will be discarded at the end of re-labeling (that's why they don't show up as target labels)
+
+
 Two options
 
 
