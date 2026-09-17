@@ -45,10 +45,10 @@ scrape_configs:
 # AWS EC2
 
 
-`prometheus.yml`
+`/etc/prometheus/prometheus.yml`
 ```yaml
 scrape_configs:
- - job_name: EC2
+ - job_name: "ec2"
    ec2_sd_configs:
     - region: <region>
       access_key: <acccess_key>
@@ -58,6 +58,19 @@ scrape_configs:
 - requires credentials with IAM user with _AmazonEC2ReadOnlyAccess_ policy
 
 
-- [ ] create IAM user https://github.com/milanoid-labs/milanoid-aws-terraform/pull/13
+- [x] create IAM user https://github.com/milanoid-labs/milanoid-aws-terraform/pull/13
+
+- user: `prometheus-ec2-scraper`
+
+
+start an EC2 instance to get some metrics
+```bash
+aws ec2 run-instances \
+  --region eu-west-1 \
+  --image-id resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-arm64 \
+  --instance-type t4g.nano \
+  --count 1
+```
+
 # Re-Labeling
 
