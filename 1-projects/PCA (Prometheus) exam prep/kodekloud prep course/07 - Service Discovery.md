@@ -72,5 +72,76 @@ aws ec2 run-instances \
   --count 1
 ```
 
-# Re-Labeling
+- with EC2s going up and down the auto-discovery will manage them
 
+- [ ] delete the running test ec2 instance
+
+# Re-Labeling (!)
+
+- allows to filter out targets we're not interested for scraping
+- rename/relabe metrics, e.g. `node1:9100` -> `node1`
+
+
+Two options
+
+
+1. `relabel_configs` - occurs before scrape occurs and only has access to labels added by Service Discovery
+2. `metric_relabel_configs` - relabeling occurs after the scrape
+
+```yaml
+scrape_configs:
+  - job_name: "ec2"
+    relabel_configs:
+    metric_relabel_configs:
+    ec2_sd_configs:
+      - region: <region>
+        access_key: <acccess_key>
+        secret_key: <secret_key>
+```
+
+
+e.g. a meta metrics `__meta_ec2_architecture`
+
+
+```yaml
+scrape_configs:
+  - job_name: "ec2"
+    relabel_configs:
+      - source_labels: [__meta_ec2_architecture]
+        regex: arm64
+        action: drop # keep|drop|replace
+    ec2_sd_configs:
+      - region: <region>
+        access_key: <acccess_key>
+        secret_key: <secret_key>
+```
+
+- do not scrape ec2 targets with architecture `arm64`
+
+
+another examples
+
+
+```yaml
+scrape_configs:
+  - job_name: "ec2"
+    relabel_configs:
+      - source_labels: [env, team]
+        regex: dev;marketing
+        action: keep # keep|drop|replace
+```
+
+
+
+
+```yaml
+scrape_configs:
+  - job_name: "ec2"
+    relabel_configs:
+      - source_labels: [env, team]
+        regex: dev-marketing
+        action: keep # keep|drop|replace
+        separator: "-"
+```
+
+- change delimiter between labels
