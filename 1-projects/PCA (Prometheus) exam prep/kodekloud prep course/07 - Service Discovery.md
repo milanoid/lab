@@ -74,7 +74,11 @@ aws ec2 run-instances \
 
 - with EC2s going up and down the auto-discovery will manage them
 
-- [ ] delete the running test ec2 instance
+- [ ] terminate the running test ec2 instance
+
+```bash
+aws ec2 terminate-instances --region eu-west-1 --instance-ids i-0c3ba7063b6a6d338
+```
 
 # Re-Labeling (!)
 
