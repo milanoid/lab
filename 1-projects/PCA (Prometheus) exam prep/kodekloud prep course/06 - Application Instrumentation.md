@@ -249,7 +249,7 @@ curl -X POST http://localhost:8001/zones/hz_1/devices/xCo:6602052_u0/control -H 
 
 
 
-- [ ] monitor my Python app https://github.com/milanoid-labs/home-dashboard
+- [x] basic monitor my Python app https://github.com/milanoid-labs/home-dashboard
 
 ### home-dashboard prometheus monitoring
 
@@ -289,11 +289,39 @@ request_processing_seconds_count{job="home-dashboard-backend"}
 
 #### prom-lab prometheus changes
 
-- [ ] Prometheus scraping in `prom-lab` installation
+- [x] Prometheus scraping in `prom-lab` installation
+
+- Ingress so Prometheus on `prom-lab` can reach the `/metrics` https://github.com/milanoid-labs/homelab-cluster/pull/502
+
+```bash
+# metrics now available for scraping at:
+curl http://home-dashboard.milanoid.net/metrics
+```
 
 
 
+```yaml
+# /etc/prometheus/prometheus.yaml
 
+- job_name: 'home-dashboard'
+  static_configs:
+     - targets: ['home-dashboard.milanoid.net/metrics'] # << invalid, can't use path here
+```
 
+```bash
+journalctl -u prometheus.service -f
 
+Sep 17 07:02:56 prom-lab prometheus[8017]: time=2026-09-17T07:02:56.181Z level=ERROR source=main.go:1414 msg="Error reloading config" err="couldn't load configuration (--config.file=\"/etc/prometheus/prometheus.yml\"): parsing YAML file /etc/prometheus/prometheus.yml: \"home-dashboard.milanoid.net/metrics\" is not a valid hostname"
+```
 
+```yaml
+# path to be defined in `metrics_path`
+- job_name: 'home-dashboard'
+  metrics_path: /metrics 
+  static_configs: 
+     - targets: ['home-dashboard.milanoid.net']
+```
+
+working query - note the missing `-backend` (as in k8s prometheus)
+
+`request_processing_seconds_count{job="home-dashboard"}`
