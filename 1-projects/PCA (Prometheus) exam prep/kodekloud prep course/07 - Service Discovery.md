@@ -58,6 +58,6 @@ scrape_configs:
 - requires credentials with IAM user with _AmazonEC2ReadOnlyAccess_ policy
 
 
-- [ ] create IAM user
+- [ ] create IAM user https://github.com/milanoid-labs/milanoid-aws-terraform/pull/13
 # Re-Labeling
 
