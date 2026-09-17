@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/06 - Application Instrumentation.md",
+                "file": "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/07 - Service Discovery.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "06 - Application Instrumentation"
+              "title": "07 - Service Discovery"
             }
           },
           {
@@ -83,7 +83,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Nexus",
+                "query": "promtool",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -224,9 +224,10 @@
   },
   "active": "300166014a8ee67c",
   "lastOpenFiles": [
+    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/06 - Application Instrumentation.md",
+    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/07 - Service Discovery.md",
     "1-projects/PCA (Prometheus) exam prep/00 - learning sources.md",
     "1-projects/PCA (Prometheus) exam prep/PromLabs/01 - Introduction to Prometheus.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/06 - Application Instrumentation.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/02 - Observability Fundamentals.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/01 - Intro.md",
     "0-inbox/Online-serving systems.md",
@@ -255,7 +256,6 @@
     "4-archives/Terraform Associate 004/Udemy Course/16 - HCP Terraform.md",
     "Pasted image 20260815205518.png",
     "4-archives/Terraform Associate 004/Udemy Course/15 - Terraform Troubleshooting.md",
-    "4-archives/Terraform Associate 004/Udemy Course/14 - Securing Terraform Configurations.md",
     "Pasted image 20260815162004.png",
     "Pasted image 20260807153404.png",
     "4-archives/Terraform Associate 004/Udemy Course",
