@@ -263,13 +263,14 @@ curl -X POST http://localhost:8001/zones/hz_1/devices/xCo:6602052_u0/control -H 
 
 #### k8s prometheus changes
 
-- [ ] K8s homelab Prometheus scraping https://github.com/milanoid-labs/homelab-cluster/pull/497
+- [x] K8s homelab Prometheus scraping https://github.com/milanoid-labs/homelab-cluster/pull/497
 
 ```bash
 # to access Prometheus@homelab http://localhost:9090
 kubectl -n monitoring port-forward svc/kube-prometheus-stack-prometheus 9090:9090
 ```
 
+now available at http://prometheus.milanoid.net/
 https://grafana.milanoid.net/
 
 ```bash
