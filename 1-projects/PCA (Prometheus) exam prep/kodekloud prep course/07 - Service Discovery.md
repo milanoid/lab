@@ -79,7 +79,11 @@ aws ec2 run-instances \
 # Re-Labeling (!)
 
 - allows to filter out targets we're not interested for scraping
-- rename/relabe metrics, e.g. `node1:9100` -> `node1`
+- rename/relabel metrics, e.g. `node1:9100` -> `node1`
+
+https://grafana.com/blog/how-relabeling-in-prometheus-works/
+
+https://training.promlabs.com/training/relabeling/introduction-to-relabeling/relabeling-overview/
 
 
 Two options
