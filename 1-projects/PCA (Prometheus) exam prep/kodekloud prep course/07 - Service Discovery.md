@@ -187,5 +187,19 @@ scrape_configs:
 - We have decided to scrape the metrics from targets that have the following labels only: `team=api` `env=prod` Make the required changes for demo job.
   
   
+  ```yaml
+    - job_name: "demo"
+    relabel_configs:
+      - source_labels: [team, env]
+        regex: api;prod
+        action: keep
   ```
-  ```
+
+
+- Currently, there is a label that follows the format `team=<team-name>`: 
+  
+  `team=api` 
+  `team=database` 
+  
+  Re-label this label so the label name changes to the organization and the value gets prepended with org- text. Example: `organization=org-api` `organization=org-database` Make the required changes for demo job.
+
