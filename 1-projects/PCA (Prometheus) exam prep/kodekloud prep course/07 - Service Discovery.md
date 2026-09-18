@@ -170,3 +170,22 @@ scrape_configs:
 
 # Lab
 
+- For the `demo` job, configure `re-label` configs to scrape only `targets` with `env="prod"` label and `drop` all other targets.
+   
+   ```yaml
+   - job_name: "demo"
+    relabel_configs:
+      - source_labels: [env]
+        regex: prod
+        action: keep
+    file_sd_configs:
+      - files:
+          - /etc/prometheus/file-sd.json
+   ```
+   
+   
+- We have decided to scrape the metrics from targets that have the following labels only: `team=api` `env=prod` Make the required changes for demo job.
+  
+  
+  ```
+  ```
