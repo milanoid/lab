@@ -238,5 +238,9 @@ scrape_configs:
   https://grafana.com/blog/how-relabeling-in-prometheus-works/#labelmap
   
   ```yaml
-  
+    - job_name: "demo"
+    relabel_configs:
+      - action: labelmap
+        regex: __meta_(.*)
+        replacement: $1
   ```
