@@ -166,3 +166,7 @@ scrape_configs:
 
 - `relabel_configs` → runs at target-discovery time, controls target labels _and_ which targets are scraped
 - `metric_relabel_configs` → runs after scrape, controls which series/labels get ingested
+
+
+# Lab
+
