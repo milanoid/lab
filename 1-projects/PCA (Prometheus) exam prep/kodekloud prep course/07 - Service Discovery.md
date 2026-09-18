@@ -202,4 +202,23 @@ scrape_configs:
   `team=database` 
   
   Re-label this label so the label name changes to the organization and the value gets prepended with org- text. Example: `organization=org-api` `organization=org-database` Make the required changes for demo job.
+  
+  
+  ```yaml
+   - job_name: "demo"
+    relabel_configs:
+      - source_labels: [team]
+        regex: (.*)
+        replacement: "org-$1"
+        action: replace
+        target_label: organization
+  ```
 
+
+
+- The `type` label is no longer needed, set up a `relabel policy` for the `demo` job to drop this label.
+  
+  
+  ```yaml
+  
+  ```
