@@ -220,5 +220,23 @@ scrape_configs:
   
   
   ```yaml
+    - job_name: "demo"
+    relabel_configs:
+      - regex: type
+        action: labeldrop
+  ```
+
+
+- By default, the labels that start with `__` will get dropped after the re-labeling process. Now, we want to keep all of those labels as well and change the name so it removes the `__meta_` text from the name.
+  
+  For example change: 
+  `__meta_os__=centos` ⇒ `os=centos` 
+  `__meta_mem__=8000mb` ⇒ `mem=8000mb` 
+  
+  Use the `labelmap` action to assign these discovered labels as target labels. Make the required changes under demo job.
+  
+  https://grafana.com/blog/how-relabeling-in-prometheus-works/#labelmap
+  
+  ```yaml
   
   ```
