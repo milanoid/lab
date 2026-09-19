@@ -144,7 +144,7 @@ pushadd_to_gateway('user2:9091', job='batch', registry=registry)
 - [x] kodekloud lab
 - [x] install PG as systemd servide @ 'prom-lab'
 - [x] (install PG @ k3s lab) https://github.com/milanoid-labs/homelab-cluster/pull/508
-- [ ] push metrics in by curl (POST, PUT, DELETE)
+- [x] push metrics in by curl (POST, PUT, DELETE)
 - [ ] scrape the metrics from either GHA self-hosted runner or Renovate job
 
 
@@ -153,4 +153,30 @@ kodekloud
 ```bash
 # send metrics in
 echo "processing_time_seconds 120" | curl --data-binary @- http://localhost:9091/metrics/job/video_processing
+```
+
+
+push metrics in by curl (POST, PUT, DELETE)
+
+
+```bash
+cat <<EOF | curl --data-binary @- http://localhost:9091/metrics/job/backup_job/instance/hpmini01
+# TYPE backup_last_success_timestamp gauge
+backup_last_success_timestamp 1758268800
+EOF
+```
+
+
+```bash
+cat <<EOF | curl -X PUT --data-binary @- http://localhost:9091/metrics/job/backup_job/instance/hpmini01
+# TYPE backup_last_success_timestamp gauge
+backup_last_success_timestamp 1758268800
+# TYPE backup_duration_seconds gauge
+backup_duration_seconds 42.5
+EOF
+```
+
+
+```bash
+curl -X DELETE http://localhost:9091/metrics/job/backup_job/instance/hpmini01
 ```
