@@ -146,3 +146,11 @@ pushadd_to_gateway('user2:9091', job='batch', registry=registry)
 - [ ] (install PG @ k3s lab)
 - [ ] push metrics in by curl (POST, PUT, DELETE)
 - [ ] scrape the metrics from either GHA self-hosted runner or Renovate job
+
+
+
+kodekloud
+```bash
+# send metrics in
+echo "processing_time_seconds 120" | curl --data-binary @- http://localhost:9091/metrics/job/video_processing
+```
