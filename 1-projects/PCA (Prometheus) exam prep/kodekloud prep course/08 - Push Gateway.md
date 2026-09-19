@@ -2,7 +2,7 @@
 - a job before it exits sends all its metrics to PG
 - Prometheus reach the PG as any other target and scrape the data as usual
 - https://github.com/prometheus/pushgateway
-- [ ] collect the metrics from ephemeral self-hosted GitHub Action Runners or Renovate Job!
+- (collect the metrics from ephemeral self-hosted GitHub Action Runners or Renovate Job!)
 
 
 # Installation
@@ -18,14 +18,14 @@ cd pushgateway-1.11.3.linux-amd64
 ./pushgateway
 ```
 
-- [ ] configure push gateway as systemd service
+- [x] configure push gateway as systemd service
 
 ```bash
 # create user, copy the binary and set the ownership
 sudo useradd --no-create-home --shell /bin/false pushgateway
 sudo cp pushgateway /usr/local/bin
-chown pushgateway:pushgateway /usr/local/bin/pushgateway
-vim /etc/system/systemd/pushgateway.service
+sudo chown pushgateway:pushgateway /usr/local/bin/pushgateway
+sudo vim /etc/systemd/system/pushgateway.service
 ```
 
 ```bash
@@ -33,7 +33,7 @@ vim /etc/system/systemd/pushgateway.service
 [Unit]
 Decription=Prometheus Pushgateway
 Wants=network-online.target
-Afer=network-online.target
+After=network-online.target
 
 [Service]
 User=pushgateway
@@ -49,7 +49,7 @@ WantedBy=multi-user.target
 
 ```bash
 # reload, restart and enable the pushgateway to start automatically
-sudo systemctl daemon reload
+sudo systemctl daemon-reload
 sudo systemctl restart pushgateway
 sudo systemctl enable pushgateway
 sudo systemctl status pushgateway
@@ -61,7 +61,7 @@ curl http://localhost:9091/metrics
 ```
 
 
-- [ ] configure Prometheus to scrape Pushgateway
+- [x] configure Prometheus to scrape Pushgateway
 
 
 ```yaml
@@ -70,7 +70,7 @@ scrape_configs:
   - job_name: pushgateway
     honor_labels: true
     static_configs:
-      - targets: ["locahost:9091"]
+      - targets: ["localhost:9091"]
 ```
 
 
@@ -93,7 +93,7 @@ POST http://<pushgatewayhost:port>/metrics/job/<job_name>/<label1>/<value1>/<lab
 - `<label1>/<value1>` - grouping key
 
 
-- [ ] push some metrics in
+- [x] push some metrics in
 
 example - push metric `example_metric 4421` with a job label `{job="db_backup}`
 
@@ -141,8 +141,8 @@ pushadd_to_gateway('user2:9091', job='batch', registry=registry)
 
 # Lab
 
-- [ ] kodekloud lab
-- [ ] install PG as systemd servide @ 'prom-lab'
+- [x] kodekloud lab
+- [x] install PG as systemd servide @ 'prom-lab'
 - [ ] (install PG @ k3s lab)
 - [ ] push metrics in by curl (POST, PUT, DELETE)
 - [ ] scrape the metrics from either GHA self-hosted runner or Renovate job
