@@ -145,7 +145,7 @@ pushadd_to_gateway('user2:9091', job='batch', registry=registry)
 - [x] install PG as systemd servide @ 'prom-lab'
 - [x] (install PG @ k3s lab) https://github.com/milanoid-labs/homelab-cluster/pull/508
 - [x] push metrics in by curl (POST, PUT, DELETE)
-- [ ] scrape the metrics from either GHA self-hosted runner https://github.com/milanoid-labs/homelab-cluster/pull/509
+- [x] scrape the metrics from either GHA self-hosted runner https://github.com/milanoid-labs/homelab-cluster/pull/509
 
 
 
