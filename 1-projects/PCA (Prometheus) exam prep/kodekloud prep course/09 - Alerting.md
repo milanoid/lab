@@ -76,7 +76,6 @@ groups:
 - [x] install on `k3s` (already installed via the helm chart)
 
 
-
 `prom-lab` - as a systemd service
 
 ```bash
@@ -213,9 +212,38 @@ route:
 Notifier - an integration with a service (e.g. Telegram, Slack, email...)
 https://prometheus.io/docs/alerting/latest/integrations/
 
+### Notification Templates
+
+- using Go templating system
+  
+- `GroupLabels`
+- `CommonLabels`
+- `CommonAnnotations`
+- `ExternalURL`
+- `Status`
+- `Receiver`
+- `Alerts`
+
+
+```yml
+# alertmanager.yml
+route:
+  reciever: 'slack'
+receivers:
+  - name: slack
+    slack_configs:
+      - api_url: https://hooks.slack.com/xxx
+        channel: '#alerts'
+        title: '{{.GroupLabels.severity}} alerts in region {{.GroupLabels.region}}'
+        text: {{.Alerts | len}} alerts:
+```
+
 
 
 ## Alertmanager Demo
+
+
+
 
 
 ## Silences
@@ -262,4 +290,4 @@ rule_files:
 
 ### homelab
 
-- [ ] alerting to Telegram on low disk space
+- [ ] alerting to Telegram on low disk space and high temperature
