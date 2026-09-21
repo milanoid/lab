@@ -10,27 +10,200 @@ Alertmanager
 Alert states
 
 - Inactive - expression has not returned any results
-- Pending - 
+- Pending - expression returned results, not yet firing (e.g. 5m CPU spike needed)
+- Firing - active for more than the defined `for` clause (e.g. 5m)
+
+
 
 ## Labels & Annotations
 
 
+_Labels_ - can be added to alerts to provide a mechanism to classify and match specific alerts in Alartmanager
+
+
+```yaml
+# rules.yml
+groups:
+  - name: node
+    rules:
+      - alert: Node down
+        expr: up{job="node"} == 0
+        labels:
+          severity: warning
+          
+      - alert: Multiple Nodes down
+        expr: avg without(instance)(up{job="node"}) <= 0.5
+        labels:
+          severity: critical
+```
+
+
+_Annotations_ - an extra description
+
+- to access alert labels use `{{.Labels}}`
+- to get instance label use `{{.Labels.instance}}`
+- to get the firing sample value use `{{.Value}}`
+
+```yaml
+# rules.yml
+groups:
+  - name: node
+    rules:
+      - alert: node_filesystem_free_percent
+        expr: 100 * node_filesystem_free_bytes{job="node"} / node_filesystem_size_bytes{job="node"} < 70
+        annoatations:
+          description: "filesystem {{.Labels.device}} on {{.Labels.instance}} is low on space, current available space is {{.Value}}"
+```
 
 ## Alertmanager Architecture
+
+
+- has its own API
+- can serve multiple Prometheus instances
+- dispatcher
+- inhibition
+- silencing
+- routing
+- notification
+- integration (with receivers)
+- receivers (chat, pager, email)
 
 
 
 ## Alertmanager Installation
 
+- [x] install on `prom-lab`
+- [x] install on `k3s` (already installed via the helm chart)
 
+
+
+`prom-lab` - as a systemd service
+
+```bash
+wget https://github.com/prometheus/alertmanager/releases/download/v0.34.1/alertmanager-0.34.1.linux-amd64.tar.gz
+
+tar xvf alertmanager-0.34.1.linux-amd64.tar.gz
+```
+
+`amtool` - cli utility
+`alertmanager.yml` - configuration file
+`alertmanager` - executable
+`data/` - where notification states are stored
+
+- default port 9093
+- http://192.168.1.103:9093/#/alerts
+
+
+Prometheus config side:
+
+```yaml
+global: 
+  scrape_interval: 1m 
+  scrape_timeout: 10s 
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+            - alertmanager1:9093 # localhost:9093
+              alertmanager2:9093
+```
 
 ## Alertmanager Installation - systemd
 
 
 
+```bash
+sudo useradd --no-create-home --shell /bin/false alertmanager
+sudo mkdir /etc/alertmanager
+sudo mv alertmanager.yml /etc/alertmanager/
+sudo chown -R alertmanager:alertmanager /etc/alertmanager
+
+sudo mkdir -p /var/lib/alertmanager
+sudo chown -R alertmanager:alertmanager /var/lib/alertmanager
+
+sudo cp alertmanager amtool /usr/local/bin
+sudo chown alertmanager:alertmanager /usr/local/bin/alertmanager
+sudo chown alertmanager:alertmanager /usr/local/bin/amtool
+
+```
+
+
+```bash
+sudo vim /etc/systemd/system/alertmanager.service
+```
+
+
+```bash
+[Unit]
+Description=Alert Manager
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=alertmanager
+Group=alertmanager
+ExecStart=/usr/local/bin/alertmanager \
+  --config.file=/etc/alertmanager/alertmanager.yml \
+  --storage.path=/var/lib/alertmanager
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl start alertmanager
+sudo systemctl enable alertmanager
+```
 ## Configuration
 
 
+`sudo -u alertmanager vim /etc/alertmanager/alertmanager.yml`
+
+
+
+- all alerts with the `job=Kubernetes` & `severity=ticket` labels will match this rule
+- alerts that match get sent to receiver `k8s-slack` (defined in `reciever` section)
+```yml
+route:
+  routes:
+  - match_re:
+      job: (node|windows)
+    receiver: infra-email
+  - matchers:
+      job: kubernetes
+      severity: ticket
+    reciever: k8s-slack
+```
+
+
+Sub-routes
+
+- parent route - all alerts with label `job=kubernetes` will be sent to receiver `k8s-email`
+- sub-route - alerts with a label `severity=pager` then it will be sent to `k8s-pager`
+
+```yml
+route:
+  routes:
+  - matcher:
+      job: kubernetes
+    receiver: k8s-email
+    routes:
+    - matchers:
+        severity: pager
+      reciever: k8s-pager
+```
+
+
+### Restarting Alertmanager
+
+- systemd service restart
+- send SIGHUP `sudo killall -HUP alertmanger`
+- `POST /-/reload`
 
 ## Receivers and Notifiers
 
