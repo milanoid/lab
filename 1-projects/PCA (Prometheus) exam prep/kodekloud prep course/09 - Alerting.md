@@ -348,6 +348,11 @@ Telegram Bot
    - For a group: add the bot to the group first, send a message there, then check getUpdates for the negative group chat ID
 
 
+```bash
+# `/etc/alertmanager/alertmanager.yml`
+
+```
+
 
 ### homelab 
 
