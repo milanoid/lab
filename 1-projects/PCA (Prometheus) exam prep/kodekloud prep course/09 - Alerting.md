@@ -206,13 +206,13 @@ route:
 - `POST /-/reload`
 
 
-## Lab
-
-- Create an alert in Prometheus to check the low disk space on nodes (`node01` and `node02`).
-
-
 
 ## Receivers and Notifiers
+
+
+Notifier - an integration with a service (e.g. Telegram, Slack, email...)
+https://prometheus.io/docs/alerting/latest/integrations/
+
 
 
 ## Alertmanager Demo
@@ -225,3 +225,41 @@ route:
 # Labs
 
 
+### kodekloud
+
+- Create an alert in Prometheus to check the low disk space on nodes (`node01` and `node02`).
+- https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
+
+```yml
+# /etc/prometheus/rules.yml
+groups:
+  - name: node
+    rules:
+      - alert: LowDiskSpace
+        expr: 100 * node_filesystem_free_bytes{job="nodes"} / node_filesystem_size_bytes{job="nodes"} < 10
+        labels:
+          severity: warning
+          environment: prod
+          
+```
+
+syntax check
+
+```bash
+promtool check rules /etc/prometheus/rules.yml
+Checking /etc/prometheus/rules.yml
+  SUCCESS: 1 rules found
+```
+
+update `/etc/prometheus/prometheus.yml` - to use the rules
+
+```yml
+rule_files:
+  - "rules.yml"
+```
+
+
+
+### homelab
+
+- [ ] alerting to Telegram on low disk space
