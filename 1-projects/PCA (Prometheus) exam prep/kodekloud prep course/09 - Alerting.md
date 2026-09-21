@@ -205,6 +205,13 @@ route:
 - send SIGHUP `sudo killall -HUP alertmanger`
 - `POST /-/reload`
 
+
+## Lab
+
+- Create an alert in Prometheus to check the low disk space on nodes (`node01` and `node02`).
+
+
+
 ## Receivers and Notifiers
 
 
