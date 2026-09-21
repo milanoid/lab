@@ -289,7 +289,7 @@ rule_files:
 
 ### prom-lab
 
-- setup Telegram Alerting on low disk space
+- [ ] setup Telegram Alerting on low free memory
 
 1. `/etc/prometheus/rules.yml`
 2. update `/etc/prometheus/prometheus.yml` with the rule files to use
@@ -298,10 +298,49 @@ rule_files:
 
 
 
+- create rules file
 ```bash
+# 
 sudo -u prometheus vim /etc/prometheus/rules.yml
-
 ```
+
+```yml
+# /etc/prometheus/rules.yml
+groups:
+- name: prom-lab-alert
+  rules:
+  - alert: LowDiskSpace
+    expr: node_memory_MemAvailable_bytes{instance='localhost:9100'} / 1000000 < 3500
+    for: 2m
+    annotations:
+      summary: Low on free memory
+```
+
+```bash
+# validate the rules.yml
+promtool check rules /etc/prometheus/rules.yml 
+Checking /etc/prometheus/rules.yml 
+  SUCCESS: 1 rules found
+```
+
+
+
+- enable the rules file in Prometheus
+
+```bash
+sudo -u prometheus vim prometheus.yml
+```
+
+
+```yml
+rule_files:
+  - 'rules.yml'
+```
+
+
+
+
+
 
 ### homelab 
 
