@@ -309,7 +309,7 @@ sudo -u prometheus vim /etc/prometheus/rules.yml
 groups:
 - name: prom-lab-alert
   rules:
-  - alert: LowDiskSpace
+  - alert: LowFreeMemory
     expr: node_memory_MemAvailable_bytes{instance='localhost:9100'} / 1000000 < 3500
     for: 2m
     annotations:
@@ -348,9 +348,25 @@ Telegram Bot
    - For a group: add the bot to the group first, send a message there, then check getUpdates for the negative group chat ID
 
 
-```bash
+```yml
 # `/etc/alertmanager/alertmanager.yml`
-
+route:
+  group_by: ['alertname']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 1h
+  receiver: 'telegram.bot'
+receivers:
+  - name: 'telegram.bot'
+    telegram_configs:
+      - bot_token: <TELEGRAM_BOT_TOKEN>
+        chat_id: <CHAT_ID>
+        parse_mode: 'HTML'
+        message: |
+          {{ range .Alerts }}
+          <b>{{ .Labels.alertname }}</b>
+          {{ .Annotations.summary }}
+          {{ end }}
 ```
 
 
