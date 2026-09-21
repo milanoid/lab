@@ -289,7 +289,7 @@ rule_files:
 
 ### prom-lab
 
-- [ ] setup Telegram Alerting on low free memory
+- [x] setup Telegram Alerting on low free memory
 
 1. `/etc/prometheus/rules.yml`
 2. update `/etc/prometheus/prometheus.yml` with the rule files to use
@@ -354,7 +354,7 @@ route:
   group_by: ['alertname']
   group_wait: 30s
   group_interval: 5m
-  repeat_interval: 1h
+  repeat_interval: 12h
   receiver: 'telegram.bot'
 receivers:
   - name: 'telegram.bot'
@@ -369,6 +369,8 @@ receivers:
           {{ end }}
 ```
 
+
+![[Pasted image 20260921124949.png]]
 
 ### homelab 
 
