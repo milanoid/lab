@@ -287,7 +287,22 @@ rule_files:
 ```
 
 
+### prom-lab
 
-### homelab
+- setup Telegram Alerting on low disk space
+
+1. `/etc/prometheus/rules.yml`
+2. update `/etc/prometheus/prometheus.yml` with the rule files to use
+3. Telegram Bot setup
+4. update `/etc/alertmanager/alertmanager.yml` with thee receiver (Telegram) & restart
+
+
+
+```bash
+sudo -u prometheus vim /etc/prometheus/rules.yml
+
+```
+
+### homelab 
 
 - [ ] alerting to Telegram on low disk space and high temperature
