@@ -338,7 +338,14 @@ rule_files:
 ```
 
 
+Telegram Bot
 
+1. Open Telegram, message @BotFather
+2. Send /newbot, follow prompts (choose a name and username ending in bot) -> `milanoid_prometheus_bot` (name) `milanoid_prometheus_bot` (username)
+3. BotFather gives you a bot token like 123456789:AAH... — save it, this is a secret
+4. Message your new bot anything (e.g. "hi") so it can message you back
+5. Get your chat ID: visit https://api.telegram.org/bot<TOKEN>/getUpdates in a browser after messaging the bot — look for "chat":{"id": ...}
+   - For a group: add the bot to the group first, send a message there, then check getUpdates for the negative group chat ID
 
 
 
