@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/09 - Alerting.md",
+                "file": "1-projects/Devsy.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "09 - Alerting"
+              "title": "Devsy"
             }
           },
           {
@@ -234,9 +234,10 @@
   },
   "active": "300166014a8ee67c",
   "lastOpenFiles": [
+    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/09 - Alerting.md",
+    "1-projects/Devsy.md",
     "Pasted image 20260921124949.png",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/08 - Push Gateway.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/09 - Alerting.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/07 - Service Discovery.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/06 - Application Instrumentation.md",
     "1-projects/PCA (Prometheus) exam prep/00 - learning sources.md",
@@ -276,7 +277,6 @@
     "Pasted image 20260728113807.png",
     "Pasted image 20260728113625.png",
     "Pasted image 20260728105650.png",
-    "Pasted image 20260728093544.png",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 6 - K3d",
     "4-archives/ArgoCD (CAPA)/CAPA course",
     "4-archives/ArgoCD (CAPA)",
