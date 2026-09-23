@@ -90,3 +90,15 @@ Grafana
 # Prometheus Configuration
 
 
+Kubernetes has its own Service Discovery.
+
+https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config
+
+http://prometheus.milanoid.net/config
+
+
+
+
+# Deploy Demo Application
+
+- [ ] re-use my `devops-study-app`

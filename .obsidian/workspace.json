@@ -35,8 +35,7 @@
               "title": "Devsy"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -195,11 +194,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a8076f0479356f8e",
+  "active": "300166014a8ee67c",
   "lastOpenFiles": [
+    "1-projects/Devsy.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/10 - Monitoring Kubernetes.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/09 - Alerting.md",
-    "1-projects/Devsy.md",
     "4-archives/VPN server with dynamic IP.md",
     "Pasted image 20260921124949.png",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/08 - Push Gateway.md",
