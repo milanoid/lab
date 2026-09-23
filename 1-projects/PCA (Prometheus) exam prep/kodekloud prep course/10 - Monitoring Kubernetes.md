@@ -109,7 +109,7 @@ http://prometheus.milanoid.net/config
 
 # Additional Scrape Configs
 
-- [ ] K8s Prometheus scraping setup
+- [x] K8s Prometheus scraping setup
 
 
 2 ways to do that
@@ -198,6 +198,25 @@ spec:
 ```
 
 - the SM refers to a Service - in this case to `home-dashboard-backend`
+- note matching port and app label
+- note label release - must match label
+
+```bash
+kubectl get prometheuses.monitoring.coreos.com -o yaml
+```
+
+```yaml
+apiVersion: v1
+items:
+- apiVersion: monitoring.coreos.com/v1
+  kind: Prometheus
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: kube-prometheus-stack
+      meta.helm.sh/release-namespace: monitoring
+    labels:
+      release: kube-prometheus-stack # <<<<<< this
+```
 
 https://github.com/milanoid-labs/homelab-cluster/blob/main/apps/argocd/home-dashboard/backend-service.yaml
 
@@ -221,7 +240,18 @@ spec:
     app: home-dashboard-backend
 ```
 
+- so the Prometheus knows which Service Monitors to scrape from
+
+
+http://prometheus.milanoid.net/targets?pool=serviceMonitor%2Fhome-dashboard%2Fhome-dashboard-backend%2F0
+
+http://prometheus.milanoid.net/query?g0.expr=%7Bjob%3D%27home-dashboard-backend%27%7D&g0.show_tree=0&g0.tab=table&g0.range_input=1h&g0.res_type=auto&g0.res_density=medium&g0.display_mode=lines&g0.show_exemplars=0
+
+
 # Adding Rules
+
+
+
 
 
 # Alertmanager Rules
