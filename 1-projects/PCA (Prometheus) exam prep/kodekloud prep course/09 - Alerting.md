@@ -314,6 +314,31 @@ node_memory_MemAvailable_bytes{job="nodes"} / node_memory_MemTotal_bytes{job="no
 
 
 `node {{.Labels.instance}} is seeing high memory usage, currently available memory: {{.Value}}%`
+
+
+
+```yaml
+# /etc/prometheus/rules.yml
+groups:
+  - name: node
+    rules:
+      - alert: HostOutOfMemory
+        expr: node_memory_MemAvailable_bytes{job="nodes"} / node_memory_MemTotal_bytes{job="nodes"} * 100 < 10
+        labels:
+          severity: warning
+          team: internal-infra
+        annotations:
+          summary: "node {{.Labels.instance}} is seeing high memory usage, currently available memory: {{.Value}}%"
+```
+
+
+```bash
+promtool check rules /etc/prometheus/rules.yaml
+Checking /etc/prometheus/rules.yaml
+  SUCCESS: 2 rules found
+```
+
+
 ### prom-lab
 
 - [x] setup Telegram Alerting on low free memory
