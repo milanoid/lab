@@ -101,4 +101,128 @@ http://prometheus.milanoid.net/config
 
 # Deploy Demo Application
 
-- [ ] re-use my `devops-study-app`
+- [x] re-use my `home-dashboard`
+- [x] app-side config https://github.com/milanoid-labs/home-dashboard/pull/10
+- monitored via `prom-lab` instance only at the moment
+
+
+
+# Additional Scrape Configs
+
+- [ ] K8s Prometheus scraping setup
+
+
+2 ways to do that
+
+1. (less preferred) via Helm Values
+2. (ideal) - using ServiceMonitor
+
+
+### 1 . Scrape Config via Helm Values
+
+```bash
+# list all the possible values
+helm show values prometheus-community/kube-prometheus-stack
+```
+
+- then update _values_ in [release.yaml](https://github.com/milanoid-labs/homelab-cluster/blob/main/monitoring/controllers/base/kube-prometheus-stack/release.yaml#L29) in [additionalScrapeConfigs](https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml#L4914)
+- no validation, can break prometheus update
+
+```bash
+# for bare helm installations, doesn't apply for my GitOps
+helm upgrade prometheus-community/kube-prometheus-stack -f values.yaml
+```
+
+
+
+
+# Service Monitors
+
+### 2. Scrape Config using ServiceMonitor
+
+
+
+```bash
+kubectl get crd
+
+kubectl get crd servicemonitors.monitoring.coreos.com
+NAME                                    SCOPE        VERSIONS      CREATED AT
+servicemonitors.monitoring.coreos.com   Namespaced   v1(storage)   2025-08-24T16:48:13Z
+```
+
+
+- defines a set of targets for Prometheus to monitor
+- allow to avoid touching Prometheus config directly, offers a declarative K8s syntax
+
+
+
+```bash
+kubectl get servicemonitors.monitoring.coreos.com
+NAME                                             AGE
+kube-prometheus-stack-alertmanager               394d
+kube-prometheus-stack-apiserver                  394d
+kube-prometheus-stack-coredns                    394d
+kube-prometheus-stack-grafana                    394d
+kube-prometheus-stack-kube-controller-manager    394d
+kube-prometheus-stack-kube-etcd                  394d
+kube-prometheus-stack-kube-proxy                 394d
+kube-prometheus-stack-kube-scheduler             394d
+kube-prometheus-stack-kube-state-metrics         394d
+kube-prometheus-stack-kubelet                    394d
+kube-prometheus-stack-operator                   394d
+kube-prometheus-stack-prometheus                 394d
+kube-prometheus-stack-prometheus-node-exporter   394d
+```
+
+e.g. home-dashboards SM
+
+https://github.com/milanoid-labs/homelab-cluster/blob/main/apps/argocd/home-dashboard/backend-servicemonitor.yaml
+
+
+```yaml
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: home-dashboard-backend
+  labels:
+    release: kube-prometheus-stack
+spec:
+  selector:
+    matchLabels:
+      app: home-dashboard-backend
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 30s
+```
+
+- the SM refers to a Service - in this case to `home-dashboard-backend`
+
+https://github.com/milanoid-labs/homelab-cluster/blob/main/apps/argocd/home-dashboard/backend-service.yaml
+
+```yaml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: home-dashboard-backend
+  labels:
+    app: home-dashboard-backend
+spec:
+  ports:
+    - port: 80
+      name: http
+      targetPort: 8001
+    - port: 8000
+      name: metrics
+      targetPort: 8000
+  selector:
+    app: home-dashboard-backend
+```
+
+# Adding Rules
+
+
+# Alertmanager Rules
+
