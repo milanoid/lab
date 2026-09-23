@@ -289,6 +289,31 @@ rule_files:
 ```
 
 
+---
+
+Create an alert group for all `job=nodes` targets and trigger an alert when the free memory is less than `10%`. Review the details below:
+
+  (a) The group name should be `node` (it should be configured already).  
+  
+   (b) The alert name should be `HostOutOfMemory`.  
+  
+   (c) The expression should calculate when the host has less than `10%` free memory:
+
+```bash
+node_memory_MemAvailable_bytes{job="nodes"} / node_memory_MemTotal_bytes{job="nodes"} * 100 < 10
+```
+
+
+(d) It should have two labels:  
+  
+         `severity: warning`  
+  
+         `team: internal-infra`  
+  
+ Also add a message annotation that will print out a message in the following format:
+
+
+`node {{.Labels.instance}} is seeing high memory usage, currently available memory: {{.Value}}%`
 ### prom-lab
 
 - [x] setup Telegram Alerting on low free memory
