@@ -68,8 +68,25 @@ Data
 prometheus.yaml.gz:  3166 bytes
 ```
 
-- not to be edited directly but via ....
+- not to be edited directly
 
 # Connecting to Prometheus
+
+- [ ] how is it setup on my cluster that I can access the addresses below?
+- [ ] expose the Alertmanager the same way
+
+Prometheus
+
+- http://prometheus.milanoid.net
+- https://prometheus.milanoid.net
+
+
+Grafana
+
+- http://grafana.milanoid.net
+- https://grafana.milanoid.net
+
+
+# Prometheus Configuration
 
 
