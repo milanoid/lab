@@ -47,9 +47,28 @@ kubens monitoring
 
 # get all resources in that ns
 kubectl get all
-
-
 ```
+
+
+- look around
+- e.g. `prometheus.yaml` configuration is in Secret `prometheus-kube-prometheus-stack-prometheus`
+
+```bash
+kubectl describe secrets prometheus-kube-prometheus-stack-prometheus
+Name:         prometheus-kube-prometheus-stack-prometheus
+Namespace:    monitoring
+Labels:       app.kubernetes.io/managed-by=prometheus-operator
+              managed-by=prometheus-operator
+Annotations:  <none>
+
+Type:  Opaque
+
+Data
+====
+prometheus.yaml.gz:  3166 bytes
+```
+
+- not to be edited directly but via ....
 
 # Connecting to Prometheus
 
