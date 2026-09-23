@@ -248,6 +248,8 @@ receivers:
 
 ## Silences
 
+- alerts can be silenced (e.g. for a maintenance window)
+
 
 
 # Labs
