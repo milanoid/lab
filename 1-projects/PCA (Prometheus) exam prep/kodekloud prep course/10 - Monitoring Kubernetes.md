@@ -277,7 +277,30 @@ spec:
 
 https://github.com/milanoid-labs/homelab-cluster/pull/550
 
-
+- it's a dummy rule - alert will appear only if a pod crash
+- only if the scraping endpoint is not reachable (e.g. a pod crash)
+- if fired, goes to Alert Manager (not yet configured to send any notification yet)
 
 # Alertmanager Rules
+
+
+- CRD `AlertmanagerConfig` - handles new rules to Alartmanager
+- `alertmanagerConfigSelector` - label allows Alertmanager to find AlertmanagerConfig objects in the cluster and register them
+- Helm Chart by default does not specify a label, must be added !
+- plain `alertmanager.yml` uses _snake_case_ 
+- AlertmanagerConfig CRD uses _CamelCase_
+
+
+
+```bash
+### alertmanagerConfigSelector must be set. by default empty:
+### alertmanagerConfigSelector: {}
+# get all values
+helm show values prometheus-community/kube-prometheus-stack 
+```
+
+
+- [ ] Telegram Notification - a bit more complex as the Telegram bot-token must be sops encrypted https://github.com/milanoid-labs/homelab-cluster/pull/551
+
+
 
