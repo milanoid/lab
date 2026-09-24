@@ -305,7 +305,7 @@ helm show values prometheus-community/kube-prometheus-stack
 ```
 
 
-- [ ] Telegram Notification - a bit more complex as the Telegram bot-token must be sops encrypted https://github.com/milanoid-labs/homelab-cluster/pull/551
+- [x] Telegram Notification - a bit more complex as the Telegram bot-token must be sops encrypted https://github.com/milanoid-labs/homelab-cluster/pull/551
 	-  the Alertmanager configuration via Helm Chart values `alertmanager.config` (not via CRD)
 	- because of that I don't need to set `alertmanagerConfigSelector` label, it's using the main configuration for all
 	- `alertmanagerConfigSelector` would be needed when CRD config is used
