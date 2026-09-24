@@ -252,6 +252,30 @@ http://prometheus.milanoid.net/query?g0.expr=%7Bjob%3D%27home-dashboard-backend%
 
 
 
+CRD - PrometheusRule
+
+```yaml
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  labels:
+    release: kube-prometheus-stack
+  name: api-rules
+spec:
+  groups:
+    - name: api
+      rules:
+        - alert: down
+          expr: up == 0
+          for: 0m
+          labels:
+            severity: critical
+          annotations:
+            summary: Prometheus target missing {{$labels.instance}}
+```
+
+
+
 
 
 # Alertmanager Rules
