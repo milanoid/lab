@@ -9,3 +9,5 @@ A: Since temperature readings can go up or down, a **gauge** metric should be us
 
 
 # Lab - Mock Exam 2
+
+
