@@ -11,3 +11,20 @@ A: Since temperature readings can go up or down, a **gauge** metric should be us
 # Lab - Mock Exam 2
 
 
+---
+
+Vocabulary
+
+- Metric types 
+	  Histogram (what submetrics has?), 
+	  Gauge, 
+	  Counter, 
+	  Summary
+- Quantile
+- rate vs irate
+- SLO, SLA, SLI
+- Alertmanager config 
+	  `group_by`
+	  `group_wait`
+	  `group_interval`
+	  `repeat_interval`

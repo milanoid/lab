@@ -44,7 +44,7 @@ High-level
 kube-prometheus-stack - https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
 
 - [x] install Prometheus on a throw away VM@Proxmox - there is a lot K8s overhead, slow me down with the subject itself - use VM ID 103 (prom-lab)
-- [ ] Prometheus as systemd service
+- [x] Prometheus as systemd service
 
 
 ```bash
@@ -133,7 +133,7 @@ sudo journalctl -u prometheus.service -f
 - https://github.com/prometheus/node_exporter
 
 
-- [ ] install on prom-lab VM https://prometheus.io/download/#node_exporter
+- [x] install on prom-lab VM https://prometheus.io/download/#node_exporter
 
 ```bash
 # setup Node Exporter
@@ -196,7 +196,7 @@ kubectl get secret -n monitoring prometheus-kube-prometheus-stack-prometheus \
 
 UI  /query http://localhost:9090/
 
-- [ ] expose as a Service/Ingress
+- [x] expose as a Service/Ingress
 ```bash
 # query UI
 kubectl -n monitoring port-forward svc/kube-prometheus-stack-prometheus 9090:9090

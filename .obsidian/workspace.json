@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/12 - Conclusion & Mock Exams.md",
+                "file": "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/04 - PromQL.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "12 - Conclusion & Mock Exams"
+              "title": "04 - PromQL"
             }
           },
           {
@@ -196,9 +196,11 @@
   },
   "active": "300166014a8ee67c",
   "lastOpenFiles": [
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/11 - Scaling & Long Term Storage.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/12 - Conclusion & Mock Exams.md",
+    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/03 - Prometheus Fundamentals.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/02 - Observability Fundamentals.md",
+    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/01 - Intro.md",
+    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/12 - Conclusion & Mock Exams.md",
+    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/11 - Scaling & Long Term Storage.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/10 - Monitoring Kubernetes.md",
     "1-projects/Devsy.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/09 - Alerting.md",
@@ -209,7 +211,6 @@
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/06 - Application Instrumentation.md",
     "1-projects/PCA (Prometheus) exam prep/00 - learning sources.md",
     "1-projects/PCA (Prometheus) exam prep/PromLabs/01 - Introduction to Prometheus.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/01 - Intro.md",
     "0-inbox/Online-serving systems.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/05 - Dashboarding & Visualization.md",
     "4-archives/Proxmox/Nexus - Proxmox LXC.md",
@@ -217,7 +218,6 @@
     "4-archives/Terraform Associate 004/Udemy Course/99 - Setup GitHub Terraform automation.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/04 - PromQL.md",
     "Pasted image 20260913153641.png",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/03 - Prometheus Fundamentals.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/Prometheus_Certified_Associate-1.pdf",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course",
     "1-projects/Martin Papez 1st call.md",
