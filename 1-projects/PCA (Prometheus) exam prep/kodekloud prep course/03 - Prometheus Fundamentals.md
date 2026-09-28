@@ -520,7 +520,7 @@ _Counter_
 
 _Gauge_
 - what is the current value of X? 
-- e.g. current CPU utilization
+- e.g. current CPU utilization, queue length, temperature
 - can go up or down
 
 

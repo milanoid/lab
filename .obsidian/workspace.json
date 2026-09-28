@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/01 - Intro.md",
+                "file": "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/03 - Prometheus Fundamentals.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01 - Intro"
+              "title": "03 - Prometheus Fundamentals"
             }
           },
           {
@@ -196,6 +196,10 @@
   },
   "active": "300166014a8ee67c",
   "lastOpenFiles": [
+    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/02 - Observability Fundamentals.md",
+    "1-projects/PCA (Prometheus) exam prep/00 - learning sources.md",
+    "1-projects/PCA (Prometheus) exam prep/PromLabs/01 - Introduction to Prometheus.md",
+    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/01 - Intro.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/Prometheus_Certified_Associate-1.pdf",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/12 - Conclusion & Mock Exams.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/11 - Scaling & Long Term Storage.md",
@@ -207,13 +211,9 @@
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/05 - Dashboarding & Visualization.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/04 - PromQL.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/03 - Prometheus Fundamentals.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/02 - Observability Fundamentals.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/01 - Intro.md",
     "1-projects/Devsy.md",
     "4-archives/VPN server with dynamic IP.md",
     "Pasted image 20260921124949.png",
-    "1-projects/PCA (Prometheus) exam prep/00 - learning sources.md",
-    "1-projects/PCA (Prometheus) exam prep/PromLabs/01 - Introduction to Prometheus.md",
     "0-inbox/Online-serving systems.md",
     "4-archives/Proxmox/Nexus - Proxmox LXC.md",
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions/notes.md",
