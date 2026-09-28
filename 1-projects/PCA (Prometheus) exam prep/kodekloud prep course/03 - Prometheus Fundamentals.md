@@ -516,7 +516,9 @@ now all green in http://192.168.1.103:9090/targets
 _Counter_ 
    - how many times X did happen?
    - e.g. total # requests
-   - can only go up
+   - can only go up (cumulative)
+
+Doesn't make sense to track it as is - but rather use `rate`, `irate`, `increase` function with a counter to see a progress, such as # requests per second in 5 mins moving average.
 
 _Gauge_
 - what is the current value of X? 
