@@ -9,9 +9,9 @@ Alertmanager
 
 Alert states
 
-- Inactive - expression has not returned any results
-- Pending - expression returned results, not yet firing (e.g. 5m CPU spike needed)
-- Firing - active for more than the defined `for` clause (e.g. 5m)
+- _Inactive_ - expression has not returned any results
+- _Pending_ - expression returned results, not yet firing (e.g. 5m CPU spike needed)
+- _Firing_ - active for more than the defined `for` clause (e.g. 5m)
 
 
 
