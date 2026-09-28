@@ -517,6 +517,7 @@ _Counter_
    - how many times X did happen?
    - e.g. total # requests
    - can only go up (cumulative)
+   - a reset (e.g. service crash) might happen - starts over from `0`
 
 Doesn't make sense to track it as is - but rather use `rate`, `irate`, `increase` function with a counter to see a progress, such as # requests per second in 5 mins moving average.
 
@@ -553,7 +554,7 @@ _Summary_
 ## Metrics Labels
 
 - key values pair
-- why? e.g. request_total metric for each endpoint (/auth, /user ...) differentiate them by label - can easily count requests_total across all endpoints (application)
+- why? e.g. `request_total` metric for each endpoint (/auth, /user ...) differentiate them by label - can easily count `requests_total` across all endpoints (application)
 - can have multiple labels
 - metric name is just another label
 - `__name__` - internal labels enclosed by `__`
