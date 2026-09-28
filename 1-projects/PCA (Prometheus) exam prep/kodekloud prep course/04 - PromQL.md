@@ -303,3 +303,8 @@ https://prometheus.io/docs/practices/rules/
 
 
 https://prometheus.io/docs/prometheus/latest/querying/api/
+
+
+# PromQL Cheat Sheet
+
+https://promlabs.com/promql-cheat-sheet/
