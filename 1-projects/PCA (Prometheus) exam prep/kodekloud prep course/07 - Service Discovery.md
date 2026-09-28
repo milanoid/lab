@@ -168,6 +168,13 @@ scrape_configs:
 - `metric_relabel_configs` → runs after scrape, controls which series/labels get ingested
 
 
+
+### Relabel visualizer
+
+
+https://relabeler.promlabs.com/
+
+
 # Lab
 
 - For the `demo` job, configure `re-label` configs to scrape only `targets` with `env="prod"` label and `drop` all other targets.
