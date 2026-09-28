@@ -533,6 +533,7 @@ _Histogram_
 - e.g. response time
 - groups observation into buckets (cumulative)
 - e.g. response time < 1s, response time < 0.5s
+- calculated server side
 
 https://prometheus.io/docs/practices/histograms/
 
@@ -544,6 +545,7 @@ _Summary_
   - 20 % = 0.3s
   - 50 % = 0.8s
   - 80 % = 1.0s
+- calculated client side
 
 
 
