@@ -533,6 +533,8 @@ _Histogram_
 - groups observation into buckets (cumulative)
 - e.g. response time < 1s, response time < 0.5s
 
+https://prometheus.io/docs/practices/histograms/
+
 _Summary_
 
 - similar to histogram
