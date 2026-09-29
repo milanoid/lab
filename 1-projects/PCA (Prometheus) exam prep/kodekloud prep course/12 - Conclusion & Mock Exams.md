@@ -417,3 +417,174 @@ Vocabulary
 
 
 
+Q: What are the two attributes that metrics can have?
+A: TYPE, HELP
+
+
+```text
+# HELP promhttp_metric_handler_requests_total Total number of scrapes by HTTP status code. 
+# TYPE promhttp_metric_handler_requests_total counter promhttp_metric_handler_requests_total{code="200"} 854 
+promhttp_metric_handler_requests_total{code="500"} 0 promhttp_metric_handler_requests_total{code="503"} 0
+```
+
+---
+
+Q: Which query below will give the 95% quantile of the metric http_file_upload_bytes?
+A: `histogram_quantile(0.95, http_file_upload_bytes_bucket)`
+
+
+---
+
+Q: With the following alertmanager configs, after a notification has been sent out for the group severity: critical, an new alert for that group comes in. How long will alertmanager wait before firing a new notification?
+
+
+```yaml
+route:
+  receiver: staff
+  group_by: ['severity']
+  group_wait: 60s
+  group_interval: 15m
+  repeat_interval: 12h
+  routes:
+    - matches:
+job: kubernetes
+      receiver: infra
+      group_by: ['severity']
+```
+A: 15m
+
+
+---
+
+Q: An application is advertising metrics at the path /monitoring/stats. What property in the scrape configs needs to be modified?
+
+A: `metrics_path: “/monitoring/stats”`
+
+---
+
+
+Q: For a histogram metric, what are the different submetrics?
+A: count, buckets, ... ?
+
+
+---
+
+Q: A database backup service has an slo that states that 97% of all backup jobs will be completed within 60s. A histogram metric is configured to track the backup process time, which of the following bucket configurations is recommended for the desired slo
+
+
+A: 35, 45, 55, 60, 65, 75, 100
+
+Since histogram quantiles are approximations, to find out if a slo has been met, make sure that a bucket is specified at the desired slo value of 60s.
+
+
+---
+
+
+Q: Which statement is true regarding Prometheus rules?
+
+A: Groups are run in parallel and rules within a group are run sequentially
+
+---
+
+Q: Which of the following is Prometheus’ built in dashboarding/visualization feature?
+A: Console Templates
+
+
+---
+
+Q: The metric node_fan_speed_rpm tracks the current fan speeds. The location label specifies where on the server the fan is located. Which query will return the fan speeds for all fans except the rear fan
+
+A: `node_fan_speed_rpm{location!=”rear”}`
+
+
+---
+
+Q: What update needs to occur to add an annotation called description that prints out the message `redis server <insert instance name> is down!`
+
+
+```yaml
+- name: redis-alerts
+    rules:
+      - alert: redis_down
+        expr: up{job="redis"} == 0
+        labels:
+          org: kodekloud
+
+```
+
+A: `description: "redis server {{.Labels.instance}} is down!"`
+
+
+---
+
+
+Q: What data type do Prometheus metric values use?
+A: 64 bit floats
+
+---
+
+Q: The metric health_consumed_calories tracks how many calories a user has eaten and health_burned_calories tracks the number of calories burned while exercising. To calculate net calories for the day subtract health_burned_calories from health_consumed_calories. Based on the time series below, which expression successfully calculates net calories. 
+
+```
+health_consumed_calories{job="health", meal="dinner"} 800 health_burned_calories{job="health", activity="cardio"} 200
+```
+
+A: `health_consumed_calories - ignoring(meal, activity) health_burned_calories`
+
+---
+
+
+Q: What does the following config do?
+
+```yaml
+scrape_configs:
+  - job_name: "demo"
+    metric_relabel_configs:
+      - regex: fstype
+        action: labeldrop
+```
+
+A: The label `fstype` will be dropped **for all metrics**
+
+
+---
+
+Q: Analayze alertmanager configs below. Based off the following alert which receiver will receive the notification 
+
+- alertname: node_filesystem_full 
+- labels: 
+	  team: frontend 
+	  notification: pager
+
+
+```yaml
+route:
+  receiver: general-email
+  group_by: [alertname]
+  routes:
+    - receiver: frontend-email
+      matchers:
+        - team: frontend
+      routes:
+        - matchers:
+            notification: pager
+          receiver: frontend-pager
+    - receiver: backend-email
+      matchers:
+        - team: backend
+    - receiver: auth-email
+      matchers:
+        - team: auth
+```
+
+A: frontend-pager
+
+---
+
+Q: Which configuration in alertmanager will wait 2 minutes before firing off an alert to prevent unnecessary notifications getting sent?
+
+A: group_wait: 2m
+
+
+---
+
