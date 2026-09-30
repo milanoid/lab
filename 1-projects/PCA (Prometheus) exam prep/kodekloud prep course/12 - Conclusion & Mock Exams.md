@@ -464,7 +464,7 @@ A: `metrics_path: “/monitoring/stats”`
 
 
 Q: For a histogram metric, what are the different submetrics?
-A: count, buckets, ... ?
+A: `_count`, `_bucket`, `_sum`
 
 
 ---
