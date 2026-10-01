@@ -523,7 +523,7 @@ Doesn't make sense to track it as is - but rather use `rate`, `irate`, `increase
 
 _Gauge_
 - what is the current value of X? 
-- e.g. current CPU utilization, queue length, temperature
+- e.g. current CPU utilization, queue length, temperature, heart-rate
 - can go up or down
 
 

@@ -72,11 +72,11 @@ A: `4h`
 
 
 ---
-Q: What is the purpose of Prometheus scrape_interval?
+Q: What is the purpose of Prometheus `scrape_interval`?
 A: Defines how frequently to scrape a target
 
 ---
-Q: What is the purpose of the for attribute in a Prometheus alert rule?
+Q: What is the purpose of the `for` attribute in a Prometheus alert rule?
 A: Determines how long a rule must be true before firing an alert
 
 ---
@@ -120,25 +120,25 @@ A: general-email
 ---
 
 Q: What are the 3 components of the prometheus server?
-A: retrieval node, tsdb, http server
+A: `retrieval node`, `tsdb`, `http server`
 
 
 ---
 
 Q: Which of the following is not something that is tracked in a span within a trace?
-A: complexity
+A: `complexity`
 
 
 For PCA context: this ties into the "three pillars of observability" (metrics, logs, traces) that Prometheus courses often cover — traces (spans) capture _causality and timing_ across a request's path through distributed services, which is a different concern from Prometheus's own metrics scraping, but PCA exams sometimes touch on the broader observability landscape.
 
 ---
-Q: The metric http_errors_total{code=”404”} tracks the number of 404 errors a web server has seen. Which query returns what is the average rate of 404s a server has seen for the past 2 hours? Use a 2m sample range and a query interval of 1m
+Q: The metric `http_errors_total{code=”404”}` tracks the number of 404 errors a web server has seen. Which query returns what is the average rate of 404s a server has seen for the past 2 hours? Use a 2m sample range and a query interval of 1m
 
 A: `avg_over_time(rate(http_errors_total{code=”404”}[2m]) [2h:1m])`
 
 
 ---
-Q: Which query below will give the 99% quantile of the metric http_requests_total?
+Q: Which query below will give the 99% quantile of the metric `http_requests_total`?
 
 A: `histogram_quantile(0.99, http_requests_total_bucket)`
 
@@ -193,7 +193,7 @@ A: `promtool config reload`
 ---
 
 Q: What are the different states a Prometheus alert can be in?
-A: inactive, pending, firing
+A: `inactive`, `pending`, `firing`
 
 ---
 
@@ -249,7 +249,7 @@ A: `sum(node_filesystem_size_bytes{instance="192.168.1.168:9100"})`
 
 Q: What two labels are assigned to every metric by default?
 
-A: instance, job
+A: `instance`, `job`
 
 ---
 
@@ -264,7 +264,7 @@ A: Configuring a Silence
 ---
 
 
-Q: The metric node_cpu_temp_celcius reports the current temperature of a nodes CPU in celsius. What query will return the average temperature across all CPUs on a per node basis? The query should return 
+Q: The metric `node_cpu_temp_celcius` reports the current temperature of a nodes CPU in celsius. What query will return the average temperature across all CPUs on a per node basis? The query should return 
 
 {instance="node1"} 23.5 //average temp across all CPUs on node1 
 {instance="node2"} 33.5 //average temp across all CPUs on node2
