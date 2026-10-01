@@ -583,7 +583,7 @@ A: frontend-pager
 
 Q: Which configuration in alertmanager will wait 2 minutes before firing off an alert to prevent unnecessary notifications getting sent?
 
-A: group_wait: 2m
+A: `group_wait: 2m`
 
 
 ---
