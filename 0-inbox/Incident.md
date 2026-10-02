@@ -159,3 +159,19 @@ _exceeded maximum retries_ means Flux used up its retry budget (the default is v
 
 
 
+How to fix it
+
+1. Get it running again now: make Flux retry the upgrade, for example:
+`flux reconcile helmrelease homelab-runners -n arc-runners --force`
+   Helm will recreate the missing AutoscalingRunnerSet. This time the controller is already 0.15.0, so the versions match and a listener pod should appear in arc-systems.
+   
+2. Stop it happening again: in the runners HelmRelease, add
+
+spec:
+  dependsOn:
+    - name: arc-controller
+      namespace: arc-systems
+
+   Flux will then wait until the controller release is Ready before upgrading the runners.
+
+3. Optional: set `upgrade.remediation.retries: 3`. A second attempt would have fixed this on its own, because by then the controller would already have been on `0.15.0`.
