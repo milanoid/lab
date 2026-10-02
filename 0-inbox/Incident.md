@@ -175,3 +175,28 @@ spec:
    Flux will then wait until the controller release is Ready before upgrading the runners.
 
 3. Optional: set `upgrade.remediation.retries: 3`. A second attempt would have fixed this on its own, because by then the controller would already have been on `0.15.0`.
+
+
+https://github.com/milanoid-labs/homelab-cluster/pull/590
+
+
+
+
+Lessons learnt
+
+1. The controller and the scale set must be on the same version
+
+The two charts that must match are `gha-runner-scale-set-controller` and `gha-runner-scale-set`. The controller checks the `app.kubernetes.io/version` label on each `AutoscalingRunnerSet` against its own version.
+
+- Correction: the listener isn't something you version. The controller creates the listener itself, so the listener always matches the controller automatically.
+
+2. On a mismatch, the controller deletes the `AutoscalingRunnerSet`
+
+- Correction: it doesn't "kill" a pod. It deletes the whole `AutoscalingRunnerSet`, and that deletion cascades: the listener, the ephemeral runner set and runner pods are removed, and the scale set is deregistered from GitHub.
+- Nothing recreates it automatically. Helm owns that object and only creates it during an install or upgrade. Until one succeeds, you have no runners.
+
+3. The cause was a race condition: a missing dependsOn
+
+- Correction: the Flux field is dependsOn (camelCase), set in spec of the HelmRelease, not depends_on.
+- Both HelmReleases were reconciled in parallel. The runners chart upgraded 8 seconds before the controller, and the old controller deleted the newly labelled runner set during that window.
+- The failure then stuck. Helm timed out after 5 minutes waiting for the deleted object, retries was at the default of 0, and Flux marked the release Stalled and stopped trying. dependsOn prevents the race, and remediation.retries lets Flux recover on its own if something similar happens again.
