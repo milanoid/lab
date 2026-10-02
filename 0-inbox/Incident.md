@@ -200,3 +200,12 @@ The two charts that must match are `gha-runner-scale-set-controller` and `gha-ru
 - Correction: the Flux field is dependsOn (camelCase), set in spec of the HelmRelease, not depends_on.
 - Both HelmReleases were reconciled in parallel. The runners chart upgraded 8 seconds before the controller, and the old controller deleted the newly labelled runner set during that window.
 - The failure then stuck. Helm timed out after 5 minutes waiting for the deleted object, retries was at the default of 0, and Flux marked the release Stalled and stopped trying. dependsOn prevents the race, and remediation.retries lets Flux recover on its own if something similar happens again.
+
+
+
+
+
+
+---
+
+▎ Renovate bumped both ARC charts (controller and runner scale set) from 0.14 to 0.15 in a single PR. Flux upgraded the two HelmReleases in parallel, and the runner scale set happened to finish first. The old 0.14 controller, which was still running, saw an AutoscalingRunnerSet labelled 0.15. ARC deletes any scale set whose major.minor version differs from the controller's, so it deleted it, and the listener and runners went with it. The Helm upgrade timed out waiting for the deleted resources, and with the default retries: 0 Flux stalled instead of trying again. The Kustomization still showed Ready because it only reports that the HelmRelease object was applied, not that the Helm upgrade succeeded. I fixed it with a forced reconcile and prevented it from happening again with dependsOn (controller first) and upgrade retries.
