@@ -8,17 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "300166014a8ee67c",
+            "id": "933ab939287e3167",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/09 - Alerting.md",
+                "file": "0-inbox/Incident.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "09 - Alerting"
+              "title": "Incident"
             }
           }
         ]
@@ -41,7 +41,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "aws ssm",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -180,24 +180,25 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9f5491a4de1aa2c3",
+  "active": "933ab939287e3167",
   "lastOpenFiles": [
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/12 - Conclusion & Mock Exams.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/08 - Push Gateway.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/06 - Application Instrumentation.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/05 - Dashboarding & Visualization.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/04 - PromQL.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/02 - Observability Fundamentals.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/03 - Prometheus Fundamentals.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/09 - Alerting.md",
+    "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/09 - Alerting.md",
+    "0-inbox/Incident.md",
+    "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/12 - Conclusion & Mock Exams.md",
+    "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/08 - Push Gateway.md",
+    "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/06 - Application Instrumentation.md",
+    "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/05 - Dashboarding & Visualization.md",
+    "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/04 - PromQL.md",
+    "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/02 - Observability Fundamentals.md",
+    "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/03 - Prometheus Fundamentals.md",
     "4-archives/ArgoCD (CAPA)/00 - 0 README.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/07 - Service Discovery.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/01 - Intro.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/11 - Scaling & Long Term Storage.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/10 - Monitoring Kubernetes.md",
-    "1-projects/PCA (Prometheus) exam prep/00 - learning sources.md",
-    "1-projects/PCA (Prometheus) exam prep/PromLabs/01 - Introduction to Prometheus.md",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/Prometheus_Certified_Associate-1.pdf",
+    "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/07 - Service Discovery.md",
+    "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/01 - Intro.md",
+    "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/11 - Scaling & Long Term Storage.md",
+    "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/10 - Monitoring Kubernetes.md",
+    "4-archives/PCA (Prometheus) exam prep/00 - learning sources.md",
+    "4-archives/PCA (Prometheus) exam prep/PromLabs/01 - Introduction to Prometheus.md",
+    "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/Prometheus_Certified_Associate-1.pdf",
     "1-projects/Devsy.md",
     "4-archives/VPN server with dynamic IP.md",
     "Pasted image 20260921124949.png",
@@ -206,14 +207,13 @@
     "1-projects/Kubecraft - DevOps OS - Part2/DevOps Masterclass/Module 5 - CICD with GitHub Actions/notes.md",
     "4-archives/Terraform Associate 004/Udemy Course/99 - Setup GitHub Terraform automation.md",
     "Pasted image 20260913153641.png",
-    "1-projects/PCA (Prometheus) exam prep/kodekloud prep course",
+    "4-archives/PCA (Prometheus) exam prep/kodekloud prep course",
     "1-projects/Martin Papez 1st call.md",
-    "1-projects/PCA (Prometheus) exam prep/PromLabs",
+    "4-archives/PCA (Prometheus) exam prep/PromLabs",
     "4-archives/Terraform Associate 004/Udemy Course/100 - Mock Exams.md",
-    "1-projects/PCA (Prometheus) exam prep",
+    "4-archives/PCA (Prometheus) exam prep",
     "4-archives/Terraform Associate 004/Udemy Course/17 - Exam prep essentials.md",
     "4-archives/Terraform Associate 004/HashiCorp Prep/04 - Read and write configuration.md",
-    "4-archives/Terraform Associate 004/HashiCorp Prep/03 - Use the core Terraform workflow.md",
     "Pasted image 20260815205518.png",
     "Pasted image 20260815162004.png",
     "Pasted image 20260807153404.png",
