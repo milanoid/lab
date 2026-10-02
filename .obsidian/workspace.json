@@ -33,7 +33,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 26.36248415716096,
+        "dimension": 54.850746268656714,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -41,7 +41,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "path:\"1-projects/PCA (Prometheus) exam prep/\"  annotat",
+                "query": "aws ssm",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -57,7 +57,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 73.63751584283904,
+        "dimension": 45.149253731343286,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -180,7 +180,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "300166014a8ee67c",
+  "active": "9f5491a4de1aa2c3",
   "lastOpenFiles": [
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/12 - Conclusion & Mock Exams.md",
     "1-projects/PCA (Prometheus) exam prep/kodekloud prep course/08 - Push Gateway.md",
