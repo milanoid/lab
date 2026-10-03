@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/Incident.md",
+                "file": "4-archives/ARC Incident, no runners after upgrade.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Incident"
+              "title": "ARC Incident, no runners after upgrade"
+            }
+          },
+          {
+            "id": "dd4e9410c7c1ea01",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "0-inbox/Linux Days 2026.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Linux Days 2026"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -180,10 +195,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "933ab939287e3167",
+  "active": "dd4e9410c7c1ea01",
   "lastOpenFiles": [
+    "4-archives/ARC Incident, no runners after upgrade.md",
+    "0-inbox/Linux Days 2026.md",
     "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/09 - Alerting.md",
-    "0-inbox/Incident.md",
     "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/12 - Conclusion & Mock Exams.md",
     "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/08 - Push Gateway.md",
     "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/06 - Application Instrumentation.md",
@@ -213,7 +229,6 @@
     "4-archives/Terraform Associate 004/Udemy Course/100 - Mock Exams.md",
     "4-archives/PCA (Prometheus) exam prep",
     "4-archives/Terraform Associate 004/Udemy Course/17 - Exam prep essentials.md",
-    "4-archives/Terraform Associate 004/HashiCorp Prep/04 - Read and write configuration.md",
     "Pasted image 20260815205518.png",
     "Pasted image 20260815162004.png",
     "Pasted image 20260807153404.png",
