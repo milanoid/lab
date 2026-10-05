@@ -4,6 +4,7 @@
 
 - better `cd`
 - self-learn the most used paths
+- https://github.com/ajeetdsouza/zoxide
 
 ```bash
 milan@SPM-LN4K9M0GG7 ~
@@ -14,7 +15,11 @@ milan@SPM-LN4K9M0GG7 ~/repos/devops-terraform (PEP-2852-qa-jdk21-task-definition
 
 ## fzf
 
+- https://github.com/junegunn/fzf
+
 ## direnv
+
+- https://direnv.net/
 
 - [ ] setup milanoid repo, populate with env
 - [ ] setup SP repo - use `secureden-cli` to retrieve secrets
