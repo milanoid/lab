@@ -22,6 +22,19 @@ milan@SPM-LN4K9M0GG7 ~/repos/homelab-cluster (main)
 
 - https://github.com/junegunn/fzf
 
+```bash
+# lists every file under the current directory, recursively, type to search, hit enter to open in 'nvim'
+nvim $(fzf)
+
+cat "$(fzf)"
+less "$(fzf)"
+```
+
+```bash
+# list branches, let user pick one and switch to it
+git switch $(git branch | fzf)
+```
+
 ## direnv
 
 - https://direnv.net/
