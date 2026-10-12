@@ -35,6 +35,15 @@ less "$(fzf)"
 git switch $(git branch | fzf)
 ```
 
+
+```bash
+# Shell keybindings
+echo 'eval "$(fzf --bash)"' >> ~/.bashrc && source ~/.bashrc
+
+CTRL+R Fuzzy-search your command history
+CTRL+T Insert a file path at the cursor, e.g. type cp  then press Ctrl-T
+Alt+C cd into a subdirectory you pick
+```
 ## direnv
 
 - https://direnv.net/
@@ -46,6 +55,11 @@ git switch $(git branch | fzf)
 - not only for configuring env vars, but can also run a custom script (e.g. uv install)
 
 
+```bash
+> z '/Users/milan/repos/milanoid-labs-terraform'
+direnv: loading ~/repos/milanoid-labs-terraform/.envrc
+direnv: export +GITHUB_TOKEN +USERNAME ~AWS_PROFILE
+```
 ### securden-cli
 
 ```bash
