@@ -10,7 +10,12 @@
 milan@SPM-LN4K9M0GG7 ~
 > z devops
 milan@SPM-LN4K9M0GG7 ~/repos/devops-terraform (PEP-2852-qa-jdk21-task-definition-prod)
->
+
+> z terraform
+milan@SPM-LN4K9M0GG7 ~/repos/pe-github-terraform (main)
+
+> z homelab
+milan@SPM-LN4K9M0GG7 ~/repos/homelab-cluster (main)
 ```
 
 ## fzf
