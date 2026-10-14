@@ -24,6 +24,8 @@ In the Proxmox UI:
 
 > Originally provisioned at 2048MB RAM / 512MB swap, but the Jenkins JVM (default heap sizing) used ~96% of that and pushed the full swap into use, causing the UI to lag. Bumped to 3072MB / 1024MB via `pct set 204 --memory 3072 --swap 1024` (applies live, no restart). Proxmox host has plenty of headroom for this (6.5Gi available at time of writing).
 
+Memory bumped to 6G
+
 Or via CLI on the Proxmox host:
 
 ```bash
@@ -202,6 +204,7 @@ Static IP: `192.168.1.205`. Internal DNS (LAN-only, no public tunnel needed for 
 
 ## Debugging: webhook rejections aren't logged by default
 
+- webhook setup via GitHub App (not a plain webhook)
 
 ```bash
 # test curl
