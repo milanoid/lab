@@ -230,6 +230,8 @@ spec:
 kubectl apply -f smoke-cirros.yaml
 ```
 
+- starts a VM in VM :)
+- managed by K3s Kubevirt Operator
 
 #### virtctl
 
@@ -246,5 +248,15 @@ kubectl krew install virt
 to see console logs of the throwaway vm:
 
 ```bash
+# didn't work
 virtctl console smoke-cirros
 ```
+
+
+---
+
+
+
+## Step 3: Nexus (ghcr as fallback)
+
+- [ ] nexus-config-terraform repo https://github.com/milanoid-labs/milanoid-labs-terraform/pull/47
