@@ -88,5 +88,8 @@ cloud-init
 sudo cat /var/lib/cloud/instance/user-data.txt
 
 # logs
+sudo cat /var/log/cloud-init*.log
 
+# cloud-init managed via systemd serviec
+sudo systemctl status cloud-init.service
 ```
