@@ -93,3 +93,31 @@ sudo cat /var/log/cloud-init*.log
 # cloud-init managed via systemd serviec
 sudo systemctl status cloud-init.service
 ```
+
+
+
+## Step 1b: Prepare the OS (before it joins k3s)
+
+```bash
+# Fix 1: qemu-guest-agent
+sudo apt-get update && sudo apt-get install -y qemu-guest-agent
+sudo systemctl start qemu-guest-agent
+
+# Fix 2: a unique iSCSI initiator name
+sudo systemctl start iscsid
+sudo grep -v '^#' /etc/iscsi/initiatorname.iscsi   # should now show InitiatorName=iqn.2004-10.com.ubuntu:01:<random>
+
+# InitiatorName=iqn.2004-10.com.ubuntu:01:5bec92359e9a
+
+# Why: CLAUDE.md requires every node to have a unique /etc/iscsi/initiatorname.iscsi. The synology-csi node plugin (a DaemonSet) will start on this node, and if two nodes shared an IQN, the NAS would treat them as one initiator. The cloud image ships the placeholder GenerateName=yes, and the first iscsid start replaces it with a random IQN. Runner VMs don't use iSCSI, but this keeps the node consistent with the rest of the cluster.
+
+# Fix 3: static /etc/resolv.conf (the pi-hole trap)
+sudo rm /etc/resolv.conf
+printf '# Static on purpose: bypasses the systemd-resolved stub (127.0.0.53), which\n# pi-hole klipper-lb iptables rules hijack; see homelab-cluster memory/pihole trap.\nnameserver 1.1.1.1\nnameserver 1.0.0.1\nsearch milanoid.net\n' | sudo tee /etc/resolv.conf
+
+getent hosts github.com
+
+
+# reboot
+ls /var/run/reboot-required && sudo reboot
+```
