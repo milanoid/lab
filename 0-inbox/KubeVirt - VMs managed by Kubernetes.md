@@ -169,5 +169,6 @@ fix for system-upgrade-controller - so the new node gets updated
 
 vendored CRD: copy the code from upstream to my repo
 
-- [ ] https://github.com/milanoid-labs/homelab-cluster/pull/689
+- [x] https://github.com/milanoid-labs/homelab-cluster/pull/689
+- [ ] 
 
