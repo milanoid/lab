@@ -167,3 +167,7 @@ fix for system-upgrade-controller - so the new node gets updated
 
 ## Step 2: install kubevirt operator
 
+vendored CRD: copy the code from upstream to my repo
+
+- [ ] https://github.com/milanoid-labs/homelab-cluster/pull/689
+
