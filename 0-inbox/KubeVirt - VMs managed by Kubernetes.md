@@ -22,3 +22,52 @@ The runner VM image to be built and stored in Nexus registry (if not possible fa
 ## Step 1a: Create the VM on Proxmox
 
 
+**What**: one Ubuntu 24.04 VM that will become a k3s worker. KubeVirt will later start the runner VMs inside it.
+
+**Why** a VM inside Proxmox: KubeVirt runs VMs as pods on a Kubernetes node, and that node needs /dev/kvm. Proxmox has nested virtualisation turned on (I checked: kvm_intel nested=Y). If we pass the CPU's virtualisation feature through to this VM, it can run its own VMs. The Proxmox host itself stays a plain hypervisor.
+
+
+```bash
+# ssh proxmox
+# 1. Download the Ubuntu cloud image. It is already in qcow2 format; naming it .qcow2 makes that explicit.
+wget -O /var/lib/vz/import/noble-server-cloudimg-amd64.qcow2 \
+  https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img
+  
+  
+# 2. Create the empty VM shell
+qm create 300 --name kubevirt01 --ostype l26 --machine q35 \
+  --cpu host --cores 4 --memory 12288 --balloon 0 \
+  --net0 virtio,bridge=vmbr0 --scsihw virtio-scsi-single \
+  --agent enabled=1 --onboot 1 --serial0 socket --vga serial0
+
+# - --cpu host is the key flag. It passes Intel VT-x (vmx) through so the guest gets /dev/kvm. The default x86-64-v2-AES CPU type hides it.
+
+# - --balloon 0 gives the VM a fixed 12 GB. If Proxmox reclaimed memory from it, the nested runner VMs would be the ones to suffer, and badly.
+
+# - --serial0 socket --vga serial0 lets qm terminal 300 work if networking breaks.
+
+
+# 3. Attach the disk (imported from the cloud image) and grow it to 100 GB
+qm set 300 --scsi0 local-lvm:0,import-from=/var/lib/vz/import/noble-server-cloudimg-amd64.qcow2,discard=on,ssd=1,iothread=1
+# scsi0: successfully created disk 'local-lvm:vm-300-disk-0,discard=on,iothread=1,size=3584M,ssd=1'
+
+qm resize 300 scsi0 100G
+
+# Size of logical volume pve/vm-300-disk-0 changed from 3.50 GiB (896 extents) to 100.00 GiB (25600 extents). Logical volume pve/vm-300-disk-0 successfully resized.
+
+qm set 300 --boot order=scsi0
+
+# update VM 300: -boot order=scsi0
+
+
+# 4. Cloud-init: user, SSH key, static IP
+
+# copy my Mac's pub key to proxmox first
+scp ~/.ssh/id_rsa.pub root@192.168.1.200:/root/kubevirt01.pub
+
+qm set 300 --ide2 local-lvm:cloudinit
+qm set 300 --ciuser milan --sshkeys /root/kubevirt01.pub \
+  --ipconfig0 ip=192.168.1.234/24,gw=192.168.1.1 \
+  --nameserver "192.168.1.232 8.8.4.4"
+qm start 300
+```
