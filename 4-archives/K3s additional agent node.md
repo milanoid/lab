@@ -121,3 +121,9 @@ Manually set DNS servers helped:
 nameserver 192.168.1.232
 nameserver 8.8.4.4
 ```
+
+
+
+# kubevirt01
+
+see [[KubeVirt - VMs managed by Kubernetes]]

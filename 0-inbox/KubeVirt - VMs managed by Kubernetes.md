@@ -128,12 +128,35 @@ ls /var/run/reboot-required && sudo reboot
 
 
 ```bash
-# 1. Get a join token (on hpmini01)
-ssh -t hpmini01 'sudo cat /var/lib/rancher/k3s/server/agent-token'
-
+# 1. On hpmini01:
+ssh -t hpmini01 'sudo k3s token create --ttl 1h --description kubevirt01-join'
 
 # 2. Write the k3s config (on kubevirt01)
 sudo mkdir -p /etc/rancher/k3s
-sudo vim /etc/rancher/k3s/config.yaml     # paste the content below, insert the token
+sudo nano /etc/rancher/k3s/config.yaml     # paste the content below, insert the token
 
+---
+server: https://192.168.1.231:6443
+token: <agent-token>
+node-label:
+  - homelab.milanoid.net/kubevirt-runners=true
+node-taint:
+  - homelab.milanoid.net/kubevirt-runners=true:NoSchedule
+---
+
+sudo chmod 600 /etc/rancher/k3s/config.yaml
+
+
+
+# 3. Install the agent, same version as the cluster
+curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.37.1+k3s1 INSTALL_K3S_EXEC=agent sh -
+systemctl status k3s-agent --no-pager | head -5
+
+
+# 4. Add the worker role label (from your Mac, admin context)
+kubectl label node kubevirt01 node-role.kubernetes.io/worker=worker
 ```
+
+
+fix for system-upgrade-controller - so the new node gets updated
+
