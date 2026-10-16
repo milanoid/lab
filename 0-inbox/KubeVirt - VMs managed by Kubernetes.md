@@ -71,3 +71,22 @@ qm set 300 --ciuser milan --sshkeys /root/kubevirt01.pub \
   --nameserver "192.168.1.232 8.8.4.4"
 qm start 300
 ```
+
+
+Access the VM `kubevirt01` 
+
+```bash
+# IP: 192.168.234, assigned via mac address in router
+ssh kubevirt01
+```
+
+
+cloud-init
+
+```bash
+# cloud-config
+sudo cat /var/lib/cloud/instance/user-data.txt
+
+# logs
+
+```
