@@ -229,3 +229,22 @@ spec:
 ```bash
 kubectl apply -f smoke-cirros.yaml
 ```
+
+
+#### virtctl
+
+https://kubevirt.io/user-guide/user_workloads/virtctl_client_tool/
+
+```bash
+brew install virtctl
+
+# or
+kubectl krew install virt
+```
+
+
+to see console logs of the throwaway vm:
+
+```bash
+virtctl console smoke-cirros
+```
