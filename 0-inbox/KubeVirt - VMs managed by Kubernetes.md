@@ -160,3 +160,10 @@ kubectl label node kubevirt01 node-role.kubernetes.io/worker=worker
 
 fix for system-upgrade-controller - so the new node gets updated
 
+
+
+---
+
+
+## Step 2: install kubevirt operator
+
