@@ -172,3 +172,60 @@ vendored CRD: copy the code from upstream to my repo
 - [x] https://github.com/milanoid-labs/homelab-cluster/pull/689
 - [x] https://github.com/milanoid-labs/homelab-cluster/pull/690
 
+
+smoke test: `smoke-cirros.yaml`
+```yaml
+# Throwaway KubeVirt smoke test. Not for git.
+#   kubectl apply -f smoke-cirros.yaml   ...   kubectl delete -f smoke-cirros.yaml
+apiVersion: kubevirt.io/v1
+# VirtualMachineInstance = one running VM, like a bare Pod: gone when it stops.
+# (A VirtualMachine is the Deployment-like wrapper that restarts it; runners won't need that.)
+kind: VirtualMachineInstance
+metadata:
+  name: smoke-cirros
+  namespace: default
+spec:
+  # The CR's workloads.nodePlacement only placed virt-handler. Each VMI needs its own
+  # selector + toleration to reach the tainted node. The scaler will set these too.
+  nodeSelector:
+    homelab.milanoid.net/kubevirt-runners: "true"
+  tolerations:
+    - key: homelab.milanoid.net/kubevirt-runners
+      operator: Exists
+      effect: NoSchedule
+  terminationGracePeriodSeconds: 0
+  domain:                       # "domain" = libvirt's word for the virtual machine's hardware
+    cpu:
+      cores: 1
+    memory:
+      guest: 128Mi              # RAM the guest sees; the pod requests a bit more for QEMU itself
+    devices:
+      disks:
+        - name: rootdisk
+          disk:
+            bus: virtio         # paravirtual disk: fast, guest knows it's virtual
+        - name: cloudinit
+          disk:
+            bus: virtio
+      interfaces:
+        - name: default
+          masquerade: {}        # VM gets NAT'd behind the pod IP (simplest, works with flannel)
+  networks:
+    - name: default
+      pod: {}
+  volumes:
+    - name: rootdisk
+      containerDisk:            # the disk image shipped inside a container image
+        image: quay.io/kubevirt/cirros-container-disk-demo:v1.9.1@sha256:ebdb8d8b9b480f6ee7664ed3fdde8428767664f507d98f94090edeff04d7ebf2
+    - name: cloudinit
+      cloudInitNoCloud:         # same NoCloud mechanism Proxmox used for kubevirt01 in step 1a
+        # Inline only because it's harmless. Runner VMs will use secretRef (JIT token).
+        userData: |
+          #!/bin/sh
+          echo "kubevirt smoke test: cloud-init ran" > /dev/console
+```
+
+
+```bash
+kubectl apply -f smoke-cirros.yaml
+```
