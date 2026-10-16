@@ -121,3 +121,19 @@ getent hosts github.com
 # reboot
 ls /var/run/reboot-required && sudo reboot
 ```
+
+
+## Step 1c: install k3s agent v1.37.1+k3s1, join the cluster
+
+
+
+```bash
+# 1. Get a join token (on hpmini01)
+ssh -t hpmini01 'sudo cat /var/lib/rancher/k3s/server/agent-token'
+
+
+# 2. Write the k3s config (on kubevirt01)
+sudo mkdir -p /etc/rancher/k3s
+sudo vim /etc/rancher/k3s/config.yaml     # paste the content below, insert the token
+
+```
