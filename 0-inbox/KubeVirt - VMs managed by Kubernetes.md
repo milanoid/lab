@@ -442,3 +442,8 @@ ssh kubevirt01 'sudo k3s crictl pull 192.168.1.204:8081/docker-hosted/smoke/busy
 ## step 4, the runner VM image
 
 
+Unlike homelab-runner pod image, we need to build a VM image. 
+
+Using [virt-customize](https://libguestfs.org/virt-customize.1.html) we start a helper VM, boot, install extra tools (gh tool ... etc) and save it as VM image with baked in tooling.
+
+
