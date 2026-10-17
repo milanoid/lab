@@ -318,6 +318,8 @@ curl -s -o /dev/null -w '%{http_code}\n' -u "tofu:${TF_VAR_nexus_password}" \
 
 - [ ] PR
 
+nexus provider [datadrivers/nexus](https://registry.terraform.io/providers/datadrivers/nexus/latest/docs)
+
 ```bash
 # create repo secrets
 source ~/.config/nexus-config-terraform.env
