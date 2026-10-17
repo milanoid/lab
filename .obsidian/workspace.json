@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/KubeVirt - VMs managed by Kubernetes.md",
+                "file": "4-archives/Proxmox/Nexus - Proxmox LXC.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "KubeVirt - VMs managed by Kubernetes"
+              "title": "Nexus - Proxmox LXC"
             }
           }
         ]
@@ -33,7 +33,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 23.726114649681527,
+        "dimension": 73.00380228136882,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -41,7 +41,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Nexus",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -57,7 +57,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 76.27388535031847,
+        "dimension": 26.996197718631176,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -182,10 +182,10 @@
   },
   "active": "025843efb9632f13",
   "lastOpenFiles": [
+    "0-inbox/KubeVirt - VMs managed by Kubernetes.md",
     "4-archives/K3s additional agent node.md",
     "4-archives/Kubernetes HomeLab/02 - HomeLab - K3s install.md",
     "4-archives/HomeLab Maintenance.md",
-    "0-inbox/KubeVirt - VMs managed by Kubernetes.md",
     "0-inbox/Linux Days 2026.md",
     "4-archives/Kubecraft - DevOps OS - Part1/Kubernetes Fundamentals/Part 3.2 - Services.md",
     "4-archives/Kubernetes HomeLab/08 - HomeLab - Managing Secrets.md",

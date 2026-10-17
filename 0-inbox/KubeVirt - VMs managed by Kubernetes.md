@@ -330,3 +330,42 @@ gh secret set TF_VAR_NEXUS_PASSWORD -R milanoid-labs/nexus-config-terraform --bo
 gh secret list -R milanoid-labs/nexus-config-terraform
 
 ```
+
+
+
+## 3d: a push/pull test from my Mac
+
+
+The test proves five things: login works through the Bearer/Basic path, ci-push can push, k8s-pull can pull, k8s-pull can't push, and a tag can't be overwritten.
+
+
+- get password from tf state: `tofu output -raw ci_push_password`
+
+```bash
+source ~/.config/nexus-config-terraform.env
+cd ~/repos/nexus-config-terraform && git switch main && git pull
+tofuenv use 1.12.2 && tofu init -input=false >/dev/null
+
+REG=192.168.1.204:8081
+IMG=$REG/docker-hosted/smoke/busybox:test-1
+
+# 1. ci-push: log in and push (password goes straight from state to stdin, never printed)
+tofu output -raw ci_push_password | podman login --tls-verify=false -u ci-push --password-stdin $REG
+podman pull docker.io/library/busybox:1.37.0
+podman tag docker.io/library/busybox:1.37.0 $IMG
+podman push --tls-verify=false $IMG                 # expect: success
+
+# 2. ALLOW_ONCE: pushing the same tag again must be refused
+podman tag docker.io/library/alpine:3.22 $IMG 2>/dev/null || { podman pull docker.io/library/alpine:3.22 && podman tag docker.io/library/alpine:3.22 $IMG; }
+podman push --tls-verify=false $IMG                 # expect: error (repository does not allow updating assets)
+
+# 3. k8s-pull: may pull, must NOT push
+podman logout $REG
+tofu output -raw k8s_pull_password | podman login --tls-verify=false -u k8s-pull --password-stdin $REG
+podman rmi $IMG
+podman pull --tls-verify=false $IMG                 # expect: success (the busybox one)
+podman tag docker.io/library/busybox:1.37.0 $REG/docker-hosted/smoke/busybox:test-2
+podman push --tls-verify=false $REG/docker-hosted/smoke/busybox:test-2   # expect: error (denied/403)
+
+podman logout $REG
+```
