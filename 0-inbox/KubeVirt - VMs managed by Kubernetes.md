@@ -449,4 +449,16 @@ Using [virt-customize](https://libguestfs.org/virt-customize.1.html) we start a 
 
 A new repo [kubevirt-scaleset](https://github.com/milanoid-labs/kubevirt-scaleset) + VM image build.
 
-- [ ] PR https://github.com/milanoid-labs/milanoid-labs-terraform/pull/49
+- [x] PR https://github.com/milanoid-labs/milanoid-labs-terraform/pull/49
+
+
+give the new repo the Nexus push credentials. The workflow logs in as ci-push:
+
+
+```bash
+cd ~/repos/nexus-config-terraform && source ~/.config/nexus-config-terraform.env
+tofu output -raw ci_push_password | gh secret set NEXUS_PUSH_PASSWORD -R milanoid-labs/kubevirt-scaleset
+gh variable set NEXUS_PUSH_USERNAME -R milanoid-labs/kubevirt-scaleset --body ci-push
+gh variable set NEXUS_REGISTRY      -R milanoid-labs/kubevirt-scaleset --body 192.168.1.204:8081
+gh secret list -R milanoid-labs/kubevirt-scaleset   # check it really landed this time
+```
