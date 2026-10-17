@@ -259,4 +259,4 @@ virtctl console smoke-cirros
 
 ## Step 3: Nexus (ghcr as fallback)
 
-- [ ] nexus-config-terraform repo https://github.com/milanoid-labs/milanoid-labs-terraform/pull/47
+- [x] [nexus-config-terraform](https://github.com/milanoid-labs/nexus-config-terraform) repo https://github.com/milanoid-labs/milanoid-labs-terraform/pull/47
