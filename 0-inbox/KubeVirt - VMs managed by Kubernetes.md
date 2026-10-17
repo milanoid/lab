@@ -257,7 +257,47 @@ virtctl console smoke-cirros
 
 
 
-## Step 3: Nexus (ghcr as fallback)
+## Step 3a: nexus-config
+
 
 - [x] [nexus-config-terraform](https://github.com/milanoid-labs/nexus-config-terraform) repo https://github.com/milanoid-labs/milanoid-labs-terraform/pull/47
 - [ ] side quest: make OIDC global for all tf repos: https://github.com/milanoid-labs/milanoid-labs-terraform/pull/48
+- [ ] requires to apply OIDC (global) manually (can't be run in CI)
+
+```bash
+# in milanoid-labs-terraform/bootstrap/aws-oidc
+tofuenv use 1.12.2
+tofu plan
+tofu apply
+```
+
+
+
+## 3b: Bootstrap the Nexus tofu user
+
+setup nexus user `tofu` for the CI
+
+```bash
+read -rs -p "Nexus admin password: " NEXUS_ADMIN_PW; echo
+TOFU_PW=$(openssl rand -base64 32 | tr -d '/+=' | cut -c1-32)
+
+curl -sf -u "admin:${NEXUS_ADMIN_PW}" -X POST \
+  http://192.168.1.204:8081/service/rest/v1/security/users \
+  -H 'Content-Type: application/json' \
+  -d "{\"userId\":\"tofu\",\"firstName\":\"OpenTofu\",\"lastName\":\"nexus-config-terraform\",
+       \"emailAddress\":\"tofu@nexus.local\",\"password\":\"${TOFU_PW}\",
+       \"status\":\"active\",\"roles\":[\"nx-admin\"]}" && echo "created"
+
+# Local credentials file (same convention as ~/.config/milanoid-tailscale-terraform.env)
+( umask 077; cat > ~/.config/nexus-config-terraform.env <<EOF
+export TF_VAR_nexus_username=tofu
+export TF_VAR_nexus_password=${TOFU_PW}
+export AWS_PROFILE=milanoid
+EOF
+)
+unset NEXUS_ADMIN_PW TOFU_PW
+```
+
+- `read -rs` keeps the admin password out of your shell history and off the screen.
+- The tofu password is random and never typed. It exists only in the env file, which umask 077 makes readable by you alone (mode 600).
+- `TF_VAR_*` is the same convention as the tailscale repo. Tofu maps `TF_VAR_nexus_password` to `var.nexus_password` automatically.
