@@ -260,3 +260,4 @@ virtctl console smoke-cirros
 ## Step 3: Nexus (ghcr as fallback)
 
 - [x] [nexus-config-terraform](https://github.com/milanoid-labs/nexus-config-terraform) repo https://github.com/milanoid-labs/milanoid-labs-terraform/pull/47
+- [ ] side quest: make OIDC global for all tf repos: https://github.com/milanoid-labs/milanoid-labs-terraform/pull/48
