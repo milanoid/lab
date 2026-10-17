@@ -289,7 +289,7 @@ curl -sf -u "admin:${NEXUS_ADMIN_PW}" -X POST \
        \"status\":\"active\",\"roles\":[\"nx-admin\"]}" && echo "created"
 
 # Local credentials file (same convention as ~/.config/milanoid-tailscale-terraform.env)
-( umask 077; cat > ~/.config/nexus-config-terraform.env <<EOF
+( chmod 600; cat > ~/.config/nexus-config-terraform.env <<EOF
 export TF_VAR_nexus_username=tofu
 export TF_VAR_nexus_password=${TOFU_PW}
 export AWS_PROFILE=milanoid
@@ -301,3 +301,28 @@ unset NEXUS_ADMIN_PW TOFU_PW
 - `read -rs` keeps the admin password out of your shell history and off the screen.
 - The tofu password is random and never typed. It exists only in the env file, which umask 077 makes readable by you alone (mode 600).
 - `TF_VAR_*` is the same convention as the tailscale repo. Tofu maps `TF_VAR_nexus_password` to `var.nexus_password` automatically.
+
+
+
+```bash
+source ~/.config/nexus-config-terraform.env
+curl -s -o /dev/null -w '%{http_code}\n' -u "tofu:${TF_VAR_nexus_password}" \
+  http://192.168.1.204:8081/service/rest/v1/security/users?userId=tofu    # expect 200
+```
+
+
+
+
+## 3c: nexus-config-terraform scaffolding
+
+
+- [ ] PR
+
+```bash
+# create repo secrets
+source ~/.config/nexus-config-terraform.env
+gh secret set TF_VAR_NEXUS_USERNAME -R milanoid-labs/nexus-config-terraform --body "$TF_VAR_nexus_username"
+gh secret set TF_VAR_NEXUS_PASSWORD -R milanoid-labs/nexus-config-terraform --body "$TF_VAR_nexus_password"
+
+
+```
