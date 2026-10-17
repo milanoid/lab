@@ -326,5 +326,7 @@ source ~/.config/nexus-config-terraform.env
 gh secret set TF_VAR_NEXUS_USERNAME -R milanoid-labs/nexus-config-terraform --body "$TF_VAR_nexus_username"
 gh secret set TF_VAR_NEXUS_PASSWORD -R milanoid-labs/nexus-config-terraform --body "$TF_VAR_nexus_password"
 
+# check
+gh secret list -R milanoid-labs/nexus-config-terraform
 
 ```
