@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4-archives/Proxmox/Nexus - Proxmox LXC.md",
+                "file": "0-inbox/KubeVirt - VMs managed by Kubernetes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Nexus - Proxmox LXC"
+              "title": "KubeVirt - VMs managed by Kubernetes"
             }
           }
         ]
@@ -182,6 +182,7 @@
   },
   "active": "025843efb9632f13",
   "lastOpenFiles": [
+    "4-archives/Proxmox/Nexus - Proxmox LXC.md",
     "0-inbox/KubeVirt - VMs managed by Kubernetes.md",
     "4-archives/K3s additional agent node.md",
     "4-archives/Kubernetes HomeLab/02 - HomeLab - K3s install.md",
@@ -208,7 +209,6 @@
     "4-archives/PCA (Prometheus) exam prep/00 - learning sources.md",
     "4-archives/PCA (Prometheus) exam prep/PromLabs/01 - Introduction to Prometheus.md",
     "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/Prometheus_Certified_Associate-1.pdf",
-    "1-projects/Devsy.md",
     "Pasted image 20260921124949.png",
     "Pasted image 20260913153641.png",
     "4-archives/PCA (Prometheus) exam prep/kodekloud prep course",

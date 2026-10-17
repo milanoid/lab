@@ -369,3 +369,43 @@ podman push --tls-verify=false $REG/docker-hosted/smoke/busybox:test-2   # expec
 
 podman logout $REG
 ```
+
+
+-  issue with podman login - Nexus Realms didn't have active _Docker Bearer Token Realm_
+- [x] fix: https://github.com/milanoid-labs/nexus-config-terraform/pull/3
+
+
+
+## 3e: Let containerd on kubevirt01 pull from Nexus
+
+What: `/etc/rancher/k3s/registries.yaml` on `kubevirt01`. On every start, k3s turns this file into containerd's registry config.
+
+Why it's needed:
+- containerd defaults to HTTPS, and Nexus speaks HTTP. A mirror entry with an http:// endpoint tells it to use plain HTTP for this registry.
+- When the scaler starts a runner VMI, it's containerd that pulls the containerDisk, not podman, not you. It needs the k8s-pull credentials.
+- Only on kubevirt01: runner VMs only run there, so the other nodes don't need the credentials. Least privilege again.
+
+Run from my Mac
+
+```bash
+cd ~/repos/nexus-config-terraform && source ~/.config/nexus-config-terraform.env
+PW=$(tofu output -raw k8s_pull_password)
+
+ssh kubevirt01 'sudo install -m 600 -o root -g root /dev/stdin /etc/rancher/k3s/registries.yaml' <<EOF
+# containerd registry config for kubevirt01 (rendered by k3s at start). Not in git: holds the
+# k8s-pull password (nexus-config-terraform: tofu output -raw k8s_pull_password).
+mirrors:
+  "192.168.1.204:8081":
+    endpoint:
+      - "http://192.168.1.204:8081"
+configs:
+  "192.168.1.204:8081":
+    auth:
+      username: k8s-pull
+      password: "${PW}"
+EOF
+unset PW
+
+ssh kubevirt01 'sudo systemctl restart k3s-agent && sleep 5 && systemctl is-active k3s-agent'
+```
+
