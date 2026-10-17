@@ -316,7 +316,7 @@ curl -s -o /dev/null -w '%{http_code}\n' -u "tofu:${TF_VAR_nexus_password}" \
 ## 3c: nexus-config-terraform scaffolding
 
 
-- [ ] PR
+- [ ] PR https://github.com/milanoid-labs/nexus-config-terraform/pull/1
 
 nexus provider [datadrivers/nexus](https://registry.terraform.io/providers/datadrivers/nexus/latest/docs)
 
