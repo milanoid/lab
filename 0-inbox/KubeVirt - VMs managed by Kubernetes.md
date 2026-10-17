@@ -447,6 +447,6 @@ Unlike homelab-runner pod image, we need to build a VM image.
 Using [virt-customize](https://libguestfs.org/virt-customize.1.html) we start a helper VM, boot, install extra tools (gh tool ... etc) and save it as VM image with baked in tooling.
 
 
-A new repo for kubevirt-scaleset + VM image build.
+A new repo [kubevirt-scaleset](https://github.com/milanoid-labs/kubevirt-scaleset) + VM image build.
 
-- [ ] 
+- [ ] PR https://github.com/milanoid-labs/milanoid-labs-terraform/pull/49
