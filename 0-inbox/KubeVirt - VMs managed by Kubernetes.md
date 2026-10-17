@@ -462,3 +462,10 @@ gh variable set NEXUS_PUSH_USERNAME -R milanoid-labs/kubevirt-scaleset --body ci
 gh variable set NEXUS_REGISTRY      -R milanoid-labs/kubevirt-scaleset --body 192.168.1.204:8081
 gh secret list -R milanoid-labs/kubevirt-scaleset   # check it really landed this time
 ```
+
+
+- [ ] PR with the image build https://github.com/milanoid-labs/kubevirt-scaleset/pull/1
+- using [crane](https://michaelsauter.github.io/crane/index.html)
+
+- 1st build assigned to `hpmini01` - could take 40 - 120 minutes ...
+
