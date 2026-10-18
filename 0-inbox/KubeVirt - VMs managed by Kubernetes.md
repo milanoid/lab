@@ -480,11 +480,36 @@ On push to master - push containerImage to my nexus
 - push docker image w/o docker daemon, to avoid error on push to http only Nexus
 
 
-Pull docker image from my Nexus
+Login/Pull docker image from my Nexus
+
+using direnv's `.envrc` in `~/repos/kubevirt-scaleset`:
+
+- password in Mac keychain
+- also in tf state (must be in `~/.repos/nexus-config-terraform`):
+   `tofu output -raw k8s_pull_password` 
+
+
+```bash
+# .envrc
+
+# Nexus access for local work: pulling and inspecting runner VM images.
+# The password lives in the macOS Keychain (item "nexus-k8s-pull"), never in this file.
+export NEXUS_REGISTRY=192.168.1.204:8081
+export NEXUS_USERNAME=k8s-pull
+
+if NEXUS_PASSWORD=$(security find-generic-password -a k8s-pull -s nexus-k8s-pull -w 2>/dev/null); then
+  export NEXUS_PASSWORD
+else
+  log_error "Keychain item nexus-k8s-pull not found (see the add-generic-password step)"
+fi
+```
 
 ```bash
 # login
+echo "$NEXUS_PASSWORD" | podman login --tls-verify=false -u "$NEXUS_USERNAME" --password-stdin "$NEXUS_REGISTRY"
 
+# pull a test image
+podman pull --tls-verify=false "$NEXUS_REGISTRY/docker-hosted/smoke/busybox:test-1"
 ```
 
 
