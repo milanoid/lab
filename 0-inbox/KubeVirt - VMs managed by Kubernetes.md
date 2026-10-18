@@ -476,4 +476,9 @@ gh secret list -R milanoid-labs/kubevirt-scaleset   # check it really landed thi
 
 On push to master - push containerImage to my nexus
 
-- uses https://github.com/michaelsauter/crane
+- uses https://github.com/google/go-containerregistry
+- push docker image w/o docker daemon, to avoid error on push to http only Nexus
+
+
+
+
