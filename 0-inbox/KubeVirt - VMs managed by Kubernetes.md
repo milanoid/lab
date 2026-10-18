@@ -560,5 +560,14 @@ curl -s -H "Authorization: Bearer $header.$payload.$sig" https://api.github.com/
 
 
 
-## step6: Go Scaler
+## step6: Go Scaler/Listener
+
+
+The listener connects to GH API and listens for requests for a runner. Starts a throwaway VM to run job in it.
+
+In Workflow use: `runs-on: homelab-runners-vm`
+
+
+- [ ] https://github.com/milanoid-labs/kubevirt-scaleset/pull/7
+
 
