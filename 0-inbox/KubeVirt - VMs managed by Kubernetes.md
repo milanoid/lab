@@ -604,6 +604,13 @@ kubectl -n vm-test delete vmi vm-test-1 && kubectl -n vm-test delete secret vm-t
 ```
 
 
+Issues:
+
+1. VM didn't boot - get screenshot `virtctl -n vm-test vnc screenshot vm-test-1 --file=/tmp/vm-test-1.png && open /tmp/vm-test-1.png` - with UEFI it boots 
+2. 
+
+
+
 - using https://github.com/milanoid-labs/kubevirt-scaleset/pull/6 
 - manually invokes the VM runner w/o the Scaler
 - to proof VM can boot and register and accepts jobs
