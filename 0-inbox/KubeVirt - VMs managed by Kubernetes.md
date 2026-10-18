@@ -643,3 +643,38 @@ gh workflow run vm-smoke.yaml -R milanoid-labs/kubevirt-scaleset -f runs-on=home
 - all ok: locally running Scaler registered, accepted a new job and created VM to run the job
 
 
+### Reaper (sekacka)
+
+like a garbage collector - cleanup
+
+#### E2E test of the reaper
+
+```bash
+# Terminal 1 - run scaler
+git pull
+NAMESPACE=vm-test MAX_RUNNERS=1 MIN_RUNNERS=1 RUNNER_IDLE_TIMEOUT=3m LOG_LEVEL=debug \
+VM_IMAGE=192.168.1.204:8081/docker-hosted/homelab-runner-vm:20261018-f827303-9.1@sha256:90dd091e4b2e57aa3f1df3aa1dc88d708cb7bdc887861a9b3d3002e52de641fd \
+GITHUB_APP_CLIENT_ID=5366536 GITHUB_APP_INSTALLATION_ID=172636334 \
+GITHUB_APP_PRIVATE_KEY_FILE=~/.config/kubevirt-scaleset/github-app.pem \
+go run ./cmd/scaler
+
+
+# Terminal 2:
+kubectl -n vm-test get vmi -w
+
+```
+
+- [x] test case A - an idle runner gets removed after ~ 3 minutes
+
+```bash
+{"time":"2026-10-18T15:28:11.973494+02:00","level":"INFO","msg":"starting","version":"dev","url":"https://github.com/milanoid-labs","scaleSet":"homelab-runners-vm","minRunners":1,"maxRunners":1,"namespace":"vm-test","image":"192.168.1.204:8081/docker-hosted/homelab-runner-vm:20261018-f827303-9.1@sha256:90dd091e4b2e57aa3f1df3aa1dc88d708cb7bdc887861a9b3d3002e52de641fd","idleTimeout":180000000000} {"time":"2026-10-18T15:28:13.53789+02:00","level":"INFO","msg":"using existing scale set","id":4,"name":"homelab-runners-vm","runnerGroupID":1} {"time":"2026-10-18T15:28:13.537925+02:00","level":"INFO","msg":"scale set ready","id":4} {"time":"2026-10-18T15:28:14.093645+02:00","level":"INFO","msg":"listening for jobs"} {"time":"2026-10-18T15:28:14.093661+02:00","level":"INFO","msg":"Handling initial session statistics","listener":{"totalAssignedJobs":0}} {"time":"2026-10-18T15:28:14.12405+02:00","level":"INFO","msg":"scaling up","scaler":{"assignedJobs":0,"current":0,"desired":1}} {"time":"2026-10-18T15:28:14.656399+02:00","level":"INFO","msg":"created runner VM","scaler":{"name":"homelab-runners-vm-b7dab6mk"}} {"time":"2026-10-18T15:28:14.656452+02:00","level":"INFO","msg":"Getting next message","listener":{"lastMessageID":0}} {"time":"2026-10-18T15:29:04.980733+02:00","level":"INFO","msg":"Getting next message","listener":{"lastMessageID":0}} {"time":"2026-10-18T15:29:55.161508+02:00","level":"INFO","msg":"Getting next message","listener":{"lastMessageID":0}} {"time":"2026-10-18T15:30:45.376567+02:00","level":"INFO","msg":"Getting next message","listener":{"lastMessageID":0}} {"time":"2026-10-18T15:31:14.662766+02:00","level":"INFO","msg":"deleted runner VM","scaler":{"name":"homelab-runners-vm-b7dab6mk","phase":"Running","reason":"idle"}}
+```
+
+
+- [ ] test case B - a busy runner is kept, and a finished one is deleted
+
+
+```bash
+# queue a job
+gh workflow run vm-smoke.yaml -R milanoid-labs/kubevirt-scaleset -f runs-on=homelab-runners-vm
+```
