@@ -521,3 +521,17 @@ podman pull --tls-verify=false 192.168.1.204:8081/docker-hosted/homelab-runner-v
 ##  step 5, a new GitHub App for the scaler
 
 
+
+What it is and why: the scaler needs to talk to GitHub as your org. It has to:
+- create the scale set homelab-vm;
+- hold the long-poll session that reports queued jobs;
+- create one-time runner registrations (JIT configs);
+- remove runners that never came online.
+
+
+- Name: `milanoid-labs-kubevirt-runners`
+- Homepage URL: https://github.com/milanoid-labs/kubevirt-scaleset
+- Permissions: only one: Organization permissions → Self-hosted runners: Read and write.
+
+https://github.com/organizations/milanoid-labs/settings/apps/milanoid-labs-kubevirt-runners
+
