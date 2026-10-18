@@ -510,6 +510,14 @@ echo "$NEXUS_PASSWORD" | podman login --tls-verify=false -u "$NEXUS_USERNAME" --
 
 # pull a test image
 podman pull --tls-verify=false "$NEXUS_REGISTRY/docker-hosted/smoke/busybox:test-1"
+
+# pull first VM image I built
+podman pull --tls-verify=false 192.168.1.204:8081/docker-hosted/homelab-runner-vm:20261018-312c244-6.1@sha256:1b51dcf00a27b43d2fe6256afead8a1cc3491e20948bb0747d3585142c7165d6
 ```
+
+- [ ] test the VM runner: https://github.com/milanoid-labs/kubevirt-scaleset/pull/6
+
+
+##  step 5, a new GitHub App for the scaler
 
 
