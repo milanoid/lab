@@ -704,6 +704,28 @@ gha_assigned_jobs{name="homelab-runners-vm"} 0 gha_available_jobs{name="homelab-
 ## Step 8 - Dockerfile/CI
 
 
-## Step 7 - Deployment to my homelab
+## Step 9 - Deployment to my homelab
 
 
+
+- [ ] https://github.com/milanoid-labs/homelab-cluster/pull/695
+
+
+secret - GH APP
+
+```bash
+git checkout feat/kubevirt-runners-scaler && git pull
+
+kubectl create secret generic github-app -n kubevirt-runners --dry-run=client -o yaml \
+  --from-literal=github_app_id=5366536 \
+  --from-literal=github_app_installation_id=172636334 \
+  --from-file=github_app_private_key=$HOME/.config/kubevirt-scaleset/github-app.pem \
+  > infrastructure/controllers/staging/kubevirt-runners/github-app-secret.yaml
+
+sops -e -i infrastructure/controllers/staging/kubevirt-runners/github-app-secret.yaml
+grep -c 'ENC\[' infrastructure/controllers/staging/kubevirt-runners/github-app-secret.yaml   # should print 3
+
+git add infrastructure/controllers/staging/kubevirt-runners/github-app-secret.yaml
+git commit -m "feat(kubevirt-runners): GitHub App secret (SOPS)" && git push
+
+```
