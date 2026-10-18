@@ -671,10 +671,13 @@ kubectl -n vm-test get vmi -w
 ```
 
 
-- [ ] test case B - a busy runner is kept, and a finished one is deleted
+- [x] test case B - a busy runner is kept, and a finished one is deleted
 
 
 ```bash
 # queue a job
 gh workflow run vm-smoke.yaml -R milanoid-labs/kubevirt-scaleset -f runs-on=homelab-runners-vm
 ```
+
+
+
