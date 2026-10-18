@@ -480,5 +480,11 @@ On push to master - push containerImage to my nexus
 - push docker image w/o docker daemon, to avoid error on push to http only Nexus
 
 
+Pull docker image from my Nexus
+
+```bash
+# login
+
+```
 
 
