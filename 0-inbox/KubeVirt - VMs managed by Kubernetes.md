@@ -535,3 +535,6 @@ What it is and why: the scaler needs to talk to GitHub as your org. It has to:
 
 https://github.com/organizations/milanoid-labs/settings/apps/milanoid-labs-kubevirt-runners
 
+- GH app private key in `~/.config/kubevirt-scaleset/github-app.pem`
+- Also in LastPassword
+
