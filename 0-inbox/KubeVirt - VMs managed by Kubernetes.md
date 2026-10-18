@@ -610,7 +610,7 @@ kubectl -n vm-test delete vmi vm-test-1 && kubectl -n vm-test delete secret vm-t
 
 VM didn't boot - get screenshot `virtctl -n vm-test vnc screenshot vm-test-1 --file=/tmp/vm-test-1.png && open /tmp/vm-test-1.png` - with UEFI it boots 
 
-- [ ] fix https://github.com/milanoid-labs/kubevirt-scaleset/pull/8
+- [x] fix https://github.com/milanoid-labs/kubevirt-scaleset/pull/8
 
 - using https://github.com/milanoid-labs/kubevirt-scaleset/pull/6 
 - manually invokes the VM runner w/o the Scaler
@@ -620,34 +620,26 @@ VM didn't boot - get screenshot `virtctl -n vm-test vnc screenshot vm-test-1 --f
 
 #### e2e tests
 
-```bash
-# Step 1: a throwaway namespace
-kubectl create namespace vm-test
+the Scaler should pickup the job and start VM for that job
 
-# Step 2: start the scaler locally
-cd ~/repos/kubevirt-scaleset && git checkout feat/scaler-skeleton
+```bash
+# Terminal 1: start the scaler. Run it from the kubevirt-scaleset repo with your admin kubeconfig:
+git checkout feat/scaler-skeleton && git pull
+NAMESPACE=vm-test MAX_RUNNERS=1 LOG_LEVEL=debug \
+VM_IMAGE=192.168.1.204:8081/docker-hosted/homelab-runner-vm:20261018-f827303-9.1@sha256:90dd091e4b2e57aa3f1df3aa1dc88d708cb7bdc887861a9b3d3002e52de641fd \
 GITHUB_APP_CLIENT_ID=5366536 GITHUB_APP_INSTALLATION_ID=172636334 \
-GITHUB_APP_PRIVATE_KEY_FILE=$HOME/.config/kubevirt-scaleset/github-app.pem \
-NAMESPACE=vm-test MAX_RUNNERS=1 \
-VM_IMAGE='192.168.1.204:8081/docker-hosted/homelab-runner-vm:20261018-312c244-6.1@sha256:<digest>' \
+GITHUB_APP_PRIVATE_KEY_FILE=~/.config/kubevirt-scaleset/github-app.pem \
 go run ./cmd/scaler
 
-# Step 3: queue a job (terminal 2)
-gh workflow run vm-smoke.yaml -R milanoid-labs/kubevirt-scaleset -f runs-on=homelab-runners-vm
 
-# Step 4: watch it happen (terminal 2)
+# Terminal 2: watch the VMs.
 kubectl -n vm-test get vmi -w
-#   homelab-runners-vm-xxxxxxxx   Scheduling → Scheduled → Running → … → Succeeded
-kubectl -n vm-test logs -f -l kubevirt.io=virt-launcher -c guest-console-log
-#   the VM's serial console: kernel boot, cloud-init, runner "Listening for Jobs", job, power off
-In terminal 1 the scaler should log scaling up → created runner VM, then job started and job completed
 
 
-# Step 5: clean up
-
-kubectl -n vm-test delete vmi --all      # the Secret goes with it (owner reference)
-kubectl -n vm-test get secret            # should be empty
-# Ctrl-C the scaler → "stopped"; the scale set stays (Offline)
-kubectl delete namespace vm-test
+# Terminal 3: queue a job.
+gh workflow run vm-smoke.yaml -R milanoid-labs/kubevirt-scaleset -f runs-on=homelab-runners-vm
 ```
+
+- all ok: locally running Scaler registered, accepted a new job and created VM to run the job
+
 
