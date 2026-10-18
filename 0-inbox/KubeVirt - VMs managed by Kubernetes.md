@@ -573,11 +573,44 @@ In Workflow use: `runs-on: homelab-runners-vm`
 
 ### Manual test
 
+
+vm can-boot-test
+
+
+```bash
+cd ~/repos/kubevirt-scaleset && git checkout main && git pull
+IMAGE='192.168.1.204:8081/docker-hosted/homelab-runner-vm:20261018-312c244-6.1@sha256:1b51dcf00a27b43d2fe6256afead8a1cc3491e20948bb0747d3585142c7165d6'
+JIT_CONFIG=$(gh api -X POST orgs/milanoid-labs/actions/runners/generate-jitconfig \
+  -f name=vm-test-1 -F runner_group_id=1 -f 'labels[]=homelab-runners-vm-test' -f work_folder=_work \
+  -q .encoded_jit_config)
+  
+kubectl create namespace vm-test
+sed "s|\${JIT_CONFIG}|$JIT_CONFIG|" test/vm/user-data.tmpl |
+  kubectl -n vm-test create secret generic vm-test-1-userdata --from-file=userdata=/dev/stdin
+sed "s|IMAGE|$IMAGE|" test/vm/vmi.yaml | kubectl apply -f -
+unset JIT_CONFIG
+
+kubectl -n vm-test get vmi -w     # wait for Running
+
+# 3. Check that vm-test-1 shows up Idle on the Runners page, then:
+gh workflow run vm-smoke.yaml -R milanoid-labs/kubevirt-scaleset -f runs-on=homelab-runners-vm-test
+# 4. Watch the VMI go to Succeeded once the job is done. Then clean up with
+kubectl -n vm-test delete vmi vm-test-1 && kubectl -n vm-test delete secret vm-test-1-userdata. 
+
+# Keep the namespace for the end-to-end test.
+
+# 5. Then the end-to-end test with the scaler (steps 2–5 of my previous message). Since it's the same namespace, only the scaler command and the -f runs-on=homelab-runners-vm input change.
+
+```
+
+
 - using https://github.com/milanoid-labs/kubevirt-scaleset/pull/6 
 - manually invokes the VM runner w/o the Scaler
 - to proof VM can boot and register and accepts jobs
 
 
+
+e2e tests
 
 ```bash
 # Step 1: a throwaway namespace
