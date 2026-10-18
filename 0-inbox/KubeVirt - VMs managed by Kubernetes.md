@@ -708,7 +708,7 @@ gha_assigned_jobs{name="homelab-runners-vm"} 0 gha_available_jobs{name="homelab-
 
 
 
-- [ ] https://github.com/milanoid-labs/homelab-cluster/pull/695
+- [x] https://github.com/milanoid-labs/homelab-cluster/pull/695
 
 
 secret - GH APP
@@ -723,7 +723,7 @@ kubectl create secret generic github-app -n kubevirt-runners --dry-run=client -o
   > infrastructure/controllers/staging/kubevirt-runners/github-app-secret.yaml
 
 sops -e -i infrastructure/controllers/staging/kubevirt-runners/github-app-secret.yaml
-grep -c 'ENC\[' infrastructure/controllers/staging/kubevirt-runners/github-app-secret.yaml   # should print 3
+grep -c 'ENC\[' infrastructure/controllers/staging/kubevirt-runners/github-app-secret.yaml
 
 git add infrastructure/controllers/staging/kubevirt-runners/github-app-secret.yaml
 git commit -m "feat(kubevirt-runners): GitHub App secret (SOPS)" && git push
