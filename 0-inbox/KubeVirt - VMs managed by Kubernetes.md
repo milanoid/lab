@@ -538,3 +538,27 @@ https://github.com/organizations/milanoid-labs/settings/apps/milanoid-labs-kubev
 - GH app private key in `~/.config/kubevirt-scaleset/github-app.pem`
 - Also in LastPassword
 
+
+optional - check that the key belongs to the app
+```bash
+KEY=$HOME/.config/kubevirt-scaleset/github-app.pem
+b64() { openssl base64 -A | tr '+/' '-_' | tr -d '='; }
+now=$(date +%s)
+header=$(printf '{"alg":"RS256","typ":"JWT"}' | b64)
+payload=$(printf '{"iat":%d,"exp":%d,"iss":"5366536"}' $((now-60)) $((now+540)) | b64)
+sig=$(printf '%s.%s' "$header" "$payload" | openssl dgst -sha256 -sign "$KEY" | b64)
+curl -s -H "Authorization: Bearer $header.$payload.$sig" https://api.github.com/app | jq '.slug, .permissions'
+
+
+"milanoid-labs-kubevirt-runners"
+{
+  "organization_self_hosted_runners": "write"
+}
+```
+
+
+
+
+
+## step6: Go Scaler
+
