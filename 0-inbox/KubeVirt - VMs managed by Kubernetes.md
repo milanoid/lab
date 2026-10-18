@@ -468,6 +468,7 @@ gh secret list -R milanoid-labs/kubevirt-scaleset   # check it really landed thi
 - using [crane](https://michaelsauter.github.io/crane/index.html)
 - pre-baked image - a disk the throwaway VM boot from
 - the disk is built and tools (docker, gh tool... etc) installed without ever booting it! (`virt-customize`)
+- it uses ubuntu cloud image (system installed, unlike the regular ubuntu image with install wizard)
 
 - 1st build assigned to `hpmini01` - could take 40 - 120 minutes ...
 
