@@ -704,3 +704,6 @@ gha_assigned_jobs{name="homelab-runners-vm"} 0 gha_available_jobs{name="homelab-
 ## Step 8 - Dockerfile/CI
 
 
+## Step 7 - Deployment to my homelab
+
+
