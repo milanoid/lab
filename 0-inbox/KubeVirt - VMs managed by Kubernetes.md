@@ -571,3 +571,42 @@ In Workflow use: `runs-on: homelab-runners-vm`
 - [ ] https://github.com/milanoid-labs/kubevirt-scaleset/pull/7
 
 
+### Manual test
+
+- using https://github.com/milanoid-labs/kubevirt-scaleset/pull/6 
+- manually invokes the VM runner w/o the Scaler
+- to proof VM can boot and register and accepts jobs
+
+
+
+```bash
+# Step 1: a throwaway namespace
+kubectl create namespace vm-test
+
+# Step 2: start the scaler locally
+cd ~/repos/kubevirt-scaleset && git checkout feat/scaler-skeleton
+GITHUB_APP_CLIENT_ID=5366536 GITHUB_APP_INSTALLATION_ID=172636334 \
+GITHUB_APP_PRIVATE_KEY_FILE=$HOME/.config/kubevirt-scaleset/github-app.pem \
+NAMESPACE=vm-test MAX_RUNNERS=1 \
+VM_IMAGE='192.168.1.204:8081/docker-hosted/homelab-runner-vm:20261018-312c244-6.1@sha256:<digest>' \
+go run ./cmd/scaler
+
+# Step 3: queue a job (terminal 2)
+gh workflow run vm-smoke.yaml -R milanoid-labs/kubevirt-scaleset -f runs-on=homelab-runners-vm
+
+# Step 4: watch it happen (terminal 2)
+kubectl -n vm-test get vmi -w
+#   homelab-runners-vm-xxxxxxxx   Scheduling → Scheduled → Running → … → Succeeded
+kubectl -n vm-test logs -f -l kubevirt.io=virt-launcher -c guest-console-log
+#   the VM's serial console: kernel boot, cloud-init, runner "Listening for Jobs", job, power off
+In terminal 1 the scaler should log scaling up → created runner VM, then job started and job completed
+
+
+# Step 5: clean up
+
+kubectl -n vm-test delete vmi --all      # the Secret goes with it (owner reference)
+kubectl -n vm-test get secret            # should be empty
+# Ctrl-C the scaler → "stopped"; the scale set stays (Offline)
+kubectl delete namespace vm-test
+```
+
