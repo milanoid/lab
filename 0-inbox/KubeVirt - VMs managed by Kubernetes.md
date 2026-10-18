@@ -681,3 +681,26 @@ gh workflow run vm-smoke.yaml -R milanoid-labs/kubevirt-scaleset -f runs-on=home
 
 
 
+## step7: Go Scaler/Listener metrics
+
+
+- [x] Prometheus Metrics
+
+The scaler now serves an HTTP endpoint on :8080 with two paths:
+- `/metrics`: what Prometheus scrapes.
+- `/healthz`: answers ok, for the Kubernetes liveness probe in the deploy step.
+
+```bash
+# metrics
+curl -s localhost:8080/metrics | grep -E '^(gha_|kubevirt_scaleset_)'
+
+gha_assigned_jobs{name="homelab-runners-vm"} 0 gha_available_jobs{name="homelab-runners-vm"} 0 gha_busy_runners{name="homelab-runners-vm"} 0 gha_desired_runners{name="homelab-runners-vm"} 1 gha_idle_runners{name="homelab-runners-vm"} 0 gha_max_runners{name="homelab-runners-vm"} 1 gha_min_runners{name="homelab-runners-vm"} 1 gha_registered_runners{name="homelab-runners-vm"} 0 gha_running_jobs{name="homelab-runners-vm"} 0 kubevirt_scaleset_vm_boot_duration_seconds_bucket{name="homelab-runners-vm",le="10"} 0 kubevirt_scaleset_vm_boot_duration_seconds_bucket{name="homelab-runners-vm",le="14.077091909894845"} 0 kubevirt_scaleset_vm_boot_duration_seconds_bucket{name="homelab-runners-vm",le="19.81645166396269"} 0 kubevirt_scaleset_vm_boot_duration_seconds_bucket{name="homelab-runners-vm",le="27.895801140159143"} 0 kubevirt_scaleset_vm_boot_duration_seconds_bucket{name="homelab-runners-vm",le="39.26917565501697"} 0 kubevirt_scaleset_vm_boot_duration_seconds_bucket{name="homelab-runners-vm",le="55.2795794921479"} 0 kubevirt_scaleset_vm_boot_duration_seconds_bucket{name="homelab-runners-vm",le="77.81757212513043"} 0 kubevirt_scaleset_vm_boot_duration_seconds_bucket{name="homelab-runners-vm",le="109.54451150103321"} 0 kubevirt_scaleset_vm_boot_duration_seconds_bucket{name="homelab-runners-vm",le="154.20681566245776"} 0 kubevirt_scaleset_vm_boot_duration_seconds_bucket{name="homelab-runners-vm",le="217.07835172126298"} 0 kubevirt_scaleset_vm_boot_duration_seconds_bucket{name="homelab-runners-vm",le="305.58319088286987"} 0 kubevirt_scaleset_vm_boot_duration_seconds_bucket{name="homelab-runners-vm",le="430.17226641771003"} 0 kubevirt_scaleset_vm_boot_duration_seconds_bucket{name="homelab-runners-vm",le="605.5574531449876"} 0 kubevirt_scaleset_vm_boot_duration_seconds_bucket{name="homelab-runners-vm",le="852.4487924643831"} 0 kubevirt_scaleset_vm_boot_duration_seconds_bucket{name="homelab-runners-vm",le="1199.9999999999998"} 0 kubevirt_scaleset_vm_boot_duration_seconds_bucket{name="homelab-runners-vm",le="+Inf"} 0 kubevirt_scaleset_vm_boot_duration_seconds_sum{name="homelab-runners-vm"} 0 kubevirt_scaleset_vm_boot_duration_seconds_count{name="homelab-runners-vm"} 0 kubevirt_scaleset_vms{name="homelab-runners-vm",phase="Running"} 1
+
+```
+
+
+
+
+## Step 8 - Dockerfile/CI
+
+
