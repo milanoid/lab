@@ -515,7 +515,7 @@ podman pull --tls-verify=false "$NEXUS_REGISTRY/docker-hosted/smoke/busybox:test
 podman pull --tls-verify=false 192.168.1.204:8081/docker-hosted/homelab-runner-vm:20261018-312c244-6.1@sha256:1b51dcf00a27b43d2fe6256afead8a1cc3491e20948bb0747d3585142c7165d6
 ```
 
-- [ ] test the VM runner: https://github.com/milanoid-labs/kubevirt-scaleset/pull/6
+
 
 
 ##  step 5, a new GitHub App for the scaler
@@ -574,7 +574,9 @@ In Workflow use: `runs-on: homelab-runners-vm`
 ### Manual test
 
 
-vm can-boot-test
+#### vm can-boot-test
+
+- [ ] test the VM runner: https://github.com/milanoid-labs/kubevirt-scaleset/pull/6
 
 
 ```bash
@@ -604,12 +606,11 @@ kubectl -n vm-test delete vmi vm-test-1 && kubectl -n vm-test delete secret vm-t
 ```
 
 
-Issues:
+##### Issues:
 
-1. VM didn't boot - get screenshot `virtctl -n vm-test vnc screenshot vm-test-1 --file=/tmp/vm-test-1.png && open /tmp/vm-test-1.png` - with UEFI it boots 
-2. 
+VM didn't boot - get screenshot `virtctl -n vm-test vnc screenshot vm-test-1 --file=/tmp/vm-test-1.png && open /tmp/vm-test-1.png` - with UEFI it boots 
 
-
+- [ ] fix https://github.com/milanoid-labs/kubevirt-scaleset/pull/8
 
 - using https://github.com/milanoid-labs/kubevirt-scaleset/pull/6 
 - manually invokes the VM runner w/o the Scaler
@@ -617,7 +618,7 @@ Issues:
 
 
 
-e2e tests
+#### e2e tests
 
 ```bash
 # Step 1: a throwaway namespace
