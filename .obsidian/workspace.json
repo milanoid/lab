@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "KubeVirt - VMs managed by Kubernetes"
             }
+          },
+          {
+            "id": "b25572fe27543fad",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "0-inbox/Action Runner Controller.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Action Runner Controller"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -33,7 +48,7 @@
       {
         "id": "59336a430b6c4ea8",
         "type": "tabs",
-        "dimension": 73.00380228136882,
+        "dimension": 18.120805369127517,
         "children": [
           {
             "id": "9f5491a4de1aa2c3",
@@ -57,7 +72,7 @@
       {
         "id": "9ffca32d52fafdb3",
         "type": "tabs",
-        "dimension": 26.996197718631173,
+        "dimension": 81.87919463087249,
         "children": [
           {
             "id": "e6e596ef8a2b8255",
@@ -180,10 +195,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "025843efb9632f13",
+  "active": "b25572fe27543fad",
   "lastOpenFiles": [
-    "4-archives/Proxmox/Nexus - Proxmox LXC.md",
     "0-inbox/KubeVirt - VMs managed by Kubernetes.md",
+    "0-inbox/Action Runner Controller.md",
+    "4-archives/Proxmox/Nexus - Proxmox LXC.md",
     "4-archives/K3s additional agent node.md",
     "4-archives/Kubernetes HomeLab/02 - HomeLab - K3s install.md",
     "4-archives/HomeLab Maintenance.md",
@@ -207,7 +223,6 @@
     "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/11 - Scaling & Long Term Storage.md",
     "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/10 - Monitoring Kubernetes.md",
     "4-archives/PCA (Prometheus) exam prep/00 - learning sources.md",
-    "4-archives/PCA (Prometheus) exam prep/PromLabs/01 - Introduction to Prometheus.md",
     "4-archives/PCA (Prometheus) exam prep/kodekloud prep course/Prometheus_Certified_Associate-1.pdf",
     "Pasted image 20260921124949.png",
     "Pasted image 20260913153641.png",
