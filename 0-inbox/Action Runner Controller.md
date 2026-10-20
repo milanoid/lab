@@ -24,11 +24,6 @@ JIT config - Just In Time configuration
 - EphemeralRunners are registering to GitHub
 - When runner gets terminate it also de-register itself
 
-
-Why not use K8s native HPA?
-
-- HPA is for stateless, interchangeable 
-
 ```
  GITHUB (control of WORK)         K8S (control of COMPUTE)
  ┌───────────────────────┐        ┌────────────────────────┐
@@ -38,6 +33,14 @@ Why not use K8s native HPA?
  └───────────────────────┘        └────────────────────────┘
 ```
 
+
+### Why not use K8s native HPA?
+
+- [HPA](https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/) is for stateless, interchangeable pods (a web server with database-state elsewhere)
+- Runners do have state (the checked out repo and build)
+- Runners are unique (JIT credentials, registered in GH)
+
+HPA manages a _count_ of _identical_ pods. ARC manages _individual_ runners with _state_ (idle, busy, or finished).
 
 
 
