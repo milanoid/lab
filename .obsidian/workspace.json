@@ -27,16 +27,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-inbox/Action Runner Controller.md",
+                "file": "0-inbox/KubeVirt - VMs managed by Kubernetes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Action Runner Controller"
+              "title": "KubeVirt - VMs managed by Kubernetes"
+            }
+          },
+          {
+            "id": "06ac284b1afc05f2",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.14.5"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.14.5"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -195,10 +207,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "b25572fe27543fad",
+  "active": "06ac284b1afc05f2",
   "lastOpenFiles": [
-    "0-inbox/KubeVirt - VMs managed by Kubernetes.md",
     "0-inbox/Action Runner Controller.md",
+    "0-inbox/KubeVirt - VMs managed by Kubernetes.md",
     "4-archives/Proxmox/Nexus - Proxmox LXC.md",
     "4-archives/K3s additional agent node.md",
     "4-archives/Kubernetes HomeLab/02 - HomeLab - K3s install.md",
