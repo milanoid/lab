@@ -4,8 +4,10 @@
 ```bash
 # BIOS: set iGPU memory / UMA to minimum, then:
 sudo vim /etc/default/grub
-# GRUB_CMDLINE_LINUX_DEFAULT="ttm.pages_limit=32505856 ttm.page_pool_size=32505856 amdgpu.gttsize=126976"
-#   (32505856 × 4 KiB pages = 124 GiB; leaves ~4 GB for the OS)
+
+GRUB_CMDLINE_LINUX_DEFAULT="ttm.pages_limit=31457280 ttm.page_pool_size=31457280 amdgpu.gttsize=122880"
+# 31457280 × 4 KiB pages = 120 GiB max GPU allocation (a ceiling, not reserved)
+
 sudo update-grub && sudo reboot
 # verify:
 cat /sys/class/drm/card1/device/mem_info_gtt_total
