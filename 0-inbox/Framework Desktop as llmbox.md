@@ -21,6 +21,12 @@ GPU can dynamically allocate up to 120GB of memory
 - [x] removing/disabling not needed services
 
 
+ssh pubkey only access
+
+```bash
+ssh llmbox # 192.168.1.235
+```
+
 
 ---
 
