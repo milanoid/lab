@@ -1,4 +1,6 @@
 
+## OS and BIOS settings
+
 - [x] BIOS VRAM to the minimum (512 MB) and let the GPU use system RAM through GTT instead
 
 ```bash
@@ -17,4 +19,11 @@ GPU can dynamically allocate up to 120GB of memory
 
 - [x] OS: Ubuntu Server 26 lts
 - [x] removing/disabling not needed services
-- [ ] 
+
+
+
+---
+
+# Hermes
+
+https://hermes-agent.nousresearch.com/
