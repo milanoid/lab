@@ -13,5 +13,8 @@ sudo update-grub && sudo reboot
 cat /sys/class/drm/card1/device/mem_info_gtt_total
 ```
 
+GPU can dynamically allocate up to 120GB of memory
+
 - [x] OS: Ubuntu Server 26 lts
+- [x] removing/disabling not needed services
 - [ ] 
