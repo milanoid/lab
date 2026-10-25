@@ -249,3 +249,10 @@ hermes model                # switch model or provider
 hermes status / hermes doctor       # health checks
 ```
 ---
+
+
+
+TODOS
+
+- [ ] make Claude my milanoid-labs repos github pr reviewer
+- [ ] open a first PR by Hermes - gh tool access setup?
