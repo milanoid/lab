@@ -211,9 +211,46 @@ hermes model                                      # choose "Local models", then 
 
 Daily use:
 ```bash
+# from llmbox
 tmux new -As hermes
 hermes
 ```
 
----
+```bash
+# from Mac
+ssh -t llmbox 'tmux new -A -s hermes ~/.local/bin/hermes'
 
+# new -A -s hermes reconnects to the session named "hermes" if it exists, or creates it if it doesn't. The same command works for starting and for coming back.
+```
+
+
+```bash
+# The tmux keys you need:
+┌───────────────────┬────────────────────────────────────────────────────────┐
+│       Keys        │                         Action                         │
+├───────────────────┼────────────────────────────────────────────────────────┤
+│ Ctrl-b then d     │ Detach: leave Hermes running and drop back to your Mac │
+├───────────────────┼────────────────────────────────────────────────────────┤
+│ Ctrl-b then [     │ Scroll back through output (press q to exit)           │
+├───────────────────┼────────────────────────────────────────────────────────┤
+│ Ctrl-b then c / n │ Open a new window / switch to the next one             │
+└───────────────────┴────────────────────────────────────────────────────────┘
+```
+
+
+```bash
+# make it one word
+echo "alias hermes='ssh -t llmbox \"tmux new -A -s hermes ~/.local/bin/hermes\"'" >> ~/.bash_profile
+source ~/.bash_profile
+```
+
+
+```bash
+hermes                      # interactive chat
+hermes --continue           # resume the last session
+hermes -z "summarize ~/notes.txt"   # one-shot prompt, prints the answer and exits
+hermes --in ~/myproject     # start working in a specific folder
+hermes model                # switch model or provider
+hermes status / hermes doctor       # health checks
+```
+---
