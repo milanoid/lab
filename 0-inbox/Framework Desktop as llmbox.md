@@ -209,12 +209,7 @@ hermes model                                      # choose "Local models", then 
 ```
 
 
-Daily use:
-```bash
-# from llmbox
-tmux new -As hermes
-hermes
-```
+# Daily use
 
 ```bash
 # from Mac
