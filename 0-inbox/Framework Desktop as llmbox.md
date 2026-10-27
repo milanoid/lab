@@ -295,3 +295,9 @@ https://honcho.dev/ - cloud and self-hosted
 Hermes builds skills based on interaction with me.
 
 there are also curated skills available https://hermes-tutorials.dev/skills/
+
+
+
+# hermes dashboard
+
+- [ ] UI 
