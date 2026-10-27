@@ -275,6 +275,44 @@ You are DevOps Guru, an expert on DevOps, Infrastructure as a code, Kubernetes, 
 
 - [ ] add Telegram communication channel
 
+
+requires a gateway service (running as a user service, not system service)
+
+```bash
+milan@llmbox:~$ systemctl --user status hermes-gateway.service --no-pager
+● hermes-gateway.service - Hermes Agent Gateway - Messaging Platform Integration
+     Loaded: loaded (/home/milan/.config/systemd/user/hermes-gateway.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2026-10-27 13:21:11 UTC; 9min ago
+ Invocation: d00eefbc1e8c4cf08ac5e68a6d0e9916
+   Main PID: 1314 (hermes)
+      Tasks: 142 (limit: 142976)
+     Memory: 51.4G (peak: 62.2G)
+        CPU: 2min 9.182s
+     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/hermes-gateway.service
+             ├─1314 /home/milan/.hermes/tools/python-3.14.9+20261021-linux-x64/bin/python3 -I…
+             ├─1491 /home/milan/.hermes/tools/llamacpp-vulkan-11671-linux-x64/llama-server --…
+             └─2241 /home/milan/.hermes/tools/llamacpp-vulkan-11671-linux-x64/llama-server --…
+
+Oct 27 13:21:11 llmbox systemd[1288]: Started hermes-gateway.service - Hermes Agent Gate…tion.
+Oct 27 13:21:12 llmbox hermes[1314]: ┌─────────────────────────────────────────────────…─────┐
+Oct 27 13:21:12 llmbox hermes[1314]: │           ☤ Hermes Gateway Starting...          …     │
+Oct 27 13:21:12 llmbox hermes[1314]: ├─────────────────────────────────────────────────…─────┤
+Oct 27 13:21:12 llmbox hermes[1314]: │  Messaging platforms + cron scheduler           …     │
+Oct 27 13:21:12 llmbox hermes[1314]: │  Press Ctrl+C to stop                           …     │
+Oct 27 13:21:12 llmbox hermes[1314]: └─────────────────────────────────────────────────…─────┘
+Oct 27 13:21:12 llmbox hermes[1314]: 2026-10-27 13:21:12,467 WARNING gateway.run: No me…abled.
+Oct 27 13:23:56 llmbox hermes[1314]: 2026-10-27 13:23:56,568 WARNING hermes_cli.tools_c…38798.
+Oct 27 13:23:56 llmbox hermes[1314]: 2026-10-27 13:23:56,569 WARNING hermes_cli.tools_c…38798.
+Hint: Some lines were ellipsized, use -l to show in full.
+```
+
+```bash
+# Handy commands for this service:
+systemctl --user status|restart|stop hermes-gateway
+journalctl --user -u hermes-gateway -f     # follow its logs
+loginctl show-user $UID | grep Linger      # linger = service survives logout
+```
+
 # extra memory
 
 - [ ] setup extra memory
