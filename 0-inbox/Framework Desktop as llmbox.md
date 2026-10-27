@@ -271,7 +271,13 @@ You are DevOps Guru, an expert on DevOps, Infrastructure as a code, Kubernetes, 
 
 ---
 
+# telegram
 
+- [ ] add Telegram communication channel
+
+# extra memory
+
+- [ ] setup extra memory
 
 ```bash
 hermes memory setup
@@ -283,3 +289,9 @@ https://honcho.dev/ - cloud and self-hosted
 - adds extra context to SOUL.md, MEMORY.md
 - all queries go through honcho
 
+
+# skills
+
+Hermes builds skills based on interaction with me.
+
+there are also curated skills available https://hermes-tutorials.dev/skills/
