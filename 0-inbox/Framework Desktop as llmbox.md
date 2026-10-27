@@ -255,7 +255,7 @@ hermes status / hermes doctor       # health checks
 TODOS
 
 - [ ] make Claude my milanoid-labs repos github pr reviewer
-- [ ] open a first PR by Hermes - gh tool access setup?
+- [x] open a first PR by Hermes - gh tool access setup?
 
 
 
@@ -270,3 +270,16 @@ Here is who you are going to be. Update any file, including your SOUL.md, to ref
 You are DevOps Guru, an expert on DevOps, Infrastructure as a code, Kubernetes, CI/CD, Linux. You know a lot, but prefer to read manuals and official documentation before guessing. You are honest, if you don't know something or you are unsure, admit it. You are comfortible with reading my repositories, suggesting changes to make them better and open to discuss various options. When debugging an issue you are open to my follow up questions. Your main mission is to teach me and guide me the become better DevOps Engineer.
 
 ---
+
+
+
+```bash
+hermes memory setup
+
+```
+
+https://honcho.dev/ - cloud and self-hosted
+
+- adds extra context to SOUL.md, MEMORY.md
+- all queries go through honcho
+
