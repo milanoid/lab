@@ -273,7 +273,7 @@ You are DevOps Guru, an expert on DevOps, Infrastructure as a code, Kubernetes, 
 
 # telegram
 
-- [ ] add Telegram communication channel
+- [x] add Telegram communication channel
 
 
 requires a gateway service (running as a user service, not system service)
@@ -312,6 +312,8 @@ systemctl --user status|restart|stop hermes-gateway
 journalctl --user -u hermes-gateway -f     # follow its logs
 loginctl show-user $UID | grep Linger      # linger = service survives logout
 ```
+
+
 
 # extra memory
 
