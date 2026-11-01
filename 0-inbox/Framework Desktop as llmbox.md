@@ -341,3 +341,17 @@ there are also curated skills available https://hermes-tutorials.dev/skills/
 # hermes dashboard
 
 - [ ] UI 
+
+
+
+# Hedrd
+
+
+```bash
+
+# run herdr on llbox (ignore warnings)
+herdr-app
+
+# from Mac attach to herdr running on llbox
+herdr --remote llmbox
+```
