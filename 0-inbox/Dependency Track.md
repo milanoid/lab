@@ -13,7 +13,7 @@ https://dependencytrack.org/
 - [x] direnv https://github.com/milanoid-labs/dependencytrack-config-terraform/pull/1
 - [x] tofu code to manage config of Dependency Track + Action Workflows https://github.com/milanoid-labs/dependencytrack-config-terraform/pull/2/
 - [x] import cleanup https://github.com/milanoid-labs/dependencytrack-config-terraform/pull/3
-- [ ] renovate setup 
+- [x] renovate setup https://github.com/milanoid-labs/dependencytrack-config-terraform/pull/4
 
 
 `#bom`
