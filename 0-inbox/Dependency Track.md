@@ -10,8 +10,10 @@ https://dependencytrack.org/
 	- tofu team with admin rights
 	- api key in `~/.config/dependencytrack-config-terraform.env`
 	- secret `gh secret set TF_VAR_DEPENDENCYTRACK_API_KEY -R milanoid-labs/dependencytrack-config-terraform`
-- [ ] direnv https://github.com/milanoid-labs/dependencytrack-config-terraform/pull/1
-- [ ] tofu code to manage config of Dependency Track 
+- [x] direnv https://github.com/milanoid-labs/dependencytrack-config-terraform/pull/1
+- [x] tofu code to manage config of Dependency Track + Action Workflows https://github.com/milanoid-labs/dependencytrack-config-terraform/pull/2/
+- [x] import cleanup https://github.com/milanoid-labs/dependencytrack-config-terraform/pull/3
+- [ ] renovate setup 
 
 
 `#bom`
