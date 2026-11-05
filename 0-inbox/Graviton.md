@@ -2,6 +2,7 @@
 https://github.com/milanoid-labs/milanoid-aws-terraform
 
 ```bash
+# plan/apply
 GRAVITON_TARGETS=(
   -target=aws_ecr_repository.graviton_playground
   -target=aws_security_group.graviton_runner
@@ -21,4 +22,8 @@ tofu apply "/tmp/graviton.plan"
 aws ssm put-parameter --name /graviton-runner/registration-token \
   --type SecureString --overwrite \
   --value "$(gh api -X POST orgs/milanoid-labs/actions/runners/registration-token -q .token)"
+  
+  
+# destroy
+tofu destroy
 ```
